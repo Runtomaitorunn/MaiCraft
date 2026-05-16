@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Portfolio for Ye Mai, featuring creative technology, immersive media, and interactive research projects."
-    />
-    <title>Ye Mai | Creative Portfolio</title>
+    <meta name="description" content="" data-i18n-attr="content:meta.description" />
+    <title></title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,113 +14,72 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Go to top">Ye Mai</a>
-      <nav class="nav-links">
-        <a href="#artist">Artist</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <header class="site-header" data-i18n-attr="aria-label:header.ariaLabel">
+      <a class="brand" href="#top" data-i18n="brand.name" data-i18n-attr="aria-label:brand.ariaLabel"></a>
+      <nav class="nav-links" id="nav-links"></nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-label="Hero media placeholder">
-          <video
-            class="hero-video"
-            autoplay
-            muted
-            loop
-            playsinline
-          ></video>
+        <div class="hero-media" data-i18n-attr="aria-label:hero.mediaAriaLabel">
+          <video class="hero-video" autoplay muted loop playsinline></video>
           <div class="hero-fallback">
-            <span>Hero reel placeholder</span>
+            <span data-i18n="hero.mediaPlaceholder"></span>
           </div>
         </div>
 
         <div class="hero-copy">
-          <p class="kicker">Portfolio in progress</p>
-          <h1 id="hero-title">Ye Mai</h1>
+          <p class="kicker" data-i18n="hero.kicker"></p>
+          <h1 id="hero-title" data-i18n="hero.title"></h1>
           <p class="rotating-line" aria-live="polite">
-            <span id="rotating-text">Immersive experiences.</span>
+            <span id="rotating-text"></span>
           </p>
         </div>
       </section>
 
       <section class="section artist-section reveal" id="artist">
-        <p class="section-ghost rotate">hello :)</p>
+        <p class="section-ghost rotate" data-i18n="artist.ghost"></p>
         <div class="artist-media">
           <div class="media-stack base">
-            <span>GIF / process reel</span>
+            <span data-i18n="artist.processMediaLabel"></span>
           </div>
           <div class="media-stack portrait">
-            <span>Portrait</span>
+            <span data-i18n="artist.portraitMediaLabel"></span>
           </div>
         </div>
         <div class="section-copy">
-          <p class="eyebrow">The Artist</p>
-          <h2>creative technologist, maker, and researcher</h2>
-          <p>
-            This is a placeholder introduction for your portfolio. Later we can
-            shape it around your real practice, materials, research themes, and
-            favorite project moments.
-          </p>
-          <p>
-            The structure is ready for motion-heavy work: videos, GIFs,
-            projection documentation, installation stills, prototypes, and case
-            study links.
-          </p>
+          <p class="eyebrow" data-i18n="artist.eyebrow"></p>
+          <h2 data-i18n="artist.heading"></h2>
+          <div id="artist-body"></div>
         </div>
       </section>
 
       <section class="section skills-section reveal" id="skills">
-        <p class="section-ghost">Skills</p>
-        <article class="skill-card">
-          <div class="skill-icon" aria-hidden="true">CT</div>
-          <h3>Creative Technology</h3>
-          <p>
-            Interactive systems, real-time visuals, spatial media, physical
-            computing, creative coding, and rapid prototyping.
-          </p>
-          <p class="skill-tools">TouchDesigner, Unity, Arduino, JavaScript</p>
-        </article>
-        <article class="skill-card">
-          <div class="skill-icon" aria-hidden="true">XD</div>
-          <h3>Experience Design</h3>
-          <p>
-            Concept development, visual direction, user flows, exhibition
-            planning, storytelling, and research-led design.
-          </p>
-          <p class="skill-tools">Figma, Miro, Adobe Suite, field research</p>
-        </article>
+        <p class="section-ghost" data-i18n="skills.ghost"></p>
+        <div id="skill-cards"></div>
       </section>
 
       <section class="section projects-section reveal" id="projects">
-        <p class="section-ghost">Projects</p>
+        <p class="section-ghost" data-i18n="projectsSection.ghost"></p>
         <div class="projects-intro">
-          <p class="eyebrow">Selected Work</p>
-          <h2>Project grid ready for your real materials.</h2>
+          <p class="eyebrow" data-i18n="projectsSection.eyebrow"></p>
+          <h2 data-i18n="projectsSection.heading"></h2>
         </div>
         <div class="project-grid featured" id="featured-projects"></div>
         <div class="project-grid compact" id="project-grid"></div>
       </section>
 
       <section class="section contact-section reveal" id="contact">
-        <p class="section-ghost">Contact</p>
-        <div class="contact-links" aria-label="Contact links">
-          <a href="mailto:hello@example.com">Email</a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
+        <p class="section-ghost" data-i18n="contact.ghost"></p>
+        <div class="contact-links" id="contact-links" data-i18n-attr="aria-label:contact.linksAriaLabel"></div>
         <div class="contact-media">
-          <span>Closing GIF / image</span>
+          <span data-i18n="contact.mediaPlaceholder"></span>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>&copy; <span id="year"></span> Ye Mai. All rights reserved.</p>
+      <p><span data-i18n="footer.copyrightPrefix"></span> <span id="year"></span> <span data-i18n="footer.copyrightSuffix"></span></p>
     </footer>
 
     <script src="script.js"></script>

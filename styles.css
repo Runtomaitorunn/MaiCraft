@@ -278,15 +278,19 @@ h3 {
 }
 
 .skills-section {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  display: block;
 }
 
 .skills-section .section-ghost,
 .projects-section .section-ghost {
   left: 8%;
   top: -80px;
+}
+
+#skill-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .skill-card {
@@ -499,7 +503,7 @@ h3 {
 
 @media (max-width: 900px) {
   .artist-section,
-  .skills-section,
+  #skill-cards,
   .project-grid.featured,
   .project-grid.compact {
     grid-template-columns: 1fr;

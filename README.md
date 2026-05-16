@@ -7,13 +7,34 @@ Static portfolio for Ye Mai.
 - Main page: `index.html`
 - Visual system and responsive layout: `styles.css`
 - Project rendering and page animations: `script.js`
-- Project data for GitHub Pages: `data/projects.json`
+- Site copy, locale text, contact links, and project data: `data/content.json`
 - Media assets: `assets/`
+
+## Language hook
+
+The site reads all visible copy from `data/content.json`. English is the default
+locale, and a Chinese placeholder locale is already reserved under `zh`.
+
+Preview a locale with a query string:
+
+```txt
+index.html?lang=en
+index.html?lang=zh
+```
+
+You can also persist a locale in the browser console:
+
+```js
+localStorage.setItem("portfolioLocale", "zh");
+```
+
+Because the page loads JSON, preview it through GitHub Pages or a small local
+server instead of double-clicking the HTML file.
 
 ## Replace project cards
 
 Add project cover images to `assets/projects/`, then update
-`data/projects.json`:
+the `projects` array inside `data/content.json`:
 
 ```json
 {

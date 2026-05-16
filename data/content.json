@@ -1,0 +1,267 @@
+{
+  "defaultLocale": "en",
+  "locales": {
+    "en": {
+      "meta": {
+        "title": "Ye Mai | Creative Portfolio",
+        "description": "Portfolio for Ye Mai, featuring creative technology, immersive media, and interactive research projects."
+      },
+      "brand": {
+        "name": "Ye Mai",
+        "ariaLabel": "Go to top"
+      },
+      "header": {
+        "ariaLabel": "Primary navigation"
+      },
+      "nav": [
+        { "label": "Artist", "href": "#artist" },
+        { "label": "Skills", "href": "#skills" },
+        { "label": "Projects", "href": "#projects" },
+        { "label": "Contact", "href": "#contact" }
+      ],
+      "hero": {
+        "mediaAriaLabel": "Hero media placeholder",
+        "mediaPlaceholder": "Hero reel placeholder",
+        "kicker": "Portfolio in progress",
+        "title": "Ye Mai",
+        "rotatingPhrases": [
+          "Immersive experiences.",
+          "Art + sound installations.",
+          "Virtual worlds.",
+          "AR experiments."
+        ]
+      },
+      "artist": {
+        "ghost": "hello :)",
+        "processMediaLabel": "GIF / process reel",
+        "portraitMediaLabel": "Portrait",
+        "eyebrow": "The Artist",
+        "heading": "creative technologist, maker, and researcher",
+        "body": [
+          "This is a placeholder introduction for your portfolio. Later we can shape it around your real practice, materials, research themes, and favorite project moments.",
+          "The structure is ready for motion-heavy work: videos, GIFs, projection documentation, installation stills, prototypes, and case study links."
+        ]
+      },
+      "skills": {
+        "ghost": "Skills",
+        "items": [
+          {
+            "icon": "CT",
+            "title": "Creative Technology",
+            "description": "Interactive systems, real-time visuals, spatial media, physical computing, creative coding, and rapid prototyping.",
+            "tools": "TouchDesigner, Unity, Arduino, JavaScript"
+          },
+          {
+            "icon": "XD",
+            "title": "Experience Design",
+            "description": "Concept development, visual direction, user flows, exhibition planning, storytelling, and research-led design.",
+            "tools": "Figma, Miro, Adobe Suite, field research"
+          }
+        ]
+      },
+      "projectsSection": {
+        "ghost": "Projects",
+        "eyebrow": "Selected Work",
+        "heading": "Project grid ready for your real materials.",
+        "metaSeparator": " / "
+      },
+      "projects": [
+        {
+          "title": "Featured Project One",
+          "year": "2026",
+          "role": "Creative Technologist",
+          "summary": "A short description for a major project. Replace this with your real work later.",
+          "cover": "",
+          "mediaLabel": "Featured media",
+          "link": "",
+          "featured": true
+        },
+        {
+          "title": "Featured Project Two",
+          "year": "2025",
+          "role": "Designer / Researcher",
+          "summary": "Use this slot for a polished case study, installation, performance, or research project.",
+          "cover": "",
+          "mediaLabel": "Case study media",
+          "link": "",
+          "featured": true
+        },
+        {
+          "title": "Prototype Study",
+          "year": "2025",
+          "role": "Interaction Design",
+          "summary": "A compact project card for smaller experiments, sketches, and prototypes.",
+          "cover": "",
+          "mediaLabel": "Prototype",
+          "link": "",
+          "featured": false
+        },
+        {
+          "title": "Visual System",
+          "year": "2024",
+          "role": "Visual Design",
+          "summary": "A placeholder for visual work, identity studies, computational graphics, or motion tests.",
+          "cover": "",
+          "mediaLabel": "Visuals",
+          "link": "",
+          "featured": false
+        },
+        {
+          "title": "Research Project",
+          "year": "2024",
+          "role": "Research",
+          "summary": "A card for academic, cultural heritage, XR, HCI, or design research work.",
+          "cover": "",
+          "mediaLabel": "Research",
+          "link": "",
+          "featured": false
+        }
+      ],
+      "contact": {
+        "ghost": "Contact",
+        "linksAriaLabel": "Contact links",
+        "mediaPlaceholder": "Closing GIF / image",
+        "links": [
+          { "label": "Email", "href": "mailto:hello@example.com" },
+          { "label": "GitHub", "href": "https://github.com/" },
+          { "label": "LinkedIn", "href": "https://www.linkedin.com/" }
+        ]
+      },
+      "footer": {
+        "copyrightPrefix": "Copyright",
+        "copyrightSuffix": "Ye Mai. All rights reserved."
+      }
+    },
+    "zh": {
+      "meta": {
+        "title": "中文占位 | 作品集",
+        "description": "中文占位：这里将来填写中文网站描述。"
+      },
+      "brand": {
+        "name": "中文占位",
+        "ariaLabel": "中文占位：返回顶部"
+      },
+      "header": {
+        "ariaLabel": "中文占位：主导航"
+      },
+      "nav": [
+        { "label": "中文占位：关于", "href": "#artist" },
+        { "label": "中文占位：技能", "href": "#skills" },
+        { "label": "中文占位：项目", "href": "#projects" },
+        { "label": "中文占位：联系", "href": "#contact" }
+      ],
+      "hero": {
+        "mediaAriaLabel": "中文占位：首页媒体",
+        "mediaPlaceholder": "中文占位：首页视频",
+        "kicker": "中文占位：作品集建设中",
+        "title": "中文占位",
+        "rotatingPhrases": [
+          "中文占位：沉浸式体验。",
+          "中文占位：艺术与声音装置。",
+          "中文占位：虚拟世界。",
+          "中文占位：AR 实验。"
+        ]
+      },
+      "artist": {
+        "ghost": "中文占位 :)",
+        "processMediaLabel": "中文占位：过程动图",
+        "portraitMediaLabel": "中文占位：个人照片",
+        "eyebrow": "中文占位：关于我",
+        "heading": "中文占位：创意技术、设计与研究",
+        "body": [
+          "中文占位：这里将来填写中文个人介绍。",
+          "中文占位：这里将来填写中文作品与实践说明。"
+        ]
+      },
+      "skills": {
+        "ghost": "中文占位：技能",
+        "items": [
+          {
+            "icon": "CT",
+            "title": "中文占位：创意技术",
+            "description": "中文占位：这里将来填写创意技术能力描述。",
+            "tools": "中文占位：工具列表"
+          },
+          {
+            "icon": "XD",
+            "title": "中文占位：体验设计",
+            "description": "中文占位：这里将来填写体验设计能力描述。",
+            "tools": "中文占位：工具列表"
+          }
+        ]
+      },
+      "projectsSection": {
+        "ghost": "中文占位：项目",
+        "eyebrow": "中文占位：精选作品",
+        "heading": "中文占位：这里将来填写项目区标题。",
+        "metaSeparator": " / "
+      },
+      "projects": [
+        {
+          "title": "中文占位：重点项目一",
+          "year": "2026",
+          "role": "中文占位：角色",
+          "summary": "中文占位：这里将来填写项目简介。",
+          "cover": "",
+          "mediaLabel": "中文占位：项目媒体",
+          "link": "",
+          "featured": true
+        },
+        {
+          "title": "中文占位：重点项目二",
+          "year": "2025",
+          "role": "中文占位：角色",
+          "summary": "中文占位：这里将来填写项目简介。",
+          "cover": "",
+          "mediaLabel": "中文占位：案例媒体",
+          "link": "",
+          "featured": true
+        },
+        {
+          "title": "中文占位：原型研究",
+          "year": "2025",
+          "role": "中文占位：角色",
+          "summary": "中文占位：这里将来填写项目简介。",
+          "cover": "",
+          "mediaLabel": "中文占位：原型",
+          "link": "",
+          "featured": false
+        },
+        {
+          "title": "中文占位：视觉系统",
+          "year": "2024",
+          "role": "中文占位：角色",
+          "summary": "中文占位：这里将来填写项目简介。",
+          "cover": "",
+          "mediaLabel": "中文占位：视觉",
+          "link": "",
+          "featured": false
+        },
+        {
+          "title": "中文占位：研究项目",
+          "year": "2024",
+          "role": "中文占位：角色",
+          "summary": "中文占位：这里将来填写项目简介。",
+          "cover": "",
+          "mediaLabel": "中文占位：研究",
+          "link": "",
+          "featured": false
+        }
+      ],
+      "contact": {
+        "ghost": "中文占位：联系",
+        "linksAriaLabel": "中文占位：联系方式",
+        "mediaPlaceholder": "中文占位：结尾图片",
+        "links": [
+          { "label": "中文占位：邮箱", "href": "mailto:hello@example.com" },
+          { "label": "GitHub", "href": "https://github.com/" },
+          { "label": "LinkedIn", "href": "https://www.linkedin.com/" }
+        ]
+      },
+      "footer": {
+        "copyrightPrefix": "Copyright",
+        "copyrightSuffix": "中文占位。保留所有权利。"
+      }
+    }
+  }
+}
