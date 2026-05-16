@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Featured Project One",
+    "year": "2026",
+    "role": "Creative Technologist",
+    "summary": "A short description for a major project. Replace this with your real work later.",
+    "cover": "",
+    "mediaLabel": "Featured media",
+    "link": "",
+    "featured": true
+  },
+  {
+    "title": "Featured Project Two",
+    "year": "2025",
+    "role": "Designer / Researcher",
+    "summary": "Use this slot for a polished case study, installation, performance, or research project.",
+    "cover": "",
+    "mediaLabel": "Case study media",
+    "link": "",
+    "featured": true
+  },
+  {
+    "title": "Prototype Study",
+    "year": "2025",
+    "role": "Interaction Design",
+    "summary": "A compact project card for smaller experiments, sketches, and prototypes.",
+    "cover": "",
+    "mediaLabel": "Prototype",
+    "link": "",
+    "featured": false
+  },
+  {
+    "title": "Visual System",
+    "year": "2024",
+    "role": "Visual Design",
+    "summary": "A placeholder for visual work, identity studies, computational graphics, or motion tests.",
+    "cover": "",
+    "mediaLabel": "Visuals",
+    "link": "",
+    "featured": false
+  },
+  {
+    "title": "Research Project",
+    "year": "2024",
+    "role": "Research",
+    "summary": "A card for academic, cultural heritage, XR, HCI, or design research work.",
+    "cover": "",
+    "mediaLabel": "Research",
+    "link": "",
+    "featured": false
+  }
+]
