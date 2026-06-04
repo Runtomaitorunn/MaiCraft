@@ -41,7 +41,9 @@
           "Web systems.",
           "Visual narratives.",
           "Interactive experience."
-        ]
+        ],
+        "scrollCueText": "Scroll down",
+        "scrollCueAriaLabel": "Scroll down to explore the portfolio"
       },
       "artist": {
         "ghost": "hello :)",
@@ -276,7 +278,9 @@
           "中文占位：Web 系统。",
           "中文占位：视觉叙事。",
           "中文占位：交互体验。"
-        ]
+        ],
+        "scrollCueText": "Scroll down",
+        "scrollCueAriaLabel": "中文占位：向下滚动浏览作品集"
       },
       "artist": {
         "ghost": "中文占位 :)",
