@@ -2,43 +2,42 @@
 name: "Ye Mai Portfolio"
 description: "A fresh, bold portfolio for creative technology, immersive media, and technical work."
 colors:
-  midnight-bg: "#060606"
-  panel: "#101015"
-  panel-soft: "#161620"
-  text: "#f5f4fa"
-  muted: "#aeb4c3"
-  ghost: "#a5b7bc5e"
-  lavender-accent: "#acb9ff"
-  violet-strong: "#6136d8"
-  violet-deep: "#482d9b"
-  card-hover: "#e7e6ff3d"
-  overlay: "#00000085"
+  noomo-paper: "#c9d2e7"
+  noomo-paper-light: "#dee7f1"
+  noomo-paper-menu: "#dbe0ef"
+  noomo-ink: "#181520"
+  noomo-ink-soft: "#231b35"
+  noomo-muted: "#6d6d76"
+  noomo-line: "#18152033"
+  noomo-card: "#ffffff29"
+  noomo-card-hover: "#ffffff47"
+  noomo-overlay: "#1815203d"
 typography:
   display:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "NeueMachina, Montserrat, Arial, sans-serif"
     fontSize: "clamp(4rem, 13vw, 10rem)"
     fontWeight: 600
     lineHeight: 0.88
     letterSpacing: "0"
   headline:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "NeueMachina, Montserrat, Arial, sans-serif"
     fontSize: "clamp(1.7rem, 4vw, 3rem)"
     fontWeight: 300
     lineHeight: 1.08
     letterSpacing: "0"
   title:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "NeueMachina, Montserrat, Arial, sans-serif"
     fontSize: "1.45rem"
     fontWeight: 300
     lineHeight: 1.2
     letterSpacing: "0"
   body:
-    fontFamily: "Work Sans, Montserrat, Arial, sans-serif"
+    fontFamily: "NeueRoman, Work Sans, Arial, sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "NeueRoman, Work Sans, Arial, sans-serif"
     fontSize: "0.78rem"
     fontWeight: 600
     letterSpacing: "0"
@@ -53,73 +52,67 @@ spacing:
   section: "110px"
 components:
   contact-link:
-    backgroundColor: "{colors.violet-deep}"
-    textColor: "{colors.text}"
+    backgroundColor: "{colors.noomo-ink-soft}"
+    textColor: "{colors.noomo-paper-light}"
     rounded: "{rounded.pill}"
     padding: "0 18px"
     height: "52px"
   contact-link-hover:
-    backgroundColor: "{colors.violet-strong}"
-    textColor: "{colors.text}"
+    backgroundColor: "{colors.noomo-ink}"
+    textColor: "{colors.noomo-paper-light}"
   skill-capsule:
-    backgroundColor: "#acb9ff1c"
-    textColor: "#dfe4ff"
+    backgroundColor: "#ffffff2e"
+    textColor: "{colors.noomo-ink}"
     rounded: "{rounded.pill}"
     padding: "6px 12px"
   project-card:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.none}"
+    backgroundColor: "{colors.noomo-card}"
+    textColor: "{colors.noomo-ink}"
+    rounded: "6px"
 ---
 
 # Design System: Ye Mai Portfolio
 
 ## 1. Overview
 
-**Creative North Star: "Electric Studio Reel"**
+**Creative North Star: "Cold Paper Studio"**
 
-The system should feel like a young creative technologist's working studio: dark, cinematic, energetic, and precise. It uses a black stage, lavender-violet technical light, oversized lowercase identity type, video-first composition, and motion details to make creative output feel immediate.
+The system should feel like a young creative technologist's editorial studio: calm, strange, technical, and media-forward. It uses Noomo-inspired cold paper surfaces, deep ink text, oversized identity type, video-first composition, and motion details to make creative output feel immediate.
 
 The design rejects corporate portfolio polish, generic SaaS structure, and interchangeable template sections. It should make Ye Mai feel commercially valuable and technically credible while keeping a positive, fresh, human presence.
 
 **Key Characteristics:**
-- Dark full-bleed media surfaces with clear text hierarchy.
-- Violet and lavender accents used as technical energy, not decoration everywhere.
+- Cold mist-blue surfaces with deep ink hierarchy.
+- Thin dark rules, pale translucent panels, and restrained ink-filled actions.
 - Large expressive type balanced by restrained body copy.
 - Minimal chrome, visible media, and direct contact paths.
 - Motion that feels alive while respecting reduced-motion preferences.
 
 ## 2. Colors
 
-The palette is a midnight stage with lavender technical light and deep violet action color.
+The whole site uses a Noomo-inspired cold paper palette: mist blue surfaces (#c9d2e7, #dee7f1, #dbe0ef), deep ink text (#181520, #231b35), muted supporting copy (#6d6d76), and thin dark rules. Project media, hero video, and image content provide the emotional color.
 
 ### Primary
-- **Lavender Signal** (#acb9ff): Used for section labels, metadata, skill icons, and technical emphasis. Keep it rare enough to feel intentional.
-- **Deep Violet Action** (#482d9b): Used for contact link buttons and decisive interactive surfaces.
-- **Strong Violet Hover** (#6136d8): Used when actions respond to pointer interaction.
-
-### Neutral
-- **Black Stage** (#060606): Body background and hero base. It should feel cinematic, not corporate-dark.
-- **Studio Panel** (#101015): Project cards and media placeholders.
-- **Soft Panel** (#161620): Thumbnail wells and secondary surfaces.
-- **Bright Ink** (#f5f4fa): Primary readable text.
-- **Cool Muted Ink** (#aeb4c3): Supporting copy where contrast remains acceptable.
-- **Ghost Ink** (#a5b7bc5e): Oversized background words and ambient labels only.
-- **Media Overlay** (#00000085): Hover overlays that reveal depth without hiding content permanently.
+- **Cold Paper** (#c9d2e7): Body background and main surface.
+- **Light Paper** (#dee7f1): Soft section gradients and hero veil.
+- **Menu Paper** (#dbe0ef): Header, media wells, and pale UI surfaces.
+- **Deep Ink** (#181520): Primary text and strongest action hover.
+- **Soft Ink** (#231b35): Labels, metadata, and filled contact actions.
+- **Muted Ink** (#6d6d76): Supporting copy.
 
 ### Named Rules
 
-**The Signal Rarity Rule.** Lavender and violet should guide attention to identity, metadata, tools, and actions. Do not wash the whole page in purple.
+**The Ink Discipline Rule.** Use deep ink for hierarchy, action, and active states. Avoid adding extra accent colors unless they come from real project media.
 
-**The Black Stage Rule.** Keep the dark base clean and sharp. Avoid muddy blue-black gradients, glass cards, and generic sci-fi fog.
+**The Cold Paper Rule.** All sections live in the mist-blue paper palette. Do not reintroduce a dark section unless a specific project page needs a media-led exception.
 
 ## 3. Typography
 
-**Display Font:** Montserrat with sans-serif fallback  
-**Body Font:** Work Sans with Montserrat and Arial fallback  
-**Supporting Font:** Roboto for compact metadata and tool capsules
+**Display Font:** NeueMachina with Montserrat and Arial fallback  
+**Body Font:** NeueRoman with Work Sans and Arial fallback  
+**Supporting Font:** NeueRoman for metadata and capsules
 
-**Character:** The pairing is clean, young, and technical. Montserrat carries identity and section structure; Work Sans keeps reading approachable and professional; Roboto adds compact engineering clarity inside metadata.
+**Character:** The pairing mirrors the Noomo reference while keeping the static site dependency-light. Neue-style display type gives sections an editorial agency feeling; the body fallback remains readable and practical.
 
 ### Hierarchy
 - **Display** (600, `clamp(4rem, 13vw, 10rem)`, 0.88): Hero identity only. Keep lowercase as a brand gesture.
@@ -146,7 +139,7 @@ Use elevation as movement, not decoration:
 
 ### Header
 
-Fixed on desktop with a transparent-to-dark gradient so the navigation stays legible over hero media. The brand is lowercase and compact. Navigation is light, muted, and direct.
+Fixed on desktop with a transparent cold-paper gradient so the navigation stays legible over hero media. Hover changes link color only; keyboard focus and active scroll state move the sliding indicator.
 
 ### Hero
 
@@ -162,11 +155,11 @@ Capsules are pill-shaped, compact, and technical. They should help recruiters an
 
 ### Project Cards
 
-Project cards are media-first with rectangular corners, dark panels, concise metadata, and controlled hover lift. Featured projects use wider media proportions. Real project imagery should replace placeholders whenever available.
+Project cards are media-first cold-paper objects with 6px corners, deep ink typography, concise uppercase metadata, and controlled hover lift. Real project imagery should remain the strongest visual signal.
 
 ### Contact Links
 
-Contact links are pill actions with deep violet fills. Labels should be short and explicit, such as Email, GitHub, LinkedIn, or Portfolio PDF.
+Contact links are pill actions with deep ink fills. Labels should be short and explicit, such as Email, GitHub, LinkedIn, or Portfolio PDF.
 
 ## 6. Do's and Don'ts
 
@@ -181,5 +174,5 @@ Contact links are pill actions with deep violet fills. Labels should be short an
 - Do not make it feel like a corporate homepage or SaaS template.
 - Do not overuse identical card grids, decorative glass, gradient text, or stock-tech aesthetics.
 - Do not bury the person behind generic visual polish.
-- Do not use lavender/violet so heavily that every surface has the same emotional temperature.
+- Do not add unrelated accent colors that fight the cold paper palette.
 - Do not let Chinese placeholder content or long bilingual strings break layout when localized content is completed.

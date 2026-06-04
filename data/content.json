@@ -14,21 +14,33 @@
         "ariaLabel": "Primary navigation"
       },
       "nav": [
-        { "label": "Artist", "href": "#artist" },
-        { "label": "Skills", "href": "#skills" },
-        { "label": "Projects", "href": "#projects" },
-        { "label": "Contact", "href": "#contact" }
+        {
+          "label": "Artist",
+          "href": "#artist"
+        },
+        {
+          "label": "Skills",
+          "href": "#skills"
+        },
+        {
+          "label": "Projects",
+          "href": "#projects"
+        },
+        {
+          "label": "Contact",
+          "href": "#contact"
+        }
       ],
       "hero": {
         "mediaAriaLabel": "Hero media placeholder",
         "mediaPlaceholder": "Hero reel placeholder",
-        "kicker": "Portfolio in progress",
+        "kicker": "creative technologist / XR developer / Web developer",
         "title": "Ye Mai",
         "rotatingPhrases": [
-          "Immersive experiences.",
-          "Art + sound installations.",
-          "Virtual worlds.",
-          "AR experiments."
+          "VR interfaces.",
+          "Web systems.",
+          "Visual narratives.",
+          "Interactive experience."
         ]
       },
       "artist": {
@@ -36,91 +48,166 @@
         "processMediaLabel": "GIF / process reel",
         "portraitMediaLabel": "Portrait",
         "eyebrow": "The Artist",
-        "heading": "creative technologist, maker, and researcher",
+        "heading": "creative technologist, XR developer, and web developer",
         "body": [
-          "This is a placeholder introduction for your portfolio. Later we can shape it around your real practice, materials, research themes, and favorite project moments.",
-          "The structure is ready for motion-heavy work: videos, GIFs, projection documentation, installation stills, prototypes, and case study links."
+          "I build interactive systems where spatial interfaces, web engineering, and visual storytelling meet. My work moves between XR prototypes, browser-based experiences, research-driven interfaces, and visual narratives.",
+          "This portfolio is shaped as a working studio reel: technical enough for engineering review, visual enough for creative collaboration, and direct enough for HCI, XR, and creative technology opportunities."
         ]
       },
       "skills": {
         "ghost": "Skills",
         "items": [
           {
-            "icon": "VR",
+            "icon": "vr",
             "title": "VR Developer",
             "description": "Build immersive XR prototypes and interactive 3D experiences across headset workflows, real-time scenes, and spatial interfaces.",
-            "tools": ["Unity", "Meta SDK", "C#", "Shader Graph", "HLSL", "Blender", "Android Studio"]
+            "toolGroups": [
+              {
+                "label": "XR stack",
+                "tools": [
+                  "Unity",
+                  "Meta SDK",
+                  "C#",
+                  "Shader Graph",
+                  "HLSL",
+                  "Blender",
+                  "Android Studio"
+                ]
+              }
+            ]
           },
           {
-            "icon": "WD",
+            "icon": "web",
             "title": "Web Developer",
-            "description": "Develop responsive front-end interfaces, connect back-end services, and support reliable product workflows from prototype to deployment.",
-            "tools": ["Vue 3", "TypeScript", "React", "Next.js", "HTML5/CSS3", "Vuetify", "Lodash", "Node.js", "Express", "SQL", "Agile management", "Git", "Docker", "CI/CD (Azure DevOps)", "Postman", "Unit Testing"]
+            "description": "Develop responsive interfaces, back-end services, and reliable product workflows from prototype to deployment.",
+            "toolGroups": [
+              {
+                "label": "Front-end",
+                "tools": [
+                  "Vue 3",
+                  "TypeScript",
+                  "React",
+                  "Next.js",
+                  "HTML5/CSS3",
+                  "Vuetify",
+                  "Lodash"
+                ]
+              },
+              {
+                "label": "Back-end",
+                "tools": [
+                  "Node.js",
+                  "Express",
+                  "SQL"
+                ]
+              },
+              {
+                "label": "Engineering",
+                "tools": [
+                  "Agile management",
+                  "Git",
+                  "Docker",
+                  "CI/CD (Azure DevOps)",
+                  "Postman",
+                  "Unit Testing"
+                ]
+              }
+            ]
           },
           {
-            "icon": "CT",
+            "icon": "creative",
             "title": "Creative Technologist",
             "description": "Blend visual design, interaction concepts, and hands-on making to shape expressive digital experiences and portfolio-ready prototypes.",
-            "tools": ["Canva", "Figma", "Procreate", "Drawing", "Visual storytelling"]
+            "toolGroups": [
+              {
+                "label": "Creative tools",
+                "tools": [
+                  "Canva",
+                  "Figma",
+                  "Procreate",
+                  "Drawing",
+                  "Visual storytelling"
+                ]
+              }
+            ]
           }
         ]
       },
       "projectsSection": {
         "ghost": "Projects",
         "eyebrow": "Selected Work",
-        "heading": "Project grid ready for your real materials.",
+        "heading": "Three directions of work: visual narrative, cultural research, and XR interaction.",
         "metaSeparator": " / "
       },
       "projects": [
         {
-          "title": "Featured Project One",
+          "title": "Qianfan One Scroll",
           "year": "2026",
-          "role": "Creative Technologist",
-          "summary": "A short description for a major project. Replace this with your real work later.",
-          "cover": "",
-          "mediaLabel": "Featured media",
-          "link": "",
-          "featured": true
+          "role": "Art Direction / Visual Narrative",
+          "summary": "A noir-inspired visual system for a tabletop mystery experience, combining bold interface layouts, character art, and case-material storytelling.",
+          "cover": "assets/projects/qianfan-one-scroll-cover.png",
+          "alt": "Qianfan One Scroll cover mockup with Chinese title, tabletop map, red annotation, and illustrated characters",
+          "mediaLabel": "Visual narrative media",
+          "link": "projects/qianfan-one-scroll.html",
+          "featured": false,
+          "slug": "qianfan-one-scroll",
+          "detailHeading": "A tabletop mystery visual system built from noir contrast, annotated evidence, and character-driven interface art.",
+          "detailBody": [
+            "Qianfan One Scroll uses bold graphic composition, case-material layouts, and illustrated player characters to frame a tabletop reasoning experience.",
+            "The project works well as the portfolio's visual narrative anchor because it shows art direction, UI composition, and story-facing design in one media-heavy package."
+          ],
+          "detailMedia": [
+            {
+              "src": "assets/projects/qianfan-one-scroll-cover.png",
+              "alt": "Qianfan One Scroll cover mockup"
+            }
+          ]
         },
         {
-          "title": "Featured Project Two",
-          "year": "2025",
-          "role": "Designer / Researcher",
-          "summary": "Use this slot for a polished case study, installation, performance, or research project.",
-          "cover": "",
-          "mediaLabel": "Case study media",
-          "link": "",
-          "featured": true
+          "title": "Midnight at the Pagoda",
+          "year": "2026",
+          "role": "HCI Research / Exhibition Design",
+          "summary": "A research-led cultural heritage project exploring exhibition space, Buddhist pagoda reconstruction, and visitor-facing interpretation.",
+          "cover": "assets/projects/midnight-at-the-pagoda-floor1.png",
+          "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements",
+          "mediaLabel": "Exhibition render",
+          "link": "projects/midnight-at-the-pagoda.html",
+          "featured": false,
+          "slug": "midnight-at-the-pagoda",
+          "detailHeading": "An HCI and cultural heritage research project translating pagoda reconstruction into visitor-facing spatial experience.",
+          "detailBody": [
+            "Midnight at the Pagoda explores how exhibition design, historical reconstruction, and interactive interpretation can make cultural heritage feel legible and atmospheric.",
+            "The project sits between research and visual production, with rendered scenes, exhibition references, and interpretive diagrams supporting the final experience."
+          ],
+          "detailMedia": [
+            {
+              "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
+              "alt": "Midnight at the Pagoda rendered scene"
+            }
+          ]
         },
         {
-          "title": "Prototype Study",
-          "year": "2025",
-          "role": "Interaction Design",
-          "summary": "A compact project card for smaller experiments, sketches, and prototypes.",
-          "cover": "",
-          "mediaLabel": "Prototype",
-          "link": "",
-          "featured": false
-        },
-        {
-          "title": "Visual System",
-          "year": "2024",
-          "role": "Visual Design",
-          "summary": "A placeholder for visual work, identity studies, computational graphics, or motion tests.",
-          "cover": "",
-          "mediaLabel": "Visuals",
-          "link": "",
-          "featured": false
-        },
-        {
-          "title": "Research Project",
-          "year": "2024",
-          "role": "Research",
-          "summary": "A card for academic, cultural heritage, XR, HCI, or design research work.",
-          "cover": "",
-          "mediaLabel": "Research",
-          "link": "",
-          "featured": false
+          "title": "Vislab Onboarding Panel",
+          "year": "2026",
+          "role": "XR Interaction / UI Development",
+          "summary": "A VR onboarding interface demo for guided user flows, spatial panels, and headset-based interaction feedback.",
+          "cover": "assets/projects/vislab-onboarding-thumbnail.jpg",
+          "alt": "GAVIS onboarding thumbnail with VR headset user and floating video panel",
+          "mediaLabel": "XR onboarding demo",
+          "link": "projects/vislab-onboarding-panel.html",
+          "featured": false,
+          "slug": "vislab-onboarding-panel",
+          "detailHeading": "A VR onboarding panel system for guided headset interaction and spatial UI learning.",
+          "detailBody": [
+            "Vislab Onboarding Panel documents an XR interface workflow for orienting users inside a headset experience.",
+            "The work emphasizes readable spatial panels, guided interaction states, and practical implementation across Unity and Meta SDK workflows."
+          ],
+          "detailMedia": [
+            {
+              "src": "assets/projects/vislab-onboarding-thumbnail.jpg",
+              "alt": "Vislab onboarding thumbnail"
+            }
+          ]
         }
       ],
       "contact": {
@@ -128,10 +215,20 @@
         "linksAriaLabel": "Contact links",
         "mediaPlaceholder": "Closing GIF / image",
         "links": [
-          { "label": "Email", "href": "mailto:hello@example.com" },
-          { "label": "GitHub", "href": "https://github.com/" },
-          { "label": "LinkedIn", "href": "https://www.linkedin.com/" }
-        ]
+          {
+            "label": "Email",
+            "href": "mailto:hello@example.com"
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/"
+          },
+          {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/"
+          }
+        ],
+        "note": "Open to XR, creative tech, and HCI research opportunities."
       },
       "footer": {
         "copyrightPrefix": "Copyright",
@@ -151,21 +248,33 @@
         "ariaLabel": "中文占位：主导航"
       },
       "nav": [
-        { "label": "中文占位：关于", "href": "#artist" },
-        { "label": "中文占位：技能", "href": "#skills" },
-        { "label": "中文占位：项目", "href": "#projects" },
-        { "label": "中文占位：联系", "href": "#contact" }
+        {
+          "label": "中文占位：关于",
+          "href": "#artist"
+        },
+        {
+          "label": "中文占位：技能",
+          "href": "#skills"
+        },
+        {
+          "label": "中文占位：项目",
+          "href": "#projects"
+        },
+        {
+          "label": "中文占位：联系",
+          "href": "#contact"
+        }
       ],
       "hero": {
         "mediaAriaLabel": "中文占位：首页媒体",
         "mediaPlaceholder": "中文占位：首页视频",
-        "kicker": "中文占位：作品集建设中",
+        "kicker": "中文占位：创意技术 / XR 开发 / Web 开发",
         "title": "中文占位",
         "rotatingPhrases": [
-          "中文占位：沉浸式体验。",
-          "中文占位：艺术与声音装置。",
-          "中文占位：虚拟世界。",
-          "中文占位：AR 实验。"
+          "中文占位：VR 界面。",
+          "中文占位：Web 系统。",
+          "中文占位：视觉叙事。",
+          "中文占位：交互体验。"
         ]
       },
       "artist": {
@@ -183,22 +292,62 @@
         "ghost": "中文占位：技能",
         "items": [
           {
-            "icon": "VR",
+            "icon": "vr",
             "title": "中文占位：VR 开发",
             "description": "中文占位：这里将来填写 VR 开发能力描述。",
-            "tools": ["中文占位：Unity", "中文占位：Meta SDK", "中文占位：C#"]
+            "toolGroups": [
+              {
+                "label": "中文占位：XR 技术栈",
+                "tools": [
+                  "中文占位：Unity",
+                  "中文占位：Meta SDK",
+                  "中文占位：C#"
+                ]
+              }
+            ]
           },
           {
-            "icon": "WD",
+            "icon": "web",
             "title": "中文占位：Web 开发",
             "description": "中文占位：这里将来填写 Web 开发能力描述。",
-            "tools": ["中文占位：Vue 3", "中文占位：TypeScript", "中文占位：Node.js"]
+            "toolGroups": [
+              {
+                "label": "中文占位：前端",
+                "tools": [
+                  "中文占位：Vue 3",
+                  "中文占位：TypeScript"
+                ]
+              },
+              {
+                "label": "中文占位：后端",
+                "tools": [
+                  "中文占位：Node.js",
+                  "中文占位：SQL"
+                ]
+              },
+              {
+                "label": "中文占位：工程",
+                "tools": [
+                  "中文占位：Git",
+                  "中文占位：测试"
+                ]
+              }
+            ]
           },
           {
-            "icon": "CT",
+            "icon": "creative",
             "title": "中文占位：创意技术",
             "description": "中文占位：这里将来填写创意技术能力描述。",
-            "tools": ["中文占位：Figma", "中文占位：Procreate", "中文占位：绘画"]
+            "toolGroups": [
+              {
+                "label": "中文占位：创意工具",
+                "tools": [
+                  "中文占位：Figma",
+                  "中文占位：Procreate",
+                  "中文占位：绘画"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -210,54 +359,73 @@
       },
       "projects": [
         {
-          "title": "中文占位：重点项目一",
+          "title": "中文占位：千翻One卷",
           "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "",
+          "cover": "assets/projects/qianfan-one-scroll-cover.png",
+          "alt": "Qianfan One Scroll cover mockup with Chinese title, tabletop map, red annotation, and illustrated characters",
           "mediaLabel": "中文占位：项目媒体",
-          "link": "",
-          "featured": true
+          "link": "projects/qianfan-one-scroll.html",
+          "featured": false,
+          "slug": "qianfan-one-scroll",
+          "detailHeading": "中文占位：这里将来填写项目详情页标题。",
+          "detailBody": [
+            "中文占位：这里将来填写项目详情段落一。",
+            "中文占位：这里将来填写项目详情段落二。"
+          ],
+          "detailMedia": [
+            {
+              "src": "assets/projects/qianfan-one-scroll-cover.png",
+              "alt": "Qianfan One Scroll cover mockup"
+            }
+          ]
         },
         {
-          "title": "中文占位：重点项目二",
-          "year": "2025",
+          "title": "中文占位：佛塔的午夜",
+          "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "",
-          "mediaLabel": "中文占位：案例媒体",
-          "link": "",
-          "featured": true
+          "cover": "assets/projects/midnight-at-the-pagoda-floor1.png",
+          "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements",
+          "mediaLabel": "中文占位：项目媒体",
+          "link": "projects/midnight-at-the-pagoda.html",
+          "featured": false,
+          "slug": "midnight-at-the-pagoda",
+          "detailHeading": "中文占位：这里将来填写项目详情页标题。",
+          "detailBody": [
+            "中文占位：这里将来填写项目详情段落一。",
+            "中文占位：这里将来填写项目详情段落二。"
+          ],
+          "detailMedia": [
+            {
+              "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
+              "alt": "Midnight at the Pagoda rendered scene"
+            }
+          ]
         },
         {
-          "title": "中文占位：原型研究",
-          "year": "2025",
+          "title": "中文占位：Vislab Onboarding Panel",
+          "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "",
-          "mediaLabel": "中文占位：原型",
-          "link": "",
-          "featured": false
-        },
-        {
-          "title": "中文占位：视觉系统",
-          "year": "2024",
-          "role": "中文占位：角色",
-          "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "",
-          "mediaLabel": "中文占位：视觉",
-          "link": "",
-          "featured": false
-        },
-        {
-          "title": "中文占位：研究项目",
-          "year": "2024",
-          "role": "中文占位：角色",
-          "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "",
-          "mediaLabel": "中文占位：研究",
-          "link": "",
-          "featured": false
+          "cover": "assets/projects/vislab-onboarding-thumbnail.jpg",
+          "alt": "GAVIS onboarding thumbnail with VR headset user and floating video panel",
+          "mediaLabel": "中文占位：项目媒体",
+          "link": "projects/vislab-onboarding-panel.html",
+          "featured": false,
+          "slug": "vislab-onboarding-panel",
+          "detailHeading": "中文占位：这里将来填写项目详情页标题。",
+          "detailBody": [
+            "中文占位：这里将来填写项目详情段落一。",
+            "中文占位：这里将来填写项目详情段落二。"
+          ],
+          "detailMedia": [
+            {
+              "src": "assets/projects/vislab-onboarding-thumbnail.jpg",
+              "alt": "Vislab onboarding thumbnail"
+            }
+          ]
         }
       ],
       "contact": {
@@ -265,10 +433,20 @@
         "linksAriaLabel": "中文占位：联系方式",
         "mediaPlaceholder": "中文占位：结尾图片",
         "links": [
-          { "label": "中文占位：邮箱", "href": "mailto:hello@example.com" },
-          { "label": "GitHub", "href": "https://github.com/" },
-          { "label": "LinkedIn", "href": "https://www.linkedin.com/" }
-        ]
+          {
+            "label": "中文占位：邮箱",
+            "href": "mailto:hello@example.com"
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/"
+          },
+          {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/"
+          }
+        ],
+        "note": "中文占位：开放 XR、创意技术与 HCI 研究机会。"
       },
       "footer": {
         "copyrightPrefix": "Copyright",

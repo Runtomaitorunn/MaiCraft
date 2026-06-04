@@ -67,6 +67,42 @@ const renderParagraphs = (paragraphs) => {
   });
 };
 
+const iconPaths = {
+  vr: [
+    '<path d="M7 10.5h10a3 3 0 0 1 3 3v2.1a2.4 2.4 0 0 1-2.4 2.4h-2.2a2 2 0 0 1-1.6-.8l-.7-.9a1.5 1.5 0 0 0-2.2 0l-.7.9a2 2 0 0 1-1.6.8H6.4A2.4 2.4 0 0 1 4 15.6v-2.1a3 3 0 0 1 3-3Z"/>',
+    '<path d="M9 14h.01M15 14h.01M8 10.5l1-3h6l1 3"/>'
+  ],
+  web: [
+    '<path d="m9 9-4 3 4 3"/>',
+    '<path d="m15 9 4 3-4 3"/>',
+    '<path d="m13 7-2 10"/>'
+  ],
+  creative: [
+    '<path d="M5 19l1.4-4.6L15.8 5a2.1 2.1 0 0 1 3 3L9.4 17.4 5 19Z"/>',
+    '<path d="M14 6l3 3"/>',
+    '<path d="M18 14.5l.7 1.4 1.3.6-1.3.7-.7 1.3-.7-1.3-1.3-.7 1.3-.6.7-1.4Z"/>'
+  ]
+};
+
+const createSkillIcon = (type, fallback) => {
+  const icon = document.createElement("div");
+  icon.className = `skill-icon skill-icon--${type}`;
+  icon.setAttribute("aria-hidden", "true");
+
+  if (!iconPaths[type]) {
+    icon.textContent = fallback;
+    return icon;
+  }
+
+  icon.innerHTML = `
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      ${iconPaths[type].join("")}
+    </svg>
+  `;
+
+  return icon;
+};
+
 const renderSkills = (skills) => {
   const container = document.querySelector("#skill-cards");
   if (!container) return;
@@ -77,10 +113,7 @@ const renderSkills = (skills) => {
     const card = document.createElement("article");
     card.className = "skill-card";
 
-    const icon = document.createElement("div");
-    icon.className = "skill-icon";
-    icon.setAttribute("aria-hidden", "true");
-    icon.textContent = skill.icon;
+    const icon = createSkillIcon(skill.icon, skill.icon);
 
     const title = document.createElement("h3");
     title.textContent = skill.title;
@@ -91,12 +124,31 @@ const renderSkills = (skills) => {
     const tools = document.createElement("div");
     tools.className = "skill-tools";
 
-    const toolItems = Array.isArray(skill.tools) ? skill.tools : skill.tools.split(",").map((item) => item.trim());
-    toolItems.forEach((tool) => {
-      const capsule = document.createElement("span");
-      capsule.className = "skill-capsule";
-      capsule.textContent = tool;
-      tools.append(capsule);
+    const groups = skill.toolGroups || [{ label: "", tools: skill.tools || [] }];
+    groups.forEach((group) => {
+      const groupElement = document.createElement("div");
+      groupElement.className = "skill-tool-group";
+
+      if (group.label) {
+        const groupLabel = document.createElement("span");
+        groupLabel.className = "skill-tool-label";
+        groupLabel.textContent = group.label;
+        groupElement.append(groupLabel);
+      }
+
+      const capsuleList = document.createElement("div");
+      capsuleList.className = "skill-capsule-list";
+
+      const toolItems = Array.isArray(group.tools) ? group.tools : String(group.tools).split(",").map((item) => item.trim());
+      toolItems.forEach((tool) => {
+        const capsule = document.createElement("span");
+        capsule.className = "skill-capsule";
+        capsule.textContent = tool;
+        capsuleList.append(capsule);
+      });
+
+      groupElement.append(capsuleList);
+      tools.append(groupElement);
     });
 
     card.append(icon, title, description, tools);
@@ -106,12 +158,19 @@ const renderSkills = (skills) => {
 
 const createProjectCard = (project, separator) => {
   const card = document.createElement(project.link ? "a" : "article");
-  card.className = `project-card${project.featured ? " featured-card" : ""}`;
+  card.className = [
+    "project-card",
+    project.featured ? "featured-card" : "",
+    project.tier ? `project-card--${project.tier}` : ""
+  ].filter(Boolean).join(" ");
 
   if (project.link) {
     card.href = project.link;
-    card.target = "_blank";
-    card.rel = "noreferrer";
+
+    if (/^https?:\/\//.test(project.link)) {
+      card.target = "_blank";
+      card.rel = "noreferrer";
+    }
   }
 
   const media = project.cover
