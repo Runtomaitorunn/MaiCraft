@@ -300,7 +300,7 @@ h3 {
 
 #skill-cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
@@ -334,9 +334,36 @@ h3 {
 }
 
 .skill-tools {
-  color: #9aa7bd;
-  font-style: italic;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.skill-capsule {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 12px;
+  color: #dfe4ff;
+  background: rgba(172, 185, 255, 0.11);
+  border: 1px solid rgba(172, 185, 255, 0.28);
+  border-radius: 999px;
+  font-family: "Roboto", "Work Sans", sans-serif;
+  font-size: 0.82rem;
   font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.skill-card:hover .skill-capsule {
+  background: rgba(172, 185, 255, 0.17);
+  border-color: rgba(189, 211, 255, 0.48);
+}
+
+.skill-capsule:hover {
+  transform: translateY(-2px);
 }
 
 .projects-intro {

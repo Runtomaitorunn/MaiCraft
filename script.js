@@ -76,12 +76,30 @@ const renderSkills = (skills) => {
   skills.forEach((skill) => {
     const card = document.createElement("article");
     card.className = "skill-card";
-    card.innerHTML = `
-      <div class="skill-icon" aria-hidden="true">${skill.icon}</div>
-      <h3>${skill.title}</h3>
-      <p>${skill.description}</p>
-      <p class="skill-tools">${skill.tools}</p>
-    `;
+
+    const icon = document.createElement("div");
+    icon.className = "skill-icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = skill.icon;
+
+    const title = document.createElement("h3");
+    title.textContent = skill.title;
+
+    const description = document.createElement("p");
+    description.textContent = skill.description;
+
+    const tools = document.createElement("div");
+    tools.className = "skill-tools";
+
+    const toolItems = Array.isArray(skill.tools) ? skill.tools : skill.tools.split(",").map((item) => item.trim());
+    toolItems.forEach((tool) => {
+      const capsule = document.createElement("span");
+      capsule.className = "skill-capsule";
+      capsule.textContent = tool;
+      tools.append(capsule);
+    });
+
+    card.append(icon, title, description, tools);
     container.append(card);
   });
 };

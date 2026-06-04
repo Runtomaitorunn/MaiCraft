@@ -46,16 +46,22 @@
         "ghost": "Skills",
         "items": [
           {
-            "icon": "CT",
-            "title": "Creative Technology",
-            "description": "Interactive systems, real-time visuals, spatial media, physical computing, creative coding, and rapid prototyping.",
-            "tools": "TouchDesigner, Unity, Arduino, JavaScript"
+            "icon": "VR",
+            "title": "VR Developer",
+            "description": "Build immersive XR prototypes and interactive 3D experiences across headset workflows, real-time scenes, and spatial interfaces.",
+            "tools": ["Unity", "Meta SDK", "C#", "Shader Graph", "HLSL", "Blender", "Android Studio"]
           },
           {
-            "icon": "XD",
-            "title": "Experience Design",
-            "description": "Concept development, visual direction, user flows, exhibition planning, storytelling, and research-led design.",
-            "tools": "Figma, Miro, Adobe Suite, field research"
+            "icon": "WD",
+            "title": "Web Developer",
+            "description": "Develop responsive front-end interfaces, connect back-end services, and support reliable product workflows from prototype to deployment.",
+            "tools": ["Vue 3", "TypeScript", "React", "Next.js", "HTML5/CSS3", "Vuetify", "Lodash", "Node.js", "Express", "SQL", "Agile management", "Git", "Docker", "CI/CD (Azure DevOps)", "Postman", "Unit Testing"]
+          },
+          {
+            "icon": "CT",
+            "title": "Creative Technologist",
+            "description": "Blend visual design, interaction concepts, and hands-on making to shape expressive digital experiences and portfolio-ready prototypes.",
+            "tools": ["Canva", "Figma", "Procreate", "Drawing", "Visual storytelling"]
           }
         ]
       },
@@ -177,16 +183,22 @@
         "ghost": "中文占位：技能",
         "items": [
           {
+            "icon": "VR",
+            "title": "中文占位：VR 开发",
+            "description": "中文占位：这里将来填写 VR 开发能力描述。",
+            "tools": ["中文占位：Unity", "中文占位：Meta SDK", "中文占位：C#"]
+          },
+          {
+            "icon": "WD",
+            "title": "中文占位：Web 开发",
+            "description": "中文占位：这里将来填写 Web 开发能力描述。",
+            "tools": ["中文占位：Vue 3", "中文占位：TypeScript", "中文占位：Node.js"]
+          },
+          {
             "icon": "CT",
             "title": "中文占位：创意技术",
             "description": "中文占位：这里将来填写创意技术能力描述。",
-            "tools": "中文占位：工具列表"
-          },
-          {
-            "icon": "XD",
-            "title": "中文占位：体验设计",
-            "description": "中文占位：这里将来填写体验设计能力描述。",
-            "tools": "中文占位：工具列表"
+            "tools": ["中文占位：Figma", "中文占位：Procreate", "中文占位：绘画"]
           }
         ]
       },
