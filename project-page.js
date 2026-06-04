@@ -18,6 +18,19 @@ const normalizeAssetPath = (path) => {
   return `../${path}`;
 };
 
+const isVideoAsset = (path = "") => /\.(mp4|webm|mov)$/i.test(path);
+
+const renderMedia = (item, className = "") => {
+  const src = normalizeAssetPath(item.src);
+  const label = item.alt || item.title || "Project media";
+
+  if (isVideoAsset(src)) {
+    return `<video class="${className}" src="${src}" aria-label="${label}" autoplay muted loop playsinline controls></video>`;
+  }
+
+  return `<img class="${className}" src="${src}" alt="${label}" loading="lazy" />`;
+};
+
 const renderProjectPage = (project, localeContent, locale) => {
   const root = document.querySelector("#project-detail");
   if (!root) return;
@@ -28,7 +41,7 @@ const renderProjectPage = (project, localeContent, locale) => {
   const body = (project.detailBody || []).map((paragraph) => `<p>${paragraph}</p>`).join("");
   const media = project.detailMedia?.length ? project.detailMedia : [{ src: project.cover, alt: project.alt }];
   const gallery = media
-    .map((item) => `<figure><img src="${normalizeAssetPath(item.src)}" alt="${item.alt || project.title}" loading="lazy" /></figure>`)
+    .map((item) => `<figure>${renderMedia({ ...item, title: project.title })}</figure>`)
     .join("");
 
   root.innerHTML = `
@@ -39,7 +52,7 @@ const renderProjectPage = (project, localeContent, locale) => {
       <p>${project.detailHeading || project.summary}</p>
     </header>
     <section class="project-detail-hero">
-      <img src="${normalizeAssetPath(project.cover)}" alt="${project.alt || project.title}" />
+      ${renderMedia({ src: project.cover, alt: project.alt, title: project.title }, "project-detail-cover")}
     </section>
     <section class="project-detail-body">
       <div>${body}</div>

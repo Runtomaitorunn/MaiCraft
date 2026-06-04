@@ -192,7 +192,7 @@
           "year": "2026",
           "role": "XR Interaction / UI Development",
           "summary": "A VR onboarding interface demo for guided user flows, spatial panels, and headset-based interaction feedback.",
-          "cover": "assets/projects/vislab-onboarding-thumbnail.jpg",
+          "cover": "assets/projects/vislab-onboarding-pinch.mp4",
           "alt": "GAVIS onboarding thumbnail with VR headset user and floating video panel",
           "mediaLabel": "XR onboarding demo",
           "link": "projects/vislab-onboarding-panel.html",
@@ -205,7 +205,7 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/vislab-onboarding-thumbnail.jpg",
+              "src": "assets/projects/vislab-onboarding-pinch.mp4",
               "alt": "Vislab onboarding thumbnail"
             }
           ]
@@ -411,7 +411,7 @@
           "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "assets/projects/vislab-onboarding-thumbnail.jpg",
+          "cover": "assets/projects/vislab-onboarding-pinch.mp4",
           "alt": "GAVIS onboarding thumbnail with VR headset user and floating video panel",
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/vislab-onboarding-panel.html",
@@ -424,7 +424,7 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/vislab-onboarding-thumbnail.jpg",
+              "src": "assets/projects/vislab-onboarding-pinch.mp4",
               "alt": "Vislab onboarding thumbnail"
             }
           ]

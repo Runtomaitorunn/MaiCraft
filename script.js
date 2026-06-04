@@ -103,6 +103,8 @@ const createSkillIcon = (type, fallback) => {
   return icon;
 };
 
+const isVideoAsset = (path = "") => /\.(mp4|webm|mov)$/i.test(path);
+
 const renderSkills = (skills) => {
   const container = document.querySelector("#skill-cards");
   if (!container) return;
@@ -174,7 +176,9 @@ const createProjectCard = (project, separator) => {
   }
 
   const media = project.cover
-    ? `<img src="${project.cover}" alt="${project.alt || project.title}" loading="lazy" />`
+    ? isVideoAsset(project.cover)
+      ? `<video src="${project.cover}" aria-label="${project.alt || project.title}" autoplay muted loop playsinline></video>`
+      : `<img src="${project.cover}" alt="${project.alt || project.title}" loading="lazy" />`
     : `<span class="thumb-placeholder">${project.mediaLabel}</span>`;
 
   card.innerHTML = `
@@ -265,6 +269,19 @@ const startRevealObserver = () => {
   });
 };
 
+const startHeaderScrollBehavior = () => {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    header.classList.toggle("is-hidden", currentScrollY > lastScrollY);
+    lastScrollY = currentScrollY;
+  });
+};
+
 const setYear = () => {
   const year = document.querySelector("#year");
   if (year) {
@@ -284,6 +301,7 @@ const renderSite = (localeContent, locale) => {
   renderContactLinks(localeContent.contact.links);
   startRotatingText(localeContent.hero.rotatingPhrases);
   startRevealObserver();
+  startHeaderScrollBehavior();
   setYear();
 };
 
