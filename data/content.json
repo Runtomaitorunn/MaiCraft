@@ -47,6 +47,7 @@
         "ghost": "hello :)",
         "processMediaLabel": "GIF / process reel",
         "portraitMediaLabel": "Portrait",
+        "portraitAlt": "Portrait of Ye Mai",
         "eyebrow": "The Artist",
         "heading": "creative technologist, XR developer, and web developer",
         "body": [
@@ -281,6 +282,7 @@
         "ghost": "中文占位 :)",
         "processMediaLabel": "中文占位：过程动图",
         "portraitMediaLabel": "中文占位：个人照片",
+        "portraitAlt": "中文占位：Ye Mai 肖像",
         "eyebrow": "中文占位：关于我",
         "heading": "中文占位：创意技术、设计与研究",
         "body": [
