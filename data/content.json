@@ -142,6 +142,16 @@
         "heading": "Three directions of work: visual narrative, cultural research, and XR interaction.",
         "metaSeparator": " / "
       },
+      "projectDetail": {
+        "backLabel": "Back to projects",
+        "overviewLabel": "Overview",
+        "visualBreakLabel": "Project visual",
+        "taglineSlot": "Tagline slot",
+        "sectionFallbackLabel": "Part",
+        "sectionTitleSlot": "Section title slot",
+        "timelineLabel": "Project timeline",
+        "notFoundTitle": "Project not found"
+      },
       "projects": [
         {
           "title": "Qianfan One Scroll",
@@ -169,25 +179,74 @@
         {
           "title": "Midnight at the Pagoda",
           "year": "2026",
-          "role": "HCI Research / Exhibition Design",
-          "summary": "A research-led cultural heritage project exploring exhibition space, Buddhist pagoda reconstruction, and visitor-facing interpretation.",
+          "role": "VR Prototype / HCI Research",
+          "summary": "I designed and prototyped a VR heritage tour, then turned it into a research environment to study how interacting with virtual artifacts affects memory retention.",
           "cover": "assets/projects/midnight-at-the-pagoda-floor1.png",
           "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements",
           "mediaLabel": "Exhibition render",
           "link": "projects/midnight-at-the-pagoda.html",
           "featured": false,
           "slug": "midnight-at-the-pagoda",
-          "detailHeading": "An HCI and cultural heritage research project translating pagoda reconstruction into visitor-facing spatial experience.",
+          "tagline": "Tagline slot: a one-sentence project hook will go here.",
+          "detailHeading": "A VR gamified historical tour exploring artifact interaction and memory retention inside the Great Bao'en Temple Glazed Pagoda.",
+          "overviewHeading": "A VR heritage tour that turns the Great Bao'en Temple's layered history into an embodied climb through memory, artifacts, and space.",
+          "overview": "A Midnight at the Pagoda is a VR gamified historical tour originally developed in response to the 2024 Digital Heritage Hackathon brief for the Great Bao'en Temple Museum. Players climb the Glazed Pagoda of the Great Bao'en Temple from the lower levels to the top, interacting with museum artifacts on each floor. Through these encounters, they gradually uncover the history of the temple's construction, cultural significance, and layered material heritage.",
           "detailBody": [
-            "Midnight at the Pagoda explores how exhibition design, historical reconstruction, and interactive interpretation can make cultural heritage feel legible and atmospheric.",
-            "The project sits between research and visual production, with rendered scenes, exhibition references, and interpretive diagrams supporting the final experience."
+            "A Midnight at the Pagoda is a VR gamified historical tour originally developed in response to the 2024 Digital Heritage Hackathon brief for the Great Bao'en Temple Museum. Players climb the Glazed Pagoda of the Great Bao'en Temple from the lower levels to the top, interacting with museum artifacts on each floor. Through these encounters, they gradually uncover the history of the temple's construction, cultural significance, and layered material heritage.",
+            "The project began as a hackathon prototype for a VR museum experience. The design translated the Great Bao'en Temple's historical narrative into a vertical climbing journey, using the pagoda's floor-by-floor structure as both spatial progression and storytelling framework. Each level introduced interactive artifacts that acted as narrative anchors, allowing players to learn through movement, inspection, and embodied interaction rather than passive reading.",
+            "I later extended the prototype into an experimental environment for my Goldsmiths dissertation. The study used the VR scene to investigate whether interacting with virtual artifacts could improve users' memory retention of the historical context represented by those artifacts. This shifted the project from a cultural heritage prototype into a research tool for studying how embodied interaction may support learning, recall, and contextual understanding in immersive museum experiences.",
+            "The project was also developed further through my SJTU thesis as an exhibition-ready proposal, expanding the VR concept into a broader curatorial and visitor experience framework. While the proposal considered spatial storytelling, exhibition flow, and interpretive design, the portfolio focus remains on the VR prototype and research experiment as the project's core creative technology contribution."
+          ],
+          "detailSections": [
+            {
+              "kicker": "Hack prototype",
+              "title": "Vertical Heritage Journey",
+              "body": [
+                "The project began as a hackathon prototype for a VR museum experience. The design translated the Great Bao'en Temple's historical narrative into a vertical climbing journey, using the pagoda's floor-by-floor structure as both spatial progression and storytelling framework. Each level introduced interactive artifacts that acted as narrative anchors, allowing players to learn through movement, inspection, and embodied interaction rather than passive reading."
+              ]
+            },
+            {
+              "kicker": "Research experiment",
+              "title": "Interaction as Memory Support",
+              "body": [
+                "I later extended the prototype into an experimental environment for my Goldsmiths dissertation. The study used the VR scene to investigate whether interacting with virtual artifacts could improve users' memory retention of the historical context represented by those artifacts. This shifted the project from a cultural heritage prototype into a research tool for studying how embodied interaction may support learning, recall, and contextual understanding in immersive museum experiences."
+              ]
+            },
+            {
+              "kicker": "Exhibition proposal",
+              "title": "From Prototype to Curatorial Framework",
+              "body": [
+                "The project was also developed further through my SJTU thesis as an exhibition-ready proposal, expanding the VR concept into a broader curatorial and visitor experience framework. While the proposal considered spatial storytelling, exhibition flow, and interpretive design, the portfolio focus remains on the VR prototype and research experiment as the project's core creative technology contribution."
+              ]
+            }
+          ],
+          "timeline": [
+            {
+              "period": "May-Jul 2024",
+              "logo": "assets/projects/logos/digital-heritage-logo-ink.png",
+              "logoAlt": "Digital Heritage Hackathon logo"
+            },
+            {
+              "period": "Aug-Sep 2024",
+              "logo": "assets/projects/logos/goldsmiths-logo.svg",
+              "logoAlt": "Goldsmiths logo"
+            },
+            {
+              "period": "Jun 2026",
+              "logo": "assets/projects/logos/sjtu-emblem-ink.png",
+              "logoAlt": "Shanghai Jiao Tong University emblem"
+            }
           ],
           "detailMedia": [
             {
               "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
               "alt": "Midnight at the Pagoda rendered scene"
             }
-          ]
+          ],
+          "visualBreakMedia": {
+            "src": "assets/projects/pagoda-midnight-exhibition.png",
+            "alt": "Midnight at the Pagoda exhibition proposal visual placeholder"
+          }
         },
         {
           "title": "Vislab Onboarding Panel",
@@ -363,6 +422,16 @@
         "heading": "中文占位：这里将来填写项目区标题。",
         "metaSeparator": " / "
       },
+      "projectDetail": {
+        "backLabel": "Back to projects",
+        "overviewLabel": "Overview",
+        "visualBreakLabel": "Project visual",
+        "taglineSlot": "Tagline slot",
+        "sectionFallbackLabel": "Part",
+        "sectionTitleSlot": "Section title slot",
+        "timelineLabel": "Project timeline",
+        "notFoundTitle": "Project not found"
+      },
       "projects": [
         {
           "title": "中文占位：千翻One卷",
@@ -407,6 +476,23 @@
             {
               "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
               "alt": "Midnight at the Pagoda rendered scene"
+            }
+          ],
+          "timeline": [
+            {
+              "period": "2024年5-7月",
+              "logo": "assets/projects/logos/digital-heritage-logo-ink.png",
+              "logoAlt": "中文占位：Digital Heritage Hackathon logo"
+            },
+            {
+              "period": "2024年8-9月",
+              "logo": "assets/projects/logos/goldsmiths-logo.svg",
+              "logoAlt": "中文占位：Goldsmiths logo"
+            },
+            {
+              "period": "2026年6月",
+              "logo": "assets/projects/logos/sjtu-emblem-ink.png",
+              "logoAlt": "中文占位：上海交通大学校徽"
             }
           ]
         },
