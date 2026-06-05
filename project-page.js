@@ -52,11 +52,11 @@ const renderProjectHeader = (localeContent) => {
     .join("");
 
   return `
-    <header class="project-site-header">
-      <a class="project-site-brand" href="../index.html" aria-label="${localeContent.brand.ariaLabel || localeContent.brand.name}">
+    <header class="site-header" data-project-header>
+      <a class="brand" href="../index.html" aria-label="${localeContent.brand.ariaLabel || localeContent.brand.name}">
         ${localeContent.brand.name}
       </a>
-      <nav class="project-site-nav" aria-label="${localeContent.header?.ariaLabel || "Project navigation"}">
+      <nav class="nav-links" aria-label="${localeContent.header?.ariaLabel || "Project navigation"}">
         ${navItems}
       </nav>
     </header>
@@ -153,6 +153,54 @@ const renderProjectPage = (project, localeContent, locale) => {
   `;
 };
 
+const startHeaderScrollBehavior = () => {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    header.classList.toggle("is-hidden", currentScrollY > lastScrollY);
+    lastScrollY = currentScrollY;
+  });
+};
+
+const startHeadingRevealObserver = () => {
+  const headings = document.querySelectorAll(".project-detail h1, .project-detail h2, .project-detail h3");
+  if (!headings.length) return;
+
+  headings.forEach((heading) => {
+    if (heading.classList.contains("heading-reveal")) return;
+
+    const inner = document.createElement("span");
+    inner.className = "heading-reveal-inner";
+
+    while (heading.firstChild) {
+      inner.append(heading.firstChild);
+    }
+
+    heading.classList.add("heading-reveal");
+    heading.append(inner);
+  });
+
+  const headingObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          headingObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.24, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  document.querySelectorAll(".heading-reveal").forEach((heading) => {
+    headingObserver.observe(heading);
+  });
+};
+
 const init = async () => {
   const response = await fetch(CONTENT_URL);
   const content = await response.json();
@@ -169,10 +217,14 @@ const init = async () => {
         <h1>${localeContent.projectDetail?.notFoundTitle || "Project not found"}</h1>
       </header>
     `;
+    startHeadingRevealObserver();
+    startHeaderScrollBehavior();
     return;
   }
 
   renderProjectPage(project, localeContent, locale);
+  startHeadingRevealObserver();
+  startHeaderScrollBehavior();
 };
 
 init();
