@@ -34,6 +34,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @keyframes navLineIn {
@@ -768,7 +769,8 @@ h3 {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 clamp(18px, 4vw, 54px) 92px;
+  padding: 0 0 92px;
+  overflow-x: clip;
   color: var(--noomo-ink);
   background:
     radial-gradient(circle at 82% 6%, rgba(255, 255, 255, 0.52), transparent 32%),
@@ -777,7 +779,7 @@ h3 {
 }
 
 .project-detail > .project-detail-article {
-  width: min(var(--max), 100%);
+  width: min(1280px, calc(100% - clamp(36px, 8vw, 108px)));
   margin-left: auto;
   margin-right: auto;
 }
@@ -1166,7 +1168,11 @@ h3 {
   }
 
   .project-detail {
-    padding: 0 12px 68px;
+    padding-bottom: 68px;
+  }
+
+  .project-detail > .project-detail-article {
+    width: min(100% - 24px, 1280px);
   }
 
   .project-detail-article {

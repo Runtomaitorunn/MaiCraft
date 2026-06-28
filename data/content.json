@@ -249,16 +249,17 @@
           }
         },
         {
-          "title": "Vislab Onboarding Panel",
+          "title": "Self-Guided VR Onboarding for Classroom English Learning",
           "year": "2026",
           "role": "XR Interaction / UI Development",
-          "summary": "A VR onboarding interface demo for guided user flows, spatial panels, and headset-based interaction feedback.",
+          "summary": "Teaching the Body Language of a VR Learning App",
           "cover": "assets/projects/vislab-onboarding-pinch.mp4",
           "alt": "GAVIS onboarding thumbnail with VR headset user and floating video panel",
           "mediaLabel": "XR onboarding demo",
           "link": "projects/vislab-onboarding-panel.html",
           "featured": false,
           "slug": "vislab-onboarding-panel",
+          "tagline": "Teaching the Body Language of a VR Learning App",
           "detailHeading": "A VR onboarding panel system for guided headset interaction and spatial UI learning.",
           "detailBody": [
             "Vislab Onboarding Panel documents an XR interface workflow for orienting users inside a headset experience.",
