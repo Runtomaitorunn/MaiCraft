@@ -260,10 +260,74 @@
           "featured": false,
           "slug": "vislab-onboarding-panel",
           "tagline": "Teaching the Body Language of a VR Learning App",
-          "detailHeading": "A VR onboarding panel system for guided headset interaction and spatial UI learning.",
+          "detailHeading": "A self-guided Unity VR onboarding scene that teaches students the body language of GAVIS before login.",
+          "overviewHeading": "From staff-guided first use to a guided rehearsal inside the headset.",
+          "overview": "GAVIS needed a first-use path that could work in a shared classroom headset. I implemented the Unity onboarding scene that teaches pinch, controller use, review, and safety before students reach login.",
           "detailBody": [
-            "Vislab Onboarding Panel documents an XR interface workflow for orienting users inside a headset experience.",
-            "The work emphasizes readable spatial panels, guided interaction states, and practical implementation across Unity and Meta SDK workflows."
+            "GAVIS needed a first-use path that could work in a shared classroom headset. I implemented the Unity onboarding scene that teaches pinch, controller use, review, and safety before students reach login.",
+            "My work covered scene setup, prefab setup, flow logic, condition validation, gesture animation production, feedback triggers, review navigation, headset QA, and performance validation."
+          ],
+          "detailSections": [
+            {
+              "kicker": "Problem",
+              "title": "First Use Needed a Human Guide",
+              "body": [
+                "In the MVP, students entered login directly. Many did not know what GAVIS expected, when to put down controllers, how to pinch, or how to stay safe without staff beside them.",
+                "A passive video helped explain the idea, but it did not reliably become action. The new scene needed to make learners rehearse the interaction inside VR."
+              ],
+              "mediaSlot": {
+                "label": "Slot 1 / before-after flow",
+                "caption": "Suggested visual: headset on -> guided onboarding -> validated interaction -> login."
+              }
+            },
+            {
+              "kicker": "Strategy",
+              "title": "Teach By Doing",
+              "body": [
+                "The core strategy was Condition-Gated Progression: students advance only after completing the intended physical or UI action.",
+                "That turns onboarding into a capability arc: understand GAVIS, use hands, pinch, select UI, review steps, learn safety rules, then enter the app."
+              ],
+              "mediaSlot": {
+                "label": "Slot 2 / learner capability arc",
+                "caption": "Suggested visual: a seven-step capability ladder from app intro to login handoff."
+              }
+            },
+            {
+              "kicker": "Interaction",
+              "title": "A Validated Practice Loop",
+              "body": [
+                "Each task panel combines a prompt, a validator, hint audio, success feedback, and progression. The scene waits when the learner struggles and confirms the moment when they succeed.",
+                "For the pinch target step, success is visible, audible, and spatial: target guidance, hand animation, success audio, VFX at the pinch position, UI state, and panel progression."
+              ],
+              "mediaSlot": {
+                "label": "Slot 3 / condition-gated pinch clip",
+                "caption": "Suggested visual: the learner completes pinch and receives multimodal success feedback."
+              }
+            },
+            {
+              "kicker": "Tooling",
+              "title": "XR Animation Built Inside Unity",
+              "body": [
+                "The hardest craft problem was gesture guidance. I built an in-Unity recording workflow instead of relying on a traditional Blender animation pipeline.",
+                "I recorded hand and controller motion in Play Mode, mapped trajectories, improved sampling and interpolation, then baked reusable clips for pinch and controller-down guidance."
+              ],
+              "mediaSlot": {
+                "label": "Slot 4 / animation workflow",
+                "caption": "Suggested visual: Play Mode recording, sampled motion, baked clip, final gesture animation."
+              }
+            },
+            {
+              "kicker": "Outcome",
+              "title": "Built For Pilot Use",
+              "body": [
+                "I structured the scene around flow orchestration, panel lifecycle, condition validators, navigation, feedback, remote-control hooks, and final login handoff.",
+                "The scene was tested hands-on with lab participants and education-sector stakeholders. On-device checks showed frame rate above the required threshold and RAM under 700 MB in a 10-minute playback."
+              ],
+              "mediaSlot": {
+                "label": "Slot 5 / QA and pilot evidence",
+                "caption": "Suggested visual: headset QA notes, pilot walkthrough, or a performance validation capture."
+              }
+            }
           ],
           "detailMedia": [
             {

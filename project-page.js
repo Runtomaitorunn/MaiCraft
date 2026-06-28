@@ -83,11 +83,37 @@ const renderTimelineGhost = (timeline = [], label = "Project timeline") => {
   `;
 };
 
+const renderSectionMedia = (section) => {
+  const media = section.media || section.mediaSlot;
+  if (!media) return "";
+
+  const caption = media.caption ? `<figcaption>${media.caption}</figcaption>` : "";
+
+  if (media.src) {
+    return `
+      <figure class="project-section-media">
+        ${renderMedia({ ...media, title: media.title || section.title }, "project-section-media-asset")}
+        ${caption}
+      </figure>
+    `;
+  }
+
+  return `
+    <figure class="project-section-media is-placeholder" aria-label="${media.label || "Project image slot"}">
+      <span>${media.label || "Image slot"}</span>
+      ${caption}
+    </figure>
+  `;
+};
+
 const renderSectionBlock = (section, index, labels = {}) => `
   <section class="project-story-block">
     <p class="project-story-kicker">${section.kicker || `${labels.sectionFallbackLabel || "Part"} ${index + 1}`}</p>
-    <h2>${section.title || labels.sectionTitleSlot || "Section title slot"}</h2>
-    ${(section.body || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
+    <div class="project-story-content">
+      <h2>${section.title || labels.sectionTitleSlot || "Section title slot"}</h2>
+      ${(section.body || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
+      ${renderSectionMedia(section)}
+    </div>
   </section>
 `;
 
