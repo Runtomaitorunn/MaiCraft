@@ -260,20 +260,20 @@
           "featured": false,
           "slug": "vislab-onboarding-panel",
           "tagline": "Teaching the Body Language of a VR Learning App",
-          "detailHeading": "A self-guided Unity VR onboarding scene that teaches students the body language of GAVIS before login.",
-          "overviewHeading": "From staff-guided first use to a guided rehearsal inside the headset.",
-          "overview": "GAVIS needed a first-use path that could work in a shared classroom headset. I implemented the Unity onboarding scene that teaches pinch, controller use, review, and safety before students reach login.",
+          "detailHeading": "A self-guided VR onboarding scene that teaches students the body language of GAVIS before login.",
+          "overviewHeading": "End-to-end use before login",
+          "overview": "GAVIS, the English learning app, needed a first-use path that could work in a shared classroom headset. I implemented an onboarding scene that teaches the pinch gesture with the actual UI button used in the pinch scene, guides students to put down the controllers, and shows the safety notice before login.",
           "detailBody": [
-            "GAVIS needed a first-use path that could work in a shared classroom headset. I implemented the Unity onboarding scene that teaches pinch, controller use, review, and safety before students reach login.",
-            "My work covered scene setup, prefab setup, flow logic, condition validation, gesture animation production, feedback triggers, review navigation, headset QA, and performance validation."
+            "GAVIS, the English learning app, needed a first-use path that could work in a shared classroom headset. I implemented an onboarding scene that teaches the pinch gesture with the actual UI button used in the pinch scene, guides students to put down the controllers, and shows the safety notice before login.",
+            "My work covered scene setup, prefab setup, flow logic, condition validation, gesture animation production, feedback triggers, flow navigation, headset QA, and performance validation."
           ],
           "detailSections": [
             {
               "kicker": "Problem",
-              "title": "First Use Needed a Human Guide",
+              "title": "From Human Guidance to Self-Guided Onboarding",
               "body": [
-                "In the MVP, students entered login directly. Many did not know what GAVIS expected, when to put down controllers, how to pinch, or how to stay safe without staff beside them.",
-                "A passive video helped explain the idea, but it did not reliably become action. The new scene needed to make learners rehearse the interaction inside VR."
+                "Before the onboarding scene was implemented, students went straight to login in a shared classroom headset. Without staff beside them, many did not know what GAVIS expected, when to put down controllers, how to pinch, or which safety notice applied to the classroom setup.",
+                "A passive instruction video could explain the idea, but an interactive onboarding panel fit VR better: learners could rehearse the same gestures and UI actions they would use in the app, making the first-use path more direct and intuitive."
               ],
               "mediaSlot": {
                 "label": "Slot 1 / before-after flow",
@@ -285,11 +285,13 @@
               "title": "Teach By Doing",
               "body": [
                 "The core strategy was Condition-Gated Progression: students advance only after completing the intended physical or UI action.",
-                "That turns onboarding into a capability arc: understand GAVIS, use hands, pinch, select UI, review steps, learn safety rules, then enter the app."
+                "That turns onboarding into a capability arc: understand GAVIS, put down controllers, use hands, practice pinch with the UI button, read the safety notice, then enter the app."
               ],
               "mediaSlot": {
-                "label": "Slot 2 / learner capability arc",
-                "caption": "Suggested visual: a seven-step capability ladder from app intro to login handoff."
+                "src": "assets/projects/onboarding-self-guided-user-flow.svg",
+                "alt": "Self-guided onboarding user-flow UML",
+                "width": 1400,
+                "height": 760
               }
             },
             {
@@ -300,33 +302,66 @@
                 "For the pinch target step, success is visible, audible, and spatial: target guidance, hand animation, success audio, VFX at the pinch position, UI state, and panel progression."
               ],
               "mediaSlot": {
-                "label": "Slot 3 / condition-gated pinch clip",
-                "caption": "Suggested visual: the learner completes pinch and receives multimodal success feedback."
+                "src": "assets/projects/onboarding-condition-gated-progression-flow.svg",
+                "alt": "Condition-gated onboarding progression flow diagram",
+                "width": 1400,
+                "height": 760
               }
             },
             {
               "kicker": "Tooling",
               "title": "XR Animation Built Inside Unity",
               "body": [
-                "The hardest craft problem was gesture guidance. I built an in-Unity recording workflow instead of relying on a traditional Blender animation pipeline.",
-                "I recorded hand and controller motion in Play Mode, mapped trajectories, improved sampling and interpolation, then baked reusable clips for pinch and controller-down guidance."
+                "The hardest craft problem was gesture guidance, which needed an in-Unity recording workflow instead of a traditional Blender animation pipeline.",
+                "Hand and controller motion was recorded in Play Mode, trajectories were mapped, sampling and interpolation were tuned, and reusable clips were baked for pinch and controller-down guidance."
               ],
-              "mediaSlot": {
-                "label": "Slot 4 / animation workflow",
-                "caption": "Suggested visual: Play Mode recording, sampled motion, baked clip, final gesture animation."
-              }
+              "mediaSlots": [
+                {
+                  "src": "assets/projects/onboarding-animation-production-pipeline.svg",
+                  "alt": "Onboarding gesture animation production pipeline diagram",
+                  "width": 1400,
+                  "height": 780
+                },
+                {
+                  "label": "MP4 / GIF slot 4A",
+                  "caption": "Suggested visual: Play Mode hand or controller motion recording."
+                },
+                {
+                  "label": "MP4 / GIF slot 4B",
+                  "caption": "Suggested visual: pinch animation preview or baked clip playback."
+                },
+                {
+                  "label": "MP4 / GIF slot 4C",
+                  "caption": "Suggested visual: controller-down guidance running in the onboarding scene."
+                }
+              ]
             },
             {
               "kicker": "Outcome",
-              "title": "Built For Pilot Use",
+              "title": "Students Used GAVIS on Their Own",
               "body": [
-                "I structured the scene around flow orchestration, panel lifecycle, condition validators, navigation, feedback, remote-control hooks, and final login handoff.",
-                "The scene was tested hands-on with lab participants and education-sector stakeholders. On-device checks showed frame rate above the required threshold and RAM under 700 MB in a 10-minute playback."
+                "After the onboarding scene was added, we ran a small pilot test with secondary school students using GAVIS in a classroom headset setup.",
+                "The first-use flow reached the goal it was built for: most students could learn the basic VR interaction language, move through onboarding, and enter GAVIS with little one-to-one staff guidance. Feedback from the pilot was positive."
               ],
-              "mediaSlot": {
-                "label": "Slot 5 / QA and pilot evidence",
-                "caption": "Suggested visual: headset QA notes, pilot walkthrough, or a performance validation capture."
-              }
+              "mediaLayout": "impact-gallery",
+              "observation": {
+                "label": "Pilot observation",
+                "body": "Onboarding shifted first use from human-led explanation to a self-guided rehearsal of the gestures students needed inside GAVIS."
+              },
+              "mediaSlots": [
+                {
+                  "label": "Pilot photo slot",
+                  "caption": "Primary photo: secondary school student using GAVIS after onboarding."
+                },
+                {
+                  "label": "Supporting photo slot A",
+                  "caption": "Suggested photo: classroom pilot setup or headset handoff."
+                },
+                {
+                  "label": "Supporting photo slot B",
+                  "caption": "Suggested photo: student practicing hand tracking or pinch interaction."
+                }
+              ]
             }
           ],
           "detailMedia": [
@@ -334,7 +369,11 @@
               "src": "assets/projects/vislab-onboarding-pinch.mp4",
               "alt": "Vislab onboarding thumbnail"
             }
-          ]
+          ],
+          "visualBreakMedia": {
+            "label": "Walkthrough video slot",
+            "caption": "Reserved for the end-to-end use recording."
+          }
         }
       ],
       "contact": {

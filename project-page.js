@@ -18,17 +18,28 @@ const normalizeAssetPath = (path) => {
   return `../${path}`;
 };
 
+const escapeAttribute = (value = "") =>
+  String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
 const isVideoAsset = (path = "") => /\.(mp4|webm|mov)$/i.test(path);
 
 const renderMedia = (item, className = "") => {
   const src = normalizeAssetPath(item.src);
   const label = item.alt || item.title || "Project media";
+  const sizeAttributes = [item.width ? `width="${escapeAttribute(item.width)}"` : "", item.height ? `height="${escapeAttribute(item.height)}"` : ""]
+    .filter(Boolean)
+    .join(" ");
+  const dimensions = sizeAttributes ? ` ${sizeAttributes}` : "";
 
   if (isVideoAsset(src)) {
-    return `<video class="${className}" src="${src}" aria-label="${label}" autoplay muted loop playsinline controls></video>`;
+    return `<video class="${className}" src="${escapeAttribute(src)}" aria-label="${escapeAttribute(label)}"${dimensions} autoplay muted loop playsinline controls></video>`;
   }
 
-  return `<img class="${className}" src="${src}" alt="${label}" loading="lazy" />`;
+  return `<img class="${className}" src="${escapeAttribute(src)}" alt="${escapeAttribute(label)}"${dimensions} loading="lazy" />`;
 };
 
 const renderLogoSlot = (item) => {
@@ -83,39 +94,127 @@ const renderTimelineGhost = (timeline = [], label = "Project timeline") => {
   `;
 };
 
+const renderSectionObservation = (observation) => {
+  if (!observation) return "";
+
+  const label = typeof observation === "string" ? "Pilot observation" : observation.label || "Pilot observation";
+  const body = typeof observation === "string" ? observation : observation.body;
+
+  if (!body) return "";
+
+  return `
+    <aside class="project-section-observation">
+      <span>${label}</span>
+      <p>${body}</p>
+    </aside>
+  `;
+};
+
 const renderSectionMedia = (section) => {
-  const media = section.media || section.mediaSlot;
-  if (!media) return "";
+  const mediaItems = section.mediaSlots || section.mediaList || (section.media || section.mediaSlot ? [section.media || section.mediaSlot] : []);
+  const isImpactGallery = section.mediaLayout === "impact-gallery";
+  const observation = renderSectionObservation(section.observation);
 
-  const caption = media.caption ? `<figcaption>${media.caption}</figcaption>` : "";
+  if (!mediaItems.length && !observation) return "";
 
-  if (media.src) {
+  const renderMediaItem = (media, index) => {
+    const caption = media.caption ? `<figcaption>${media.caption}</figcaption>` : "";
+    const featuredClass = media.featured || (isImpactGallery && index === 0) ? " is-featured" : "";
+
+    if (media.src) {
+      const isContained = media.fit === "contain" || /\.svg$/i.test(media.src);
+      const src = normalizeAssetPath(media.src);
+      const label = media.alt || media.title || section.title || "Project media";
+      const canExpand = !isVideoAsset(src);
+      const mediaMarkup = renderMedia({ ...media, title: media.title || section.title }, "project-section-media-asset");
+
+      return `
+        <figure class="project-section-media${isContained ? " is-contained" : ""}${featuredClass}">
+          ${
+            canExpand
+              ? `<button class="project-media-open" type="button" data-project-media-open data-media-src="${escapeAttribute(src)}" data-media-alt="${escapeAttribute(label)}" aria-label="Open larger view: ${escapeAttribute(label)}">${mediaMarkup}<span>View larger</span></button>`
+              : mediaMarkup
+          }
+          ${caption}
+        </figure>
+      `;
+    }
+
     return `
-      <figure class="project-section-media">
-        ${renderMedia({ ...media, title: media.title || section.title }, "project-section-media-asset")}
+      <figure class="project-section-media is-placeholder${featuredClass}" aria-label="${media.label || "Project image slot"}">
+        <span>${media.label || "Image slot"}</span>
         ${caption}
       </figure>
+    `;
+  };
+
+  if (isImpactGallery) {
+    const leadMedia = mediaItems[0] ? renderMediaItem(mediaItems[0], 0) : "";
+    const supportingMedia = mediaItems
+      .slice(1)
+      .map((media, index) => renderMediaItem(media, index + 1))
+      .join("");
+
+    return `
+      <div class="project-section-media-list is-impact-gallery">
+        ${leadMedia}
+        ${observation}
+        ${supportingMedia}
+      </div>
     `;
   }
 
   return `
-    <figure class="project-section-media is-placeholder" aria-label="${media.label || "Project image slot"}">
-      <span>${media.label || "Image slot"}</span>
+    <div class="project-section-media-list${mediaItems.length > 1 ? " is-multi" : ""}">
+      ${mediaItems.map(renderMediaItem).join("")}
+    </div>
+  `;
+};
+
+const renderMediaDialog = () => `
+  <dialog class="project-media-dialog" data-project-media-dialog aria-label="Expanded project media">
+    <button class="project-media-dialog-close" type="button" data-project-media-dialog-close aria-label="Close image">Close</button>
+    <img alt="" data-project-media-dialog-image />
+  </dialog>
+`;
+
+const renderVisualBreakMedia = (media, project) => {
+  if (media?.src) {
+    return renderMedia({ ...media, title: project.title }, "project-visual-break-media");
+  }
+
+  const label = media?.label || "Project visual slot";
+  const caption = media?.caption ? `<figcaption>${media.caption}</figcaption>` : "";
+
+  return `
+    <figure class="project-visual-break-placeholder" aria-label="${label}">
+      <span>${label}</span>
       ${caption}
     </figure>
   `;
 };
 
-const renderSectionBlock = (section, index, labels = {}) => `
-  <section class="project-story-block">
+const renderSectionBlock = (section, index, labels = {}) => {
+  const sectionMedia = renderSectionMedia(section);
+  const mediaClasses = [
+    section.mediaLayout ? `has-${section.mediaLayout}` : "",
+    sectionMedia ? "has-wide-media" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const mediaLayoutClass = mediaClasses ? ` ${mediaClasses}` : "";
+
+  return `
+  <section class="project-story-block${mediaLayoutClass}">
     <p class="project-story-kicker">${section.kicker || `${labels.sectionFallbackLabel || "Part"} ${index + 1}`}</p>
     <div class="project-story-content">
       <h2>${section.title || labels.sectionTitleSlot || "Section title slot"}</h2>
       ${(section.body || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
-      ${renderSectionMedia(section)}
     </div>
+    ${sectionMedia}
   </section>
 `;
+};
 
 const renderProjectPage = (project, localeContent, locale) => {
   const root = document.querySelector("#project-detail");
@@ -140,6 +239,7 @@ const renderProjectPage = (project, localeContent, locale) => {
     .map((item) => `<figure>${renderMedia({ ...item, title: project.title })}</figure>`)
     .join("");
   const gallerySection = media.length > 1 ? `<section class="project-detail-gallery">${gallery}</section>` : "";
+  const storyLayoutClass = project.timeline?.length ? "has-timeline" : "has-no-timeline";
 
   root.innerHTML = `
     ${renderProjectHeader(localeContent)}
@@ -164,10 +264,10 @@ const renderProjectPage = (project, localeContent, locale) => {
       </section>
 
       <section class="project-visual-break" aria-label="${detailLabels.visualBreakLabel || "Project visual"}">
-        ${renderMedia({ ...visualBreakMedia, title: project.title }, "project-visual-break-media")}
+        ${renderVisualBreakMedia(visualBreakMedia, project)}
       </section>
 
-      <section class="project-story">
+      <section class="project-story ${storyLayoutClass}">
         ${renderTimelineGhost(project.timeline, detailLabels.timelineLabel || "Project timeline")}
         <div class="project-story-list">
           ${sectionBlocks.map((section, index) => renderSectionBlock(section, index, detailLabels)).join("")}
@@ -176,6 +276,7 @@ const renderProjectPage = (project, localeContent, locale) => {
 
       ${gallerySection}
     </article>
+    ${renderMediaDialog()}
   `;
 };
 
@@ -227,6 +328,40 @@ const startHeadingRevealObserver = () => {
   });
 };
 
+const startProjectMediaDialog = () => {
+  const dialog = document.querySelector("[data-project-media-dialog]");
+  if (!dialog || typeof dialog.showModal !== "function") return;
+
+  const image = dialog.querySelector("[data-project-media-dialog-image]");
+  const closeButton = dialog.querySelector("[data-project-media-dialog-close]");
+  const openButtons = document.querySelectorAll("[data-project-media-open]");
+  if (!image || !closeButton || !openButtons.length) return;
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      image.src = button.dataset.mediaSrc || "";
+      image.alt = button.dataset.mediaAlt || "";
+      dialog.showModal();
+      document.body.classList.add("has-media-dialog");
+      closeButton.focus({ preventScroll: true });
+    });
+  });
+
+  closeButton.addEventListener("click", () => dialog.close());
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  dialog.addEventListener("close", () => {
+    image.removeAttribute("src");
+    image.alt = "";
+    document.body.classList.remove("has-media-dialog");
+  });
+};
+
 const init = async () => {
   const response = await fetch(CONTENT_URL);
   const content = await response.json();
@@ -251,6 +386,7 @@ const init = async () => {
   renderProjectPage(project, localeContent, locale);
   startHeadingRevealObserver();
   startHeaderScrollBehavior();
+  startProjectMediaDialog();
 };
 
 init();
