@@ -39,6 +39,7 @@
     return {
       heading: firstPresent(rawOverview.heading, project.overviewHeading, project.detailHeading, project.summary),
       body,
+      points: toArray(rawOverview.points),
     };
   };
 

@@ -36,7 +36,7 @@ const renderMedia = (item, className = "") => {
   const dimensions = sizeAttributes ? ` ${sizeAttributes}` : "";
 
   if (isVideoAsset(src)) {
-    return `<video class="${className}" src="${escapeAttribute(src)}" aria-label="${escapeAttribute(label)}"${dimensions} autoplay muted loop playsinline controls></video>`;
+    return `<video class="${className}" src="${escapeAttribute(src)}" aria-label="${escapeAttribute(label)}"${dimensions} autoplay muted loop playsinline disablepictureinpicture></video>`;
   }
 
   return `<img class="${className}" src="${escapeAttribute(src)}" alt="${escapeAttribute(label)}"${dimensions} loading="lazy" />`;
@@ -208,6 +208,68 @@ const renderVisualBreakMedia = (media, project) => {
   `;
 };
 
+const renderProjectFacts = (facts = []) => {
+  const entries = Array.isArray(facts)
+    ? facts
+    : Object.entries(facts).map(([label, value]) => ({ label, value }));
+  const items = entries
+    .map((item) => {
+      const value = Array.isArray(item.value)
+        ? `
+          <ul class="project-fact-list">
+            ${item.value.map((line) => `<li>${escapeAttribute(line)}</li>`).join("")}
+          </ul>
+        `
+        : escapeAttribute(item.value);
+      return {
+        label: item.label,
+        value,
+      };
+    })
+    .filter((item) => item.label && item.value);
+
+  if (!items.length) return "";
+
+  return `
+    <dl class="project-facts" aria-label="Project facts">
+      ${items
+        .map(
+          (item) => `
+            <div class="project-fact">
+              <dt>${escapeAttribute(item.label)}</dt>
+              <dd>${item.value}</dd>
+            </div>
+          `
+        )
+        .join("")}
+    </dl>
+  `;
+};
+
+const renderOverviewPoints = (points = []) => {
+  if (!points.length) return "";
+
+  const renderPoint = (point) => {
+    const label = typeof point === "object" ? point.label : "";
+    const body = typeof point === "object" ? point.body : point;
+
+    if (!body) return "";
+
+    return `
+      <li>
+        ${label ? `<span class="project-overview-point-label">${escapeAttribute(label)}</span>` : ""}
+        <span class="project-overview-point-body">${escapeAttribute(body)}</span>
+      </li>
+    `;
+  };
+
+  return `
+    <ul class="project-overview-points">
+      ${points.map(renderPoint).join("")}
+    </ul>
+  `;
+};
+
 const renderSectionBlock = (section, index, labels = {}) => {
   const sectionMedia = renderSectionMedia(section);
   const mediaClasses = [
@@ -255,7 +317,10 @@ const renderProjectPage = (project, localeContent, locale) => {
         <a class="back-link" href="../index.html#projects">${detailLabels.backLabel || "Back to projects"}</a>
         <span class="project-meta">${[project.year, project.role].filter(Boolean).join(localeContent.projectsSection.metaSeparator)}</span>
         <h1>${project.title}</h1>
-        <p class="project-tagline">${project.tagline || detailLabels.taglineSlot || project.detailHeading || project.summary}</p>
+        <div class="project-hero-info">
+          ${renderProjectFacts(project.projectFacts)}
+          <p class="project-tagline">${project.tagline || detailLabels.taglineSlot || project.detailHeading || project.summary}</p>
+        </div>
       </header>
 
       <section class="project-detail-hero" aria-label="${project.mediaLabel || project.title}">
@@ -264,9 +329,10 @@ const renderProjectPage = (project, localeContent, locale) => {
 
       <section class="project-overview">
         <p class="project-overview-label">${detailLabels.overviewLabel || "Overview"}</p>
-        <div class="project-overview-copy">
+        <div class="project-overview-copy${overview.points?.length ? " has-points" : ""}">
           <h2>${overview.heading || project.detailHeading || project.summary}</h2>
-          <p>${overview.body || project.detailHeading || project.summary}</p>
+          <p class="project-overview-lead">${overview.body || project.detailHeading || project.summary}</p>
+          ${renderOverviewPoints(overview.points)}
         </div>
       </section>
 

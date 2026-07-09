@@ -7,7 +7,8 @@ Use `templates/projects/case-study-product-rnd.json` when adding a product or ap
 New projects should use these fields:
 
 - `coverMedia`: the homepage thumbnail and detail hero media.
-- `overview`: the first text section, with `heading` and `body`.
+- `projectFacts`: the small case-study facts under the masthead title, such as Client, Deliverables, Involvement, and Results. Use an array value when a fact should break into multiple short lines.
+- `overview`: the first text section, with `heading`, `body`, and optional `points` for short scannable proof statements. Use `{ "label": "...", "body": "..." }` points when the section needs a cleaner visual hierarchy.
 - `visualBreakMedia`: the large walkthrough/demo slot after the overview.
 - `story.timeline`: optional timeline data for projects that need institutional or phase markers.
 - `story.sections`: the repeatable case-study sections.
@@ -27,7 +28,7 @@ The renderer reads normalized project data. Legacy fields such as `cover`, `deta
 `case-study-product-rnd` already supports the preferred media rhythm without adding more layout types:
 
 1. Hero or cover media: `coverMedia`
-2. Short overview text: `overview.heading` and `overview.body`
+2. Short overview text: `overview.heading`, `overview.body`, and optional `overview.points`
 3. Full-width walkthrough or showreel: `visualBreakMedia`
 4. Text-with-media section: a `story.sections` item with `layout: "text-with-media"`
 5. Full-width diagram, screenshot, or video proof: another `text-with-media` section, with the proof media placed in `media`

@@ -157,6 +157,10 @@ Capsules are pill-shaped, compact, and technical. They should help recruiters an
 
 Project cards are media-first cold-paper objects with 6px corners, deep ink typography, concise uppercase metadata, and controlled hover lift. Real project imagery should remain the strongest visual signal.
 
+### Project Detail Facts
+
+Project detail pages may use a lightweight facts column under the masthead title for Client, Deliverables, Involvement, Results, or similar case-study metadata. Keep it typographic and rule-based, not card-like. Labels use title case and muted color; values stay regular weight. Multi-item values render as quiet line lists, not comma piles.
+
 ### Contact Links
 
 Contact links are pill actions with deep ink fills. Labels should be short and explicit, such as Email, GitHub, LinkedIn, or Portfolio PDF.

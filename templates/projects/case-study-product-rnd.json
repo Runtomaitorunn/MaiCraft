@@ -13,10 +13,46 @@
   "featured": false,
   "slug": "project-slug",
   "tagline": "One-sentence project hook for the masthead.",
+  "projectFacts": [
+    {
+      "label": "Client",
+      "value": "Client or partner name"
+    },
+    {
+      "label": "Deliverables",
+      "value": "Primary project deliverable"
+    },
+    {
+      "label": "Involvement",
+      "value": [
+        "Implementation responsibility",
+        "Design responsibility",
+        "Research responsibility"
+      ]
+    },
+    {
+      "label": "Results",
+      "value": "Launch status, pilot outcome, user result, or current project state"
+    }
+  ],
   "detailHeading": "A precise headline describing what the project achieved.",
   "overview": {
     "heading": "A short overview heading for the first text section.",
-    "body": "A compact overview paragraph that explains the project context, user, and outcome."
+    "body": "A compact overview paragraph that explains the project context, user, and outcome.",
+    "points": [
+      {
+        "label": "First capability",
+        "body": "Optional short point for a key user action, design choice, or implementation proof."
+      },
+      {
+        "label": "Second capability",
+        "body": "Optional short point for a second action, constraint, or result."
+      },
+      {
+        "label": "Third capability",
+        "body": "Optional short point for a third action, constraint, or result."
+      }
+    ]
   },
   "visualBreakMedia": [
     {

@@ -35,18 +35,18 @@
           <h1 id="hero-title" data-i18n="hero.title"></h1>
         </div>
 
-        <div class="hero-scroll-cue" data-i18n-attr="aria-label:hero.scrollCueAriaLabel">
-          <span class="scroll-cue-media" aria-hidden="true"></span>
-          <span data-i18n="hero.scrollCueText"></span>
-        </div>
+        <a class="hero-scroll-cue" href="#artist" data-i18n-attr="aria-label:hero.scrollCueAriaLabel">
+          <picture class="scroll-cue-media" aria-hidden="true">
+            <source srcset="assets/scroll-down-cue-static.svg" media="(prefers-reduced-motion: reduce)" />
+            <img src="assets/scroll-down-cue.svg" alt="" />
+          </picture>
+          <span class="scroll-cue-label" data-i18n="hero.scrollCueText"></span>
+        </a>
       </section>
 
       <section class="section artist-section reveal" id="artist">
         <p class="section-ghost rotate" data-i18n="artist.ghost"></p>
         <div class="artist-media">
-          <div class="media-stack base">
-            <span data-i18n="artist.processMediaLabel"></span>
-          </div>
           <div class="media-stack portrait">
             <img src="assets/dv.jpg" alt="" loading="lazy" data-i18n-attr="alt:artist.portraitAlt" />
           </div>
