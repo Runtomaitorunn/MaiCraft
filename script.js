@@ -235,24 +235,6 @@ const renderContactLinks = (links) => {
   });
 };
 
-const startRotatingText = (phrases) => {
-  const rotatingText = document.querySelector("#rotating-text");
-  if (!rotatingText || !phrases.length) return;
-
-  let phraseIndex = 0;
-  rotatingText.textContent = phrases[phraseIndex];
-
-  window.setInterval(() => {
-    rotatingText.classList.add("is-changing");
-
-    window.setTimeout(() => {
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      rotatingText.textContent = phrases[phraseIndex];
-      rotatingText.classList.remove("is-changing");
-    }, 280);
-  }, 3500);
-};
-
 const startRevealObserver = () => {
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -337,7 +319,6 @@ const renderSite = (localeContent, locale) => {
   renderProjects(localeContent.projects, localeContent.projectsSection.metaSeparator);
   renderContactLinks(localeContent.contact.links);
   window.PortfolioMedia?.startViewportVideoPlayback();
-  startRotatingText(localeContent.hero.rotatingPhrases);
   startRevealObserver();
   startHeadingRevealObserver();
   startHeaderScrollBehavior();

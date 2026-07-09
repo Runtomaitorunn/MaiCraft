@@ -311,29 +311,6 @@ h3 {
   font-weight: 300;
 }
 
-.rotating-line {
-  display: inline-block;
-  min-height: 1.4em;
-  padding: 8px 18px;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(24, 21, 32, 0.16);
-  border-radius: 6px;
-  font-family: var(--project-display-font);
-  font-size: clamp(1.5rem, 4vw, 3.2rem);
-  font-style: italic;
-}
-
-.rotating-line span {
-  display: inline-block;
-  transition: opacity 280ms ease, transform 280ms ease;
-}
-
-.rotating-line span.is-changing {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
 .heading-reveal {
   overflow: clip;
   padding-bottom: 0.08em;

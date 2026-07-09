@@ -36,12 +36,6 @@
         "mediaPlaceholder": "Hero reel placeholder",
         "kicker": "creative technologist / XR developer / Web developer",
         "title": "Ye Mai",
-        "rotatingPhrases": [
-          "VR interfaces.",
-          "Web systems.",
-          "Visual narratives.",
-          "Interactive experience."
-        ],
         "scrollCueText": "Scroll down",
         "scrollCueAriaLabel": "Scroll down to explore the portfolio"
       },
@@ -432,12 +426,6 @@
         "mediaPlaceholder": "中文占位：首页视频",
         "kicker": "中文占位：创意技术 / XR 开发 / Web 开发",
         "title": "中文占位",
-        "rotatingPhrases": [
-          "中文占位：VR 界面。",
-          "中文占位：Web 系统。",
-          "中文占位：视觉叙事。",
-          "中文占位：交互体验。"
-        ],
         "scrollCueText": "Scroll down",
         "scrollCueAriaLabel": "中文占位：向下滚动浏览作品集"
       },
