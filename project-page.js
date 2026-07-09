@@ -394,6 +394,7 @@ const init = async () => {
   const project = normalizeProject(rawProject);
 
   renderProjectPage(project, localeContent, locale);
+  window.PortfolioMedia?.startViewportVideoPlayback();
   startHeadingRevealObserver();
   startHeaderScrollBehavior();
   startProjectMediaDialog();

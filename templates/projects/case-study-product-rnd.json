@@ -21,7 +21,7 @@
   "visualBreakMedia": [
     {
       "src": "assets/projects/project-walkthrough.mp4",
-      "alt": "End-to-end walkthrough of the project"
+      "alt": "Full-width walkthrough or showreel of the project"
     }
   ],
   "story": {
@@ -29,7 +29,7 @@
     "sections": [
       {
         "kicker": "Problem",
-        "title": "What needed to change",
+        "title": "What the user needed",
         "layout": "text-only",
         "body": [
           "Describe the starting context, user pain, missing capability, or design constraint."
@@ -37,10 +37,10 @@
       },
       {
         "kicker": "Strategy",
-        "title": "How the work was structured",
+        "title": "How the path was structured",
         "layout": "text-with-media",
         "body": [
-          "Explain the design or technical strategy in one or two paragraphs."
+          "Explain the design or technical strategy in one or two paragraphs, then support it with a flow, diagram, screenshot, or system map."
         ],
         "media": [
           {
@@ -52,11 +52,11 @@
         ]
       },
       {
-        "kicker": "Implementation",
-        "title": "What was built",
+        "kicker": "Proof",
+        "title": "What the build looks like in use",
         "layout": "text-with-media",
         "body": [
-          "Describe the implementation work, technical decisions, and craft details."
+          "Describe the implementation work, technical decisions, or craft details, then show the clearest full-width proof image or video."
         ],
         "media": [
           {

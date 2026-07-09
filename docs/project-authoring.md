@@ -22,6 +22,19 @@ The renderer reads normalized project data. Legacy fields such as `cover`, `deta
 
 `evidence-stack` means text followed by a main evidence image or video, a short note, and supporting media. Use it for impact, pilot results, user feedback, field observations, or exhibition evidence.
 
+## Recommended Case Rhythm
+
+`case-study-product-rnd` already supports the preferred media rhythm without adding more layout types:
+
+1. Hero or cover media: `coverMedia`
+2. Short overview text: `overview.heading` and `overview.body`
+3. Full-width walkthrough or showreel: `visualBreakMedia`
+4. Text-with-media section: a `story.sections` item with `layout: "text-with-media"`
+5. Full-width diagram, screenshot, or video proof: another `text-with-media` section, with the proof media placed in `media`
+6. Impact section with one large lead photo/video and supporting evidence: `layout: "evidence-stack"`
+
+This keeps the authoring interface small. The renderer only needs the stable section layouts, while the template guides the narrative order.
+
 ## Adding A Project
 
 1. Copy `templates/projects/case-study-product-rnd.json`.

@@ -336,6 +336,7 @@ const renderSite = (localeContent, locale) => {
   renderSkills(localeContent.skills.items);
   renderProjects(localeContent.projects, localeContent.projectsSection.metaSeparator);
   renderContactLinks(localeContent.contact.links);
+  window.PortfolioMedia?.startViewportVideoPlayback();
   startRotatingText(localeContent.hero.rotatingPhrases);
   startRevealObserver();
   startHeadingRevealObserver();
