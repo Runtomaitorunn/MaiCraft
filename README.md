@@ -37,7 +37,7 @@ Use `templates/projects/case-study-product-rnd.json` when adding a product or
 applied R&D case study. The authoring guide lives in
 `docs/project-authoring.md`.
 
-Add project cover images to `assets/projects/`, then update the `projects`
+Add project cover images to `assets/projects/<project-slug>/`, then update the `projects`
 array inside `data/content.json`:
 
 ```json
@@ -47,7 +47,7 @@ array inside `data/content.json`:
   "role": "Creative Technologist",
   "summary": "One or two short sentences about the project.",
   "coverMedia": {
-    "src": "assets/projects/project-cover.jpg",
+    "src": "assets/projects/project-slug/project-cover.jpg",
     "alt": "Project cover image"
   },
   "mediaLabel": "Project media",
@@ -61,6 +61,6 @@ Use `"featured": true` for the large two-column project cards. Use
 
 ## Hero media
 
-When ready, add a short muted reel at `assets/hero.mp4`, then add
-`src="assets/hero.mp4"` to the hero video in `index.html`. The current page uses
+When ready, add a short muted reel at `assets/hero/hero.mp4`, then add
+`src="assets/hero/hero.mp4"` to the hero video in `index.html`. The current page uses
 a styled placeholder until real media is connected.

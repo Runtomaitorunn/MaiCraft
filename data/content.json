@@ -151,7 +151,7 @@
           "year": "2026",
           "role": "Art Direction / Visual Narrative",
           "summary": "A noir visual system for a tabletop mystery experience, shaped through bold interface layouts, character art, and evidence-style story materials.",
-          "cover": "assets/projects/qianfan-one-scroll-cover.png",
+          "cover": "assets/projects/qianfan-one-scroll/cover.png",
           "alt": "Qianfan One Scroll cover mockup with Chinese title, tabletop map, red annotation, and illustrated characters",
           "mediaLabel": "Visual narrative media",
           "link": "projects/qianfan-one-scroll.html",
@@ -164,7 +164,7 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/qianfan-one-scroll-cover.png",
+              "src": "assets/projects/qianfan-one-scroll/cover.png",
               "alt": "Qianfan One Scroll cover mockup"
             }
           ]
@@ -175,7 +175,7 @@
           "role": "VR R&D project / HCI Research Thesis",
           "summary": "A hackathon VR heritage prototype developed into a research thesis on virtual artifact interaction and memory retention.",
           "coverMedia": {
-            "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
+            "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
           },
           "mediaLabel": "Exhibition render",
@@ -233,13 +233,13 @@
           },
           "detailMedia": [
             {
-              "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
+              "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
               "alt": "Midnight at the Pagoda rendered scene"
             }
           ],
           "visualBreakMedia": [
             {
-              "src": "assets/projects/pagoda-midnight-exhibition.png",
+              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
               "alt": "Midnight at the Pagoda exhibition proposal visual"
             }
           ],
@@ -247,17 +247,17 @@
             "timeline": [
               {
                 "period": "May-Jul 2024",
-                "logo": "assets/projects/logos/digital-heritage-logo-ink.png",
+                "logo": "assets/logos/institutions/digital-heritage-logo-ink.png",
                 "logoAlt": "Digital Heritage Hackathon logo"
               },
               {
                 "period": "Aug-Sep 2024",
-                "logo": "assets/projects/logos/goldsmiths-logo.svg",
+                "logo": "assets/logos/institutions/goldsmiths-logo.svg",
                 "logoAlt": "Goldsmiths logo"
               },
               {
                 "period": "Jun 2026",
-                "logo": "assets/projects/logos/sjtu-emblem-ink.png",
+                "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
                 "logoAlt": "Shanghai Jiao Tong University emblem"
               }
             ],
@@ -328,7 +328,7 @@
           "year": "2026",
           "role": "VR R&D project / app Development",
           "summary": "A Unity onboarding scene that teaches students VR gestures, safety, and hand-tracking flow before they enter the classroom English app.",
-          "cover": "assets/projects/vislab-onboarding-showreel.mp4",
+          "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "XR onboarding demo",
           "link": "projects/vislab-onboarding-panel.html",
@@ -398,7 +398,7 @@
                 "That turns onboarding into a capability arc: understand GAVIS, put down controllers, use hands, practice pinch with the UI button, read the safety notice, then enter the app."
               ],
               "mediaSlot": {
-                "src": "assets/projects/onboarding-self-guided-user-flow.svg",
+                "src": "assets/projects/vislab-onboarding-panel/self-guided-user-flow.svg",
                 "alt": "Self-guided onboarding user-flow UML",
                 "width": 1400,
                 "height": 760
@@ -412,7 +412,7 @@
                 "For the pinch target step, success is visible, audible, and spatial: target guidance, hand animation, success audio, VFX at the pinch position, UI state, and panel progression."
               ],
               "mediaSlot": {
-                "src": "assets/projects/onboarding-condition-gated-progression-flow.svg",
+                "src": "assets/projects/vislab-onboarding-panel/condition-gated-progression-flow.svg",
                 "alt": "Condition-gated onboarding progression flow diagram",
                 "width": 1400,
                 "height": 760
@@ -427,17 +427,17 @@
               ],
               "mediaSlots": [
                 {
-                  "src": "assets/projects/onboarding-animation-production-pipeline.svg",
+                  "src": "assets/projects/vislab-onboarding-panel/animation-production-pipeline.svg",
                   "alt": "Onboarding gesture animation production pipeline diagram",
                   "width": 1400,
                   "height": 780
                 },
                 {
-                  "src": "assets/projects/vislab-onboarding-off-controller-animation.mp4",
+                  "src": "assets/projects/vislab-onboarding-panel/off-controller-animation.mp4",
                   "alt": "Controller-down guidance animation running in the onboarding scene"
                 },
                 {
-                  "src": "assets/projects/vislab-onboarding-pinch-animation.mp4",
+                  "src": "assets/projects/vislab-onboarding-panel/pinch-animation.mp4",
                   "alt": "Pinch guidance animation running in the onboarding scene"
                 }
               ]
@@ -456,14 +456,14 @@
               },
               "mediaSlots": [
                 {
-                  "src": "assets/projects/vislab-onboarding-user-study-2.jpg",
+                  "src": "assets/projects/vislab-onboarding-panel/user-study-2.jpg",
                   "alt": "Secondary school students participating in the GAVIS onboarding pilot study",
                   "width": 4096,
                   "height": 3072,
                   "caption": "Pilot test with secondary school students using GAVIS after onboarding."
                 },
                 {
-                  "src": "assets/projects/vislab-onboarding-user-study-1.jpg",
+                  "src": "assets/projects/vislab-onboarding-panel/user-study-1.jpg",
                   "alt": "A secondary school student using a VR headset during the GAVIS onboarding pilot",
                   "width": 4096,
                   "height": 3072,
@@ -474,13 +474,13 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/vislab-onboarding-showreel.mp4",
+              "src": "assets/projects/vislab-onboarding-panel/showreel.mp4",
               "alt": "GAVIS onboarding showreel video"
             }
           ],
           "visualBreakMedia": [
             {
-              "src": "assets/projects/vislab-onboarding-walkthrough.mp4",
+              "src": "assets/projects/vislab-onboarding-panel/walkthrough.mp4",
               "alt": "End-to-end GAVIS onboarding walkthrough video"
             }
           ]
@@ -645,7 +645,7 @@
           "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "assets/projects/qianfan-one-scroll-cover.png",
+          "cover": "assets/projects/qianfan-one-scroll/cover.png",
           "alt": "Qianfan One Scroll cover mockup with Chinese title, tabletop map, red annotation, and illustrated characters",
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/qianfan-one-scroll.html",
@@ -658,7 +658,7 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/qianfan-one-scroll-cover.png",
+              "src": "assets/projects/qianfan-one-scroll/cover.png",
               "alt": "Qianfan One Scroll cover mockup"
             }
           ]
@@ -669,7 +669,7 @@
           "role": "VR 应用 / HCI 研究论文",
           "summary": "一个从文化遗产 hackathon VR 原型发展成研究论文的项目，关注虚拟文物交互与记忆保持。",
           "coverMedia": {
-            "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
+            "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
           },
           "mediaLabel": "展陈渲染",
@@ -727,13 +727,13 @@
           },
           "detailMedia": [
             {
-              "src": "assets/projects/midnight-at-the-pagoda-floor1.png",
+              "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
               "alt": "Midnight at the Pagoda rendered scene"
             }
           ],
           "visualBreakMedia": [
             {
-              "src": "assets/projects/pagoda-midnight-exhibition.png",
+              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
               "alt": "Midnight at the Pagoda exhibition proposal visual"
             }
           ],
@@ -741,17 +741,17 @@
             "timeline": [
               {
                 "period": "2024年5-7月",
-                "logo": "assets/projects/logos/digital-heritage-logo-ink.png",
+                "logo": "assets/logos/institutions/digital-heritage-logo-ink.png",
                 "logoAlt": "Digital Heritage Hackathon logo"
               },
               {
                 "period": "2024年8-9月",
-                "logo": "assets/projects/logos/goldsmiths-logo.svg",
+                "logo": "assets/logos/institutions/goldsmiths-logo.svg",
                 "logoAlt": "Goldsmiths logo"
               },
               {
                 "period": "2026年6月",
-                "logo": "assets/projects/logos/sjtu-emblem-ink.png",
+                "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
                 "logoAlt": "上海交通大学校徽"
               }
             ],
@@ -822,7 +822,7 @@
           "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "assets/projects/vislab-onboarding-showreel.mp4",
+          "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/vislab-onboarding-panel.html",
@@ -835,7 +835,7 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/vislab-onboarding-showreel.mp4",
+              "src": "assets/projects/vislab-onboarding-panel/showreel.mp4",
               "alt": "GAVIS onboarding showreel video"
             }
           ]

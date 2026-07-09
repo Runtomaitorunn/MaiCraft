@@ -5,7 +5,7 @@
   "role": "XR Interaction / UI Development",
   "summary": "One concise sentence for the homepage project card.",
   "coverMedia": {
-    "src": "assets/projects/project-cover.mp4",
+    "src": "assets/projects/project-slug/project-cover.mp4",
     "alt": "Short description of the project cover media"
   },
   "mediaLabel": "Project demo",
@@ -56,7 +56,7 @@
   },
   "visualBreakMedia": [
     {
-      "src": "assets/projects/project-walkthrough.mp4",
+      "src": "assets/projects/project-slug/project-walkthrough.mp4",
       "alt": "Full-width walkthrough or showreel of the project"
     }
   ],
@@ -80,7 +80,7 @@
         ],
         "media": [
           {
-            "src": "assets/projects/project-flow.svg",
+            "src": "assets/projects/project-slug/project-flow.svg",
             "alt": "Diagram showing the project flow",
             "width": 1400,
             "height": 760
@@ -96,7 +96,7 @@
         ],
         "media": [
           {
-            "src": "assets/projects/project-demo.mp4",
+            "src": "assets/projects/project-slug/project-demo.mp4",
             "alt": "Video showing the implemented interaction"
           }
         ]
@@ -114,12 +114,12 @@
         },
         "media": [
           {
-            "src": "assets/projects/project-pilot-main.jpg",
+            "src": "assets/projects/project-slug/project-pilot-main.jpg",
             "alt": "Main evidence image from the pilot or field use",
             "caption": "Main evidence caption."
           },
           {
-            "src": "assets/projects/project-pilot-supporting.jpg",
+            "src": "assets/projects/project-slug/project-pilot-supporting.jpg",
             "alt": "Supporting evidence image from the pilot or field use",
             "caption": "Supporting evidence caption."
           }

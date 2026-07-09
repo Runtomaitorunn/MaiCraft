@@ -42,7 +42,7 @@ This keeps the authoring interface small. The renderer only needs the stable sec
 2. Replace the placeholder copy and media paths.
 3. Add the project object to `data/content.json`.
 4. Add a shell file under `projects/` with `data-project-slug` matching the project `slug`.
-5. Keep media paths under `assets/projects/`.
+5. Keep media paths under `assets/projects/<project-slug>/`.
 
 Before publishing, run:
 

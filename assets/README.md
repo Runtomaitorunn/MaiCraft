@@ -1,11 +1,9 @@
-Place shared portfolio media here.
+Place portfolio media here.
 
-Suggested files:
+Folders:
 
-- hero.mp4
-- hero-poster.jpg
-- portrait.jpg
-- process.gif
-- contact.gif
-
-Project covers should go in assets/projects/.
+- `brand/`: favicon and site identity assets.
+- `hero/`: homepage reel, poster, and scroll cue media.
+- `portraits/`: artist portraits and profile photos.
+- `logos/institutions/`: partner, school, and institution marks.
+- `projects/<project-slug>/`: project-specific covers, diagrams, photos, and videos.
