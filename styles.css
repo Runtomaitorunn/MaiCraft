@@ -914,6 +914,15 @@ h3 {
   border: 1px solid var(--noomo-line);
 }
 
+.project-visual-break-list {
+  display: grid;
+  gap: clamp(18px, 3vw, 34px);
+}
+
+.project-visual-break-item {
+  margin: 0;
+}
+
 .project-visual-break-media {
   width: 100%;
   height: auto;

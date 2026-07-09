@@ -111,15 +111,15 @@ const renderSectionObservation = (observation) => {
 };
 
 const renderSectionMedia = (section) => {
-  const mediaItems = section.mediaSlots || section.mediaList || (section.media || section.mediaSlot ? [section.media || section.mediaSlot] : []);
-  const isImpactGallery = section.mediaLayout === "impact-gallery";
-  const observation = renderSectionObservation(section.observation);
+  const mediaItems = section.media || [];
+  const isEvidenceStack = section.layout === "evidence-stack";
+  const observation = renderSectionObservation(section.note);
 
   if (!mediaItems.length && !observation) return "";
 
   const renderMediaItem = (media, index) => {
     const caption = media.caption ? `<figcaption>${media.caption}</figcaption>` : "";
-    const featuredClass = media.featured || (isImpactGallery && index === 0) ? " is-featured" : "";
+    const featuredClass = media.featured || (isEvidenceStack && index === 0) ? " is-featured" : "";
 
     if (media.src) {
       const isContained = media.fit === "contain" || /\.svg$/i.test(media.src);
@@ -148,7 +148,7 @@ const renderSectionMedia = (section) => {
     `;
   };
 
-  if (isImpactGallery) {
+  if (isEvidenceStack) {
     const leadMedia = mediaItems[0] ? renderMediaItem(mediaItems[0], 0) : "";
     const supportingMedia = mediaItems
       .slice(1)
@@ -178,26 +178,40 @@ const renderMediaDialog = () => `
   </dialog>
 `;
 
-const renderVisualBreakMedia = (media, project) => {
+const renderVisualBreakItem = (media, project) => {
   if (media?.src) {
-    return renderMedia({ ...media, title: project.title }, "project-visual-break-media");
+    return `
+      <figure class="project-visual-break-item">
+        ${renderMedia({ ...media, title: project.title }, "project-visual-break-media")}
+      </figure>
+    `;
   }
 
   const label = media?.label || "Project visual slot";
   const caption = media?.caption ? `<figcaption>${media.caption}</figcaption>` : "";
 
   return `
-    <figure class="project-visual-break-placeholder" aria-label="${label}">
+    <figure class="project-visual-break-placeholder project-visual-break-item" aria-label="${label}">
       <span>${label}</span>
       ${caption}
     </figure>
   `;
 };
 
+const renderVisualBreakMedia = (media, project) => {
+  const mediaItems = Array.isArray(media) ? media : [media];
+
+  return `
+    <div class="project-visual-break-list${mediaItems.length > 1 ? " is-multi" : ""}">
+      ${mediaItems.map((item) => renderVisualBreakItem(item, project)).join("")}
+    </div>
+  `;
+};
+
 const renderSectionBlock = (section, index, labels = {}) => {
   const sectionMedia = renderSectionMedia(section);
   const mediaClasses = [
-    section.mediaLayout ? `has-${section.mediaLayout}` : "",
+    section.layout ? `has-${section.layout}` : "",
     sectionMedia ? "has-wide-media" : "",
   ]
     .filter(Boolean)
@@ -224,17 +238,10 @@ const renderProjectPage = (project, localeContent, locale) => {
   document.title = `${project.title} | ${localeContent.brand.name}`;
 
   const detailLabels = localeContent.projectDetail || {};
-  const detailBody = project.detailBody || [];
-  const overview = project.overview || detailBody[0] || project.detailHeading || project.summary;
-  const sectionBlocks = project.detailSections?.length
-    ? project.detailSections
-    : detailBody.slice(1).map((paragraph, index) => ({
-        kicker: `${detailLabels.sectionFallbackLabel || "Part"} ${index + 1}`,
-        title: detailLabels.sectionTitleSlot || "Section title slot",
-        body: [paragraph],
-      }));
-  const media = project.detailMedia?.length ? project.detailMedia : [{ src: project.cover, alt: project.alt }];
-  const visualBreakMedia = project.visualBreakMedia || media[1] || media[0] || { src: project.cover, alt: project.alt };
+  const overview = project.overview || {};
+  const sectionBlocks = project.detailSections || [];
+  const media = project.detailMedia || [project.coverMedia].filter(Boolean);
+  const visualBreakMedia = project.visualBreakMedia || media[1] || media[0] || project.coverMedia;
   const gallery = media
     .map((item) => `<figure>${renderMedia({ ...item, title: project.title })}</figure>`)
     .join("");
@@ -252,14 +259,14 @@ const renderProjectPage = (project, localeContent, locale) => {
       </header>
 
       <section class="project-detail-hero" aria-label="${project.mediaLabel || project.title}">
-        ${renderMedia({ src: project.cover, alt: project.alt, title: project.title }, "project-detail-cover")}
+        ${renderMedia({ ...project.coverMedia, title: project.title }, "project-detail-cover")}
       </section>
 
       <section class="project-overview">
         <p class="project-overview-label">${detailLabels.overviewLabel || "Overview"}</p>
         <div class="project-overview-copy">
-          <h2>${project.overviewHeading || project.detailHeading || project.summary}</h2>
-          <p>${overview}</p>
+          <h2>${overview.heading || project.detailHeading || project.summary}</h2>
+          <p>${overview.body || project.detailHeading || project.summary}</p>
         </div>
       </section>
 
@@ -368,9 +375,9 @@ const init = async () => {
   const locale = getRequestedLocale(content);
   const localeContent = content.locales[locale];
   const slug = document.body.dataset.projectSlug;
-  const project = localeContent.projects.find((item) => item.slug === slug);
+  const rawProject = localeContent.projects.find((item) => item.slug === slug);
 
-  if (!project) {
+  if (!rawProject) {
     document.querySelector("#project-detail").innerHTML = `
       ${renderProjectHeader(localeContent)}
       <header class="project-detail-masthead">
@@ -382,6 +389,9 @@ const init = async () => {
     startHeaderScrollBehavior();
     return;
   }
+
+  const normalizeProject = window.ProjectAuthoring?.normalizeProject || ((item) => item);
+  const project = normalizeProject(rawProject);
 
   renderProjectPage(project, localeContent, locale);
   startHeadingRevealObserver();

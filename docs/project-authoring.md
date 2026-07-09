@@ -1,0 +1,33 @@
+# Project Authoring
+
+Use `templates/projects/case-study-product-rnd.json` when adding a product or applied R&D case study: a real problem, a design or technical strategy, implementation evidence, and field or pilot impact.
+
+## Authoring Interface
+
+New projects should use these fields:
+
+- `coverMedia`: the homepage thumbnail and detail hero media.
+- `overview`: the first text section, with `heading` and `body`.
+- `visualBreakMedia`: the large walkthrough/demo slot after the overview.
+- `story.timeline`: optional timeline data for projects that need institutional or phase markers.
+- `story.sections`: the repeatable case-study sections.
+
+The renderer reads normalized project data. Legacy fields such as `cover`, `detailSections`, `mediaSlot`, `mediaSlots`, `mediaList`, `mediaLayout`, and `observation` are still supported by `project-authoring.js`, but new projects should avoid them.
+
+## Story Layouts
+
+`text-only` means text only. Use it for context, problem framing, or short reflective sections.
+
+`text-with-media` means text followed by one or more images, videos, or diagrams. Use it for process, strategy, interaction, tooling, and implementation sections.
+
+`evidence-stack` means text followed by a main evidence image or video, a short note, and supporting media. Use it for impact, pilot results, user feedback, field observations, or exhibition evidence.
+
+## Adding A Project
+
+1. Copy `templates/projects/case-study-product-rnd.json`.
+2. Replace the placeholder copy and media paths.
+3. Add the project object to `data/content.json`.
+4. Add a shell file under `projects/` with `data-project-slug` matching the project `slug`.
+5. Keep media paths under `assets/projects/`.
+
+Validation is a later module. Until then, check JSON syntax and open both the homepage and the detail page after adding a project.

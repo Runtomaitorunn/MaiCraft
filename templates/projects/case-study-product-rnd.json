@@ -1,0 +1,94 @@
+{
+  "_template": "case-study-product-rnd",
+  "title": "Project title",
+  "year": "2026",
+  "role": "XR Interaction / UI Development",
+  "summary": "One concise sentence for the homepage project card.",
+  "coverMedia": {
+    "src": "assets/projects/project-cover.mp4",
+    "alt": "Short description of the project cover media"
+  },
+  "mediaLabel": "Project demo",
+  "link": "projects/project-slug.html",
+  "featured": false,
+  "slug": "project-slug",
+  "tagline": "One-sentence project hook for the masthead.",
+  "detailHeading": "A precise headline describing what the project achieved.",
+  "overview": {
+    "heading": "A short overview heading for the first text section.",
+    "body": "A compact overview paragraph that explains the project context, user, and outcome."
+  },
+  "visualBreakMedia": [
+    {
+      "src": "assets/projects/project-walkthrough.mp4",
+      "alt": "End-to-end walkthrough of the project"
+    }
+  ],
+  "story": {
+    "timeline": [],
+    "sections": [
+      {
+        "kicker": "Problem",
+        "title": "What needed to change",
+        "layout": "text-only",
+        "body": [
+          "Describe the starting context, user pain, missing capability, or design constraint."
+        ]
+      },
+      {
+        "kicker": "Strategy",
+        "title": "How the work was structured",
+        "layout": "text-with-media",
+        "body": [
+          "Explain the design or technical strategy in one or two paragraphs."
+        ],
+        "media": [
+          {
+            "src": "assets/projects/project-flow.svg",
+            "alt": "Diagram showing the project flow",
+            "width": 1400,
+            "height": 760
+          }
+        ]
+      },
+      {
+        "kicker": "Implementation",
+        "title": "What was built",
+        "layout": "text-with-media",
+        "body": [
+          "Describe the implementation work, technical decisions, and craft details."
+        ],
+        "media": [
+          {
+            "src": "assets/projects/project-demo.mp4",
+            "alt": "Video showing the implemented interaction"
+          }
+        ]
+      },
+      {
+        "kicker": "Impact",
+        "title": "What changed after launch",
+        "layout": "evidence-stack",
+        "body": [
+          "Describe the outcome, field use, pilot result, feedback, or measurable change."
+        ],
+        "note": {
+          "label": "Observation",
+          "body": "One strong evidence sentence from user feedback, field testing, or project results."
+        },
+        "media": [
+          {
+            "src": "assets/projects/project-pilot-main.jpg",
+            "alt": "Main evidence image from the pilot or field use",
+            "caption": "Main evidence caption."
+          },
+          {
+            "src": "assets/projects/project-pilot-supporting.jpg",
+            "alt": "Supporting evidence image from the pilot or field use",
+            "caption": "Supporting evidence caption."
+          }
+        ]
+      }
+    ]
+  }
+}

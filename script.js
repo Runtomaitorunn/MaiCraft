@@ -202,7 +202,9 @@ const renderProjects = (projects, separator) => {
   featuredContainer.replaceChildren();
   gridContainer.replaceChildren();
 
-  projects.forEach((project) => {
+  const normalizeProject = window.ProjectAuthoring?.normalizeProject || ((item) => item);
+
+  projects.map(normalizeProject).forEach((project) => {
     const card = createProjectCard(project, separator);
 
     if (project.featured) {

@@ -33,8 +33,12 @@ server instead of double-clicking the HTML file.
 
 ## Replace project cards
 
-Add project cover images to `assets/projects/`, then update
-the `projects` array inside `data/content.json`:
+Use `templates/projects/case-study-product-rnd.json` when adding a product or
+applied R&D case study. The authoring guide lives in
+`docs/project-authoring.md`.
+
+Add project cover images to `assets/projects/`, then update the `projects`
+array inside `data/content.json`:
 
 ```json
 {
@@ -42,7 +46,10 @@ the `projects` array inside `data/content.json`:
   "year": "2026",
   "role": "Creative Technologist",
   "summary": "One or two short sentences about the project.",
-  "cover": "assets/projects/project-cover.jpg",
+  "coverMedia": {
+    "src": "assets/projects/project-cover.jpg",
+    "alt": "Project cover image"
+  },
   "mediaLabel": "Project media",
   "link": "https://example.com",
   "featured": true

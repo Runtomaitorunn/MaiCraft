@@ -253,8 +253,8 @@
           "year": "2026",
           "role": "XR Interaction / UI Development",
           "summary": "Teaching the Body Language of a VR Learning App",
-          "cover": "assets/projects/vislab-onboarding-pinch.mp4",
-          "alt": "GAVIS onboarding thumbnail with VR headset user and floating video panel",
+          "cover": "assets/projects/vislab-onboarding-showreel.mp4",
+          "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "XR onboarding demo",
           "link": "projects/vislab-onboarding-panel.html",
           "featured": false,
@@ -274,11 +274,7 @@
               "body": [
                 "Before the onboarding scene was implemented, students went straight to login in a shared classroom headset. Without staff beside them, many did not know what GAVIS expected, when to put down controllers, how to pinch, or which safety notice applied to the classroom setup.",
                 "A passive instruction video could explain the idea, but an interactive onboarding panel fit VR better: learners could rehearse the same gestures and UI actions they would use in the app, making the first-use path more direct and intuitive."
-              ],
-              "mediaSlot": {
-                "label": "Slot 1 / before-after flow",
-                "caption": "Suggested visual: headset on -> guided onboarding -> validated interaction -> login."
-              }
+              ]
             },
             {
               "kicker": "Strategy",
@@ -323,16 +319,12 @@
                   "height": 780
                 },
                 {
-                  "label": "MP4 / GIF slot 4A",
-                  "caption": "Suggested visual: Play Mode hand or controller motion recording."
+                  "src": "assets/projects/vislab-onboarding-off-controller-animation.mp4",
+                  "alt": "Controller-down guidance animation running in the onboarding scene"
                 },
                 {
-                  "label": "MP4 / GIF slot 4B",
-                  "caption": "Suggested visual: pinch animation preview or baked clip playback."
-                },
-                {
-                  "label": "MP4 / GIF slot 4C",
-                  "caption": "Suggested visual: controller-down guidance running in the onboarding scene."
+                  "src": "assets/projects/vislab-onboarding-pinch-animation.mp4",
+                  "alt": "Pinch guidance animation running in the onboarding scene"
                 }
               ]
             },
@@ -350,30 +342,34 @@
               },
               "mediaSlots": [
                 {
-                  "label": "Pilot photo slot",
-                  "caption": "Primary photo: secondary school student using GAVIS after onboarding."
+                  "src": "assets/projects/vislab-onboarding-user-study-2.jpg",
+                  "alt": "Secondary school students participating in the GAVIS onboarding pilot study",
+                  "width": 4096,
+                  "height": 3072,
+                  "caption": "Pilot test with secondary school students using GAVIS after onboarding."
                 },
                 {
-                  "label": "Supporting photo slot A",
-                  "caption": "Suggested photo: classroom pilot setup or headset handoff."
-                },
-                {
-                  "label": "Supporting photo slot B",
-                  "caption": "Suggested photo: student practicing hand tracking or pinch interaction."
+                  "src": "assets/projects/vislab-onboarding-user-study-1.jpg",
+                  "alt": "A secondary school student using a VR headset during the GAVIS onboarding pilot",
+                  "width": 4096,
+                  "height": 3072,
+                  "caption": "Classroom pilot evidence from the first-use onboarding study."
                 }
               ]
             }
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/vislab-onboarding-pinch.mp4",
-              "alt": "Vislab onboarding thumbnail"
+              "src": "assets/projects/vislab-onboarding-showreel.mp4",
+              "alt": "GAVIS onboarding showreel video"
             }
           ],
-          "visualBreakMedia": {
-            "label": "Walkthrough video slot",
-            "caption": "Reserved for the end-to-end use recording."
-          }
+          "visualBreakMedia": [
+            {
+              "src": "assets/projects/vislab-onboarding-walkthrough.mp4",
+              "alt": "End-to-end GAVIS onboarding walkthrough video"
+            }
+          ]
         }
       ],
       "contact": {
@@ -605,8 +601,8 @@
           "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "assets/projects/vislab-onboarding-pinch.mp4",
-          "alt": "GAVIS onboarding thumbnail with VR headset user and floating video panel",
+          "cover": "assets/projects/vislab-onboarding-showreel.mp4",
+          "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/vislab-onboarding-panel.html",
           "featured": false,
@@ -618,8 +614,8 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/vislab-onboarding-pinch.mp4",
-              "alt": "Vislab onboarding thumbnail"
+              "src": "assets/projects/vislab-onboarding-showreel.mp4",
+              "alt": "GAVIS onboarding showreel video"
             }
           ]
         }
