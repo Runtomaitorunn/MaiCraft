@@ -30,4 +30,10 @@ The renderer reads normalized project data. Legacy fields such as `cover`, `deta
 4. Add a shell file under `projects/` with `data-project-slug` matching the project `slug`.
 5. Keep media paths under `assets/projects/`.
 
-Validation is a later module. Until then, check JSON syntax and open both the homepage and the detail page after adding a project.
+Before publishing, run:
+
+```bash
+node scripts/prepublish-check.js
+```
+
+This only checks issues that are easy to miss locally: JSON syntax, missing media files, path casing mismatches, and missing media alt text.
