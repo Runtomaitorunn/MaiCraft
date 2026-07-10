@@ -151,8 +151,8 @@
           "year": "2026",
           "role": "Art Direction / Visual Narrative",
           "summary": "A noir visual system for a tabletop mystery experience, shaped through bold interface layouts, character art, and evidence-style story materials.",
-          "cover": "assets/projects/qianfan-one-scroll/cover.png",
-          "alt": "Qianfan One Scroll cover mockup with Chinese title, tabletop map, red annotation, and illustrated characters",
+          "cover": "assets/projects/qianfan-one-scroll/cover.webp",
+          "alt": "Illustrated orange-haired investigator holding a magnifying glass against a crumpled paper background",
           "mediaLabel": "Visual narrative media",
           "link": "projects/qianfan-one-scroll.html",
           "featured": false,
@@ -164,8 +164,8 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/qianfan-one-scroll/cover.png",
-              "alt": "Qianfan One Scroll cover mockup"
+              "src": "assets/projects/qianfan-one-scroll/cover.webp",
+              "alt": "Illustrated orange-haired investigator holding a magnifying glass against a crumpled paper background"
             }
           ]
         },
@@ -645,8 +645,8 @@
           "year": "2026",
           "role": "中文占位：角色",
           "summary": "中文占位：这里将来填写项目简介。",
-          "cover": "assets/projects/qianfan-one-scroll/cover.png",
-          "alt": "Qianfan One Scroll cover mockup with Chinese title, tabletop map, red annotation, and illustrated characters",
+          "cover": "assets/projects/qianfan-one-scroll/cover.webp",
+          "alt": "橙发调查员手持放大镜，背景为皱褶纸张的插画",
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/qianfan-one-scroll.html",
           "featured": false,
@@ -658,8 +658,8 @@
           ],
           "detailMedia": [
             {
-              "src": "assets/projects/qianfan-one-scroll/cover.png",
-              "alt": "Qianfan One Scroll cover mockup"
+              "src": "assets/projects/qianfan-one-scroll/cover.webp",
+              "alt": "橙发调查员手持放大镜，背景为皱褶纸张的插画"
             }
           ]
         },
