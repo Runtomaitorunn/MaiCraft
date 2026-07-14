@@ -496,26 +496,27 @@
           ]
         },
         {
-          "title": "BeatBoxVR",
-          "role": "XR Hack Project",
-          "year": "2024",
-          "featured": false,
-          "slug": "beatbox-vr",
-          "category": "xr"
-        },
-        {
           "title": "World of Aldar",
           "year": "2025",
+          "role": "Property Tech",
           "link": "https://world.aldar.com/",
           "featured": false,
           "slug": "world-of-aldar",
           "category": "xr"
         },
         {
-          "title": "Digital Curation Work - Safety Pit",
+          "title": "BeatBoxVR",
+          "role": "Innovate UK Immersive Tech Awards Jury Prize",
+          "year": "2024",
+          "featured": false,
+          "slug": "beatbox-vr",
+          "category": "xr"
+        },
+        {
+          "title": "Safety Pit",
           "role": "Digital Curation",
           "year": "2023",
-          "summary": "A digital curation study of Safety Pit.",
+          "summary": "A discussion of anomalies in a swimming pool.",
           "mediaLabel": "Digital curation",
           "featured": false,
           "slug": "safety-pit",
@@ -524,6 +525,7 @@
         {
           "title": "Habibi",
           "role": "XR Hack Project",
+          "year": "2024",
           "summary": "XR hackathon prototype.",
           "mediaLabel": "XR hack prototype",
           "featured": false,
@@ -532,8 +534,9 @@
         },
         {
           "title": "Visual Grammar Analysis Series",
-          "role": "Visual Research / Xiaohongshu",
-          "summary": "Visual grammar analysis on Xiaohongshu.",
+          "role": "Video Essay",
+          "year": "2026",
+          "summary": "Collage notes on cultural symbols.",
           "mediaLabel": "Visual analysis series",
           "featured": false,
           "slug": "visual-grammar-analysis-series",
@@ -909,23 +912,27 @@
           ]
         },
         {
-          "title": "BeatBoxVR",
-          "featured": false,
-          "slug": "beatbox-vr",
-          "category": "xr"
-        },
-        {
           "title": "World of Aldar",
           "year": "2025",
+          "role": "房地产科技",
           "link": "https://world.aldar.com/",
           "featured": false,
           "slug": "world-of-aldar",
           "category": "xr"
         },
         {
-          "title": "Digital Curation Work - Safety Pit",
+          "title": "BeatBoxVR",
+          "role": "Innovate UK Immersive Tech Awards 评审团奖",
+          "year": "2024",
+          "featured": false,
+          "slug": "beatbox-vr",
+          "category": "xr"
+        },
+        {
+          "title": "Safety Pit",
           "role": "数字策展",
-          "summary": "围绕 Safety Pit 的数字策展研究。",
+          "year": "2023",
+          "summary": "讨论游泳池中的异常现象。",
           "mediaLabel": "数字策展",
           "featured": false,
           "slug": "safety-pit",
@@ -934,6 +941,7 @@
         {
           "title": "Habibi",
           "role": "XR Hack 项目",
+          "year": "2024",
           "summary": "XR hackathon 原型。",
           "mediaLabel": "XR hack 原型",
           "featured": false,
@@ -942,8 +950,9 @@
         },
         {
           "title": "Visual Grammar Analysis Series",
-          "role": "视觉研究 / 小红书",
-          "summary": "分析视觉语言如何塑造意义的小红书系列。",
+          "role": "视频解析",
+          "year": "2026",
+          "summary": "关于文化符号的拼贴笔记。",
           "mediaLabel": "视觉语言分析系列",
           "featured": false,
           "slug": "visual-grammar-analysis-series",
