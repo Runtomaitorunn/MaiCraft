@@ -498,7 +498,10 @@
         {
           "title": "World of Aldar",
           "year": "2025",
-          "role": "Property Tech",
+          "role": "Property Tech / Soluis Group",
+          "summary": "Virtual twins built alongside major residential developments power high-volume sales media across 360° tours, XR, CGI, and animation.",
+          "cover": "assets/projects/world-of-aldar/thumbnail.jpg",
+          "alt": "Coastal residential towers rendered beside a beach and swimming pools",
           "link": "https://world.aldar.com/",
           "featured": false,
           "slug": "world-of-aldar",
@@ -508,6 +511,7 @@
           "title": "BeatBoxVR",
           "role": "Innovate UK Immersive Tech Awards Jury Prize",
           "year": "2024",
+          "summary": "An immersive drum kit and tutor.",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -914,7 +918,10 @@
         {
           "title": "World of Aldar",
           "year": "2025",
-          "role": "房地产科技",
+          "role": "房地产科技 / Soluis Group",
+          "summary": "与大型住宅开发同步构建虚拟孪生，以批量制作 360° 导览、XR、CGI 和动画销售素材。",
+          "cover": "assets/projects/world-of-aldar/thumbnail.jpg",
+          "alt": "海滨住宅楼群效果图，建筑沿沙滩与泳池展开",
           "link": "https://world.aldar.com/",
           "featured": false,
           "slug": "world-of-aldar",
@@ -924,6 +931,7 @@
           "title": "BeatBoxVR",
           "role": "Innovate UK Immersive Tech Awards 评审团奖",
           "year": "2024",
+          "summary": "沉浸式架子鼓与教学体验。",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
