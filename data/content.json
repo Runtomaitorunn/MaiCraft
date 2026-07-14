@@ -504,6 +504,14 @@
           "category": "xr"
         },
         {
+          "title": "World of Aldar",
+          "year": "2025",
+          "link": "https://world.aldar.com/",
+          "featured": false,
+          "slug": "world-of-aldar",
+          "category": "xr"
+        },
+        {
           "title": "Digital Curation Work - Safety Pit",
           "role": "Digital Curation",
           "year": "2023",
@@ -904,6 +912,14 @@
           "title": "BeatBoxVR",
           "featured": false,
           "slug": "beatbox-vr",
+          "category": "xr"
+        },
+        {
+          "title": "World of Aldar",
+          "year": "2025",
+          "link": "https://world.aldar.com/",
+          "featured": false,
+          "slug": "world-of-aldar",
           "category": "xr"
         },
         {
