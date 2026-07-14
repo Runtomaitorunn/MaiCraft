@@ -24,7 +24,7 @@
     <main id="top" class="main-container">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-media" data-i18n-attr="aria-label:hero.mediaAriaLabel">
-          <video class="hero-video" src="assets/hero/hero.mp4" autoplay muted loop playsinline></video>
+          <video class="hero-video" src="assets/hero/hero-video-2026.mp4" autoplay muted loop playsinline></video>
           <div class="hero-fallback">
             <span data-i18n="hero.mediaPlaceholder"></span>
           </div>
@@ -46,11 +46,6 @@
 
       <section class="section artist-section reveal" id="artist">
         <p class="section-ghost rotate" data-i18n="artist.ghost"></p>
-        <div class="artist-media">
-          <div class="media-stack portrait">
-            <img src="assets/portraits/dv.jpg" alt="" loading="lazy" data-i18n-attr="alt:artist.portraitAlt" />
-          </div>
-        </div>
         <div class="section-copy">
           <p class="eyebrow" data-i18n="artist.eyebrow"></p>
           <h2 data-i18n="artist.heading"></h2>
@@ -63,14 +58,12 @@
         <div id="skill-cards"></div>
       </section>
 
-      <section class="section projects-section reveal" id="projects">
+      <section class="section projects-section reveal" id="projects" aria-labelledby="projects-title">
         <p class="section-ghost" data-i18n="projectsSection.ghost"></p>
         <div class="projects-intro">
-          <p class="eyebrow" data-i18n="projectsSection.eyebrow"></p>
-          <h2 data-i18n="projectsSection.heading"></h2>
+          <h2 class="eyebrow" id="projects-title" data-i18n="projectsSection.eyebrow"></h2>
         </div>
-        <div class="project-grid featured" id="featured-projects"></div>
-        <div class="project-grid compact" id="project-grid"></div>
+        <div class="project-groups" id="project-groups"></div>
       </section>
 
       <section class="section contact-section reveal" id="contact">

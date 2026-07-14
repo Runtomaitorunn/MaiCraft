@@ -147,7 +147,7 @@ The hero is a full-bleed media stage with video as the preferred asset and a sty
 
 ### Skill Cards
 
-Skill cards are intentionally sparse: icon monogram, title, short capability statement, and tool capsules. Hover should add energy through subtle background and vertical motion without turning the section into a generic feature grid.
+Skill cards are intentionally sparse content groups with no default box fill: icon monogram, title, and grouped tool capsules sit directly on the cold paper surface. Avoid paragraph body copy inside the cards; the tool taxonomy should carry the technical proof. Hover should use the same box-shadow implementation as project cards on the skill card itself, while the pseudo-element only renders the top lamp; avoid visible card rectangles, rules, or shifting titles.
 
 ### Tool Capsules
 
@@ -155,7 +155,7 @@ Capsules are pill-shaped, compact, and technical. They should help recruiters an
 
 ### Project Cards
 
-Project cards are media-first cold-paper objects with 6px corners, deep ink typography, concise uppercase metadata, and controlled hover lift. Real project imagery should remain the strongest visual signal.
+Project cards are borderless, media-first cold-paper objects with 6px corners, deep ink typography, concise uppercase metadata, and controlled hover motion. Homepage work is grouped into XR Projects and Playground, with card summaries limited to one short line. Hover should animate the media, a cool mist-blue top light, and a restrained blue-gray elevation shadow while keeping text position stable; real project imagery should remain the strongest visual signal.
 
 ### Project Detail Facts
 
@@ -163,7 +163,7 @@ Project detail pages may use a lightweight facts column under the masthead title
 
 ### Contact Links
 
-Contact links are pill actions with deep ink fills. Labels should be short and explicit, such as Email, GitHub, LinkedIn, or Portfolio PDF.
+Contact links are pill actions with deep ink fills. Labels should be short and explicit, such as Email, GitHub, LinkedIn, Itch.io, or Portfolio PDF.
 
 ## 6. Do's and Don'ts
 

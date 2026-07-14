@@ -41,9 +41,7 @@
       },
       "artist": {
         "ghost": "hello :)",
-        "portraitMediaLabel": "Portrait",
-        "portraitAlt": "Portrait of Ye Mai",
-        "eyebrow": "About",
+        "eyebrow": "About Mai",
         "heading": "I build spatial interfaces, web systems, and visual stories.",
         "body": [
           "I work across XR prototypes, browser experiences, research tools, and media-led visual systems, turning rough interaction ideas into experiences people can test, use, and remember.",
@@ -132,7 +130,16 @@
       "projectsSection": {
         "ghost": "Projects",
         "eyebrow": "Selected Work",
-        "heading": "XR systems, visual narratives, and interaction research.",
+        "categories": [
+          {
+            "id": "xr",
+            "label": "XR Projects"
+          },
+          {
+            "id": "playground",
+            "label": "Playground"
+          }
+        ],
         "metaSeparator": " / "
       },
       "projectDetail": {
@@ -150,13 +157,14 @@
           "title": "Qianfan One Scroll",
           "year": "2026",
           "role": "Art Direction / Visual Narrative",
-          "summary": "A noir visual system for a tabletop mystery experience, shaped through bold interface layouts, character art, and evidence-style story materials.",
+          "summary": "Noir visuals for a tabletop mystery.",
           "cover": "assets/projects/qianfan-one-scroll/cover.webp",
           "alt": "Illustrated orange-haired investigator holding a magnifying glass against a crumpled paper background",
           "mediaLabel": "Visual narrative media",
           "link": "projects/qianfan-one-scroll.html",
           "featured": false,
           "slug": "qianfan-one-scroll",
+          "category": "playground",
           "detailHeading": "A tabletop mystery visual system built from noir contrast, annotated evidence, and character-driven interface art.",
           "detailBody": [
             "Qianfan One Scroll uses bold graphic composition, case-material layouts, and illustrated player characters to frame a tabletop reasoning experience.",
@@ -173,7 +181,7 @@
           "title": "Midnight at the Pagoda",
           "year": "2026",
           "role": "VR R&D project / HCI Research Thesis",
-          "summary": "A hackathon VR heritage prototype developed into a research thesis on virtual artifact interaction and memory retention.",
+          "summary": "VR heritage and memory.",
           "coverMedia": {
             "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
@@ -182,6 +190,7 @@
           "link": "projects/midnight-at-the-pagoda.html",
           "featured": false,
           "slug": "midnight-at-the-pagoda",
+          "category": "xr",
           "tagline": "A vertical museum journey built as both a VR app and a study environment for embodied memory.",
           "projectFacts": [
             {
@@ -324,17 +333,18 @@
           }
         },
         {
-          "title": "Self-Guided VR Onboarding for Classroom English",
+          "title": "GAVIS VR",
           "year": "2026",
           "role": "VR R&D project / app Development",
-          "summary": "A Unity onboarding scene that teaches students VR gestures, safety, and hand-tracking flow before they enter the classroom English app.",
+          "summary": "Classroom VR onboarding.",
           "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "XR onboarding demo",
           "link": "projects/vislab-onboarding-panel.html",
           "featured": false,
           "slug": "vislab-onboarding-panel",
-          "tagline": "A self-guided first-use path for classroom headsets.",
+          "category": "xr",
+          "tagline": "A self-guided VR app for classroom English learning.",
           "projectFacts": [
             {
               "label": "Client",
@@ -484,6 +494,42 @@
               "alt": "End-to-end GAVIS onboarding walkthrough video"
             }
           ]
+        },
+        {
+          "title": "BeatBoxVR",
+          "role": "XR Hack Project",
+          "year": "2024",
+          "featured": false,
+          "slug": "beatbox-vr",
+          "category": "xr"
+        },
+        {
+          "title": "Digital Curation Work - Safety Pit",
+          "role": "Digital Curation",
+          "year": "2023",
+          "summary": "A digital curation study of Safety Pit.",
+          "mediaLabel": "Digital curation",
+          "featured": false,
+          "slug": "safety-pit",
+          "category": "playground"
+        },
+        {
+          "title": "Habibi",
+          "role": "XR Hack Project",
+          "summary": "XR hackathon prototype.",
+          "mediaLabel": "XR hack prototype",
+          "featured": false,
+          "slug": "habibi",
+          "category": "xr"
+        },
+        {
+          "title": "Visual Grammar Analysis Series",
+          "role": "Visual Research / Xiaohongshu",
+          "summary": "Visual grammar analysis on Xiaohongshu.",
+          "mediaLabel": "Visual analysis series",
+          "featured": false,
+          "slug": "visual-grammar-analysis-series",
+          "category": "playground"
         }
       ],
       "contact": {
@@ -493,15 +539,19 @@
         "links": [
           {
             "label": "Email",
-            "href": "mailto:hello@example.com"
+            "href": "mailto:yeahmy1022@gmail.com"
           },
           {
             "label": "GitHub",
-            "href": "https://github.com/"
+            "href": "https://github.com/Runtomaitorunn"
           },
           {
             "label": "LinkedIn",
-            "href": "https://www.linkedin.com/"
+            "href": "https://www.linkedin.com/in/mai-ye/"
+          },
+          {
+            "label": "Itch.io",
+            "href": "https://tomaito.itch.io/"
           }
         ],
         "note": "Let's talk about XR, creative technology, web interfaces, or HCI research."
@@ -551,9 +601,7 @@
       },
       "artist": {
         "ghost": "中文占位 :)",
-        "portraitMediaLabel": "中文占位：个人照片",
-        "portraitAlt": "中文占位：Ye Mai 肖像",
-        "eyebrow": "中文占位：关于我",
+        "eyebrow": "关于 MAI",
         "heading": "中文占位：创意技术、设计与研究",
         "body": [
           "中文占位：这里将来填写中文个人介绍。",
@@ -625,8 +673,17 @@
       },
       "projectsSection": {
         "ghost": "中文占位：项目",
-        "eyebrow": "中文占位：精选作品",
-        "heading": "中文占位：这里将来填写项目区标题。",
+        "eyebrow": "精选作品",
+        "categories": [
+          {
+            "id": "xr",
+            "label": "XR 项目"
+          },
+          {
+            "id": "playground",
+            "label": "Playground"
+          }
+        ],
         "metaSeparator": " / "
       },
       "projectDetail": {
@@ -644,13 +701,14 @@
           "title": "中文占位：千翻One卷",
           "year": "2026",
           "role": "中文占位：角色",
-          "summary": "中文占位：这里将来填写项目简介。",
+          "summary": "桌游推理体验的黑色视觉系统。",
           "cover": "assets/projects/qianfan-one-scroll/cover.webp",
           "alt": "橙发调查员手持放大镜，背景为皱褶纸张的插画",
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/qianfan-one-scroll.html",
           "featured": false,
           "slug": "qianfan-one-scroll",
+          "category": "playground",
           "detailHeading": "中文占位：这里将来填写项目详情页标题。",
           "detailBody": [
             "中文占位：这里将来填写项目详情段落一。",
@@ -667,7 +725,7 @@
           "title": "佛塔的午夜",
           "year": "2026",
           "role": "VR 应用 / HCI 研究论文",
-          "summary": "一个从文化遗产 hackathon VR 原型发展成研究论文的项目，关注虚拟文物交互与记忆保持。",
+          "summary": "文化遗产 VR 与记忆研究。",
           "coverMedia": {
             "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
@@ -676,6 +734,7 @@
           "link": "projects/midnight-at-the-pagoda.html",
           "featured": false,
           "slug": "midnight-at-the-pagoda",
+          "category": "xr",
           "tagline": "一个垂直攀登式的博物馆体验，同时作为 VR 应用和具身记忆研究环境。",
           "projectFacts": [
             {
@@ -821,13 +880,14 @@
           "title": "中文占位：Vislab Onboarding Panel",
           "year": "2026",
           "role": "中文占位：角色",
-          "summary": "中文占位：这里将来填写项目简介。",
+          "summary": "课堂 VR 自助引导。",
           "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/vislab-onboarding-panel.html",
           "featured": false,
           "slug": "vislab-onboarding-panel",
+          "category": "xr",
           "detailHeading": "中文占位：这里将来填写项目详情页标题。",
           "detailBody": [
             "中文占位：这里将来填写项目详情段落一。",
@@ -839,6 +899,39 @@
               "alt": "GAVIS onboarding showreel video"
             }
           ]
+        },
+        {
+          "title": "BeatBoxVR",
+          "featured": false,
+          "slug": "beatbox-vr",
+          "category": "xr"
+        },
+        {
+          "title": "Digital Curation Work - Safety Pit",
+          "role": "数字策展",
+          "summary": "围绕 Safety Pit 的数字策展研究。",
+          "mediaLabel": "数字策展",
+          "featured": false,
+          "slug": "safety-pit",
+          "category": "playground"
+        },
+        {
+          "title": "Habibi",
+          "role": "XR Hack 项目",
+          "summary": "XR hackathon 原型。",
+          "mediaLabel": "XR hack 原型",
+          "featured": false,
+          "slug": "habibi",
+          "category": "xr"
+        },
+        {
+          "title": "Visual Grammar Analysis Series",
+          "role": "视觉研究 / 小红书",
+          "summary": "分析视觉语言如何塑造意义的小红书系列。",
+          "mediaLabel": "视觉语言分析系列",
+          "featured": false,
+          "slug": "visual-grammar-analysis-series",
+          "category": "playground"
         }
       ],
       "contact": {
@@ -848,15 +941,19 @@
         "links": [
           {
             "label": "中文占位：邮箱",
-            "href": "mailto:hello@example.com"
+            "href": "mailto:yeahmy1022@gmail.com"
           },
           {
             "label": "GitHub",
-            "href": "https://github.com/"
+            "href": "https://github.com/Runtomaitorunn"
           },
           {
             "label": "LinkedIn",
-            "href": "https://www.linkedin.com/"
+            "href": "https://www.linkedin.com/in/mai-ye/"
+          },
+          {
+            "label": "Itch.io",
+            "href": "https://tomaito.itch.io/"
           }
         ],
         "note": "中文占位：开放 XR、创意技术与 HCI 研究机会。"

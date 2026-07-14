@@ -366,6 +366,13 @@ const startHeaderScrollBehavior = () => {
   });
 };
 
+const getHeadingRevealVariant = (heading) => {
+  if (heading.closest(".project-detail-masthead")) return "project-detail";
+  if (heading.closest(".project-overview")) return "project-overview";
+  if (heading.closest(".project-story-block")) return "project-story";
+  return "project-detail-section";
+};
+
 const startHeadingRevealObserver = () => {
   const headings = document.querySelectorAll(".project-detail h1, .project-detail h2, .project-detail h3");
   if (!headings.length) return;
@@ -374,7 +381,7 @@ const startHeadingRevealObserver = () => {
     if (heading.classList.contains("heading-reveal")) return;
 
     const inner = document.createElement("span");
-    inner.className = "heading-reveal-inner";
+    inner.className = `heading-reveal-inner heading-reveal-inner--${getHeadingRevealVariant(heading)}`;
 
     while (heading.firstChild) {
       inner.append(heading.firstChild);

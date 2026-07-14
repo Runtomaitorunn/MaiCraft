@@ -120,9 +120,6 @@ const renderSkills = (skills) => {
     const title = document.createElement("h3");
     title.textContent = skill.title;
 
-    const description = document.createElement("p");
-    description.textContent = skill.description;
-
     const tools = document.createElement("div");
     tools.className = "skill-tools";
 
@@ -153,7 +150,7 @@ const renderSkills = (skills) => {
       tools.append(groupElement);
     });
 
-    card.append(icon, title, description, tools);
+    card.append(icon, title, tools);
     container.append(card);
   });
 };
@@ -162,7 +159,6 @@ const createProjectCard = (project, separator) => {
   const card = document.createElement(project.link ? "a" : "article");
   card.className = [
     "project-card",
-    project.featured ? "featured-card" : "",
     project.tier ? `project-card--${project.tier}` : ""
   ].filter(Boolean).join(" ");
 
@@ -179,39 +175,52 @@ const createProjectCard = (project, separator) => {
     ? isVideoAsset(project.cover)
       ? `<video src="${project.cover}" aria-label="${project.alt || project.title}" autoplay muted loop playsinline></video>`
       : `<img src="${project.cover}" alt="${project.alt || project.title}" loading="lazy" />`
-    : `<span class="thumb-placeholder">${project.mediaLabel}</span>`;
+    : `<span class="thumb-placeholder">${project.mediaLabel || project.title}</span>`;
+
+  const meta = [project.year, project.role].filter(Boolean).join(separator);
 
   card.innerHTML = `
     <div class="project-thumb">${media}</div>
     <div class="project-body">
-      <span class="project-meta">${[project.year, project.role].filter(Boolean).join(separator)}</span>
-      <h3>${project.title}</h3>
-      <p>${project.summary}</p>
+      ${meta ? `<span class="project-meta">${meta}</span>` : ""}
+      <h4>${project.title}</h4>
+      ${project.summary ? `<p>${project.summary}</p>` : ""}
     </div>
   `;
 
   return card;
 };
 
-const renderProjects = (projects, separator) => {
-  const featuredContainer = document.querySelector("#featured-projects");
-  const gridContainer = document.querySelector("#project-grid");
-
-  if (!featuredContainer || !gridContainer) return;
-
-  featuredContainer.replaceChildren();
-  gridContainer.replaceChildren();
+const renderProjects = (projects, separator, categories) => {
+  const container = document.querySelector("#project-groups");
+  if (!container) return;
 
   const normalizeProject = window.ProjectAuthoring?.normalizeProject || ((item) => item);
+  const normalizedProjects = projects.map(normalizeProject);
 
-  projects.map(normalizeProject).forEach((project) => {
-    const card = createProjectCard(project, separator);
+  container.replaceChildren();
 
-    if (project.featured) {
-      featuredContainer.append(card);
-    } else {
-      gridContainer.append(card);
-    }
+  categories.forEach((category) => {
+    const categoryProjects = normalizedProjects.filter((project) => project.category === category.id);
+    if (!categoryProjects.length) return;
+
+    const group = document.createElement("section");
+    const heading = document.createElement("h3");
+    const grid = document.createElement("div");
+
+    group.className = "project-group";
+    heading.className = "project-group-title";
+    heading.id = `project-group-${category.id}`;
+    heading.textContent = category.label;
+    grid.className = "project-grid compact";
+    group.setAttribute("aria-labelledby", heading.id);
+
+    categoryProjects.forEach((project) => {
+      grid.append(createProjectCard(project, separator));
+    });
+
+    group.append(heading, grid);
+    container.append(group);
   });
 };
 
@@ -253,6 +262,16 @@ const startRevealObserver = () => {
   });
 };
 
+const getHeadingRevealVariant = (heading) => {
+  if (heading.classList.contains("project-group-title")) return "project-group";
+  if (heading.classList.contains("eyebrow")) return "eyebrow";
+  if (heading.classList.contains("contact-note")) return "contact-note";
+  if (heading.closest(".artist-section")) return "artist";
+  if (heading.closest(".skill-card")) return "skill-card";
+  if (heading.closest(".project-detail")) return "project-detail";
+  return "section-heading";
+};
+
 const startHeadingRevealObserver = () => {
   const headings = document.querySelectorAll("main h1:not(#hero-title), main h2, main h3, .contact-note");
   if (!headings.length) return;
@@ -261,7 +280,7 @@ const startHeadingRevealObserver = () => {
     if (heading.classList.contains("heading-reveal")) return;
 
     const inner = document.createElement("span");
-    inner.className = "heading-reveal-inner";
+    inner.className = `heading-reveal-inner heading-reveal-inner--${getHeadingRevealVariant(heading)}`;
 
     while (heading.firstChild) {
       inner.append(heading.firstChild);
@@ -316,7 +335,11 @@ const renderSite = (localeContent, locale) => {
   renderNav(localeContent.nav);
   renderParagraphs(localeContent.artist.body);
   renderSkills(localeContent.skills.items);
-  renderProjects(localeContent.projects, localeContent.projectsSection.metaSeparator);
+  renderProjects(
+    localeContent.projects,
+    localeContent.projectsSection.metaSeparator,
+    localeContent.projectsSection.categories
+  );
   renderContactLinks(localeContent.contact.links);
   window.PortfolioMedia?.startViewportVideoPlayback();
   startRevealObserver();

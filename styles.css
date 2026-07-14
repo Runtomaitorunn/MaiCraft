@@ -383,90 +383,30 @@ h3 {
 }
 
 .artist-section {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.58fr) minmax(280px, 1fr);
-  grid-template-areas: "media copy";
-  align-items: center;
-  gap: clamp(34px, 7vw, 84px);
+  display: block;
   margin-top: clamp(92px, 11vw, 136px);
   scroll-margin-top: clamp(82px, 12vh, 132px);
 }
 
-.artist-media {
-  grid-area: media;
-  position: relative;
-  display: grid;
-  align-items: end;
-  justify-self: start;
-  width: clamp(220px, 23vw, 300px);
-  min-height: 0;
-}
-
-.media-stack {
-  position: relative;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  color: rgba(24, 21, 32, 0.42);
-  font-family: var(--project-body-font);
-  font-size: 0.9rem;
-  text-transform: lowercase;
-  background:
-    linear-gradient(183deg, rgba(250, 250, 253, 0.4), rgba(238, 239, 242, 0.4) 28%, rgba(233, 237, 245, 0.4)),
-    var(--panel);
-  border: 1px solid var(--noomo-line);
-}
-
-.media-stack.portrait {
-  width: 100%;
-  aspect-ratio: 1;
-  border: 0;
-  border-radius: 999px;
-  opacity: 0.94;
-  transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.artist-media:hover .portrait {
-  opacity: 1;
-}
-
-.media-stack.portrait img {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  filter: saturate(0.96) contrast(0.98);
-  transform: translate(-50%, -50%) scale(2.3);
-  transition:
-    filter 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .artist-media:hover .media-stack.portrait img {
-    filter: saturate(1.04) contrast(1.03);
-    transform: translate(-50.4%, -50.2%) scale(2.34);
-  }
-}
-
 .section-copy {
-  grid-area: copy;
-  max-width: 640px;
+  width: 100%;
+  max-width: none;
   color: var(--muted);
 }
 
 .section-copy h2 {
-  max-width: 20ch;
+  max-width: 28ch;
   color: var(--text);
   text-wrap: balance;
 }
 
 #artist-body {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 14px;
 }
 
 #artist-body p {
-  max-width: 62ch;
   margin-bottom: 0;
 }
 
@@ -482,21 +422,61 @@ h3 {
 #skill-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
   gap: 22px;
 }
 
 .skill-card {
+  isolation: isolate;
+  position: relative;
+  overflow: visible;
   padding: 34px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid transparent;
+  background: transparent;
+  border: 0;
   border-radius: 6px;
-  transition: background 1.2s ease, transform 220ms ease;
+  transition:
+    box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.skill-card:hover {
-  background: var(--card-hover);
-  border-color: var(--noomo-line);
-  transform: translateY(-4px);
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: -14px -16px -18px;
+  z-index: 0;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse 86% 68% at 50% 0%, rgba(255, 255, 255, 0.4), rgba(222, 231, 241, 0.2) 42%, rgba(201, 210, 231, 0.08) 66%, transparent 84%);
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transform-origin: 50% 0%;
+  transition:
+    opacity 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.skill-card:hover,
+.skill-card:focus-within {
+  box-shadow:
+    0 18px 34px rgba(24, 21, 32, 0.08),
+    0 4px 12px rgba(24, 21, 32, 0.045);
+  transform: translateY(-2px);
+}
+
+.skill-card:hover::after,
+.skill-card:focus-within::after {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.skill-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skill-card h3 {
+  margin-bottom: 0;
 }
 
 .skill-icon {
@@ -512,6 +492,10 @@ h3 {
   font-family: var(--project-body-font);
   font-size: 0.9rem;
   animation: bob 2.4s ease-in-out infinite;
+  transition:
+    background 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .skill-icon svg {
@@ -524,15 +508,17 @@ h3 {
   stroke-width: 1.8;
 }
 
-.skill-card p {
-  color: var(--muted);
+.skill-card:hover .skill-icon,
+.skill-card:focus-within .skill-icon {
+  background: rgba(255, 255, 255, 0.34);
+  border-color: rgba(24, 21, 32, 0.3);
 }
 
 .skill-tools {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .skill-tool-group {
@@ -572,11 +558,6 @@ h3 {
   transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
-.skill-card:hover .skill-capsule {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(24, 21, 32, 0.34);
-}
-
 .skill-capsule:hover {
   transform: translateY(-2px);
 }
@@ -600,7 +581,7 @@ h3 {
 }
 
 .projects-intro,
-.projects-section .project-grid {
+.projects-section .project-groups {
   position: relative;
   z-index: 1;
   width: min(var(--max), 100%);
@@ -609,8 +590,7 @@ h3 {
 }
 
 .projects-intro {
-  max-width: 780px;
-  margin-bottom: 30px;
+  margin-bottom: clamp(42px, 6vw, 72px);
 }
 
 .projects-section .eyebrow,
@@ -619,7 +599,7 @@ h3 {
   font-family: var(--project-body-font);
 }
 
-.projects-section h2,
+.project-group-title,
 .project-detail-header h1 {
   font-family: var(--project-display-font);
   font-weight: 400;
@@ -627,68 +607,130 @@ h3 {
   text-transform: uppercase;
 }
 
+.project-groups {
+  display: grid;
+  gap: clamp(72px, 9vw, 112px);
+}
+
+.project-group {
+  display: grid;
+  gap: 22px;
+}
+
+#project-groups > .project-group:first-child {
+  width: min(100%, 1000px);
+}
+
+.project-group-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+}
+
 .project-grid {
   display: grid;
   gap: 22px;
 }
 
-.project-grid.featured {
-  display: none;
-}
-
 .project-grid.compact {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .project-card {
+  isolation: isolate;
+  position: relative;
   display: block;
   overflow: hidden;
   color: var(--noomo-ink);
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid var(--noomo-line);
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
   border-radius: 6px;
-  backdrop-filter: blur(3px);
-  transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
+  transition:
+    background 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.project-card:hover {
-  background: rgba(255, 255, 255, 0.34);
-  border-color: rgba(24, 21, 32, 0.44);
-  transform: translateY(-4px);
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 82% 54% at 50% 0%, rgba(214, 224, 240, 0.24), rgba(201, 210, 231, 0.1) 48%, rgba(24, 21, 32, 0.03) 70%, transparent 84%);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 18px 34px rgba(24, 21, 32, 0.08),
+    0 4px 12px rgba(24, 21, 32, 0.045);
+  transform: translateY(-3px);
+}
+
+.project-card:hover::before,
+.project-card:focus-visible::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:focus-visible {
+  outline: 1px solid rgba(24, 21, 32, 0.5);
+  outline-offset: 5px;
 }
 
 .project-thumb {
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background:
     linear-gradient(183deg, rgba(250, 250, 253, 0.4), rgba(238, 239, 242, 0.4) 28%, rgba(233, 237, 245, 0.4)),
     var(--noomo-paper-menu);
 }
 
-.project-card.featured-card .project-thumb {
-  aspect-ratio: 16 / 9;
-}
-
 .project-thumb img,
 .project-thumb video {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 50%;
+  transition:
+    filter 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-thumb::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(24, 21, 32, 0.24);
+  background:
+    linear-gradient(180deg, rgba(207, 218, 236, 0.14), rgba(201, 210, 231, 0.04) 42%, transparent 64%),
+    linear-gradient(0deg, rgba(24, 21, 32, 0.12), transparent 48%);
   opacity: 0;
-  transition: opacity 220ms ease;
+  transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.project-card:hover .project-thumb::after {
+.project-card:hover .project-thumb img,
+.project-card:hover .project-thumb video,
+.project-card:focus-visible .project-thumb img,
+.project-card:focus-visible .project-thumb video {
+  filter: saturate(1.06) contrast(1.04);
+  transform: scale(1.035);
+}
+
+.project-card:hover .project-thumb::after,
+.project-card:focus-visible .project-thumb::after {
   opacity: 1;
 }
 
@@ -700,11 +742,13 @@ h3 {
 }
 
 .project-body {
+  position: relative;
+  z-index: 2;
   padding: 18px 18px 20px;
 }
 
-.project-body h3 {
-  margin-bottom: 8px;
+.project-body h4 {
+  margin: 0 0 8px;
   font-family: var(--project-display-font);
   font-size: 1.15rem;
   font-weight: 400;
@@ -713,9 +757,12 @@ h3 {
 }
 
 .project-body p {
+  overflow: hidden;
   margin-bottom: 0;
   color: var(--noomo-muted);
   font-size: 0.96rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .project-meta {
@@ -866,7 +913,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.project-detail-masthead h1 .heading-reveal-inner {
+.heading-reveal-inner--project-detail {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
@@ -1580,18 +1627,9 @@ body.has-media-dialog {
 }
 
 @media (max-width: 900px) {
-  .artist-section,
   #skill-cards,
-  .project-grid.featured,
   .project-grid.compact {
     grid-template-columns: 1fr;
-  }
-
-  .artist-section {
-    grid-template-areas:
-      "media"
-      "copy";
-    gap: clamp(30px, 6vw, 46px);
   }
 
   .project-overview,
@@ -1627,12 +1665,6 @@ body.has-media-dialog {
     bottom: auto;
     width: auto;
     height: 1px;
-  }
-
-  .artist-media {
-    justify-self: start;
-    width: clamp(210px, 42vw, 300px);
-    margin: 0;
   }
 
   .section-ghost.rotate {
@@ -1802,18 +1834,6 @@ body.has-media-dialog {
     margin-bottom: -12px;
   }
 
-  .artist-section {
-    gap: 28px;
-  }
-
-  .artist-media {
-    width: clamp(180px, 58vw, 230px);
-  }
-
-  .media-stack.portrait {
-    margin-right: 0;
-  }
-
   .skill-card {
     padding: 24px 18px;
   }
@@ -1843,6 +1863,22 @@ body.has-media-dialog {
   .hero-scroll-cue:hover .scroll-cue-media img,
   .hero-scroll-cue:focus-visible .scroll-cue-media img {
     transform: scale(1);
+  }
+
+  .skill-card:hover,
+  .skill-card:focus-within,
+  .skill-card:hover::after,
+  .skill-card:focus-within::after,
+  .project-card:hover,
+  .project-card:focus-visible,
+  .project-card:hover::before,
+  .project-card:focus-visible::before,
+  .project-card:hover .project-thumb img,
+  .project-card:hover .project-thumb video,
+  .project-card:focus-visible .project-thumb img,
+  .project-card:focus-visible .project-thumb video,
+  .skill-capsule:hover {
+    transform: none;
   }
 
 }

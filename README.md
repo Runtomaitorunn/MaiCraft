@@ -61,6 +61,6 @@ Use `"featured": true` for the large two-column project cards. Use
 
 ## Hero media
 
-When ready, add a short muted reel at `assets/hero/hero.mp4`, then add
-`src="assets/hero/hero.mp4"` to the hero video in `index.html`. The current page uses
-a styled placeholder until real media is connected.
+When ready, add a short muted reel under `assets/hero/` using the asset naming
+and size rules in `assets/README.md`, then update the hero video `src` in
+`index.html`.
