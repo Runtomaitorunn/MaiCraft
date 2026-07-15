@@ -173,9 +173,10 @@ const walk = (value, location = "content") => {
   checkMediaReference(value.src, value.alt, `${location}.src`);
   checkMediaReference(value.cover, value.alt, `${location}.cover`);
   checkMediaReference(value.logo, value.logoAlt, `${location}.logo`);
+  checkMediaReference(value.poster, value.posterAlt, `${location}.poster`);
 
   Object.entries(value).forEach(([key, child]) => {
-    if (key !== "src" && key !== "cover" && key !== "logo") {
+    if (key !== "src" && key !== "cover" && key !== "logo" && key !== "poster") {
       walk(child, `${location}.${key}`);
     }
   });

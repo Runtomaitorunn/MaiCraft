@@ -155,32 +155,39 @@ const renderSkills = (skills) => {
   });
 };
 
-const createProjectCard = (project, separator) => {
-  const card = document.createElement(project.youtubeId ? "button" : project.link ? "a" : "article");
+const createProjectCard = (project, separator, actionLabels = {}) => {
+  const isExternal = Boolean(project.link && /^https?:\/\//.test(project.link));
+  const cardKind = isExternal ? "external" : project.link ? "case-study" : "note";
+  const actionKey = cardKind === "case-study" ? "caseStudy" : cardKind;
+  const defaultActionLabels = {
+    caseStudy: "Read case study",
+    external: "Visit project site",
+    note: "Project note"
+  };
+  const actionLabel = project.actionLabel || actionLabels[actionKey] || defaultActionLabels[actionKey];
+  const actionMark = cardKind === "external" ? "↗" : cardKind === "case-study" ? "→" : "";
+  const card = document.createElement(project.link ? "a" : "article");
   card.className = [
     "project-card",
+    `project-card--${cardKind}`,
     project.tier ? `project-card--${project.tier}` : ""
   ].filter(Boolean).join(" ");
 
-  if (project.youtubeId) {
-    card.type = "button";
-    card.dataset.youtubeId = project.youtubeId;
-    card.dataset.projectTitle = project.title;
-    card.dataset.projectLink = project.link || "";
-    card.setAttribute("aria-haspopup", "dialog");
-  } else if (project.link) {
+  if (project.link) {
     card.href = project.link;
 
-    if (/^https?:\/\//.test(project.link)) {
+    if (isExternal) {
       card.target = "_blank";
       card.rel = "noreferrer";
     }
   }
 
-  const media = project.cover
-    ? isVideoAsset(project.cover)
-      ? `<video src="${project.cover}" aria-label="${project.alt || project.title}" autoplay muted loop playsinline></video>`
-      : `<img src="${project.cover}" alt="${project.alt || project.title}" loading="lazy" />`
+  const mediaSource = project.cover || project.poster;
+  const mediaAlt = project.alt || project.posterAlt || project.title;
+  const media = mediaSource
+    ? isVideoAsset(mediaSource)
+      ? `<video src="${mediaSource}" aria-label="${mediaAlt}" autoplay muted loop playsinline></video>`
+      : `<img src="${mediaSource}" alt="${mediaAlt}" loading="lazy" />`
     : `<span class="thumb-placeholder">${project.mediaLabel || project.title}</span>`;
 
   const meta = [project.year, project.role].filter(Boolean).join(separator);
@@ -188,19 +195,22 @@ const createProjectCard = (project, separator) => {
   card.innerHTML = `
     <div class="project-thumb">
       ${media}
-      ${project.youtubeId ? '<span class="project-video-indicator" aria-hidden="true">▶</span>' : ""}
     </div>
     <div class="project-body">
       ${meta ? `<span class="project-meta">${meta}</span>` : ""}
       <h4>${project.title}</h4>
       ${project.summary ? `<p>${project.summary}</p>` : ""}
+      <span class="project-card-action">
+        <span>${actionLabel}</span>
+        ${actionMark ? `<span class="project-card-action-mark" aria-hidden="true">${actionMark}</span>` : ""}
+      </span>
     </div>
   `;
 
   return card;
 };
 
-const renderProjects = (projects, separator, categories) => {
+const renderProjects = (projects, separator, categories, actionLabels) => {
   const container = document.querySelector("#project-groups");
   if (!container) return;
 
@@ -216,17 +226,26 @@ const renderProjects = (projects, separator, categories) => {
     const group = document.createElement("section");
     const heading = document.createElement("h3");
     const grid = document.createElement("div");
+    const categoryLabel = category.label || category.id;
 
-    group.className = "project-group";
+    group.className = `project-group project-group--${category.id}`;
     heading.className = "project-group-title";
     heading.id = `project-group-${category.id}`;
-    heading.textContent = category.label;
+    heading.textContent = categoryLabel;
     grid.className = "project-grid compact";
     group.setAttribute("aria-labelledby", heading.id);
 
     categoryProjects.forEach((project) => {
-      grid.append(createProjectCard(project, separator));
+      grid.append(createProjectCard(project, separator, actionLabels));
     });
+
+    if (category.ghost) {
+      const ghost = document.createElement("p");
+      ghost.className = "section-ghost project-group-ghost";
+      ghost.setAttribute("aria-hidden", "true");
+      ghost.textContent = category.ghost;
+      group.append(ghost);
+    }
 
     group.append(heading, grid);
     container.append(group);
@@ -253,56 +272,90 @@ const renderContactLinks = (links) => {
   });
 };
 
-const startProjectVideoDialog = (labels = {}) => {
-  const dialog = document.querySelector("[data-project-video-dialog]");
-  const openButtons = document.querySelectorAll("[data-youtube-id]");
-  if (!dialog || typeof dialog.showModal !== "function" || !openButtons.length) return;
+const startHeroMedia = () => {
+  const hero = document.querySelector(".hero");
+  const media = hero?.querySelector("[data-hero-media]");
+  const video = hero?.querySelector("[data-hero-video]");
+  const status = hero?.querySelector("[data-hero-media-status]");
+  if (!hero || !media || !video || !status) return;
 
-  const frame = dialog.querySelector("[data-project-video-dialog-frame]");
-  const title = dialog.querySelector("[data-project-video-dialog-title]");
-  const closeButton = dialog.querySelector("[data-project-video-dialog-close]");
-  const projectLink = dialog.querySelector("[data-project-video-dialog-link]");
-  if (!frame || !title || !closeButton || !projectLink) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let isInViewport = true;
+  let hasError = false;
+  let resumeAt = null;
 
-  const closeLabel = labels.closeLabel || "Close video";
-  const viewProjectLabel = labels.viewProjectLabel || "View project";
-  const videoTitleSuffix = labels.videoTitleSuffix || "video";
+  const pause = () => {
+    if (Number.isFinite(video.currentTime)) {
+      resumeAt = video.currentTime;
+    }
 
-  closeButton.textContent = closeLabel;
-  closeButton.setAttribute("aria-label", closeLabel);
-  projectLink.textContent = viewProjectLabel;
+    video.pause();
+  };
 
-  openButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const videoId = button.dataset.youtubeId;
-      const projectTitle = button.dataset.projectTitle || "";
-      const externalLink = button.dataset.projectLink || "";
-      if (!videoId) return;
+  const mayAutoplay = () => {
+    return !hasError && isInViewport && !document.hidden && !reducedMotion.matches;
+  };
 
-      title.textContent = projectTitle;
-      frame.title = `${projectTitle} ${videoTitleSuffix}`.trim();
-      frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&playsinline=1`;
-      projectLink.href = externalLink;
-      projectLink.hidden = !externalLink;
-      dialog.showModal();
-      document.body.classList.add("has-media-dialog");
-      closeButton.focus({ preventScroll: true });
-    });
+  const play = async () => {
+    if (!mayAutoplay()) return;
+
+    try {
+      if (resumeAt !== null && Math.abs(video.currentTime - resumeAt) > 0.05) {
+        video.currentTime = resumeAt;
+      }
+
+      await video.play();
+      resumeAt = null;
+    } catch {}
+  };
+
+  video.addEventListener("playing", () => {
+    media.classList.add("is-video-ready");
   });
 
-  closeButton.addEventListener("click", () => dialog.close());
-
-  dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) dialog.close();
+  video.addEventListener("error", () => {
+    hasError = true;
+    media.classList.remove("is-video-ready");
+    media.classList.add("is-error");
+    status.hidden = false;
+    pause();
   });
 
-  dialog.addEventListener("close", () => {
-    frame.removeAttribute("src");
-    frame.title = "";
-    title.textContent = "";
-    projectLink.removeAttribute("href");
-    document.body.classList.remove("has-media-dialog");
+  const handleMotionPreference = () => {
+    if (reducedMotion.matches) {
+      pause();
+      return;
+    }
+
+    play();
+  };
+
+  reducedMotion.addEventListener?.("change", handleMotionPreference);
+
+  const viewportObserver = new IntersectionObserver(
+    ([entry]) => {
+      isInViewport = entry.isIntersecting;
+
+      if (isInViewport) {
+        play();
+      } else {
+        pause();
+      }
+    },
+    { threshold: 0.18 }
+  );
+
+  viewportObserver.observe(hero);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      pause();
+    } else {
+      play();
+    }
   });
+
+  play();
 };
 
 const startRevealObserver = () => {
@@ -399,10 +452,11 @@ const renderSite = (localeContent, locale) => {
   renderProjects(
     localeContent.projects,
     localeContent.projectsSection.metaSeparator,
-    localeContent.projectsSection.categories
+    localeContent.projectsSection.categories,
+    localeContent.projectsSection.cardActions
   );
-  startProjectVideoDialog(localeContent.projectsSection.videoDialog);
   renderContactLinks(localeContent.contact.links);
+  startHeroMedia();
   window.PortfolioMedia?.startViewportVideoPlayback();
   startRevealObserver();
   startHeadingRevealObserver();

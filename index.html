@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="" data-i18n-attr="content:meta.description" />
     <title></title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
@@ -23,16 +23,31 @@
 
     <main id="top" class="main-container">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" data-i18n-attr="aria-label:hero.mediaAriaLabel">
-          <video class="hero-video" src="assets/hero/hero-video-2026.mp4" autoplay muted loop playsinline></video>
-          <div class="hero-fallback">
-            <span data-i18n="hero.mediaPlaceholder"></span>
-          </div>
+        <div class="hero-media" data-hero-media aria-hidden="true">
+          <img class="hero-poster" src="assets/hero/hero-video-2026-poster.webp" alt="" />
+          <video
+            class="hero-video"
+            data-hero-video
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/hero/hero-video-2026-poster.webp"
+            aria-hidden="true"
+          >
+            <source src="assets/hero/hero-video-2026.mp4" type="video/mp4" />
+          </video>
         </div>
+
+        <p class="hero-fallback" data-hero-media-status role="status" aria-live="polite" hidden>
+          <span data-i18n="hero.mediaPlaceholder"></span>
+        </p>
 
         <div class="hero-copy">
           <p class="kicker" data-i18n="hero.kicker"></p>
           <h1 id="hero-title" data-i18n="hero.title"></h1>
+          <p class="hero-positioning" data-i18n="hero.positioning"></p>
+          <a class="hero-primary-link" href="#projects" data-i18n="hero.viewProjectsLabel"></a>
         </div>
 
         <a class="hero-scroll-cue" href="#artist" data-i18n-attr="aria-label:hero.scrollCueAriaLabel">
@@ -59,7 +74,7 @@
       </section>
 
       <section class="section projects-section reveal" id="projects" aria-labelledby="projects-title">
-        <p class="section-ghost" data-i18n="projectsSection.ghost"></p>
+        <p class="section-ghost projects-section-ghost" data-i18n="projectsSection.ghost"></p>
         <div class="projects-intro">
           <h2 class="eyebrow" id="projects-title" data-i18n="projectsSection.eyebrow"></h2>
         </div>
@@ -70,35 +85,12 @@
         <p class="section-ghost" data-i18n="contact.ghost"></p>
         <p class="contact-note" data-i18n="contact.note"></p>
         <div class="contact-links" id="contact-links" data-i18n-attr="aria-label:contact.linksAriaLabel"></div>
-        <div class="contact-media">
-          <span data-i18n="contact.mediaPlaceholder"></span>
-        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <p><span data-i18n="footer.copyrightPrefix"></span> <span id="year"></span> <span data-i18n="footer.copyrightSuffix"></span></p>
     </footer>
-
-    <dialog class="project-video-dialog" data-project-video-dialog aria-labelledby="project-video-dialog-title">
-      <div class="project-video-dialog-shell">
-        <button class="project-media-dialog-close" type="button" data-project-video-dialog-close>Close video</button>
-        <div class="project-video-dialog-frame">
-          <iframe
-            data-project-video-dialog-frame
-            title=""
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="project-video-dialog-footer">
-          <h2 id="project-video-dialog-title" data-project-video-dialog-title></h2>
-          <a data-project-video-dialog-link target="_blank" rel="noreferrer">View project</a>
-        </div>
-      </div>
-    </dialog>
 
     <script src="project-authoring.js"></script>
     <script src="media-playback.js"></script>

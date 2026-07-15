@@ -25,6 +25,13 @@ const escapeAttribute = (value = "") =>
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 
+const toClassToken = (value = "") =>
+  String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 const isVideoAsset = (path = "") => /\.(mp4|webm|mov)$/i.test(path);
 
 const renderMedia = (item, className = "") => {
@@ -180,9 +187,11 @@ const renderMediaDialog = () => `
 
 const renderVisualBreakItem = (media, project) => {
   if (media?.src) {
+    const caption = media.caption ? `<figcaption>${escapeAttribute(media.caption)}</figcaption>` : "";
     return `
       <figure class="project-visual-break-item">
         ${renderMedia({ ...media, title: project.title }, "project-visual-break-media")}
+        ${caption}
       </figure>
     `;
   }
@@ -270,11 +279,134 @@ const renderOverviewPoints = (points = []) => {
   `;
 };
 
+const renderStoryPoints = (points = []) => {
+  if (!points.length) return "";
+
+  return `
+    <ul class="project-story-points">
+      ${points
+        .map(
+          (point) => `
+            <li>
+              ${point.label ? `<span>${escapeAttribute(point.label)}</span>` : ""}
+              <p>${escapeAttribute(point.body || point)}</p>
+            </li>
+          `
+        )
+        .join("")}
+    </ul>
+  `;
+};
+
+const renderStorySteps = (steps = []) => {
+  if (!steps.length) return "";
+
+  return `
+    <ol class="project-story-steps">
+      ${steps
+        .map(
+          (step, index) => `
+            <li>
+              <span class="project-story-step-marker">${escapeAttribute(step.label || String(index + 1).padStart(2, "0"))}</span>
+              <div>
+                <h3>${escapeAttribute(step.title)}</h3>
+                <p>${escapeAttribute(step.body)}</p>
+              </div>
+            </li>
+          `
+        )
+        .join("")}
+    </ol>
+  `;
+};
+
+const renderStoryMapping = (rows = []) => {
+  if (!rows.length) return "";
+
+  return `
+    <div class="project-story-mapping" role="list" aria-label="Interaction logic">
+      <div class="project-story-mapping-head" aria-hidden="true">
+        <span>Action</span>
+        <span>System response</span>
+        <span>Narrative meaning</span>
+      </div>
+      ${rows
+        .map(
+          (row) => `
+            <article class="project-story-mapping-row" role="listitem">
+              <p data-label="Action">${escapeAttribute(row.action)}</p>
+              <p data-label="System response">${escapeAttribute(row.response)}</p>
+              <p data-label="Narrative meaning">${escapeAttribute(row.meaning)}</p>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderSectionTimeline = (timeline = []) => {
+  if (!timeline.length) return "";
+
+  return `
+    <ol class="project-section-timeline" aria-label="Project development timeline">
+      ${timeline
+        .map(
+          (item) => `
+            <li>
+              <span class="project-section-timeline-period">${escapeAttribute(item.period)}</span>
+              ${renderLogoSlot(item)}
+              <div>
+                <h3>${escapeAttribute(item.title)}</h3>
+                <p>${escapeAttribute(item.body)}</p>
+              </div>
+            </li>
+          `
+        )
+        .join("")}
+    </ol>
+  `;
+};
+
+const renderStoryColumns = (columns = []) => {
+  if (!columns.length) return "";
+
+  return `
+    <div class="project-story-columns">
+      ${columns
+        .map(
+          (column) => `
+            <section>
+              <h3>${escapeAttribute(column.title)}</h3>
+              <ul>
+                ${(column.items || []).map((item) => `<li>${escapeAttribute(item)}</li>`).join("")}
+              </ul>
+            </section>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderStoryExtras = (section) => `
+  ${renderStoryPoints(section.points)}
+  ${renderStorySteps(section.steps)}
+  ${renderStoryMapping(section.mapping)}
+  ${renderSectionTimeline(section.timeline)}
+  ${renderStoryColumns(section.columns)}
+  ${section.closing ? `<p class="project-story-closing">${escapeAttribute(section.closing)}</p>` : ""}
+`;
+
 const renderSectionBlock = (section, index, labels = {}) => {
   const sectionMedia = renderSectionMedia(section);
+  const variant = toClassToken(section.variant);
+  const hasKicker = section.kicker !== false;
   const mediaClasses = [
     section.layout ? `has-${section.layout}` : "",
     sectionMedia ? "has-wide-media" : "",
+    variant ? `is-${variant}` : "",
+    hasKicker ? "has-kicker" : "has-no-kicker",
   ]
     .filter(Boolean)
     .join(" ");
@@ -282,14 +414,60 @@ const renderSectionBlock = (section, index, labels = {}) => {
 
   return `
   <section class="project-story-block${mediaLayoutClass}">
-    <p class="project-story-kicker">${section.kicker || `${labels.sectionFallbackLabel || "Part"} ${index + 1}`}</p>
+    ${hasKicker ? `<p class="project-story-kicker">${section.kicker || `${labels.sectionFallbackLabel || "Part"} ${index + 1}`}</p>` : ""}
     <div class="project-story-content">
       <h2>${section.title || labels.sectionTitleSlot || "Section title slot"}</h2>
       ${(section.body || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
+      ${renderStoryExtras(section)}
     </div>
     ${sectionMedia}
   </section>
 `;
+};
+
+const renderWipProjectPage = (root, project, localeContent) => {
+  const detailLabels = localeContent.projectDetail || {};
+  const wip = project.wip || {};
+  const contactLink = (localeContent.contact?.links || []).find((item) => item.href?.startsWith("mailto:"));
+  const footer = localeContent.footer || {};
+  const year = new Date().getFullYear();
+
+  root.classList.add("is-wip");
+  root.innerHTML = `
+    ${renderProjectHeader(localeContent)}
+    <article class="project-detail-article project-detail-article--wip">
+      <header class="project-detail-masthead project-wip-masthead">
+        <a class="back-link" href="../index.html#projects">${detailLabels.backLabel || "Back to projects"}</a>
+        <h1>${project.title}</h1>
+        <p class="project-wip-summary">${project.summary}</p>
+      </header>
+
+      <section class="project-wip" aria-labelledby="project-wip-title">
+        <div class="project-wip-status">
+          <p>${wip.kicker || "still taking shape :)"}</p>
+          <span class="project-wip-rule" aria-hidden="true"></span>
+        </div>
+        <div class="project-wip-content">
+          <h2 id="project-wip-title">${wip.heading || "Stay tuned."}</h2>
+          <p>${wip.body || "This section is finding its form. More visual notes are on the way."}</p>
+          <div class="project-wip-actions">
+            <a class="project-wip-action is-primary" href="../index.html#projects">
+              <span>${wip.backActionLabel || detailLabels.backLabel || "Back to projects"}</span>
+              <span class="project-wip-action-mark" aria-hidden="true">←</span>
+            </a>
+            <a class="project-wip-action is-secondary" href="${contactLink?.href || "../index.html#contact"}">
+              <span>${wip.contactActionLabel || "Say hello"}</span>
+              <span class="project-wip-action-mark" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="project-wip-footer">
+        <p>${footer.copyrightPrefix || "Copyright"} ${year} ${footer.copyrightSuffix || localeContent.brand.name}</p>
+      </footer>
+    </article>
+  `;
 };
 
 const renderProjectPage = (project, localeContent, locale) => {
@@ -298,6 +476,13 @@ const renderProjectPage = (project, localeContent, locale) => {
 
   document.documentElement.lang = locale;
   document.title = `${project.title} | ${localeContent.brand.name}`;
+
+  if (project.wip) {
+    renderWipProjectPage(root, project, localeContent);
+    return;
+  }
+
+  root.classList.remove("is-wip");
 
   const detailLabels = localeContent.projectDetail || {};
   const overview = project.overview || {};

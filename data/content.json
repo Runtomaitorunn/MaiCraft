@@ -32,10 +32,11 @@
         }
       ],
       "hero": {
-        "mediaAriaLabel": "Opening reel of Ye Mai's creative technology work",
-        "mediaPlaceholder": "Studio reel",
-        "kicker": "Creative technologist / XR developer / web developer",
+        "mediaPlaceholder": "Reel unavailable. Explore the selected projects below.",
+        "kicker": "Creative technologist",
         "title": "Ye Mai",
+        "positioning": "I build spatial interfaces, web systems, and visual stories.",
+        "viewProjectsLabel": "View selected projects",
         "scrollCueText": "Scroll down",
         "scrollCueAriaLabel": "Scroll down to explore the portfolio"
       },
@@ -44,7 +45,7 @@
         "eyebrow": "About Mai",
         "heading": "I build spatial interfaces, web systems, and visual stories.",
         "body": [
-          "I work across XR prototypes, browser experiences, research tools, and media-led visual systems, turning rough interaction ideas into experiences people can test, use, and remember.",
+          "I'm currently working as a research assistant at HKUST VISLab, exploring XR and HCI for immersive learning, and as a freelance creative technologist, building interactive prototypes and media systems for clients.",
           "The through-line is hands-on craft: Unity scenes, interface logic, motion, narrative structure, and the small technical decisions that make an experience feel understandable."
         ]
       },
@@ -141,10 +142,10 @@
           }
         ],
         "metaSeparator": " / ",
-        "videoDialog": {
-          "closeLabel": "Close video",
-          "viewProjectLabel": "View project",
-          "videoTitleSuffix": "video"
+        "cardActions": {
+          "caseStudy": "Read case study",
+          "external": "Visit project site",
+          "note": "Project note"
         }
       },
       "projectDetail": {
@@ -162,7 +163,7 @@
           "title": "Qianfan One Scroll",
           "year": "2026",
           "role": "Art Direction / Visual Narrative",
-          "summary": "Noir visuals for a tabletop mystery.",
+          "summary": "Designed a noir visual system for a tabletop mystery.",
           "cover": "assets/projects/qianfan-one-scroll/cover.webp",
           "alt": "Illustrated orange-haired investigator holding a magnifying glass against a crumpled paper background",
           "mediaLabel": "Visual narrative media",
@@ -185,8 +186,8 @@
         {
           "title": "Midnight at the Pagoda",
           "year": "2026",
-          "role": "VR R&D project / HCI Research Thesis",
-          "summary": "VR heritage and memory.",
+          "role": "VR R&D / HCI Research Thesis",
+          "summary": "Designed and built a VR heritage journey for embodied memory research.",
           "coverMedia": {
             "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
@@ -254,85 +255,191 @@
           "visualBreakMedia": [
             {
               "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
-              "alt": "Midnight at the Pagoda exhibition proposal visual"
+              "alt": "Midnight at the Pagoda exhibition proposal visual",
+              "caption": "The proposal reframed the pagoda as a journey through thresholds, artifacts, memory, and ascent."
             }
           ],
           "story": {
-            "timeline": [
-              {
-                "period": "May-Jul 2024",
-                "logo": "assets/logos/institutions/digital-heritage-logo-ink.png",
-                "logoAlt": "Digital Heritage Hackathon logo"
-              },
-              {
-                "period": "Aug-Sep 2024",
-                "logo": "assets/logos/institutions/goldsmiths-logo.svg",
-                "logoAlt": "Goldsmiths logo"
-              },
-              {
-                "period": "Jun 2026",
-                "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
-                "logoAlt": "Shanghai Jiao Tong University emblem"
-              }
-            ],
             "sections": [
               {
-                "kicker": "Problem",
-                "title": "Problem slot",
+                "kicker": "The question",
+                "title": "Why reconstruction was not enough",
+                "variant": "framing",
                 "layout": "text-only",
                 "body": [
-                  "Slot: describe the heritage interpretation problem, the target visitor or learner, and the research question around memory retention."
-                ]
-              },
-              {
-                "kicker": "Strategy",
-                "title": "Strategy slot",
-                "layout": "text-with-media",
-                "body": [
-                  "Slot: explain how the pagoda climb, floor-by-floor structure, and artifact interactions organize the narrative and research task."
+                  "The surviving site can show foundations, fragments, and individual artifacts, but much of the pagoda's religious, social, and historical context has disappeared. A precise 3D replica would preserve appearance without necessarily helping visitors understand why the place mattered.",
+                  "The design question became more specific: how could movement, touch, scale, and sound reconnect artifacts with their original use, while giving visitors an active role in building the story?"
                 ],
-                "media": [
+                "points": [
                   {
-                    "label": "Interaction flow slot",
-                    "caption": "Add a diagram, route map, or annotated interaction flow."
-                  }
-                ]
-              },
-              {
-                "kicker": "Proof",
-                "title": "Build proof slot",
-                "layout": "text-with-media",
-                "body": [
-                  "Slot: document the implemented VR app, scene design, artifact interaction logic, development stack, and headset testing evidence."
-                ],
-                "media": [
-                  {
-                    "label": "VR app proof slot",
-                    "caption": "Add a walkthrough video, gameplay capture, or implementation screenshot."
-                  }
-                ]
-              },
-              {
-                "kicker": "Impact",
-                "title": "Research outcome slot",
-                "layout": "evidence-stack",
-                "body": [
-                  "Slot: summarize the Digital Heritage award, Goldsmiths course result, research-paper findings, and what the project proves about immersive heritage learning."
-                ],
-                "note": {
-                  "label": "Evidence slot",
-                  "body": "Add the strongest award, grade, study, or paper evidence once the final materials are ready."
-                },
-                "media": [
-                  {
-                    "label": "Award or paper evidence slot",
-                    "caption": "Add award documentation, paper excerpt, presentation image, or study evidence."
+                    "label": "Context loss",
+                    "body": "Physical remains no longer carry the complete environment, rituals, and human relationships that once gave them meaning."
                   },
                   {
-                    "label": "Supporting evidence slot",
-                    "caption": "Add a secondary artifact such as thesis slide, poster, or research setup image."
+                    "label": "Passive interpretation",
+                    "body": "Static labels and visual reconstruction still leave the visitor outside the historical process."
                   }
                 ]
+              },
+              {
+                "kicker": false,
+                "title": "The climb became the interface",
+                "variant": "ascent",
+                "layout": "text-with-media",
+                "body": [
+                  "I organised the experience as an irreversible ascent. Each threshold changes the visitor's position, the available interaction, and the emotional register of the space. The route carries the narrative, so instruction can remain inside the environment rather than becoming a separate interface layer."
+                ],
+                "steps": [
+                  {
+                    "label": "Threshold",
+                    "title": "Enter through the glazed arch",
+                    "body": "Touch establishes the interaction language and moves the visitor from the museum into the reconstructed world."
+                  },
+                  {
+                    "label": "Foundation",
+                    "title": "Follow artifacts into memory",
+                    "body": "Scrolls, reliquaries, and light trails connect the underground chamber with historical scenes and distant places."
+                  },
+                  {
+                    "label": "Tower",
+                    "title": "Act inside the historical account",
+                    "body": "The visitor observes the city, handles a brush, and completes a mural rather than receiving the story as a caption."
+                  },
+                  {
+                    "label": "Summit",
+                    "title": "Move from object to atmosphere",
+                    "body": "Sound, incense, scale, and abstraction shift the experience from material history toward reflection."
+                  }
+                ],
+                "media": [
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/route-foundation-a.png",
+                    "alt": "Annotated route through the pagoda foundation scene, from the entrance to the scroll collection",
+                    "caption": "Foundation route, first pass: the visitor crosses the room before the central artifact is revealed.",
+                    "featured": true
+                  },
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/route-foundation-b.png",
+                    "alt": "Annotated route from the scroll collection to the central Ashoka pagoda model",
+                    "caption": "The return path changes after the artifact becomes active."
+                  },
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/route-summit.png",
+                    "alt": "Annotated route across stepping stones toward the Buddha at the summit scene",
+                    "caption": "At the summit, the route becomes slower, exposed, and ceremonial."
+                  }
+                ]
+              },
+              {
+                "kicker": false,
+                "title": "Turning artifacts into interactions",
+                "variant": "interaction",
+                "layout": "text-with-media",
+                "body": [
+                  "Each interaction had to do two jobs at once: produce a clear runtime response and change how the visitor understood the artifact. The system therefore links physical action, spatial feedback, and narrative consequence."
+                ],
+                "mapping": [
+                  {
+                    "action": "Touch a stored scroll",
+                    "response": "A light path enters the historical image and opens a memory of Kew Gardens.",
+                    "meaning": "The museum object becomes a route into the pagoda's international history."
+                  },
+                  {
+                    "action": "Touch the Ashoka pagoda",
+                    "response": "The object expands around the visitor and lifts them toward the next floor.",
+                    "meaning": "A change in scale turns close inspection into embodied transition."
+                  },
+                  {
+                    "action": "Play instruments at the summit",
+                    "response": "Sound becomes visible and travels through the environment as light and movement.",
+                    "meaning": "An intangible ritual is represented through a response the visitor can see and influence."
+                  }
+                ],
+                "media": [
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/visitor-journey.png",
+                    "alt": "Storyboard showing the end-to-end visitor journey from transition space into narrative and interaction floors",
+                    "caption": "The end-to-end journey connects the physical waiting area, headset setup, narrative floors, and interaction floors."
+                  }
+                ]
+              },
+              {
+                "kicker": false,
+                "title": "From hackathon prototype to research system",
+                "variant": "process",
+                "layout": "text-with-media",
+                "body": [
+                  "The project did not move directly from concept to thesis. A small team first built and presented a working prototype at the Digital Heritage Hackathon. Feedback from the live demonstration, expert review, and later academic critique exposed gaps in the narrative and informed a broader exhibition plan."
+                ],
+                "timeline": [
+                  {
+                    "period": "May to Jul 2024",
+                    "title": "Prototype and field presentation",
+                    "body": "Built a minimum viable VR experience, presented it in a real event setting, and collected early qualitative feedback.",
+                    "logo": "assets/logos/institutions/digital-heritage-logo-ink.png",
+                    "logoAlt": "Digital Heritage Hackathon logo"
+                  },
+                  {
+                    "period": "Aug to Sep 2024",
+                    "title": "Research framing",
+                    "body": "Revisited the prototype through visual grammar, interaction meaning, and comparative case analysis.",
+                    "logo": "assets/logos/institutions/goldsmiths-logo.svg",
+                    "logoAlt": "Goldsmiths logo"
+                  },
+                  {
+                    "period": "Jun 2026",
+                    "title": "Integrated exhibition plan",
+                    "body": "Expanded the tested interaction logic into a nine-floor narrative and a complete research thesis.",
+                    "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
+                    "logoAlt": "Shanghai Jiao Tong University emblem"
+                  }
+                ],
+                "media": [
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/hackathon-build.jpg",
+                    "alt": "The Midnight at the Pagoda team building and testing the VR prototype during the Digital Heritage Hackathon",
+                    "caption": "Prototype development during the 2024 Digital Heritage Hackathon."
+                  },
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/hackathon-presentation.jpg",
+                    "alt": "Ye Mai presenting the VR heritage project on stage at the Digital Heritage Hackathon",
+                    "caption": "Presenting the interaction concept and prototype."
+                  },
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/hackathon-review.jpg",
+                    "alt": "The project team discussing the VR prototype with an event reviewer",
+                    "caption": "The live setting produced early review and qualitative feedback."
+                  }
+                ]
+              },
+              {
+                "kicker": false,
+                "title": "What the evidence supports",
+                "variant": "evidence",
+                "layout": "text-only",
+                "body": [
+                  "The project supports a clear claim about process: heritage interpretation can be designed through movement, interaction, and spatial composition rather than added as explanatory text after the environment is built. Its current evidence is strongest at the level of prototype quality, expert review, and research synthesis."
+                ],
+                "columns": [
+                  {
+                    "title": "Evidence on record",
+                    "items": [
+                      "Best Use of Tech, Digital Heritage 2024",
+                      "A working VR prototype and public presentation",
+                      "77/100 in the Goldsmiths Research Project course",
+                      "A completed research thesis and integrated exhibition plan"
+                    ]
+                  },
+                  {
+                    "title": "Still to validate",
+                    "items": [
+                      "Large-scale visitor response and long-term memory effects",
+                      "Behaviour tracking across the complete nine-floor journey",
+                      "Performance trade-offs on mobile headsets at exhibition scale"
+                    ]
+                  }
+                ],
+                "closing": "My role moved across narrative design, scene design, VR development, field presentation, and research synthesis."
               }
             ]
           }
@@ -340,8 +447,8 @@
         {
           "title": "GAVIS VR",
           "year": "2026",
-          "role": "VR R&D project / app Development",
-          "summary": "Classroom VR onboarding.",
+          "role": "VR R&D / App Development",
+          "summary": "Built a self-guided VR onboarding flow tested with secondary school students.",
           "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "XR onboarding demo",
@@ -503,8 +610,8 @@
         {
           "title": "World of Aldar",
           "year": "2025",
-          "role": "Property Tech / Soluis Group",
-          "summary": "Virtual twins built alongside major residential developments power high-volume sales media across 360° tours, XR, CGI, and animation.",
+          "role": "Property Technology / Soluis Group",
+          "summary": "Built virtual-twin media for residential sales across 360° tours, XR, CGI, and animation.",
           "cover": "assets/projects/world-of-aldar/thumbnail.jpg",
           "alt": "Coastal residential towers rendered beside a beach and swimming pools",
           "link": "https://world.aldar.com/",
@@ -514,11 +621,13 @@
         },
         {
           "title": "BeatBoxVR",
-          "role": "Innovate UK Immersive Tech Awards Jury Prize",
+          "role": "VR Development / Innovate UK Jury Prize",
           "year": "2024",
-          "summary": "An immersive drum kit and tutor.",
+          "summary": "Built a VR drumming simulator and tutor that won the 2024 Jury Prize.",
           "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
-          "youtubeId": "oBdALCK0mpA",
+          "actionLabel": "Read case study",
+          "poster": "assets/projects/beatbox-vr/poster.jpg",
+          "posterAlt": "BeatBoxVR title over a virtual drum kit scene",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -527,7 +636,7 @@
           "title": "Safety Pit",
           "role": "Digital Curation",
           "year": "2023",
-          "summary": "A discussion of anomalies in a swimming pool.",
+          "summary": "Curated a digital study of anomalies in swimming pools.",
           "cover": "assets/projects/safety-pit/thumbnail.gif",
           "alt": "Animated collage of a swimming pool with an orange lifebuoy and handwritten markings",
           "mediaLabel": "Digital curation",
@@ -537,25 +646,35 @@
         },
         {
           "title": "Habibi",
-          "role": "XR Hack Project",
+          "role": "Programming / Meta Utility & Design Runner-Up",
           "year": "2024",
-          "summary": "XR hackathon prototype.",
+          "summary": "Built a shared MR wall for voice, AI-generated media, and stylus interaction.",
           "mediaLabel": "XR hack prototype",
           "featured": false,
           "link": "https://devpost.com/software/tether-h041aj",
-          "youtubeId": "FOYd2AGIlYA",
+          "actionLabel": "View on Devpost",
+          "poster": "assets/projects/habibi/poster.jpg",
+          "posterAlt": "Habibi monogram and title on a black background",
           "slug": "habibi",
           "category": "xr"
         },
         {
           "title": "Visual Grammar Analysis Series",
-          "role": "Video Essay",
+          "role": "Video Essay / Visual Research",
           "year": "2026",
-          "summary": "Collage notes on cultural symbols.",
+          "summary": "Analyzed cultural symbols through collage-based video essays.",
           "mediaLabel": "Visual analysis series",
           "featured": false,
+          "link": "projects/visual-grammar-analysis-series.html",
           "slug": "visual-grammar-analysis-series",
-          "category": "playground"
+          "category": "playground",
+          "wip": {
+            "kicker": "still taking shape :)",
+            "heading": "Stay tuned.",
+            "body": "This section is finding its form. More visual notes are on the way.",
+            "backActionLabel": "Back to projects",
+            "contactActionLabel": "Say hello"
+          }
         }
       ],
       "contact": {
@@ -618,12 +737,13 @@
         }
       ],
       "hero": {
-        "mediaAriaLabel": "中文占位：首页媒体",
-        "mediaPlaceholder": "中文占位：首页视频",
-        "kicker": "中文占位：创意技术 / XR 开发 / Web 开发",
-        "title": "中文占位",
+        "mediaPlaceholder": "作品短片暂时无法播放，请继续浏览精选项目。",
+        "kicker": "创意技术实践者",
+        "title": "叶麦",
+        "positioning": "我构建空间界面、Web 系统与视觉叙事。",
+        "viewProjectsLabel": "查看精选项目",
         "scrollCueText": "Scroll down",
-        "scrollCueAriaLabel": "中文占位：向下滚动浏览作品集"
+        "scrollCueAriaLabel": "向下滚动浏览作品集"
       },
       "artist": {
         "ghost": "中文占位 :)",
@@ -711,10 +831,10 @@
           }
         ],
         "metaSeparator": " / ",
-        "videoDialog": {
-          "closeLabel": "关闭视频",
-          "viewProjectLabel": "查看项目",
-          "videoTitleSuffix": "视频"
+        "cardActions": {
+          "caseStudy": "阅读案例",
+          "external": "访问项目网站",
+          "note": "项目笔记"
         }
       },
       "projectDetail": {
@@ -731,8 +851,8 @@
         {
           "title": "中文占位：千翻One卷",
           "year": "2026",
-          "role": "中文占位：角色",
-          "summary": "桌游推理体验的黑色视觉系统。",
+          "role": "艺术指导 / 视觉叙事",
+          "summary": "为桌游推理项目设计黑色视觉叙事系统。",
           "cover": "assets/projects/qianfan-one-scroll/cover.webp",
           "alt": "橙发调查员手持放大镜，背景为皱褶纸张的插画",
           "mediaLabel": "中文占位：项目媒体",
@@ -755,8 +875,8 @@
         {
           "title": "佛塔的午夜",
           "year": "2026",
-          "role": "VR 应用 / HCI 研究论文",
-          "summary": "文化遗产 VR 与记忆研究。",
+          "role": "VR 研发 / HCI 研究论文",
+          "summary": "设计并开发用于具身记忆研究的 VR 文化遗产旅程。",
           "coverMedia": {
             "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
@@ -908,10 +1028,10 @@
           }
         },
         {
-          "title": "中文占位：Vislab Onboarding Panel",
+          "title": "GAVIS VR",
           "year": "2026",
-          "role": "中文占位：角色",
-          "summary": "课堂 VR 自助引导。",
+          "role": "VR 研发 / 应用开发",
+          "summary": "构建自助式 VR 引导流程，并与中学生开展课堂测试。",
           "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "中文占位：项目媒体",
@@ -935,7 +1055,7 @@
           "title": "World of Aldar",
           "year": "2025",
           "role": "房地产科技 / Soluis Group",
-          "summary": "与大型住宅开发同步构建虚拟孪生，以批量制作 360° 导览、XR、CGI 和动画销售素材。",
+          "summary": "为住宅销售制作虚拟孪生媒体，覆盖 360° 导览、XR、CGI 与动画。",
           "cover": "assets/projects/world-of-aldar/thumbnail.jpg",
           "alt": "海滨住宅楼群效果图，建筑沿沙滩与泳池展开",
           "link": "https://world.aldar.com/",
@@ -945,11 +1065,13 @@
         },
         {
           "title": "BeatBoxVR",
-          "role": "Innovate UK Immersive Tech Awards 评审团奖",
+          "role": "VR 开发 / Innovate UK 评审团奖",
           "year": "2024",
-          "summary": "沉浸式架子鼓与教学体验。",
+          "summary": "开发 VR 架子鼓模拟与教学体验，获 2024 年评审团奖。",
           "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
-          "youtubeId": "oBdALCK0mpA",
+          "actionLabel": "阅读案例",
+          "poster": "assets/projects/beatbox-vr/poster.jpg",
+          "posterAlt": "BeatBoxVR 标题覆盖在虚拟架子鼓场景上",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -958,7 +1080,7 @@
           "title": "Safety Pit",
           "role": "数字策展",
           "year": "2023",
-          "summary": "讨论游泳池中的异常现象。",
+          "summary": "策划一项关于游泳池异常现象的数字研究。",
           "cover": "assets/projects/safety-pit/thumbnail.gif",
           "alt": "泳池、橙色救生圈与手写标记组成的动态拼贴",
           "mediaLabel": "数字策展",
@@ -968,25 +1090,35 @@
         },
         {
           "title": "Habibi",
-          "role": "XR Hack 项目",
+          "role": "程序开发 / Meta Utility & Design 亚军",
           "year": "2024",
-          "summary": "XR hackathon 原型。",
+          "summary": "开发支持语音、AI 生成媒体与触控笔交互的共享 MR 墙面。",
           "mediaLabel": "XR hack 原型",
           "featured": false,
           "link": "https://devpost.com/software/tether-h041aj",
-          "youtubeId": "FOYd2AGIlYA",
+          "actionLabel": "在 Devpost 查看",
+          "poster": "assets/projects/habibi/poster.jpg",
+          "posterAlt": "黑色背景上的 Habibi 字母标识与标题",
           "slug": "habibi",
           "category": "xr"
         },
         {
           "title": "Visual Grammar Analysis Series",
-          "role": "视频解析",
+          "role": "视频论文 / 视觉研究",
           "year": "2026",
-          "summary": "关于文化符号的拼贴笔记。",
+          "summary": "通过拼贴式视频论文分析文化符号。",
           "mediaLabel": "视觉语言分析系列",
           "featured": false,
+          "link": "projects/visual-grammar-analysis-series.html",
           "slug": "visual-grammar-analysis-series",
-          "category": "playground"
+          "category": "playground",
+          "wip": {
+            "kicker": "正在慢慢成形 :)",
+            "heading": "敬请期待。",
+            "body": "这个部分还在寻找它的样子，更多视觉笔记正在整理中。",
+            "backActionLabel": "返回作品列表",
+            "contactActionLabel": "和我聊聊"
+          }
         }
       ],
       "contact": {

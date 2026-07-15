@@ -22,6 +22,9 @@
   --capsule-border: rgba(24, 21, 32, 0.2);
   --card-hover: rgba(255, 255, 255, 0.28);
   --overlay: rgba(24, 21, 32, 0.24);
+  --page-surface:
+    radial-gradient(circle at 80% 8%, rgba(255, 255, 255, 0.5), transparent 28%),
+    linear-gradient(180deg, var(--noomo-paper) 0%, var(--noomo-paper-light) 46%, var(--noomo-paper) 100%);
   --project-display-font: "NeueMachina", "Montserrat", Arial, sans-serif;
   --project-body-font: "NeueRoman", "Work Sans", Arial, sans-serif;
   --max: 1100px;
@@ -62,9 +65,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 80% 8%, rgba(255, 255, 255, 0.5), transparent 28%),
-    linear-gradient(180deg, var(--noomo-paper) 0%, var(--noomo-paper-light) 46%, var(--noomo-paper) 100%);
+  background: var(--page-surface);
   background-attachment: fixed;
   background-size: cover;
   color: var(--text);
@@ -164,9 +165,24 @@ video {
   background: var(--bg);
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  height: 38%;
+  background: var(--page-surface);
+  background-attachment: fixed;
+  background-size: cover;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.96) 18%, rgba(0, 0, 0, 0.42) 62%, transparent 100%);
+  mask-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.96) 18%, rgba(0, 0, 0, 0.42) 62%, transparent 100%);
+}
+
 .hero-media {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   background:
     radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.3), transparent 34%),
     linear-gradient(180deg, var(--noomo-paper) 0%, var(--noomo-paper-light) 94%);
@@ -176,42 +192,35 @@ video {
   content: "";
   position: absolute;
   inset: 0;
-  /* background:
-    linear-gradient(180deg, rgba(201, 210, 231, 0.42), rgba(222, 231, 241, 0.78) 92%),
-    radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.22), transparent 36%); */
+  z-index: 1;
+  background:
+    linear-gradient(0deg, var(--noomo-paper) 0%, rgba(201, 210, 231, 0.96) 7%, rgba(201, 210, 231, 0.68) 17%, rgba(201, 210, 231, 0.24) 28%, transparent 38%),
+    linear-gradient(180deg, rgba(201, 210, 231, 0.88) 0%, rgba(201, 210, 231, 0.6) 12%, transparent 30%),
+    radial-gradient(ellipse 78% 64% at 17% 84%, rgba(201, 210, 231, 0.98) 0%, rgba(201, 210, 231, 0.88) 42%, rgba(201, 210, 231, 0.48) 64%, transparent 84%);
   pointer-events: none;
 }
 
+.hero-poster,
 .hero-video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: scale(1.08);
-  opacity: 0.72;
 }
 
-.hero-video:not([src]) {
-  display: none;
+.hero-poster {
+  opacity: 1;
 }
 
-.hero-video[src] + .hero-fallback {
-  display: none;
+.hero-video {
+  opacity: 0;
+  transition: opacity 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero-fallback {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  min-height: 420px;
-  color: rgba(24, 21, 32, 0.22);
-  font-family: var(--project-display-font);
-  font-size: clamp(2.8rem, 9vw, 8rem);
-  font-weight: 600;
-  text-transform: lowercase;
-  background:
-    linear-gradient(130deg, rgba(255, 255, 255, 0.22), transparent 58%),
-    repeating-linear-gradient(90deg, rgba(24, 21, 32, 0.05) 0 1px, transparent 1px 80px);
+.hero-media.is-video-ready .hero-video {
+  opacity: 1;
 }
 
 .hero-copy {
@@ -220,6 +229,61 @@ video {
   width: min(var(--max), 100%);
   margin: 0 auto;
   padding: 0 clamp(18px, 4vw, 54px) 15vh;
+}
+
+.hero-positioning {
+  max-width: 46ch;
+  margin: 0 0 18px;
+  color: var(--noomo-ink-soft);
+  font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.hero-primary-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  border-bottom: 1px solid rgba(24, 21, 32, 0.72);
+  color: var(--noomo-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.hero-primary-link:hover,
+.hero-primary-link:focus-visible {
+  border-color: var(--noomo-ink);
+  transform: translateY(-2px);
+}
+
+.hero-primary-link:focus-visible {
+  outline: 2px solid var(--noomo-ink);
+  outline-offset: 4px;
+}
+
+.hero-fallback {
+  position: absolute;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 4;
+  max-width: min(32ch, calc(100% - 40px));
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(24, 21, 32, 0.2);
+  background: rgba(222, 231, 241, 0.94);
+  color: var(--noomo-ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-fallback[hidden] {
+  display: none;
 }
 
 .hero-scroll-cue {
@@ -566,18 +630,18 @@ h3 {
   width: 100%;
   max-width: none;
   margin: 120px 0;
-  padding: clamp(104px, 12vw, 150px) clamp(18px, 4vw, 54px) clamp(72px, 10vw, 118px);
-  overflow: hidden;
+  padding: 0;
+  overflow: visible;
   color: var(--noomo-ink);
   background: transparent;
   font-family: var(--project-body-font);
 }
 
-.projects-section .section-ghost {
+.projects-section-ghost {
   z-index: 0;
   left: var(--ghost-align-x);
-  top: clamp(18px, 3vw, 36px);
-  color: rgba(24, 21, 32, 0.16);
+  top: clamp(-84px, -5vw, -44px);
+  color: rgba(24, 21, 32, 0.14);
 }
 
 .projects-intro,
@@ -613,8 +677,26 @@ h3 {
 }
 
 .project-group {
+  position: relative;
+  isolation: isolate;
   display: grid;
   gap: 22px;
+}
+
+.project-group > :not(.section-ghost) {
+  position: relative;
+  z-index: 1;
+}
+
+.project-group-ghost {
+  z-index: 0;
+  left: clamp(-12px, -1vw, 0px);
+  top: clamp(-76px, -5vw, -44px);
+  color: rgba(24, 21, 32, 0.12);
+}
+
+.project-group--playground {
+  margin-top: clamp(18px, 3vw, 44px);
 }
 
 .project-group-title {
@@ -726,29 +808,6 @@ button.project-card {
   transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.project-video-indicator {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  z-index: 2;
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  padding-left: 2px;
-  color: var(--noomo-paper-light);
-  background: rgba(24, 21, 32, 0.84);
-  border: 1px solid rgba(222, 231, 241, 0.56);
-  border-radius: 999px;
-  font-size: 0.8rem;
-  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.project-card:hover .project-video-indicator,
-.project-card:focus-visible .project-video-indicator {
-  transform: scale(1.06);
-}
-
 .project-card:hover .project-thumb img,
 .project-card:hover .project-thumb video,
 .project-card:focus-visible .project-thumb img,
@@ -785,12 +844,15 @@ button.project-card {
 }
 
 .project-body p {
+  display: -webkit-box;
   overflow: hidden;
   margin-bottom: 0;
   color: var(--noomo-muted);
   font-size: 0.96rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.45;
+  text-wrap: pretty;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .project-meta {
@@ -802,78 +864,55 @@ button.project-card {
   text-transform: uppercase;
 }
 
-.project-video-dialog {
-  width: min(94vw, 1120px);
-  max-width: none;
-  max-height: 92svh;
-  padding: 0;
-  overflow: hidden;
-  color: var(--noomo-ink);
-  background: var(--noomo-paper-menu);
-  border: 1px solid rgba(222, 231, 241, 0.62);
-  border-radius: 6px;
-}
-
-.project-video-dialog::backdrop {
-  background: rgba(24, 21, 32, 0.68);
-  backdrop-filter: blur(8px);
-}
-
-.project-video-dialog .project-media-dialog-close {
-  min-height: 44px;
-}
-
-.project-video-dialog-shell {
-  position: relative;
-  display: grid;
-}
-
-.project-video-dialog-frame {
-  aspect-ratio: 16 / 9;
-  background: var(--noomo-ink);
-}
-
-.project-video-dialog-frame iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.project-video-dialog-footer {
-  display: flex;
-  flex-wrap: wrap;
+.project-card-action {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px 24px;
-  padding: 16px 18px;
-}
-
-.project-video-dialog-footer h2 {
-  margin: 0;
-  font-family: var(--project-display-font);
-  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
-  font-weight: 400;
-  line-height: 1.1;
-  text-transform: uppercase;
-}
-
-.project-video-dialog-footer a {
-  display: inline-grid;
-  min-height: 44px;
-  place-items: center;
-  padding: 0 16px;
-  color: var(--noomo-paper-light);
-  background: var(--noomo-ink-soft);
-  border-radius: 999px;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--noomo-ink-soft);
   font-family: var(--project-body-font);
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   font-weight: 600;
+  line-height: 1.2;
 }
 
-.project-video-dialog-footer a:focus-visible {
-  outline: 2px solid var(--noomo-ink);
-  outline-offset: 3px;
+.project-card-action-mark {
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:not(.project-card--note):hover .project-card-action-mark,
+.project-card:not(.project-card--note):focus-visible .project-card-action-mark {
+  transform: translate(2px, -1px);
+}
+
+.project-card--note {
+  cursor: default;
+}
+
+.project-card--note .project-card-action {
+  color: var(--noomo-muted);
+  font-weight: 500;
+}
+
+.project-card--note:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  transform: none;
+}
+
+.project-card--note:hover::before {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.project-card--note:hover .project-thumb img,
+.project-card--note:hover .project-thumb video {
+  filter: none;
+  transform: none;
+}
+
+.project-card--note:hover .project-thumb::after {
+  opacity: 0;
 }
 
 .contact-section {
@@ -1019,6 +1058,192 @@ button.project-card {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
+}
+
+@keyframes projectWipRuleIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.project-detail.is-wip {
+  display: flex;
+  min-height: 100svh;
+  padding-bottom: 0;
+  flex-direction: column;
+}
+
+.project-detail.is-wip > .project-detail-article {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+.project-detail-article--wip {
+  min-height: 100svh;
+}
+
+.project-wip-masthead {
+  padding-bottom: clamp(88px, 10vw, 144px);
+}
+
+.project-wip-masthead h1 {
+  max-width: 13ch;
+  margin-bottom: clamp(24px, 3vw, 34px);
+  font-size: clamp(3.25rem, 6.4vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+  text-transform: none;
+}
+
+.project-wip-summary {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--noomo-muted);
+  font-size: clamp(1rem, 1.45vw, 1.15rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.project-wip {
+  width: 100%;
+  padding-bottom: clamp(90px, 11vw, 150px);
+}
+
+.project-wip-status {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 34px);
+  width: 100%;
+}
+
+.project-wip-status p {
+  margin: 0;
+  color: var(--noomo-muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.project-wip-rule {
+  display: block;
+  height: 1px;
+  background: var(--noomo-line);
+  transform-origin: left center;
+  animation: projectWipRuleIn 900ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both;
+}
+
+.project-wip-content {
+  width: min(610px, 100%);
+  margin-top: clamp(54px, 6.5vw, 88px);
+  margin-right: clamp(0px, 8vw, 110px);
+  margin-left: auto;
+}
+
+.project-wip-content h2 {
+  margin: 0 0 clamp(18px, 2.2vw, 26px);
+  color: var(--noomo-ink-soft);
+  font-family: var(--project-display-font);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.project-wip-content > p {
+  max-width: 38ch;
+  margin: 0;
+  color: var(--noomo-ink-soft);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.project-wip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(30px, 3.6vw, 44px);
+}
+
+.project-wip-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 210px;
+  min-height: 52px;
+  padding: 12px 20px;
+  border: 1px solid var(--noomo-ink-soft);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1;
+  transition:
+    color 220ms ease,
+    background-color 220ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-wip-action.is-primary {
+  color: var(--noomo-paper-light);
+  background: var(--noomo-ink-soft);
+}
+
+.project-wip-action.is-secondary {
+  color: var(--noomo-ink-soft);
+  background: transparent;
+}
+
+.project-wip-action-mark {
+  display: inline-block;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-wip-action:hover,
+.project-wip-action:focus-visible {
+  transform: translateY(-2px);
+}
+
+.project-wip-action.is-secondary:hover,
+.project-wip-action.is-secondary:focus-visible {
+  color: var(--noomo-paper-light);
+  background: var(--noomo-ink-soft);
+}
+
+.project-wip-action:hover .project-wip-action-mark,
+.project-wip-action:focus-visible .project-wip-action-mark {
+  transform: translate(3px, -1px);
+}
+
+.project-wip-action.is-primary:hover .project-wip-action-mark,
+.project-wip-action.is-primary:focus-visible .project-wip-action-mark {
+  transform: translateX(-3px);
+}
+
+.project-wip-action:focus-visible {
+  outline: 2px solid var(--noomo-ink);
+  outline-offset: 4px;
+}
+
+.project-wip-footer {
+  width: 100%;
+  margin-top: auto;
+  padding: 34px 0 40px;
+  color: var(--noomo-muted);
+  border-top: 1px solid var(--noomo-line);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.project-wip-footer p {
+  margin: 0;
 }
 
 .project-hero-info {
@@ -1750,6 +1975,10 @@ body.has-media-dialog {
     margin-left: 0;
   }
 
+  .project-wip-content {
+    margin-right: 0;
+  }
+
   .project-timeline-ghost {
     position: relative;
     left: auto;
@@ -1777,12 +2006,101 @@ body.has-media-dialog {
 @media (max-width: 640px) {
   .site-header {
     position: absolute;
-    align-items: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding:
+      max(10px, env(safe-area-inset-top))
+      max(14px, env(safe-area-inset-right))
+      0
+      max(14px, env(safe-area-inset-left));
+  }
+
+  .brand {
+    display: inline-flex;
+    flex: 0 0 auto;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    font-size: 0.86rem;
   }
 
   .nav-links {
-    max-width: 210px;
-    gap: 10px 14px;
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    gap: 2px;
+    max-width: none;
+    font-size: 0.78rem;
+  }
+
+  .nav-links a {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+  }
+
+  .project-detail-article--wip {
+    padding-top: 88px;
+  }
+
+  .project-wip-masthead {
+    padding-bottom: 72px;
+  }
+
+  .project-wip-masthead h1 {
+    max-width: 100%;
+    margin-bottom: 22px;
+    font-size: clamp(2.6rem, 12vw, 3.5rem);
+    line-height: 0.98;
+  }
+
+  .project-wip-summary {
+    max-width: 34ch;
+    font-size: 1rem;
+  }
+
+  .project-wip {
+    padding-bottom: 76px;
+  }
+
+  .project-wip-status {
+    gap: 16px;
+  }
+
+  .project-wip-status p {
+    font-size: 0.84rem;
+  }
+
+  .project-wip-content {
+    width: 100%;
+    margin-top: 54px;
+  }
+
+  .project-wip-content h2 {
+    margin-bottom: 18px;
+    font-size: clamp(2.8rem, 14vw, 3.5rem);
+  }
+
+  .project-wip-content > p {
+    max-width: 32ch;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .project-wip-actions {
+    flex-direction: column;
+    margin-top: 32px;
+  }
+
+  .project-wip-action {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .project-wip-footer {
+    padding: 28px 0 34px;
   }
 
   .hero {
@@ -1790,12 +2108,63 @@ body.has-media-dialog {
     height: 100svh;
   }
 
+  .hero-media::after {
+    background:
+      linear-gradient(180deg, rgba(201, 210, 231, 0.9) 0%, rgba(201, 210, 231, 0.58) 14%, transparent 30%),
+      linear-gradient(0deg, var(--noomo-paper) 0%, rgba(201, 210, 231, 0.9) 28%, rgba(201, 210, 231, 0.48) 48%, transparent 64%);
+  }
+
+  .hero-poster,
+  .hero-video {
+    width: 128%;
+    max-width: none;
+    margin-left: -14%;
+    object-fit: contain;
+    transform: translateY(-3svh);
+  }
+
   .hero-copy {
-    padding-bottom: 14vh;
+    padding:
+      0
+      max(18px, env(safe-area-inset-right))
+      clamp(110px, 14svh, 132px)
+      max(18px, env(safe-area-inset-left));
+  }
+
+  .hero-copy .kicker {
+    max-width: 34ch;
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+
+  #hero-title {
+    font-size: clamp(3.5rem, 17.5vw, 4.25rem);
+    line-height: 0.86;
+    text-wrap: balance;
+  }
+
+  .hero-positioning {
+    max-width: 32ch;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+
+  .hero-primary-link {
+    font-size: 0.8rem;
+  }
+
+  .hero-fallback {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(14px, env(safe-area-inset-bottom));
   }
 
   .hero-scroll-cue {
-    bottom: 18px;
+    bottom: max(14px, calc(env(safe-area-inset-bottom) + 10px));
+    width: clamp(48px, 14vw, 54px);
   }
 
   .section {
@@ -1806,7 +2175,7 @@ body.has-media-dialog {
   .projects-section {
     width: 100%;
     margin: 86px 0;
-    padding: 92px 12px 68px;
+    padding: 0;
   }
 
   .project-detail {
@@ -1946,9 +2315,113 @@ body.has-media-dialog {
     left: 0;
   }
 
-  .projects-section .section-ghost {
-    top: 18px;
+  .projects-section-ghost {
+    top: -46px;
     left: 12px;
+  }
+
+  .project-group-ghost {
+    top: -44px;
+    left: 0;
+  }
+}
+
+@media (max-width: 900px) and (max-height: 520px) and (orientation: landscape) {
+  .site-header {
+    position: absolute;
+    align-items: center;
+    padding:
+      max(6px, env(safe-area-inset-top))
+      max(16px, env(safe-area-inset-right))
+      0
+      max(16px, env(safe-area-inset-left));
+  }
+
+  .brand,
+  .nav-links a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-wrap: nowrap;
+    gap: 16px;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    min-height: 360px;
+    height: 100svh;
+  }
+
+  .hero-poster,
+  .hero-video {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    object-fit: cover;
+    transform: scale(1.02);
+  }
+
+  .hero-copy {
+    padding:
+      0
+      max(18px, env(safe-area-inset-right))
+      48px
+      max(18px, env(safe-area-inset-left));
+  }
+
+  .hero-copy .kicker {
+    max-width: none;
+    margin-bottom: 4px;
+    font-size: 0.68rem;
+  }
+
+  #hero-title {
+    font-size: clamp(3.6rem, 9vw, 5rem);
+    line-height: 0.84;
+  }
+
+  .hero-positioning {
+    max-width: 44ch;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .hero-primary-link {
+    font-size: 0.72rem;
+  }
+
+  .hero-fallback {
+    top: max(62px, calc(env(safe-area-inset-top) + 54px));
+    right: max(16px, env(safe-area-inset-right));
+    bottom: auto;
+  }
+
+  .hero-scroll-cue {
+    left: auto;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(10px, env(safe-area-inset-bottom));
+    width: 44px;
+    transform: none;
+  }
+
+  .hero-scroll-cue:hover,
+  .hero-scroll-cue:focus-visible {
+    transform: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .hero-scroll-cue {
+    opacity: 0.72;
+  }
+
+  .nav-links a:active,
+  .hero-scroll-cue:active {
+    opacity: 0.58;
   }
 }
 
@@ -1983,4 +2456,584 @@ body.has-media-dialog {
     transform: none;
   }
 
+}
+
+/* Midnight at the Pagoda: portfolio case-study narrative */
+[data-project-slug="midnight-at-the-pagoda"] .project-visual-break-item figcaption {
+  max-width: 68ch;
+  padding: 14px clamp(16px, 2vw, 24px) 16px;
+  color: #55535e;
+  background: rgba(222, 231, 241, 0.76);
+  border-top: 1px solid rgba(24, 21, 32, 0.12);
+  font-family: var(--project-body-font);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story {
+  --project-story-list-max: 1180px;
+  --project-story-media-max: 100%;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-list {
+  gap: clamp(104px, 14vw, 174px);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block {
+  scroll-margin-top: 92px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.has-no-kicker .project-story-content {
+  grid-column: 2;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-content {
+  gap: clamp(18px, 2.5vw, 30px);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-content > * {
+  min-width: 0;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block h2 {
+  width: 100%;
+  max-width: 15ch;
+  overflow-wrap: anywhere;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block p:not(.project-story-kicker) {
+  color: #4f4d58;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.has-wide-media > .project-section-media-list {
+  margin-top: clamp(10px, 2vw, 24px);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-media {
+  background: rgba(219, 224, 239, 0.58);
+  border-color: rgba(24, 21, 32, 0.16);
+  border-radius: 0;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-media figcaption {
+  max-width: none;
+  padding: 12px 14px 14px;
+  color: #55535e;
+  background: rgba(222, 231, 241, 0.78);
+  border-top: 1px solid rgba(24, 21, 32, 0.1);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: clamp(8px, 1.5vw, 18px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(24, 21, 32, 0.2);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-points li {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 22px clamp(20px, 3vw, 34px) 0 0;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-points li + li {
+  padding-right: 0;
+  padding-left: clamp(20px, 3vw, 34px);
+  border-left: 1px solid rgba(24, 21, 32, 0.14);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-points span {
+  color: var(--noomo-ink);
+  font-family: var(--project-body-font);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-points p {
+  font-size: 0.98rem;
+  line-height: 1.58;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-evidence .project-story-content {
+  grid-column: 1 / -1;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent h2,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process h2 {
+  max-width: 12ch;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content > p,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content > p {
+  max-width: 64ch;
+  margin-left: clamp(0px, 18vw, 220px);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: end;
+  min-height: 390px;
+  margin: clamp(12px, 2vw, 24px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps li {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  min-height: 208px;
+  padding: 22px clamp(14px, 2vw, 24px) 0;
+  border-top: 1px solid rgba(24, 21, 32, 0.26);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps li::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: clamp(14px, 2vw, 24px);
+  width: 9px;
+  height: 9px;
+  background: var(--noomo-ink);
+  border-radius: 999px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps li:nth-child(2) {
+  margin-bottom: 48px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps li:nth-child(3) {
+  margin-bottom: 96px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps li:nth-child(4) {
+  margin-bottom: 144px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-step-marker {
+  color: #62606b;
+  font-family: var(--project-body-font);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps h3,
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline h3,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns h3 {
+  margin: 0;
+  color: var(--noomo-ink);
+  font-family: var(--project-display-font);
+  font-weight: 400;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps h3 {
+  max-width: 14ch;
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  line-height: 1.12;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-steps p {
+  font-size: 0.94rem;
+  line-height: 1.56;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent > .project-section-media-list.is-multi {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(22px, 3vw, 38px);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(1) {
+  grid-column: 1 / 7;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(2) {
+  grid-column: 7 / 13;
+  margin-top: clamp(42px, 7vw, 92px);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(3) {
+  grid-column: 3 / 12;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-story-content {
+  grid-column: 2;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-mapping {
+  margin-top: clamp(10px, 2vw, 22px);
+  border-top: 1px solid rgba(24, 21, 32, 0.26);
+  border-bottom: 1px solid rgba(24, 21, 32, 0.26);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-head,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.75fr) minmax(180px, 1.1fr) minmax(200px, 1.2fr);
+  gap: clamp(16px, 2.4vw, 30px);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-head {
+  padding: 13px 0;
+  color: #62606b;
+  font-family: var(--project-body-font);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row {
+  padding: 20px 0 22px;
+  border-top: 1px solid rgba(24, 21, 32, 0.12);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row p {
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row p:first-child {
+  color: var(--noomo-ink);
+  font-weight: 600;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction > .project-section-media-list {
+  width: min(100%, 980px);
+  margin-left: auto;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(26px, 4vw, 52px);
+  margin: clamp(20px, 3vw, 38px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: rgba(24, 21, 32, 0.22);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding-top: 28px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  background: var(--noomo-ink);
+  border: 3px solid var(--noomo-paper-light);
+  border-radius: 999px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline .timeline-logo-slot {
+  width: 94px;
+  height: 48px;
+  margin: 0;
+  border-radius: 0;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline-period {
+  color: #62606b;
+  font-family: var(--project-body-font);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  line-height: 1.12;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-section-timeline p {
+  margin-top: 8px;
+  font-size: 0.94rem;
+  line-height: 1.56;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process > .project-section-media-list.is-multi {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 36px);
+  align-items: start;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(1) {
+  grid-column: 1 / 9;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(2) {
+  grid-column: 9 / 13;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(3) {
+  grid-column: 3 / 11;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(2) img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: clamp(16px, 3vw, 34px);
+  border-top: 1px solid rgba(24, 21, 32, 0.26);
+  border-bottom: 1px solid rgba(24, 21, 32, 0.26);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns section {
+  padding: clamp(24px, 4vw, 44px) clamp(24px, 4vw, 48px) clamp(28px, 4vw, 48px) 0;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns section + section {
+  padding-right: 0;
+  padding-left: clamp(24px, 4vw, 48px);
+  border-left: 1px solid rgba(24, 21, 32, 0.16);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns h3 {
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  line-height: 1.05;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns ul {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns li {
+  position: relative;
+  padding-left: 18px;
+  color: #4f4d58;
+  font-family: var(--project-body-font);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns li::before {
+  content: "";
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--noomo-ink);
+  border-radius: 999px;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-closing {
+  max-width: 34ch;
+  margin: clamp(24px, 4vw, 48px) 0 0 auto;
+  color: var(--noomo-ink) !important;
+  font-family: var(--project-display-font) !important;
+  font-size: clamp(1.5rem, 3vw, 2.8rem) !important;
+  font-weight: 300;
+  line-height: 1.12 !important;
+  text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.has-no-kicker .project-story-content,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-story-content,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-evidence .project-story-content {
+    grid-column: 1;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content > p,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content > p {
+    margin-left: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+    gap: 32px 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps li,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps li:nth-child(2),
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps li:nth-child(3),
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps li:nth-child(4) {
+    min-height: 0;
+    margin-bottom: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent > .project-section-media-list.is-multi,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process > .project-section-media-list.is-multi {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(1),
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(2),
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(1),
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(2) {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(3),
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-head,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row {
+    grid-template-columns: minmax(100px, 0.75fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-list {
+    gap: 84px;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block h2 {
+    max-width: 100%;
+    font-size: clamp(2rem, 9.2vw, 2.5rem);
+    line-height: 1;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-points,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps,
+  [data-project-slug="midnight-at-the-pagoda"] .project-section-timeline,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-columns {
+    grid-template-columns: 1fr;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-points li,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-points li + li {
+    padding: 18px 0;
+    border-left: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-points li + li {
+    border-top: 1px solid rgba(24, 21, 32, 0.12);
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps {
+    gap: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps li {
+    padding: 22px 0 28px 26px;
+    border-top: 0;
+    border-left: 1px solid rgba(24, 21, 32, 0.24);
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-steps li::before {
+    top: 26px;
+    left: -5px;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent > .project-section-media-list.is-multi,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process > .project-section-media-list.is-multi {
+    grid-template-columns: 1fr;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(3),
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(3) {
+    grid-column: auto;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-head {
+    display: none;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row p,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row p:nth-child(2) {
+    display: block;
+    padding-left: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row p::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 5px;
+    color: #62606b;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-section-timeline {
+    gap: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-section-timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    width: 1px;
+    height: auto;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-section-timeline li {
+    padding: 0 0 38px 28px;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-section-timeline li::before {
+    top: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-columns section,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-columns section + section {
+    padding: 24px 0 28px;
+    border-left: 0;
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-columns section + section {
+    border-top: 1px solid rgba(24, 21, 32, 0.14);
+  }
+
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-closing {
+    margin-left: 0;
+    font-size: clamp(1.5rem, 8vw, 2.2rem) !important;
+  }
 }
