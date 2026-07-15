@@ -156,13 +156,19 @@ const renderSkills = (skills) => {
 };
 
 const createProjectCard = (project, separator) => {
-  const card = document.createElement(project.link ? "a" : "article");
+  const card = document.createElement(project.youtubeId ? "button" : project.link ? "a" : "article");
   card.className = [
     "project-card",
     project.tier ? `project-card--${project.tier}` : ""
   ].filter(Boolean).join(" ");
 
-  if (project.link) {
+  if (project.youtubeId) {
+    card.type = "button";
+    card.dataset.youtubeId = project.youtubeId;
+    card.dataset.projectTitle = project.title;
+    card.dataset.projectLink = project.link || "";
+    card.setAttribute("aria-haspopup", "dialog");
+  } else if (project.link) {
     card.href = project.link;
 
     if (/^https?:\/\//.test(project.link)) {
@@ -180,7 +186,10 @@ const createProjectCard = (project, separator) => {
   const meta = [project.year, project.role].filter(Boolean).join(separator);
 
   card.innerHTML = `
-    <div class="project-thumb">${media}</div>
+    <div class="project-thumb">
+      ${media}
+      ${project.youtubeId ? '<span class="project-video-indicator" aria-hidden="true">▶</span>' : ""}
+    </div>
     <div class="project-body">
       ${meta ? `<span class="project-meta">${meta}</span>` : ""}
       <h4>${project.title}</h4>
@@ -241,6 +250,58 @@ const renderContactLinks = (links) => {
     }
 
     container.append(link);
+  });
+};
+
+const startProjectVideoDialog = (labels = {}) => {
+  const dialog = document.querySelector("[data-project-video-dialog]");
+  const openButtons = document.querySelectorAll("[data-youtube-id]");
+  if (!dialog || typeof dialog.showModal !== "function" || !openButtons.length) return;
+
+  const frame = dialog.querySelector("[data-project-video-dialog-frame]");
+  const title = dialog.querySelector("[data-project-video-dialog-title]");
+  const closeButton = dialog.querySelector("[data-project-video-dialog-close]");
+  const projectLink = dialog.querySelector("[data-project-video-dialog-link]");
+  if (!frame || !title || !closeButton || !projectLink) return;
+
+  const closeLabel = labels.closeLabel || "Close video";
+  const viewProjectLabel = labels.viewProjectLabel || "View project";
+  const videoTitleSuffix = labels.videoTitleSuffix || "video";
+
+  closeButton.textContent = closeLabel;
+  closeButton.setAttribute("aria-label", closeLabel);
+  projectLink.textContent = viewProjectLabel;
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const videoId = button.dataset.youtubeId;
+      const projectTitle = button.dataset.projectTitle || "";
+      const externalLink = button.dataset.projectLink || "";
+      if (!videoId) return;
+
+      title.textContent = projectTitle;
+      frame.title = `${projectTitle} ${videoTitleSuffix}`.trim();
+      frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&playsinline=1`;
+      projectLink.href = externalLink;
+      projectLink.hidden = !externalLink;
+      dialog.showModal();
+      document.body.classList.add("has-media-dialog");
+      closeButton.focus({ preventScroll: true });
+    });
+  });
+
+  closeButton.addEventListener("click", () => dialog.close());
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener("close", () => {
+    frame.removeAttribute("src");
+    frame.title = "";
+    title.textContent = "";
+    projectLink.removeAttribute("href");
+    document.body.classList.remove("has-media-dialog");
   });
 };
 
@@ -340,6 +401,7 @@ const renderSite = (localeContent, locale) => {
     localeContent.projectsSection.metaSeparator,
     localeContent.projectsSection.categories
   );
+  startProjectVideoDialog(localeContent.projectsSection.videoDialog);
   renderContactLinks(localeContent.contact.links);
   window.PortfolioMedia?.startViewportVideoPlayback();
   startRevealObserver();

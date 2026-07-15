@@ -80,6 +80,26 @@
       <p><span data-i18n="footer.copyrightPrefix"></span> <span id="year"></span> <span data-i18n="footer.copyrightSuffix"></span></p>
     </footer>
 
+    <dialog class="project-video-dialog" data-project-video-dialog aria-labelledby="project-video-dialog-title">
+      <div class="project-video-dialog-shell">
+        <button class="project-media-dialog-close" type="button" data-project-video-dialog-close>Close video</button>
+        <div class="project-video-dialog-frame">
+          <iframe
+            data-project-video-dialog-frame
+            title=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="project-video-dialog-footer">
+          <h2 id="project-video-dialog-title" data-project-video-dialog-title></h2>
+          <a data-project-video-dialog-link target="_blank" rel="noreferrer">View project</a>
+        </div>
+      </div>
+    </dialog>
+
     <script src="project-authoring.js"></script>
     <script src="media-playback.js"></script>
     <script src="script.js"></script>

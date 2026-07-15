@@ -140,7 +140,12 @@
             "label": "Playground"
           }
         ],
-        "metaSeparator": " / "
+        "metaSeparator": " / ",
+        "videoDialog": {
+          "closeLabel": "Close video",
+          "viewProjectLabel": "View project",
+          "videoTitleSuffix": "video"
+        }
       },
       "projectDetail": {
         "backLabel": "Back to projects",
@@ -512,6 +517,8 @@
           "role": "Innovate UK Immersive Tech Awards Jury Prize",
           "year": "2024",
           "summary": "An immersive drum kit and tutor.",
+          "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
+          "youtubeId": "oBdALCK0mpA",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -535,6 +542,8 @@
           "summary": "XR hackathon prototype.",
           "mediaLabel": "XR hack prototype",
           "featured": false,
+          "link": "https://devpost.com/software/tether-h041aj",
+          "youtubeId": "FOYd2AGIlYA",
           "slug": "habibi",
           "category": "xr"
         },
@@ -701,7 +710,12 @@
             "label": "Playground"
           }
         ],
-        "metaSeparator": " / "
+        "metaSeparator": " / ",
+        "videoDialog": {
+          "closeLabel": "关闭视频",
+          "viewProjectLabel": "查看项目",
+          "videoTitleSuffix": "视频"
+        }
       },
       "projectDetail": {
         "backLabel": "Back to projects",
@@ -934,6 +948,8 @@
           "role": "Innovate UK Immersive Tech Awards 评审团奖",
           "year": "2024",
           "summary": "沉浸式架子鼓与教学体验。",
+          "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
+          "youtubeId": "oBdALCK0mpA",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -957,6 +973,8 @@
           "summary": "XR hackathon 原型。",
           "mediaLabel": "XR hack 原型",
           "featured": false,
+          "link": "https://devpost.com/software/tether-h041aj",
+          "youtubeId": "FOYd2AGIlYA",
           "slug": "habibi",
           "category": "xr"
         },

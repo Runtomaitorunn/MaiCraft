@@ -646,6 +646,15 @@ h3 {
     transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+button.project-card {
+  width: 100%;
+  padding: 0;
+  appearance: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .project-card::before {
   content: "";
   position: absolute;
@@ -717,6 +726,29 @@ h3 {
   transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.project-video-indicator {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding-left: 2px;
+  color: var(--noomo-paper-light);
+  background: rgba(24, 21, 32, 0.84);
+  border: 1px solid rgba(222, 231, 241, 0.56);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-video-indicator,
+.project-card:focus-visible .project-video-indicator {
+  transform: scale(1.06);
+}
+
 .project-card:hover .project-thumb img,
 .project-card:hover .project-thumb video,
 .project-card:focus-visible .project-thumb img,
@@ -768,6 +800,80 @@ h3 {
   font-family: var(--project-body-font);
   font-size: 0.78rem;
   text-transform: uppercase;
+}
+
+.project-video-dialog {
+  width: min(94vw, 1120px);
+  max-width: none;
+  max-height: 92svh;
+  padding: 0;
+  overflow: hidden;
+  color: var(--noomo-ink);
+  background: var(--noomo-paper-menu);
+  border: 1px solid rgba(222, 231, 241, 0.62);
+  border-radius: 6px;
+}
+
+.project-video-dialog::backdrop {
+  background: rgba(24, 21, 32, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.project-video-dialog .project-media-dialog-close {
+  min-height: 44px;
+}
+
+.project-video-dialog-shell {
+  position: relative;
+  display: grid;
+}
+
+.project-video-dialog-frame {
+  aspect-ratio: 16 / 9;
+  background: var(--noomo-ink);
+}
+
+.project-video-dialog-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-video-dialog-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  padding: 16px 18px;
+}
+
+.project-video-dialog-footer h2 {
+  margin: 0;
+  font-family: var(--project-display-font);
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.project-video-dialog-footer a {
+  display: inline-grid;
+  min-height: 44px;
+  place-items: center;
+  padding: 0 16px;
+  color: var(--noomo-paper-light);
+  background: var(--noomo-ink-soft);
+  border-radius: 999px;
+  font-family: var(--project-body-font);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.project-video-dialog-footer a:focus-visible {
+  outline: 2px solid var(--noomo-ink);
+  outline-offset: 3px;
 }
 
 .contact-section {
