@@ -372,7 +372,7 @@ const renderStoryColumns = (columns = []) => {
   if (!columns.length) return "";
 
   return `
-    <div class="project-story-columns">
+    <div class="project-story-columns${columns.length === 1 ? " is-single" : ""}">
       ${columns
         .map(
           (column) => `
@@ -488,7 +488,8 @@ const renderProjectPage = (project, localeContent, locale) => {
   const overview = project.overview || {};
   const sectionBlocks = project.detailSections || [];
   const media = project.detailMedia || [project.coverMedia].filter(Boolean);
-  const visualBreakMedia = project.visualBreakMedia || media[1] || media[0] || project.coverMedia;
+  const hasVisualBreak = project.visualBreakMedia !== false;
+  const visualBreakMedia = hasVisualBreak ? project.visualBreakMedia || media[1] || media[0] || project.coverMedia : null;
   const gallery = media
     .map((item) => `<figure>${renderMedia({ ...item, title: project.title })}</figure>`)
     .join("");
@@ -521,9 +522,13 @@ const renderProjectPage = (project, localeContent, locale) => {
         </div>
       </section>
 
-      <section class="project-visual-break" aria-label="${detailLabels.visualBreakLabel || "Project visual"}">
+      ${
+        hasVisualBreak
+          ? `<section class="project-visual-break" aria-label="${detailLabels.visualBreakLabel || "Project visual"}">
         ${renderVisualBreakMedia(visualBreakMedia, project)}
-      </section>
+      </section>`
+          : ""
+      }
 
       <section class="project-story ${storyLayoutClass}">
         ${renderTimelineGhost(project.timeline, detailLabels.timelineLabel || "Project timeline")}

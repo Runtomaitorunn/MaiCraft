@@ -1071,10 +1071,15 @@ button.project-card {
 }
 
 .project-detail.is-wip {
+  --project-wip-muted: #595963;
   display: flex;
   min-height: 100svh;
   padding-bottom: 0;
   flex-direction: column;
+}
+
+.project-detail.is-wip .back-link {
+  color: var(--project-wip-muted);
 }
 
 .project-detail.is-wip > .project-detail-article {
@@ -1104,7 +1109,7 @@ button.project-card {
 .project-wip-summary {
   max-width: 42ch;
   margin: 0;
-  color: var(--noomo-muted);
+  color: var(--project-wip-muted);
   font-size: clamp(1rem, 1.45vw, 1.15rem);
   line-height: 1.55;
   text-wrap: pretty;
@@ -1125,7 +1130,7 @@ button.project-card {
 
 .project-wip-status p {
   margin: 0;
-  color: var(--noomo-muted);
+  color: var(--project-wip-muted);
   font-size: 0.92rem;
   line-height: 1.4;
 }
@@ -1236,7 +1241,7 @@ button.project-card {
   width: 100%;
   margin-top: auto;
   padding: 34px 0 40px;
-  color: var(--noomo-muted);
+  color: var(--project-wip-muted);
   border-top: 1px solid var(--noomo-line);
   font-size: 0.78rem;
   line-height: 1.5;
@@ -2565,9 +2570,12 @@ body.has-media-dialog {
   grid-column: 1 / -1;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent h2,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent h2 {
+  max-width: 16ch;
+}
+
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process h2 {
-  max-width: 12ch;
+  max-width: 17ch;
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content > p,
@@ -2649,21 +2657,24 @@ body.has-media-dialog {
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent > .project-section-media-list.is-multi {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(22px, 3vw, 38px);
+  align-items: stretch;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(1) {
-  grid-column: 1 / 7;
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media {
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(2) {
-  grid-column: 7 / 13;
-  margin-top: clamp(42px, 7vw, 92px);
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:first-child,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:first-child {
+  grid-column: auto;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(3) {
-  grid-column: 3 / 12;
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media-asset {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-story-content {
@@ -2709,8 +2720,30 @@ body.has-media-dialog {
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction > .project-section-media-list {
-  width: min(100%, 980px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 30px);
+  width: 100%;
   margin-left: auto;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-section-media.is-featured {
+  grid-column: 1 / -1;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-section-media {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-section-media-asset {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #fff;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-section-media.is-featured .project-section-media-asset {
+  object-fit: cover;
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-section-timeline {
@@ -2782,25 +2815,23 @@ body.has-media-dialog {
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process > .project-section-media-list.is-multi {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(18px, 3vw, 36px);
-  align-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 30px);
+  align-items: stretch;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(1) {
-  grid-column: 1 / 9;
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media {
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(2) {
-  grid-column: 9 / 13;
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-media-open {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(3) {
-  grid-column: 3 / 11;
-}
-
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(2) img {
-  aspect-ratio: 3 / 4;
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media-asset {
+  height: 100%;
   object-fit: cover;
 }
 
@@ -2811,6 +2842,12 @@ body.has-media-dialog {
   margin-top: clamp(16px, 3vw, 34px);
   border-top: 1px solid rgba(24, 21, 32, 0.26);
   border-bottom: 1px solid rgba(24, 21, 32, 0.26);
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-columns.is-single {
+  grid-template-columns: 1fr;
+  width: min(100%, 760px);
+  margin-left: auto;
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-columns section {
@@ -2895,24 +2932,6 @@ body.has-media-dialog {
     margin-bottom: 0;
   }
 
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent > .project-section-media-list.is-multi,
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process > .project-section-media-list.is-multi {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(1),
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(2),
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(1),
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(2) {
-    grid-column: auto;
-    margin-top: 0;
-  }
-
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(3),
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(3) {
-    grid-column: 1 / -1;
-  }
-
   [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-head,
   [data-project-slug="midnight-at-the-pagoda"] .project-story-mapping-row {
     grid-template-columns: minmax(100px, 0.75fr) minmax(0, 1fr) minmax(0, 1fr);
@@ -2964,14 +2983,15 @@ body.has-media-dialog {
   }
 
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent > .project-section-media-list.is-multi,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction > .project-section-media-list.is-multi,
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process > .project-section-media-list.is-multi {
     grid-template-columns: 1fr;
   }
 
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media,
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-section-media,
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media,
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-section-media:nth-child(3),
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media:nth-child(3) {
+  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-section-media.is-featured {
     grid-column: auto;
   }
 

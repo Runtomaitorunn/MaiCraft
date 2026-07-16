@@ -82,9 +82,12 @@
     const detailMedia = normalizeMediaList(project.detailMedia?.length ? project.detailMedia : coverMedia, {
       title: project.title,
     });
-    const visualBreakMedia = normalizeMediaList(project.visualBreakMedia || detailMedia[1] || detailMedia[0], {
-      title: project.title,
-    });
+    const visualBreakMedia =
+      project.visualBreakMedia === false
+        ? false
+        : normalizeMediaList(project.visualBreakMedia || detailMedia[1] || detailMedia[0], {
+            title: project.title,
+          });
     const rawSections = project.story?.sections?.length ? project.story.sections : project.detailSections || fallbackSectionsFromDetailBody(project);
 
     return {

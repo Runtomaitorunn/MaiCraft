@@ -252,13 +252,7 @@
               "alt": "Midnight at the Pagoda rendered scene"
             }
           ],
-          "visualBreakMedia": [
-            {
-              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
-              "alt": "Midnight at the Pagoda exhibition proposal visual",
-              "caption": "The proposal reframed the pagoda as a journey through thresholds, artifacts, memory, and ascent."
-            }
-          ],
+          "visualBreakMedia": false,
           "story": {
             "sections": [
               {
@@ -313,15 +307,19 @@
                 ],
                 "media": [
                   {
+                    "src": "assets/projects/midnight-at-the-pagoda/route-onboarding.png",
+                    "alt": "Annotated onboarding route from the empty starting point through the glazed arch",
+                    "caption": "Onboarding: the first route teaches movement through a single visible threshold."
+                  },
+                  {
                     "src": "assets/projects/midnight-at-the-pagoda/route-foundation-a.png",
                     "alt": "Annotated route through the pagoda foundation scene, from the entrance to the scroll collection",
-                    "caption": "Foundation route, first pass: the visitor crosses the room before the central artifact is revealed.",
-                    "featured": true
+                    "caption": "Foundation, first pass: the visitor crosses the room before the central artifact is revealed."
                   },
                   {
                     "src": "assets/projects/midnight-at-the-pagoda/route-foundation-b.png",
                     "alt": "Annotated route from the scroll collection to the central Ashoka pagoda model",
-                    "caption": "The return path changes after the artifact becomes active."
+                    "caption": "Foundation, second pass: the return path changes after the artifact becomes active."
                   },
                   {
                     "src": "assets/projects/midnight-at-the-pagoda/route-summit.png",
@@ -357,9 +355,25 @@
                 ],
                 "media": [
                   {
+                    "src": "assets/projects/midnight-at-the-pagoda/artifact-interaction.mp4",
+                    "alt": "Unity prototype footage demonstrating artifact interaction inside the VR experience",
+                    "caption": "Artifact interaction in the working Unity prototype.",
+                    "featured": true
+                  },
+                  {
                     "src": "assets/projects/midnight-at-the-pagoda/visitor-journey.png",
-                    "alt": "Storyboard showing the end-to-end visitor journey from transition space into narrative and interaction floors",
-                    "caption": "The end-to-end journey connects the physical waiting area, headset setup, narrative floors, and interaction floors."
+                    "alt": "Storyboard showing the visitor journey from transition space into the narrative and main interaction floors",
+                    "caption": "01 · Transition space, headset setup, and the first two floors."
+                  },
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-interaction.png",
+                    "alt": "Storyboard showing brush interaction, reflection, and transition into the enlightenment floor",
+                    "caption": "02 · Artifact interaction becomes reflection, then opens the enlightenment floor."
+                  },
+                  {
+                    "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-ending.png",
+                    "alt": "Storyboard showing the final voice interaction and the end of the VR experience",
+                    "caption": "03 · Voice interaction closes the virtual journey and returns the visitor to the physical room."
                   }
                 ]
               },
@@ -422,15 +436,6 @@
                 ],
                 "columns": [
                   {
-                    "title": "Evidence on record",
-                    "items": [
-                      "Best Use of Tech, Digital Heritage 2024",
-                      "A working VR prototype and public presentation",
-                      "77/100 in the Goldsmiths Research Project course",
-                      "A completed research thesis and integrated exhibition plan"
-                    ]
-                  },
-                  {
                     "title": "Still to validate",
                     "items": [
                       "Large-scale visitor response and long-term memory effects",
@@ -438,8 +443,7 @@
                       "Performance trade-offs on mobile headsets at exhibition scale"
                     ]
                   }
-                ],
-                "closing": "My role moved across narrative design, scene design, VR development, field presentation, and research synthesis."
+                ]
               }
             ]
           }
@@ -626,8 +630,8 @@
           "summary": "Built a VR drumming simulator and tutor that won the 2024 Jury Prize.",
           "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
           "actionLabel": "Read case study",
-          "poster": "assets/projects/beatbox-vr/poster.jpg",
-          "posterAlt": "BeatBoxVR title over a virtual drum kit scene",
+          "poster": "assets/projects/beatbox-vr/thumbnail.png",
+          "posterAlt": "BeatBoxVR red and white title artwork on a black background",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -712,27 +716,27 @@
         "description": "中文占位：这里将来填写中文网站描述。"
       },
       "brand": {
-        "name": "中文占位",
-        "ariaLabel": "中文占位：返回顶部"
+        "name": "Ye Mai",
+        "ariaLabel": "Ye Mai：返回顶部"
       },
       "header": {
-        "ariaLabel": "中文占位：主导航"
+        "ariaLabel": "主导航"
       },
       "nav": [
         {
-          "label": "中文占位：关于",
+          "label": "关于",
           "href": "#artist"
         },
         {
-          "label": "中文占位：技能",
+          "label": "技能",
           "href": "#skills"
         },
         {
-          "label": "中文占位：项目",
+          "label": "项目",
           "href": "#projects"
         },
         {
-          "label": "中文占位：联系",
+          "label": "联系",
           "href": "#contact"
         }
       ],
@@ -838,14 +842,14 @@
         }
       },
       "projectDetail": {
-        "backLabel": "Back to projects",
-        "overviewLabel": "Overview",
-        "visualBreakLabel": "Project visual",
-        "taglineSlot": "Tagline slot",
-        "sectionFallbackLabel": "Part",
-        "sectionTitleSlot": "Section title slot",
-        "timelineLabel": "Project timeline",
-        "notFoundTitle": "Project not found"
+        "backLabel": "返回作品列表",
+        "overviewLabel": "项目概览",
+        "visualBreakLabel": "项目视觉",
+        "taglineSlot": "项目重点",
+        "sectionFallbackLabel": "项目部分",
+        "sectionTitleSlot": "项目章节",
+        "timelineLabel": "项目时间线",
+        "notFoundTitle": "未找到该项目"
       },
       "projects": [
         {
@@ -941,12 +945,7 @@
               "alt": "Midnight at the Pagoda rendered scene"
             }
           ],
-          "visualBreakMedia": [
-            {
-              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
-              "alt": "Midnight at the Pagoda exhibition proposal visual"
-            }
-          ],
+          "visualBreakMedia": false,
           "story": {
             "timeline": [
               {
@@ -1070,8 +1069,8 @@
           "summary": "开发 VR 架子鼓模拟与教学体验，获 2024 年评审团奖。",
           "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
           "actionLabel": "阅读案例",
-          "poster": "assets/projects/beatbox-vr/poster.jpg",
-          "posterAlt": "BeatBoxVR 标题覆盖在虚拟架子鼓场景上",
+          "poster": "assets/projects/beatbox-vr/thumbnail.png",
+          "posterAlt": "黑色背景上的 BeatBoxVR 红白标题图形",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -1147,7 +1146,7 @@
       },
       "footer": {
         "copyrightPrefix": "Copyright",
-        "copyrightSuffix": "中文占位。保留所有权利。"
+        "copyrightSuffix": "Ye Mai。保留所有权利。"
       }
     }
   }
