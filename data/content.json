@@ -43,7 +43,7 @@
       "artist": {
         "ghost": "hello :)",
         "eyebrow": "About Mai",
-        "heading": "I build spatial interfaces, web systems, and visual stories.",
+        "heading": "I build spatial interfaces, web systems, and visual stories",
         "body": [
           "I'm currently working as a research assistant at HKUST VISLab, exploring XR and HCI for immersive learning, and as a freelance creative technologist, building interactive prototypes and media systems for clients.",
           "The through-line is hands-on craft: Unity scenes, interface logic, motion, narrative structure, and the small technical decisions that make an experience feel understandable."
@@ -142,10 +142,10 @@
           }
         ],
         "metaSeparator": " / ",
-        "cardActions": {
-          "caseStudy": "Read case study",
-          "external": "Visit project site",
-          "note": "Project note"
+        "videoDialog": {
+          "closeLabel": "Close video",
+          "viewProjectLabel": "View project",
+          "watchVideoLabel": "Watch video"
         }
       },
       "projectDetail": {
@@ -163,7 +163,7 @@
           "title": "Qianfan One Scroll",
           "year": "2026",
           "role": "Art Direction / Visual Narrative",
-          "summary": "Designed a noir visual system for a tabletop mystery.",
+          "summary": "Noir visuals for a tabletop mystery.",
           "cover": "assets/projects/qianfan-one-scroll/cover.webp",
           "alt": "Illustrated orange-haired investigator holding a magnifying glass against a crumpled paper background",
           "mediaLabel": "Visual narrative media",
@@ -171,6 +171,13 @@
           "featured": false,
           "slug": "qianfan-one-scroll",
           "category": "playground",
+          "wip": {
+            "kicker": "still taking shape :)",
+            "heading": "Stay tuned.",
+            "body": "This project page is still taking shape. More visual notes are on the way.",
+            "backActionLabel": "Back to projects",
+            "contactActionLabel": "Say hello"
+          },
           "detailHeading": "A tabletop mystery visual system built from noir contrast, annotated evidence, and character-driven interface art.",
           "detailBody": [
             "Qianfan One Scroll uses bold graphic composition, case-material layouts, and illustrated player characters to frame a tabletop reasoning experience.",
@@ -186,8 +193,8 @@
         {
           "title": "Midnight at the Pagoda",
           "year": "2026",
-          "role": "VR R&D / HCI Research Thesis",
-          "summary": "Designed and built a VR heritage journey for embodied memory research.",
+          "role": "VR R&D project / HCI Research Thesis",
+          "summary": "VR heritage and memory.",
           "coverMedia": {
             "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
@@ -252,7 +259,13 @@
               "alt": "Midnight at the Pagoda rendered scene"
             }
           ],
-          "visualBreakMedia": false,
+          "visualBreakMedia": [
+            {
+              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
+              "alt": "Midnight at the Pagoda exhibition proposal visual",
+              "caption": "The proposal reframed the pagoda as a journey through thresholds, artifacts, memory, and ascent."
+            }
+          ],
           "story": {
             "sections": [
               {
@@ -307,19 +320,15 @@
                 ],
                 "media": [
                   {
-                    "src": "assets/projects/midnight-at-the-pagoda/route-onboarding.png",
-                    "alt": "Annotated onboarding route from the empty starting point through the glazed arch",
-                    "caption": "Onboarding: the first route teaches movement through a single visible threshold."
-                  },
-                  {
                     "src": "assets/projects/midnight-at-the-pagoda/route-foundation-a.png",
                     "alt": "Annotated route through the pagoda foundation scene, from the entrance to the scroll collection",
-                    "caption": "Foundation, first pass: the visitor crosses the room before the central artifact is revealed."
+                    "caption": "Foundation route, first pass: the visitor crosses the room before the central artifact is revealed.",
+                    "featured": true
                   },
                   {
                     "src": "assets/projects/midnight-at-the-pagoda/route-foundation-b.png",
                     "alt": "Annotated route from the scroll collection to the central Ashoka pagoda model",
-                    "caption": "Foundation, second pass: the return path changes after the artifact becomes active."
+                    "caption": "The return path changes after the artifact becomes active."
                   },
                   {
                     "src": "assets/projects/midnight-at-the-pagoda/route-summit.png",
@@ -355,25 +364,9 @@
                 ],
                 "media": [
                   {
-                    "src": "assets/projects/midnight-at-the-pagoda/artifact-interaction.mp4",
-                    "alt": "Unity prototype footage demonstrating artifact interaction inside the VR experience",
-                    "caption": "Artifact interaction in the working Unity prototype.",
-                    "featured": true
-                  },
-                  {
                     "src": "assets/projects/midnight-at-the-pagoda/visitor-journey.png",
-                    "alt": "Storyboard showing the visitor journey from transition space into the narrative and main interaction floors",
-                    "caption": "01 · Transition space, headset setup, and the first two floors."
-                  },
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-interaction.png",
-                    "alt": "Storyboard showing brush interaction, reflection, and transition into the enlightenment floor",
-                    "caption": "02 · Artifact interaction becomes reflection, then opens the enlightenment floor."
-                  },
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-ending.png",
-                    "alt": "Storyboard showing the final voice interaction and the end of the VR experience",
-                    "caption": "03 · Voice interaction closes the virtual journey and returns the visitor to the physical room."
+                    "alt": "Storyboard showing the end-to-end visitor journey from transition space into narrative and interaction floors",
+                    "caption": "The end-to-end journey connects the physical waiting area, headset setup, narrative floors, and interaction floors."
                   }
                 ]
               },
@@ -436,6 +429,15 @@
                 ],
                 "columns": [
                   {
+                    "title": "Evidence on record",
+                    "items": [
+                      "Best Use of Tech, Digital Heritage 2024",
+                      "A working VR prototype and public presentation",
+                      "77/100 in the Goldsmiths Research Project course",
+                      "A completed research thesis and integrated exhibition plan"
+                    ]
+                  },
+                  {
                     "title": "Still to validate",
                     "items": [
                       "Large-scale visitor response and long-term memory effects",
@@ -443,7 +445,8 @@
                       "Performance trade-offs on mobile headsets at exhibition scale"
                     ]
                   }
-                ]
+                ],
+                "closing": "My role moved across narrative design, scene design, VR development, field presentation, and research synthesis."
               }
             ]
           }
@@ -451,8 +454,8 @@
         {
           "title": "GAVIS VR",
           "year": "2026",
-          "role": "VR R&D / App Development",
-          "summary": "Built a self-guided VR onboarding flow tested with secondary school students.",
+          "role": "VR R&D project / app Development",
+          "summary": "Classroom VR onboarding.",
           "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "XR onboarding demo",
@@ -614,8 +617,8 @@
         {
           "title": "World of Aldar",
           "year": "2025",
-          "role": "Property Technology / Soluis Group",
-          "summary": "Built virtual-twin media for residential sales across 360° tours, XR, CGI, and animation.",
+          "role": "Property Tech / Soluis Group",
+          "summary": "Virtual twins built alongside major residential developments power high-volume sales media across 360° tours, XR, CGI, and animation.",
           "cover": "assets/projects/world-of-aldar/thumbnail.jpg",
           "alt": "Coastal residential towers rendered beside a beach and swimming pools",
           "link": "https://world.aldar.com/",
@@ -625,13 +628,13 @@
         },
         {
           "title": "BeatBoxVR",
-          "role": "VR Development / Innovate UK Jury Prize",
+          "role": "Innovate UK Immersive Tech Awards Jury Prize",
           "year": "2024",
-          "summary": "Built a VR drumming simulator and tutor that won the 2024 Jury Prize.",
+          "summary": "An immersive drum kit and tutor.",
           "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
-          "actionLabel": "Read case study",
-          "poster": "assets/projects/beatbox-vr/thumbnail.png",
-          "posterAlt": "BeatBoxVR red and white title artwork on a black background",
+          "youtubeId": "oBdALCK0mpA",
+          "poster": "assets/projects/beatbox-vr/poster.jpg",
+          "posterAlt": "BeatBoxVR title over a virtual drum kit scene",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -640,7 +643,7 @@
           "title": "Safety Pit",
           "role": "Digital Curation",
           "year": "2023",
-          "summary": "Curated a digital study of anomalies in swimming pools.",
+          "summary": "A discussion of anomalies in a swimming pool.",
           "cover": "assets/projects/safety-pit/thumbnail.gif",
           "alt": "Animated collage of a swimming pool with an orange lifebuoy and handwritten markings",
           "mediaLabel": "Digital curation",
@@ -650,13 +653,13 @@
         },
         {
           "title": "Habibi",
-          "role": "Programming / Meta Utility & Design Runner-Up",
+          "role": "XR Hack Project",
           "year": "2024",
-          "summary": "Built a shared MR wall for voice, AI-generated media, and stylus interaction.",
+          "summary": "XR hackathon prototype.",
           "mediaLabel": "XR hack prototype",
           "featured": false,
           "link": "https://devpost.com/software/tether-h041aj",
-          "actionLabel": "View on Devpost",
+          "youtubeId": "FOYd2AGIlYA",
           "poster": "assets/projects/habibi/poster.jpg",
           "posterAlt": "Habibi monogram and title on a black background",
           "slug": "habibi",
@@ -664,21 +667,13 @@
         },
         {
           "title": "Visual Grammar Analysis Series",
-          "role": "Video Essay / Visual Research",
+          "role": "Video Essay",
           "year": "2026",
-          "summary": "Analyzed cultural symbols through collage-based video essays.",
+          "summary": "Collage notes on cultural symbols.",
           "mediaLabel": "Visual analysis series",
           "featured": false,
-          "link": "projects/visual-grammar-analysis-series.html",
           "slug": "visual-grammar-analysis-series",
-          "category": "playground",
-          "wip": {
-            "kicker": "still taking shape :)",
-            "heading": "Stay tuned.",
-            "body": "This section is finding its form. More visual notes are on the way.",
-            "backActionLabel": "Back to projects",
-            "contactActionLabel": "Say hello"
-          }
+          "category": "playground"
         }
       ],
       "contact": {
@@ -716,27 +711,27 @@
         "description": "中文占位：这里将来填写中文网站描述。"
       },
       "brand": {
-        "name": "Ye Mai",
-        "ariaLabel": "Ye Mai：返回顶部"
+        "name": "中文占位",
+        "ariaLabel": "中文占位：返回顶部"
       },
       "header": {
-        "ariaLabel": "主导航"
+        "ariaLabel": "中文占位：主导航"
       },
       "nav": [
         {
-          "label": "关于",
+          "label": "中文占位：关于",
           "href": "#artist"
         },
         {
-          "label": "技能",
+          "label": "中文占位：技能",
           "href": "#skills"
         },
         {
-          "label": "项目",
+          "label": "中文占位：项目",
           "href": "#projects"
         },
         {
-          "label": "联系",
+          "label": "中文占位：联系",
           "href": "#contact"
         }
       ],
@@ -835,28 +830,28 @@
           }
         ],
         "metaSeparator": " / ",
-        "cardActions": {
-          "caseStudy": "阅读案例",
-          "external": "访问项目网站",
-          "note": "项目笔记"
+        "videoDialog": {
+          "closeLabel": "关闭视频",
+          "viewProjectLabel": "查看项目",
+          "watchVideoLabel": "观看视频"
         }
       },
       "projectDetail": {
-        "backLabel": "返回作品列表",
-        "overviewLabel": "项目概览",
-        "visualBreakLabel": "项目视觉",
-        "taglineSlot": "项目重点",
-        "sectionFallbackLabel": "项目部分",
-        "sectionTitleSlot": "项目章节",
-        "timelineLabel": "项目时间线",
-        "notFoundTitle": "未找到该项目"
+        "backLabel": "Back to projects",
+        "overviewLabel": "Overview",
+        "visualBreakLabel": "Project visual",
+        "taglineSlot": "Tagline slot",
+        "sectionFallbackLabel": "Part",
+        "sectionTitleSlot": "Section title slot",
+        "timelineLabel": "Project timeline",
+        "notFoundTitle": "Project not found"
       },
       "projects": [
         {
           "title": "中文占位：千翻One卷",
           "year": "2026",
-          "role": "艺术指导 / 视觉叙事",
-          "summary": "为桌游推理项目设计黑色视觉叙事系统。",
+          "role": "中文占位：角色",
+          "summary": "桌游推理体验的黑色视觉系统。",
           "cover": "assets/projects/qianfan-one-scroll/cover.webp",
           "alt": "橙发调查员手持放大镜，背景为皱褶纸张的插画",
           "mediaLabel": "中文占位：项目媒体",
@@ -864,6 +859,13 @@
           "featured": false,
           "slug": "qianfan-one-scroll",
           "category": "playground",
+          "wip": {
+            "kicker": "正在慢慢成形 :)",
+            "heading": "敬请期待。",
+            "body": "这个项目页面还在整理中，更多视觉内容即将更新。",
+            "backActionLabel": "返回作品列表",
+            "contactActionLabel": "和我聊聊"
+          },
           "detailHeading": "中文占位：这里将来填写项目详情页标题。",
           "detailBody": [
             "中文占位：这里将来填写项目详情段落一。",
@@ -879,8 +881,8 @@
         {
           "title": "佛塔的午夜",
           "year": "2026",
-          "role": "VR 研发 / HCI 研究论文",
-          "summary": "设计并开发用于具身记忆研究的 VR 文化遗产旅程。",
+          "role": "VR 应用 / HCI 研究论文",
+          "summary": "文化遗产 VR 与记忆研究。",
           "coverMedia": {
             "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
             "alt": "Rendered pagoda exhibition scene with warm interior lighting and red architectural elements"
@@ -945,7 +947,12 @@
               "alt": "Midnight at the Pagoda rendered scene"
             }
           ],
-          "visualBreakMedia": false,
+          "visualBreakMedia": [
+            {
+              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
+              "alt": "Midnight at the Pagoda exhibition proposal visual"
+            }
+          ],
           "story": {
             "timeline": [
               {
@@ -1027,10 +1034,10 @@
           }
         },
         {
-          "title": "GAVIS VR",
+          "title": "中文占位：Vislab Onboarding Panel",
           "year": "2026",
-          "role": "VR 研发 / 应用开发",
-          "summary": "构建自助式 VR 引导流程，并与中学生开展课堂测试。",
+          "role": "中文占位：角色",
+          "summary": "课堂 VR 自助引导。",
           "cover": "assets/projects/vislab-onboarding-panel/showreel.mp4",
           "alt": "GAVIS onboarding showreel video",
           "mediaLabel": "中文占位：项目媒体",
@@ -1054,7 +1061,7 @@
           "title": "World of Aldar",
           "year": "2025",
           "role": "房地产科技 / Soluis Group",
-          "summary": "为住宅销售制作虚拟孪生媒体，覆盖 360° 导览、XR、CGI 与动画。",
+          "summary": "与大型住宅开发同步构建虚拟孪生，以批量制作 360° 导览、XR、CGI 和动画销售素材。",
           "cover": "assets/projects/world-of-aldar/thumbnail.jpg",
           "alt": "海滨住宅楼群效果图，建筑沿沙滩与泳池展开",
           "link": "https://world.aldar.com/",
@@ -1064,13 +1071,13 @@
         },
         {
           "title": "BeatBoxVR",
-          "role": "VR 开发 / Innovate UK 评审团奖",
+          "role": "Innovate UK Immersive Tech Awards 评审团奖",
           "year": "2024",
-          "summary": "开发 VR 架子鼓模拟与教学体验，获 2024 年评审团奖。",
+          "summary": "沉浸式架子鼓与教学体验。",
           "link": "https://yeahmy1022.wixsite.com/maiportfolio/beatbox-vr",
-          "actionLabel": "阅读案例",
-          "poster": "assets/projects/beatbox-vr/thumbnail.png",
-          "posterAlt": "黑色背景上的 BeatBoxVR 红白标题图形",
+          "youtubeId": "oBdALCK0mpA",
+          "poster": "assets/projects/beatbox-vr/poster.jpg",
+          "posterAlt": "BeatBoxVR 标题覆盖在虚拟架子鼓场景上",
           "featured": false,
           "slug": "beatbox-vr",
           "category": "xr"
@@ -1079,7 +1086,7 @@
           "title": "Safety Pit",
           "role": "数字策展",
           "year": "2023",
-          "summary": "策划一项关于游泳池异常现象的数字研究。",
+          "summary": "讨论游泳池中的异常现象。",
           "cover": "assets/projects/safety-pit/thumbnail.gif",
           "alt": "泳池、橙色救生圈与手写标记组成的动态拼贴",
           "mediaLabel": "数字策展",
@@ -1089,13 +1096,13 @@
         },
         {
           "title": "Habibi",
-          "role": "程序开发 / Meta Utility & Design 亚军",
+          "role": "XR Hack 项目",
           "year": "2024",
-          "summary": "开发支持语音、AI 生成媒体与触控笔交互的共享 MR 墙面。",
+          "summary": "XR hackathon 原型。",
           "mediaLabel": "XR hack 原型",
           "featured": false,
           "link": "https://devpost.com/software/tether-h041aj",
-          "actionLabel": "在 Devpost 查看",
+          "youtubeId": "FOYd2AGIlYA",
           "poster": "assets/projects/habibi/poster.jpg",
           "posterAlt": "黑色背景上的 Habibi 字母标识与标题",
           "slug": "habibi",
@@ -1103,21 +1110,13 @@
         },
         {
           "title": "Visual Grammar Analysis Series",
-          "role": "视频论文 / 视觉研究",
+          "role": "视频解析",
           "year": "2026",
-          "summary": "通过拼贴式视频论文分析文化符号。",
+          "summary": "关于文化符号的拼贴笔记。",
           "mediaLabel": "视觉语言分析系列",
           "featured": false,
-          "link": "projects/visual-grammar-analysis-series.html",
           "slug": "visual-grammar-analysis-series",
-          "category": "playground",
-          "wip": {
-            "kicker": "正在慢慢成形 :)",
-            "heading": "敬请期待。",
-            "body": "这个部分还在寻找它的样子，更多视觉笔记正在整理中。",
-            "backActionLabel": "返回作品列表",
-            "contactActionLabel": "和我聊聊"
-          }
+          "category": "playground"
         }
       ],
       "contact": {
@@ -1146,7 +1145,7 @@
       },
       "footer": {
         "copyrightPrefix": "Copyright",
-        "copyrightSuffix": "Ye Mai。保留所有权利。"
+        "copyrightSuffix": "中文占位。保留所有权利。"
       }
     }
   }
