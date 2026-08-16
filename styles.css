@@ -684,7 +684,7 @@ h3 {
 }
 
 .resume-entry-period::before {
-  content: "·";
+  content: ",";
   margin-right: 10px;
 }
 

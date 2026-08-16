@@ -132,10 +132,22 @@
         "ghost": "Education",
         "items": [
           {
-            "mark": "ED",
-            "institution": "Institution to be filled",
-            "detail": "Degree / programme to be filled",
-            "period": "Dates to be filled"
+            "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
+            "institution": "Shanghai Jiao Tong University",
+            "detail": "MFA in Digital Curation",
+            "period": "2022 - 2023, 2025 - 2026"
+          },
+          {
+            "logo": "assets/logos/institutions/goldsmiths-logo.svg",
+            "institution": "Goldsmiths, University of London",
+            "detail": "MSc in Virtual and Augmented Reality Programming and Computer Science",
+            "period": "2023 - 2024"
+          },
+          {
+            "mark": "HH",
+            "institution": "Hohai University",
+            "detail": "BSc in Environmental Science",
+            "period": "2018 - 2022"
           }
         ]
       },
@@ -842,10 +854,22 @@
         "ghost": "教育",
         "items": [
           {
-            "mark": "教育",
-            "institution": "院校待补充",
-            "detail": "学位 / 专业待补充",
-            "period": "时间待补充"
+            "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
+            "institution": "上海交通大学",
+            "detail": "数字策展艺术硕士",
+            "period": "2022 - 2023、2025 - 2026"
+          },
+          {
+            "logo": "assets/logos/institutions/goldsmiths-logo.svg",
+            "institution": "伦敦大学金匠学院",
+            "detail": "虚拟与增强现实编程及计算机科学理学硕士",
+            "period": "2023 - 2024"
+          },
+          {
+            "mark": "HH",
+            "institution": "河海大学",
+            "detail": "环境科学理学学士",
+            "period": "2018 - 2022"
           }
         ]
       },
