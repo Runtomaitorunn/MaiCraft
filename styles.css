@@ -498,7 +498,7 @@ h3 {
 .artist-disclosure-summary {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 44px;
+  grid-template-columns: minmax(0, 1fr) max-content;
   gap: 22px;
   align-items: end;
   min-height: 44px;
@@ -520,44 +520,23 @@ h3 {
 }
 
 .artist-disclosure-mark {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--noomo-line);
-  border-radius: 999px;
-  transition:
-    background 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--noomo-ink-soft);
+  font-family: var(--project-body-font);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-.artist-disclosure-mark::before,
-.artist-disclosure-mark::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 14px;
-  height: 1px;
-  background: currentColor;
-  transform: translate(-50%, -50%);
-  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+.artist-disclosure-mark-arrow {
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.artist-disclosure-mark::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.artist-disclosure-summary:hover .artist-disclosure-mark {
-  background: rgba(255, 255, 255, 0.22);
-  transform: rotate(6deg);
-}
-
-.artist-disclosure[open] .artist-disclosure-mark {
-  transform: rotate(45deg);
-}
-
-.artist-disclosure[open] .artist-disclosure-summary:hover .artist-disclosure-mark {
-  transform: rotate(39deg);
+.artist-disclosure-summary:hover .artist-disclosure-mark-arrow,
+.artist-disclosure-summary:focus-visible .artist-disclosure-mark-arrow {
+  transform: translate(2px, -1px);
 }
 
 .artist-disclosure-content {
@@ -2537,9 +2516,7 @@ body.has-media-dialog {
 
 @media (prefers-reduced-motion: reduce) {
   .artist-disclosure::details-content,
-  .artist-disclosure-mark,
-  .artist-disclosure-mark::before,
-  .artist-disclosure-mark::after {
+  .artist-disclosure-mark-arrow {
     transition: none;
   }
 
