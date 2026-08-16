@@ -60,17 +60,30 @@
       </section>
 
       <section class="section artist-section reveal" id="artist">
-        <p class="section-ghost rotate" data-i18n="artist.ghost"></p>
-        <div class="section-copy">
-          <p class="eyebrow" data-i18n="artist.eyebrow"></p>
-          <h2 data-i18n="artist.heading"></h2>
-          <div id="artist-body"></div>
-        </div>
-      </section>
+        <p class="section-ghost rotate" data-i18n="artist.ghost" aria-hidden="true"></p>
+        <details class="artist-disclosure" id="artist-disclosure">
+          <summary
+            class="artist-disclosure-summary"
+            role="button"
+            aria-expanded="false"
+            aria-controls="artist-disclosure-content"
+          >
+            <span class="section-copy">
+              <span class="eyebrow" data-i18n="artist.eyebrow"></span>
+              <span class="artist-heading" role="heading" aria-level="2" data-i18n="artist.heading"></span>
+            </span>
+            <span class="artist-disclosure-mark" aria-hidden="true"></span>
+          </summary>
 
-      <section class="section skills-section reveal" id="skills">
-        <p class="section-ghost" data-i18n="skills.ghost"></p>
-        <div id="skill-cards"></div>
+          <div class="artist-disclosure-content" id="artist-disclosure-content">
+            <div id="artist-body"></div>
+
+            <section class="skills-section" id="skills">
+              <p class="section-ghost" data-i18n="skills.ghost" aria-hidden="true"></p>
+              <div id="skill-cards"></div>
+            </section>
+          </div>
+        </details>
       </section>
 
       <section class="section projects-section reveal" id="projects" aria-labelledby="projects-title">

@@ -6,8 +6,8 @@ Before making design-facing changes:
 - Read `PRODUCT.md` for strategy, audience, register, brand personality, anti-references, and design principles.
 - Read `DESIGN.md` for the current visual system, tokens, components, motion posture, and do/don't rules.
 - Run `node .github/skills/impeccable/scripts/context.mjs` once per session and follow its output.
-- Because this project is a brand/portfolio surface, read `.github/skills/impeccable/reference/brand.md` before producing design output.
 - If a specific Impeccable command is relevant, read `.github/skills/impeccable/reference/<command>.md` before acting.
+- After analysis and direction are resolved, read `.github/skills/impeccable/reference/craft-floor.md` immediately before editing UI.
 
 Default design posture:
 - Treat this as a brand/portfolio surface, not a product dashboard or corporate site.

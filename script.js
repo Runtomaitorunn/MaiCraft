@@ -1,5 +1,6 @@
 const CONTENT_URL = "data/content.json";
 const FALLBACK_LOCALE = "en";
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const getPathValue = (source, path) => {
   return path.split(".").reduce((value, key) => {
@@ -51,6 +52,60 @@ const renderNav = (links) => {
     link.href = item.href;
     link.textContent = item.label;
     nav.append(link);
+  });
+};
+
+const openArtistDisclosureForTarget = (targetId, shouldScroll = false) => {
+  if (!targetId) return;
+
+  const target = document.getElementById(targetId);
+  const disclosure = document.querySelector("#artist-disclosure");
+  if (!target || !disclosure || !disclosure.contains(target)) return;
+
+  disclosure.open = true;
+
+  if (shouldScroll) {
+    window.setTimeout(() => {
+      target.scrollIntoView({ behavior: prefersReducedMotion.matches ? "auto" : "smooth", block: "start" });
+    }, prefersReducedMotion.matches ? 0 : 760);
+  }
+};
+
+const startArtistDisclosureBehavior = () => {
+  const disclosure = document.querySelector("#artist-disclosure");
+  const summary = disclosure?.querySelector(".artist-disclosure-summary");
+  if (!disclosure || !summary) return;
+
+  const syncExpandedState = () => {
+    summary.setAttribute("aria-expanded", String(disclosure.open));
+  };
+
+  summary.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    event.preventDefault();
+    disclosure.open = !disclosure.open;
+  });
+
+  disclosure.addEventListener("toggle", syncExpandedState);
+  syncExpandedState();
+  openArtistDisclosureForTarget(window.location.hash.slice(1), true);
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const targetId = link.getAttribute("href").slice(1);
+    const target = document.getElementById(targetId);
+    if (!target || !disclosure.contains(target) || disclosure.open) return;
+
+    event.preventDefault();
+    window.history.pushState(null, "", `#${targetId}`);
+    openArtistDisclosureForTarget(targetId, true);
+  });
+
+  window.addEventListener("hashchange", () => {
+    openArtistDisclosureForTarget(window.location.hash.slice(1), true);
   });
 };
 
@@ -368,7 +423,7 @@ const startRevealObserver = () => {
         }
       });
     },
-    { threshold: 0.18 }
+    { threshold: 0.04 }
   );
 
   document.querySelectorAll(".reveal").forEach((element) => {
@@ -387,7 +442,7 @@ const getHeadingRevealVariant = (heading) => {
 };
 
 const startHeadingRevealObserver = () => {
-  const headings = document.querySelectorAll("main h1:not(#hero-title), main h2, main h3, .contact-note");
+  const headings = document.querySelectorAll("main h1:not(#hero-title), main h2, main h3, .artist-heading, .contact-note");
   if (!headings.length) return;
 
   headings.forEach((heading) => {
@@ -456,6 +511,7 @@ const renderSite = (localeContent, locale) => {
     localeContent.projectsSection.cardActions
   );
   renderContactLinks(localeContent.contact.links);
+  startArtistDisclosureBehavior();
   startHeroMedia();
   window.PortfolioMedia?.startViewportVideoPlayback();
   startRevealObserver();

@@ -149,6 +149,10 @@ The hero is a full-bleed media stage with video as the preferred asset and a sty
 
 Skill cards are intentionally sparse content groups with no default box fill: icon monogram, title, and grouped tool capsules sit directly on the cold paper surface. Avoid paragraph body copy inside the cards; the tool taxonomy should carry the technical proof. Hover should use the same box-shadow implementation as project cards on the skill card itself, while the pseudo-element only renders the top lamp; avoid visible card rectangles, rules, or shifting titles.
 
+### Artist Disclosure
+
+The artist introduction is a single expandable chapter. Its closed state keeps only the hello ghost, eyebrow, and artist heading visible; the heading area is the disclosure trigger. The open state reveals the biography, Skills, and any future artist-context sections in one continuous flow. Use the native details/summary semantics, preserve a clear focus ring, and automatically open the chapter when a navigation link targets content inside it.
+
 ### Tool Capsules
 
 Capsules are pill-shaped, compact, and technical. They should help recruiters and collaborators scan credible tools quickly. Keep wrapping clean on mobile.

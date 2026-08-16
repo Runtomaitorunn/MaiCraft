@@ -453,21 +453,122 @@ h3 {
 }
 
 .section-copy {
+  display: block;
   width: 100%;
   max-width: none;
   color: var(--muted);
 }
 
-.section-copy h2 {
+.section-copy h2,
+.artist-heading {
+  display: block;
   max-width: 28ch;
   color: var(--text);
+  font-family: var(--project-display-font);
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.08;
   text-wrap: balance;
+}
+
+.artist-disclosure-summary .eyebrow {
+  display: block;
+}
+
+.artist-disclosure {
+  overflow: visible;
+  interpolate-size: allow-keywords;
+}
+
+.artist-disclosure::details-content {
+  block-size: 0;
+  overflow: clip;
+  opacity: 0;
+  transition:
+    block-size 720ms cubic-bezier(0.16, 1, 0.3, 1),
+    content-visibility 720ms allow-discrete,
+    opacity 420ms ease;
+}
+
+.artist-disclosure[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+.artist-disclosure-summary {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: 22px;
+  align-items: end;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.artist-disclosure-summary::-webkit-details-marker {
+  display: none;
+}
+
+.artist-disclosure-summary::marker {
+  content: "";
+}
+
+.artist-disclosure-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 10px;
+}
+
+.artist-disclosure-mark {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--noomo-line);
+  border-radius: 999px;
+  transition:
+    background 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artist-disclosure-mark::before,
+.artist-disclosure-mark::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artist-disclosure-mark::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.artist-disclosure-summary:hover .artist-disclosure-mark {
+  background: rgba(255, 255, 255, 0.22);
+  transform: rotate(6deg);
+}
+
+.artist-disclosure[open] .artist-disclosure-mark {
+  transform: rotate(45deg);
+}
+
+.artist-disclosure[open] .artist-disclosure-summary:hover .artist-disclosure-mark {
+  transform: rotate(39deg);
+}
+
+.artist-disclosure-content {
+  padding-top: clamp(48px, 7vw, 84px);
 }
 
 #artist-body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
+  max-width: 72ch;
 }
 
 #artist-body p {
@@ -475,12 +576,16 @@ h3 {
 }
 
 .skills-section {
+  position: relative;
   display: block;
+  margin-top: clamp(78px, 10vw, 118px);
+  padding-top: 22px;
+  scroll-margin-top: clamp(82px, 12vh, 132px);
 }
 
 .skills-section .section-ghost {
-  left: var(--ghost-align-offset);
-  top: -80px;
+  left: 0;
+  top: -62px;
 }
 
 #skill-cards {
@@ -2431,6 +2536,13 @@ body.has-media-dialog {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .artist-disclosure::details-content,
+  .artist-disclosure-mark,
+  .artist-disclosure-mark::before,
+  .artist-disclosure-mark::after {
+    transition: none;
+  }
+
   *,
   *::before,
   *::after {
