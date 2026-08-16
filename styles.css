@@ -539,6 +539,12 @@ h3 {
   transform: translate(2px, -1px);
 }
 
+.artist-disclosure[open] .artist-disclosure-mark-arrow,
+.artist-disclosure[open] .artist-disclosure-summary:hover .artist-disclosure-mark-arrow,
+.artist-disclosure[open] .artist-disclosure-summary:focus-visible .artist-disclosure-mark-arrow {
+  transform: rotate(90deg);
+}
+
 .artist-disclosure-content {
   padding-top: clamp(48px, 7vw, 84px);
 }
@@ -554,7 +560,8 @@ h3 {
   margin-bottom: 0;
 }
 
-.skills-section {
+.skills-section,
+.artist-detail-section {
   position: relative;
   display: block;
   margin-top: clamp(78px, 10vw, 118px);
@@ -562,9 +569,16 @@ h3 {
   scroll-margin-top: clamp(82px, 12vh, 132px);
 }
 
-.skills-section .section-ghost {
+.skills-section .section-ghost,
+.artist-detail-section .section-ghost {
   left: 0;
   top: -62px;
+}
+
+.artist-detail-placeholder {
+  max-width: 72ch;
+  margin: 0;
+  color: var(--muted);
 }
 
 #skill-cards {
@@ -2399,7 +2413,8 @@ body.has-media-dialog {
   }
 
   .contact-section .section-ghost,
-  .skills-section .section-ghost {
+  .skills-section .section-ghost,
+  .artist-detail-section .section-ghost {
     top: -46px;
     left: 0;
   }
