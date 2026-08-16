@@ -151,7 +151,11 @@ Skill cards are intentionally sparse content groups with no default box fill: ic
 
 ### Artist Disclosure
 
-The artist introduction is a single expandable chapter. Its closed state keeps only the hello ghost, eyebrow, and artist heading visible; the heading area is the disclosure trigger. The open state reveals the biography, Skills, and any future artist-context sections in one continuous flow. Use the native details/summary semantics, preserve a clear focus ring, and automatically open the chapter when a navigation link targets content inside it.
+The artist introduction is a single expandable chapter. Its closed state keeps the hello ghost, eyebrow, artist heading, and a quiet `More →` control visible. Only the More control triggers the disclosure; the heading remains non-interactive. The open state reveals the biography, Skills, Education, Industry, and future artist-context sections in one continuous flow. Use the native details/summary semantics, preserve a clear focus ring, and automatically open the chapter when a navigation link targets content inside it.
+
+### Resume Rows
+
+Education and Industry share one data-driven resume-row pattern: a compact institution mark or logo at left, then the institution as the primary line with degree or role and dates beneath it. Keep rows borderless and separated by whitespace rather than card containers. Institution links may use a restrained underline. Placeholder content must remain visibly provisional and must not imply unverified credentials.
 
 ### Tool Capsules
 

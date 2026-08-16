@@ -130,11 +130,25 @@
       },
       "education": {
         "ghost": "Education",
-        "placeholder": "To be filled."
+        "items": [
+          {
+            "mark": "ED",
+            "institution": "Institution to be filled",
+            "detail": "Degree / programme to be filled",
+            "period": "Dates to be filled"
+          }
+        ]
       },
-      "work": {
-        "ghost": "Work",
-        "placeholder": "To be filled."
+      "industry": {
+        "ghost": "Industry",
+        "items": [
+          {
+            "mark": "IN",
+            "institution": "Company to be filled",
+            "detail": "Role to be filled",
+            "period": "Dates to be filled"
+          }
+        ]
       },
       "projectsSection": {
         "ghost": "Projects",
@@ -826,11 +840,25 @@
       },
       "education": {
         "ghost": "教育",
-        "placeholder": "待补充。"
+        "items": [
+          {
+            "mark": "教育",
+            "institution": "院校待补充",
+            "detail": "学位 / 专业待补充",
+            "period": "时间待补充"
+          }
+        ]
       },
-      "work": {
-        "ghost": "工作经历",
-        "placeholder": "待补充。"
+      "industry": {
+        "ghost": "行业经历",
+        "items": [
+          {
+            "mark": "行业",
+            "institution": "公司待补充",
+            "detail": "职位待补充",
+            "period": "时间待补充"
+          }
+        ]
       },
       "projectsSection": {
         "ghost": "中文占位：项目",

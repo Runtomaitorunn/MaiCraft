@@ -210,6 +210,74 @@ const renderSkills = (skills) => {
   });
 };
 
+const renderResumeEntries = (containerId, entries = []) => {
+  const container = document.querySelector(`#${containerId}`);
+  if (!container) return;
+
+  container.replaceChildren();
+
+  entries.forEach((entry) => {
+    const item = document.createElement("article");
+    item.className = "resume-entry";
+
+    const mark = document.createElement("div");
+    mark.className = "resume-entry-mark";
+    mark.setAttribute("aria-hidden", "true");
+
+    if (entry.logo) {
+      const logo = document.createElement("img");
+      logo.src = entry.logo;
+      logo.alt = "";
+      logo.loading = "lazy";
+      mark.append(logo);
+    } else {
+      const placeholder = document.createElement("span");
+      placeholder.className = "resume-entry-mark-placeholder";
+      placeholder.textContent = entry.mark || "—";
+      mark.append(placeholder);
+    }
+
+    const copy = document.createElement("div");
+    copy.className = "resume-entry-copy";
+
+    const institution = document.createElement("h3");
+    institution.className = "resume-entry-institution";
+
+    if (entry.url) {
+      const link = document.createElement("a");
+      link.href = entry.url;
+      link.textContent = entry.institution;
+
+      if (/^https?:\/\//.test(entry.url)) {
+        link.target = "_blank";
+        link.rel = "noreferrer";
+      }
+
+      institution.append(link);
+    } else {
+      institution.textContent = entry.institution;
+    }
+
+    const meta = document.createElement("p");
+    meta.className = "resume-entry-meta";
+
+    const detail = document.createElement("span");
+    detail.textContent = entry.detail;
+    meta.append(detail);
+
+    if (entry.period) {
+      const period = document.createElement("span");
+      period.className = "resume-entry-period";
+      period.textContent = entry.period;
+      meta.append(period);
+    }
+
+    copy.append(institution, meta);
+    item.append(mark, copy);
+    container.append(item);
+  });
+};
+
 const createProjectCard = (project, separator, actionLabels = {}) => {
   const isExternal = Boolean(project.link && /^https?:\/\//.test(project.link));
   const cardKind = isExternal ? "external" : project.link ? "case-study" : "note";
@@ -504,6 +572,8 @@ const renderSite = (localeContent, locale) => {
   renderNav(localeContent.nav);
   renderParagraphs(localeContent.artist.body);
   renderSkills(localeContent.skills.items);
+  renderResumeEntries("education-list", localeContent.education.items);
+  renderResumeEntries("industry-list", localeContent.industry.items);
   renderProjects(
     localeContent.projects,
     localeContent.projectsSection.metaSeparator,
