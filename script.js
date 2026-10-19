@@ -499,16 +499,6 @@ const startRevealObserver = () => {
   });
 };
 
-const getHeadingRevealVariant = (heading) => {
-  if (heading.classList.contains("project-group-title")) return "project-group";
-  if (heading.classList.contains("eyebrow")) return "eyebrow";
-  if (heading.classList.contains("contact-note")) return "contact-note";
-  if (heading.closest(".artist-section")) return "artist";
-  if (heading.closest(".skill-card")) return "skill-card";
-  if (heading.closest(".project-detail")) return "project-detail";
-  return "section-heading";
-};
-
 const startHeadingRevealObserver = () => {
   const headings = document.querySelectorAll("main h1:not(#hero-title), main h2, main h3, .artist-heading, .contact-note");
   if (!headings.length) return;
@@ -517,7 +507,7 @@ const startHeadingRevealObserver = () => {
     if (heading.classList.contains("heading-reveal")) return;
 
     const inner = document.createElement("span");
-    inner.className = `heading-reveal-inner heading-reveal-inner--${getHeadingRevealVariant(heading)}`;
+    inner.className = `heading-reveal-inner`;
 
     while (heading.firstChild) {
       inner.append(heading.firstChild);

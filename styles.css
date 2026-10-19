@@ -462,7 +462,7 @@ h3 {
 .section-copy h2,
 .artist-heading {
   display: block;
-  max-width: 28ch;
+  /*max-width: 28ch;*/  
   color: var(--text);
   font-family: var(--project-display-font);
   font-size: clamp(1.7rem, 4vw, 3rem);
@@ -580,7 +580,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
-  max-width: 72ch;
+  /*max-width: 72ch;*/
 }
 
 #artist-body p {
@@ -1257,12 +1257,6 @@ button.project-card {
   line-height: 1;
   text-wrap: balance;
   text-transform: uppercase;
-}
-
-.heading-reveal-inner--project-detail {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
 }
 
 @keyframes projectWipRuleIn {
