@@ -134,18 +134,21 @@
           {
             "logo": "assets/logos/institutions/sjtu-emblem.svg",
             "institution": "Shanghai Jiao Tong University",
+            "location": "Shanghai",
             "detail": "MFA in Digital Curation",
             "period": "2022 - 2023, 2025 - 2026"
           },
           {
             "logo": "assets/logos/institutions/goldsmiths-logo.svg",
             "institution": "Goldsmiths, University of London",
+            "location": "London",
             "detail": "MSc in Virtual and Augmented Reality Programming and Computer Science",
             "period": "2023 - 2024"
           },
           {
             "logo": "assets/logos/institutions/hohai-emblem.svg",
             "institution": "Hohai University",
+            "location": "Nanjing",
             "detail": "BSc in Environmental Science",
             "period": "2018 - 2022"
           }
@@ -155,10 +158,25 @@
         "ghost": "Industry",
         "items": [
           {
-            "mark": "IN",
-            "institution": "Company to be filled",
-            "detail": "Role to be filled",
-            "period": "Dates to be filled"
+            "logo": "assets/logos/institutions/hkust-symbol.svg",
+            "institution": "Hong Kong University of Science and Technology",
+            "location": "Hong Kong",
+            "detail": "Research Assistant",
+            "period": "2026 - present"
+          },
+          {
+            "logo": "assets/logos/institutions/imagination-logo.jpg",
+            "institution": "IMAGINATION",
+            "location": "Shanghai",
+            "detail": "Front-end Developer Intern",
+            "period": "2025 - 2026"
+          },
+          {
+            "logo": "assets/logos/institutions/soluis-group-logo.jpg",
+            "institution": "Soluis Group",
+            "location": "London",
+            "detail": "Junior Software Engineer",
+            "period": "2024 - 2025"
           }
         ]
       },
@@ -856,18 +874,21 @@
           {
             "logo": "assets/logos/institutions/sjtu-emblem.svg",
             "institution": "上海交通大学",
+            "location": "上海",
             "detail": "数字策展艺术硕士",
             "period": "2022 - 2023、2025 - 2026"
           },
           {
             "logo": "assets/logos/institutions/goldsmiths-logo.svg",
             "institution": "伦敦大学金匠学院",
+            "location": "伦敦",
             "detail": "虚拟与增强现实编程及计算机科学理学硕士",
             "period": "2023 - 2024"
           },
           {
             "logo": "assets/logos/institutions/hohai-emblem.svg",
             "institution": "河海大学",
+            "location": "南京",
             "detail": "环境科学理学学士",
             "period": "2018 - 2022"
           }
@@ -877,10 +898,25 @@
         "ghost": "行业经历",
         "items": [
           {
-            "mark": "行业",
-            "institution": "公司待补充",
-            "detail": "职位待补充",
-            "period": "时间待补充"
+            "logo": "assets/logos/institutions/hkust-symbol.svg",
+            "institution": "香港科技大学计算机科学及工程学系",
+            "location": "香港",
+            "detail": "研究助理",
+            "period": "2026年 - 至今"
+          },
+          {
+            "logo": "assets/logos/institutions/imagination-logo.jpg",
+            "institution": "IMAGINATION",
+            "location": "上海",
+            "detail": "前端开发实习生",
+            "period": "2025 - 2026"
+          },
+          {
+            "logo": "assets/logos/institutions/soluis-group-logo.jpg",
+            "institution": "Soluis Group",
+            "location": "伦敦",
+            "detail": "初级软件工程师",
+            "period": "2024 - 2025"
           }
         ]
       },

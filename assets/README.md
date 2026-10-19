@@ -15,6 +15,9 @@ captures, editor exports, or camera names such as `IMG_6398.MP4`.
 
 - `logos/institutions/hohai-emblem.svg`: original-color emblem from [Hohai University on Wikipedia](https://zh.wikipedia.org/wiki/File:Hohai_University_logo.svg).
 - `logos/institutions/sjtu-emblem.svg`: original-color emblem from [Shanghai Jiao Tong University on Wikipedia](https://zh.wikipedia.org/wiki/File:SJTU_emblem.svg).
+- `logos/institutions/hkust-symbol.svg`: original-color symbol from [HKUST on Wikipedia](https://en.wikipedia.org/wiki/Hong_Kong_University_of_Science_and_Technology).
+- `logos/institutions/soluis-group-logo.jpg`: logo from [Soluis Group on LinkedIn](https://uk.linkedin.com/company/soluis-group).
+- `logos/institutions/imagination-logo.jpg`: logo from [Imagination on The Org](https://theorg.com/org/imagination).
 
 ## Naming
 

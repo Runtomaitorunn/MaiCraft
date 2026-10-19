@@ -274,6 +274,13 @@ const renderResumeEntries = (containerId, entries = []) => {
       meta.append(period);
     }
 
+    if (entry.location) {
+      const location = document.createElement("span");
+      location.className = "resume-entry-location";
+      location.textContent = entry.location;
+      meta.append(location);
+    }
+
     copy.append(institution, meta);
     item.append(mark, copy);
     container.append(item);
