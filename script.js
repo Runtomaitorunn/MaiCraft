@@ -1,3 +1,5 @@
+import { startHeadingReveal } from "./heading-reveal.js";
+
 const CONTENT_URL = "data/content.json";
 const FALLBACK_LOCALE = "en";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -499,41 +501,6 @@ const startRevealObserver = () => {
   });
 };
 
-const startHeadingRevealObserver = () => {
-  const headings = document.querySelectorAll("main h1:not(#hero-title), main h2, main h3, .artist-heading, .contact-note");
-  if (!headings.length) return;
-
-  headings.forEach((heading) => {
-    if (heading.classList.contains("heading-reveal")) return;
-
-    const inner = document.createElement("span");
-    inner.className = `heading-reveal-inner`;
-
-    while (heading.firstChild) {
-      inner.append(heading.firstChild);
-    }
-
-    heading.classList.add("heading-reveal");
-    heading.append(inner);
-  });
-
-  const headingObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          headingObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.24, rootMargin: "0px 0px -8% 0px" }
-  );
-
-  document.querySelectorAll(".heading-reveal").forEach((heading) => {
-    headingObserver.observe(heading);
-  });
-};
-
 const startHeaderScrollBehavior = () => {
   const header = document.querySelector(".site-header");
   if (!header) return;
@@ -575,7 +542,7 @@ const renderSite = (localeContent, locale) => {
   startHeroMedia();
   window.PortfolioMedia?.startViewportVideoPlayback();
   startRevealObserver();
-  startHeadingRevealObserver();
+  startHeadingReveal("main h1:not(#hero-title), main h2, main h3, .artist-heading, .contact-note");
   startHeaderScrollBehavior();
   setYear();
 };

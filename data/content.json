@@ -164,7 +164,7 @@
       },
       "projectsSection": {
         "ghost": "Projects",
-        "eyebrow": "Selected Work",
+        "eyebrow": "",
         "categories": [
           {
             "id": "xr",

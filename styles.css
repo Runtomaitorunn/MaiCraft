@@ -382,9 +382,9 @@ h3 {
 }
 
 h1 {
-  margin-bottom: 0.08em;
+  margin-bottom: 0.2em;
   font-size: clamp(4rem, 13vw, 10rem);
-  line-height: 0.88;
+  line-height: 1;
   text-transform: lowercase;
 }
 
@@ -468,7 +468,6 @@ h3 {
   font-size: clamp(1.7rem, 4vw, 3rem);
   font-weight: 300;
   line-height: 1.08;
-  text-wrap: balance;
 }
 
 .artist-section > .section-copy .eyebrow {
@@ -498,11 +497,10 @@ h3 {
 .artist-disclosure-summary {
   position: relative;
   display: flex;
-  align-items: center;
-  width: max-content;
+  justify-content: flex-end;
+
+  width: 100%;
   min-height: 44px;
-  margin-top: clamp(18px, 2.5vw, 30px);
-  margin-left: clamp(0px, 56%, 680px);
   cursor: pointer;
   list-style: none;
 }
@@ -528,7 +526,7 @@ h3 {
   min-height: 44px;
   overflow: hidden;
   padding: 0 0 5px;
-  color: color-mix(in srgb, var(--noomo-ink-soft) 72%, var(--noomo-paper));
+  color: var(--muted);
   font-family: var(--project-body-font);
   font-size: 1rem;
   font-weight: 500;
@@ -548,28 +546,30 @@ h3 {
 }
 
 .artist-disclosure-summary:hover .artist-disclosure-mark,
-.artist-disclosure-summary:focus-visible .artist-disclosure-mark {
+.artist-disclosure-summary:focus-visible .artist-disclosure-mark,
+.artist-disclosure[open] .artist-disclosure-mark {
   color: var(--text);
 }
 
 .artist-disclosure-summary:hover .artist-disclosure-mark::after,
-.artist-disclosure-summary:focus-visible .artist-disclosure-mark::after {
+.artist-disclosure-summary:focus-visible .artist-disclosure-mark::after,
+.artist-disclosure[open] .artist-disclosure-mark::after {
   animation: navLineIn 260ms ease-in-out both;
 }
 
 .artist-disclosure-mark-arrow {
-  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); */
 }
 
 .artist-disclosure-summary:hover .artist-disclosure-mark-arrow,
 .artist-disclosure-summary:focus-visible .artist-disclosure-mark-arrow {
-  transform: translate(2px, -1px);
+  /* transform: translate(2px, -1px); */
 }
 
 .artist-disclosure[open] .artist-disclosure-mark-arrow,
 .artist-disclosure[open] .artist-disclosure-summary:hover .artist-disclosure-mark-arrow,
 .artist-disclosure[open] .artist-disclosure-summary:focus-visible .artist-disclosure-mark-arrow {
-  transform: rotate(90deg);
+  /* transform: rotate(90deg); */
 }
 
 .artist-disclosure-content {

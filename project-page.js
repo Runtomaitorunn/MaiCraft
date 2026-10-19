@@ -1,3 +1,5 @@
+import { startHeadingReveal } from "./heading-reveal.js";
+
 const CONTENT_URL = "../data/content.json";
 const FALLBACK_LOCALE = "en";
 
@@ -556,41 +558,6 @@ const startHeaderScrollBehavior = () => {
   });
 };
 
-const startHeadingRevealObserver = () => {
-  const headings = document.querySelectorAll(".project-detail h1, .project-detail h2, .project-detail h3");
-  if (!headings.length) return;
-
-  headings.forEach((heading) => {
-    if (heading.classList.contains("heading-reveal")) return;
-
-    const inner = document.createElement("span");
-    inner.className = `heading-reveal-inner`;
-
-    while (heading.firstChild) {
-      inner.append(heading.firstChild);
-    }
-
-    heading.classList.add("heading-reveal");
-    heading.append(inner);
-  });
-
-  const headingObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          headingObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.24, rootMargin: "0px 0px -8% 0px" }
-  );
-
-  document.querySelectorAll(".heading-reveal").forEach((heading) => {
-    headingObserver.observe(heading);
-  });
-};
-
 const startProjectMediaDialog = () => {
   const dialog = document.querySelector("[data-project-media-dialog]");
   if (!dialog || typeof dialog.showModal !== "function") return;
@@ -641,7 +608,7 @@ const init = async () => {
         <h1>${localeContent.projectDetail?.notFoundTitle || "Project not found"}</h1>
       </header>
     `;
-    startHeadingRevealObserver();
+    startHeadingReveal(".project-detail h1, .project-detail h2, .project-detail h3");
     startHeaderScrollBehavior();
     return;
   }
@@ -651,7 +618,7 @@ const init = async () => {
 
   renderProjectPage(project, localeContent, locale);
   window.PortfolioMedia?.startViewportVideoPlayback();
-  startHeadingRevealObserver();
+  startHeadingReveal(".project-detail h1, .project-detail h2, .project-detail h3");
   startHeaderScrollBehavior();
   startProjectMediaDialog();
 };
