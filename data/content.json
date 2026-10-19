@@ -221,6 +221,7 @@
           "mediaLabel": "Visual narrative media",
           "link": "projects/qianfan-one-scroll.html",
           "featured": false,
+          "actionLabel": "Read more",
           "slug": "qianfan-one-scroll",
           "category": "playground",
           "wip": {
@@ -700,6 +701,8 @@
           "alt": "Animated collage of a swimming pool with an orange lifebuoy and handwritten markings",
           "mediaLabel": "Digital curation",
           "featured": false,
+          "actionLabel": "Read more",
+          "link": "https://yeahmy1022.wixsite.com/maiportfolio/exhibtion-safety-pit",
           "slug": "safety-pit",
           "category": "playground"
         },
@@ -719,13 +722,24 @@
         },
         {
           "title": "Visual Grammar Analysis Series",
-          "role": "Video Essay",
+          "role": "Collage and notes",
           "year": "2026",
           "summary": "Collage notes on cultural symbols.",
           "mediaLabel": "Visual analysis series",
           "featured": false,
+          "actionLabel": "Read more",
+          "link": "projects/visual-grammar-analysis-series.html",
+          "cover": "assets/projects/visual-grammar-analysis-series/thumbnail.png",
+          "alt": "Collage of film and music video analysis thumbnails with Chinese annotations",
           "slug": "visual-grammar-analysis-series",
-          "category": "playground"
+          "category": "playground",
+          "wip": {
+            "kicker": "still taking shape :)",
+            "heading": "Stay tuned.",
+            "body": "This project page is still taking shape. More visual notes are on the way.",
+            "backActionLabel": "Back to projects",
+            "contactActionLabel": "Say hello"
+          }
         }
       ],
       "contact": {
@@ -961,6 +975,7 @@
           "mediaLabel": "中文占位：项目媒体",
           "link": "projects/qianfan-one-scroll.html",
           "featured": false,
+          "actionLabel": "Read more",
           "slug": "qianfan-one-scroll",
           "category": "playground",
           "wip": {
@@ -1195,6 +1210,8 @@
           "alt": "泳池、橙色救生圈与手写标记组成的动态拼贴",
           "mediaLabel": "数字策展",
           "featured": false,
+          "actionLabel": "Read more",
+          "link": "https://yeahmy1022.wixsite.com/maiportfolio/exhibtion-safety-pit",
           "slug": "safety-pit",
           "category": "playground"
         },
@@ -1219,8 +1236,19 @@
           "summary": "关于文化符号的拼贴笔记。",
           "mediaLabel": "视觉语言分析系列",
           "featured": false,
+          "actionLabel": "Read more",
+          "link": "projects/visual-grammar-analysis-series.html",
+          "cover": "assets/projects/visual-grammar-analysis-series/thumbnail.png",
+          "alt": "电影与音乐视频视觉分析缩略图拼贴，配有中文标注",
           "slug": "visual-grammar-analysis-series",
-          "category": "playground"
+          "category": "playground",
+          "wip": {
+            "kicker": "正在慢慢成形 :)",
+            "heading": "敬请期待。",
+            "body": "这个项目页面还在整理中，更多视觉内容即将更新。",
+            "backActionLabel": "返回作品列表",
+            "contactActionLabel": "和我聊聊"
+          }
         }
       ],
       "contact": {

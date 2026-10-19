@@ -297,7 +297,9 @@ const createProjectCard = (project, separator, actionLabels = {}) => {
     note: "Project note"
   };
   const actionLabel = project.actionLabel || actionLabels[actionKey] || defaultActionLabels[actionKey];
-  const actionMark = cardKind === "external" ? "↗" : cardKind === "case-study" ? "→" : "";
+  const actionMark = project.category === "playground" && project.link
+    ? "→"
+    : cardKind === "external" ? "↗" : cardKind === "case-study" ? "→" : "";
   const card = document.createElement(project.link ? "a" : "article");
   card.className = [
     "project-card",
