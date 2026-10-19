@@ -557,23 +557,9 @@ h3 {
   animation: navLineIn 260ms ease-in-out both;
 }
 
-.artist-disclosure-mark-arrow {
-  /* transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); */
-}
-
-.artist-disclosure-summary:hover .artist-disclosure-mark-arrow,
-.artist-disclosure-summary:focus-visible .artist-disclosure-mark-arrow {
-  /* transform: translate(2px, -1px); */
-}
-
-.artist-disclosure[open] .artist-disclosure-mark-arrow,
-.artist-disclosure[open] .artist-disclosure-summary:hover .artist-disclosure-mark-arrow,
-.artist-disclosure[open] .artist-disclosure-summary:focus-visible .artist-disclosure-mark-arrow {
-  /* transform: rotate(90deg); */
-}
 
 .artist-disclosure-content {
-  padding-top: clamp(48px, 7vw, 84px);
+  padding-top: clamp(28px, 7vw, 44px);
 }
 
 #artist-body {
@@ -585,6 +571,24 @@ h3 {
 
 #artist-body p {
   margin-bottom: 0;
+}
+
+#artist-body a {
+  text-decoration-line: underline;
+  text-decoration-color: var(--muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+#artist-body a:hover,
+#artist-body a:focus-visible {
+  color: var(--text);
+  text-decoration-thickness: 2px;
+}
+
+#artist-body a:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
 }
 
 .skills-section,

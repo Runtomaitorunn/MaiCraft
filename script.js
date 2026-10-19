@@ -119,7 +119,7 @@ const renderParagraphs = (paragraphs) => {
 
   paragraphs.forEach((text) => {
     const paragraph = document.createElement("p");
-    paragraph.textContent = text;
+    paragraph.innerHTML = text;
     body.append(paragraph);
   });
 };

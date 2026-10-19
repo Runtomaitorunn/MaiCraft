@@ -45,7 +45,7 @@
         "eyebrow": "About Mai",
         "heading": "I build spatial interfaces, web systems, and visual stories",
         "body": [
-          "I'm currently working as a research assistant at HKUST VISLab, exploring XR and HCI for immersive learning, and as a freelance creative technologist, building interactive prototypes and media systems for clients.",
+          "I'm currently working as a research assistant at HKUST <a href=\"https://vis.cse.ust.hk/\" target=\"_blank\" rel=\"noopener\">VISLab</a>, exploring XR and HCI for immersive learning, and as a freelance creative technologist, building interactive prototypes and media systems for clients.",
           "The through-line is hands-on craft: Unity scenes, interface logic, motion, narrative structure, and the small technical decisions that make an experience feel understandable."
         ]
       },
