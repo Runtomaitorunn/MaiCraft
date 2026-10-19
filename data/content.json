@@ -132,7 +132,7 @@
         "ghost": "Education",
         "items": [
           {
-            "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
+            "logo": "assets/logos/institutions/sjtu-emblem.svg",
             "institution": "Shanghai Jiao Tong University",
             "detail": "MFA in Digital Curation",
             "period": "2022 - 2023, 2025 - 2026"
@@ -144,7 +144,7 @@
             "period": "2023 - 2024"
           },
           {
-            "mark": "HH",
+            "logo": "assets/logos/institutions/hohai-emblem.svg",
             "institution": "Hohai University",
             "detail": "BSc in Environmental Science",
             "period": "2018 - 2022"
@@ -431,7 +431,7 @@
                     "period": "Jun 2026",
                     "title": "Integrated exhibition plan",
                     "body": "Expanded the tested interaction logic into a nine-floor narrative and a complete research thesis.",
-                    "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
+                    "logo": "assets/logos/institutions/sjtu-emblem.svg",
                     "logoAlt": "Shanghai Jiao Tong University emblem"
                   }
                 ],
@@ -854,7 +854,7 @@
         "ghost": "教育",
         "items": [
           {
-            "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
+            "logo": "assets/logos/institutions/sjtu-emblem.svg",
             "institution": "上海交通大学",
             "detail": "数字策展艺术硕士",
             "period": "2022 - 2023、2025 - 2026"
@@ -866,7 +866,7 @@
             "period": "2023 - 2024"
           },
           {
-            "mark": "HH",
+            "logo": "assets/logos/institutions/hohai-emblem.svg",
             "institution": "河海大学",
             "detail": "环境科学理学学士",
             "period": "2018 - 2022"
@@ -1035,7 +1035,7 @@
               },
               {
                 "period": "2026年6月",
-                "logo": "assets/logos/institutions/sjtu-emblem-ink.png",
+                "logo": "assets/logos/institutions/sjtu-emblem.svg",
                 "logoAlt": "上海交通大学校徽"
               }
             ],

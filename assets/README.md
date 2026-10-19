@@ -11,6 +11,11 @@ captures, editor exports, or camera names such as `IMG_6398.MP4`.
 - `logos/institutions/`: partner, school, and institution marks.
 - `projects/<project-slug>/`: project-specific covers, diagrams, photos, and videos.
 
+## Institution Emblem Sources
+
+- `logos/institutions/hohai-emblem.svg`: original-color emblem from [Hohai University on Wikipedia](https://zh.wikipedia.org/wiki/File:Hohai_University_logo.svg).
+- `logos/institutions/sjtu-emblem.svg`: original-color emblem from [Shanghai Jiao Tong University on Wikipedia](https://zh.wikipedia.org/wiki/File:SJTU_emblem.svg).
+
 ## Naming
 
 Use lowercase kebab-case with a lowercase extension:
