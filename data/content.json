@@ -212,6 +212,19 @@
       },
       "projects": [
         {
+          "title": "My top data visualization of 2026",
+          "year": "2026",
+          "role": "Research / Video",
+          "summary": "Vislab TopVis 2026 first place winner",
+          "cover": "assets/projects/topvis-2026/huda-life.png",
+          "alt": "Thumbnail for My top data visualization of 2026",
+          "link": "https://youtu.be/sk04TLXxgnE?si=gkdA5JrDnLiQJ1GX",
+          "featured": false,
+          "actionLabel": "Watch video",
+          "slug": "topvis-2026",
+          "category": "playground"
+        },
+        {
           "title": "Qianfan One Scroll",
           "year": "2026",
           "role": "Art Direction / Visual Narrative",
@@ -965,6 +978,19 @@
         "notFoundTitle": "Project not found"
       },
       "projects": [
+        {
+          "title": "My top data visualization of 2026",
+          "year": "2026",
+          "role": "Research / Video",
+          "summary": "Vislab TopVis 2026 first place winner",
+          "cover": "assets/projects/topvis-2026/huda-life.png",
+          "alt": "Thumbnail for My top data visualization of 2026",
+          "link": "https://youtu.be/sk04TLXxgnE?si=gkdA5JrDnLiQJ1GX",
+          "featured": false,
+          "actionLabel": "Watch video",
+          "slug": "topvis-2026",
+          "category": "playground"
+        },
         {
           "title": "中文占位：千翻One卷",
           "year": "2026",
