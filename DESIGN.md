@@ -14,10 +14,10 @@ colors:
   noomo-overlay: "#1815203d"
 typography:
   display:
-    fontFamily: "NeueMachina, Montserrat, Arial, sans-serif"
+    fontFamily: "Montserrat Hero, Arial, sans-serif"
     fontSize: "clamp(4rem, 13vw, 10rem)"
-    fontWeight: 600
-    lineHeight: 0.88
+    fontWeight: 700
+    lineHeight: 1
     letterSpacing: "0"
   headline:
     fontFamily: "NeueMachina, Montserrat, Arial, sans-serif"
@@ -109,13 +109,15 @@ The whole site uses a Noomo-inspired cold paper palette: mist blue surfaces (#c9
 ## 3. Typography
 
 **Display Font:** NeueMachina with Montserrat and Arial fallback  
+**Hero Identity Font:** Locally hosted Montserrat (`Montserrat Hero`), weight 700, preloaded on the homepage.
+
 **Body Font:** NeueRoman with Work Sans and Arial fallback  
 **Supporting Font:** NeueRoman for metadata and capsules
 
 **Character:** The pairing mirrors the Noomo reference while keeping the static site dependency-light. Neue-style display type gives sections an editorial agency feeling; the body fallback remains readable and practical.
 
 ### Hierarchy
-- **Display** (600, `clamp(4rem, 13vw, 10rem)`, 0.88): Hero identity only. Keep lowercase as a brand gesture.
+- **Display** (700, `clamp(4rem, 13vw, 10rem)`, 1): Hero identity only. Keep lowercase as a brand gesture; retain the existing mobile size and line-height overrides.
 - **Headline** (300, `clamp(1.7rem, 4vw, 3rem)`, 1.08): Section statements and artist positioning.
 - **Title** (300 to 600, `1.15rem` to `1.45rem`): Skill and project titles.
 - **Body** (400, `16px`, 1.6): Artist copy, summaries, and project descriptions. Keep paragraph lines comfortably scannable.
@@ -144,6 +146,8 @@ Fixed on desktop with a transparent cold-paper gradient so the navigation stays 
 ### Hero
 
 The hero is a full-bleed media stage with video as the preferred asset and a styled placeholder as fallback. Hero copy sits over the media, not inside a card. The title is the first-viewport identity signal.
+
+The identity title uses a dedicated local Montserrat font face and stays visually hidden, with its layout space reserved, until that face loads. If loading fails, reveal it with a fixed system fallback so there is no later font swap. Keep this readiness behavior free of scale or size animations. Chinese characters use the system's Han glyph fallback.
 
 ### Skill Cards
 

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Montserrat Hero";
+  src: url("assets/fonts/montserrat-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+}
+
 :root {
   --noomo-paper: #c9d2e7;
   --noomo-paper-light: #dee7f1;
@@ -238,6 +246,19 @@ video {
   font-size: clamp(0.95rem, 1.4vw, 1.08rem);
   line-height: 1.45;
   text-wrap: balance;
+}
+
+#hero-title {
+  font-family: "Montserrat Hero", Arial, sans-serif;
+  font-weight: 700;
+}
+
+#hero-title[data-font-pending] {
+  visibility: hidden;
+}
+
+#hero-title[data-font-failed] {
+  font-family: Arial, sans-serif;
 }
 
 .hero-primary-link {

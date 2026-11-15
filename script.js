@@ -43,6 +43,19 @@ const applyTextBindings = (localeContent) => {
   });
 };
 
+const revealHeroTitle = async () => {
+  const title = document.querySelector("#hero-title");
+  if (!title) return;
+
+  try {
+    await document.fonts.load('700 1em "Montserrat Hero"', "Ye Mai");
+  } catch {
+    title.setAttribute("data-font-failed", "");
+  }
+
+  title.removeAttribute("data-font-pending");
+};
+
 const renderNav = (links) => {
   const nav = document.querySelector("#nav-links");
   if (!nav) return;
@@ -535,6 +548,7 @@ const renderSite = (localeContent, locale) => {
   document.title = localeContent.meta.title;
 
   applyTextBindings(localeContent);
+  revealHeroTitle();
   renderNav(localeContent.nav);
   renderParagraphs(localeContent.artist.body);
   renderSkills(localeContent.skills.items);
