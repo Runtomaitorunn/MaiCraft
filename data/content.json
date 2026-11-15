@@ -270,7 +270,7 @@
           "featured": false,
           "slug": "midnight-at-the-pagoda",
           "category": "xr",
-          "tagline": "A vertical museum journey built as both a VR app and a study environment for embodied memory.",
+          "tagline": "An immersive VR experience based on the Glazed Pagoda of the Great Bao'en Temple in Nanjing.",
           "projectFacts": [
             {
               "label": "Project Type",
@@ -303,21 +303,7 @@
           "detailHeading": "A VR heritage app and research thesis studying how artifact interaction changes what visitors remember.",
           "overview": {
             "heading": "Memory, artifacts, and a vertical museum journey.",
-            "body": "Midnight at the Pagoda began as a VR historical tour for the 2024 Digital Heritage Hackathon at the Great Bao'en Temple Museum. It then developed into an empirical HCI study investigating whether artifact interaction could improve visitors' retention of museum information and strengthen the museum's public education role. Building on this initial prototype, the project also produced a comprehensive digital exhibition proposal that substantially expanded the experience.",
-            "points": [
-              {
-                "label": "Prototype origin",
-                "body": "Started as a VR heritage hackathon prototype for the Great Bao'en Temple Museum."
-              },
-              {
-                "label": "Research turn",
-                "body": "Became an experimental environment for studying artifact interaction and memory retention."
-              },
-              {
-                "label": "Research output",
-                "body": "Delivered as a VR app and research paper, with award and course outcomes recorded."
-              }
-            ]
+            "body": "Midnight at the Pagoda began as a VR historical tour for the 2024 Digital Heritage Hackathon at the Great Bao'en Temple Museum. It then developed into an empirical HCI study investigating whether artifact interaction could improve visitors' retention of museum information and strengthen the museum's public education role. Building on this initial prototype, the project also produced a comprehensive digital exhibition proposal that substantially expanded the experience."
           },
           "detailMedia": [
             {
@@ -328,8 +314,8 @@
           "visualBreakMedia": [
             {
               "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
-              "alt": "Midnight at the Pagoda exhibition proposal visual",
-              "caption": "The proposal reframed the pagoda as a journey through thresholds, artifacts, memory, and ascent."
+              "alt": "Gallery interior with red walls and display cases, shown as a reference for the exhibition venue",
+              "caption": "Exhibition venue. The gallery was hosting another exhibition when photographed."
             }
           ],
           "story": {
@@ -1037,7 +1023,7 @@
           "featured": false,
           "slug": "midnight-at-the-pagoda",
           "category": "xr",
-          "tagline": "一个垂直攀登式的博物馆体验，同时作为 VR 应用和具身记忆研究环境。",
+          "tagline": "基于南京大报恩寺琉璃塔的 VR 沉浸式体验。",
           "projectFacts": [
             {
               "label": "项目类型",
@@ -1070,21 +1056,7 @@
           "detailHeading": "一个研究文物交互如何影响观众记忆的 VR 文化遗产应用与研究论文。",
           "overview": {
             "heading": "记忆、文物与垂直博物馆旅程。",
-            "body": "《佛塔的午夜》最初是为在大报恩寺遗址博物馆举办的 2024 Digital Heritage Hackathon 制作的 VR 历史导览原型。此后，项目发展为一项 HCI 实证研究，探讨文物交互能否提升观众对博物馆信息的记忆保持，进而增强博物馆的公共教育作用。在这一初步原型的基础上，项目还形成了一份全面升级体验的数字展览提案。",
-            "points": [
-              {
-                "label": "原型起点",
-                "body": "从面向大报恩寺遗址博物馆的 VR 文化遗产 hackathon 原型开始。"
-              },
-              {
-                "label": "研究转向",
-                "body": "延展成研究文物交互与记忆保持关系的实验环境。"
-              },
-              {
-                "label": "输出形态",
-                "body": "以 VR 应用和研究论文交付，并记录奖项与课程结果。"
-              }
-            ]
+            "body": "《佛塔的午夜》最初是为在大报恩寺遗址博物馆举办的 2024 Digital Heritage Hackathon 制作的 VR 历史导览原型。此后，项目发展为一项 HCI 实证研究，探讨文物交互能否提升观众对博物馆信息的记忆保持，进而增强博物馆的公共教育作用。在这一初步原型的基础上，项目还形成了一份全面升级体验的数字展览提案。"
           },
           "detailMedia": [
             {
@@ -1095,7 +1067,8 @@
           "visualBreakMedia": [
             {
               "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
-              "alt": "Midnight at the Pagoda exhibition proposal visual"
+              "alt": "用于说明展出场地的展厅内部照片，可见红色墙面与展柜",
+              "caption": "展出场地示意。拍摄时，该展厅正用于其他展览。"
             }
           ],
           "story": {

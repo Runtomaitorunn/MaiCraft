@@ -1618,16 +1618,19 @@ button.project-card {
   line-height: 1.22;
 }
 
-.project-overview-copy.has-points {
+.project-overview-copy.has-points,
+[data-project-slug="midnight-at-the-pagoda"] .project-overview-copy {
   display: grid;
   gap: clamp(18px, 2.8vw, 34px);
 }
 
-.project-overview-copy.has-points h2 {
+.project-overview-copy.has-points h2,
+[data-project-slug="midnight-at-the-pagoda"] .project-overview-copy h2 {
   margin-bottom: 0;
 }
 
-.project-overview-copy.has-points .project-overview-lead {
+.project-overview-copy.has-points .project-overview-lead,
+[data-project-slug="midnight-at-the-pagoda"] .project-overview-copy .project-overview-lead {
   max-width: 760px;
   font-size: clamp(1.1rem, 1.7vw, 1.55rem);
   line-height: 1.36;
@@ -2468,7 +2471,8 @@ body.has-media-dialog {
     padding: 56px 0;
   }
 
-  .project-overview-copy.has-points {
+  .project-overview-copy.has-points,
+  [data-project-slug="midnight-at-the-pagoda"] .project-overview-copy {
     gap: 20px;
   }
 
@@ -2737,15 +2741,20 @@ body.has-media-dialog {
 }
 
 /* Midnight at the Pagoda: portfolio case-study narrative */
+[data-project-slug="midnight-at-the-pagoda"] .project-visual-break {
+  background: transparent;
+  border: 0;
+}
+
 [data-project-slug="midnight-at-the-pagoda"] .project-visual-break-item figcaption {
-  max-width: 68ch;
-  padding: 14px clamp(16px, 2vw, 24px) 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   color: #55535e;
-  background: rgba(222, 231, 241, 0.76);
-  border-top: 1px solid rgba(24, 21, 32, 0.12);
   font-family: var(--project-body-font);
   font-size: 0.88rem;
   line-height: 1.5;
+  text-align: center;
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story {
