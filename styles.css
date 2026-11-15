@@ -2846,7 +2846,18 @@ body.has-media-dialog {
   line-height: 1.58;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content,
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent {
+  align-items: first baseline;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content {
+  display: contents;
+}
+
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content > p {
+  grid-column: 2;
+}
+
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content,
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-evidence .project-story-content {
   grid-column: 1 / -1;
@@ -2860,7 +2871,6 @@ body.has-media-dialog {
   max-width: 17ch;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content > p,
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content > p {
   max-width: 64ch;
   margin-left: clamp(0px, 18vw, 220px);
@@ -2868,6 +2878,7 @@ body.has-media-dialog {
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-steps {
   display: grid;
+  grid-column: 1 / -1;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: end;
   min-height: 390px;
@@ -3197,6 +3208,7 @@ body.has-media-dialog {
 
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content > p,
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content > p {
+    grid-column: 1;
     margin-left: 0;
   }
 

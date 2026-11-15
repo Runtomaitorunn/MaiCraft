@@ -17,6 +17,8 @@ The renderer reads normalized project data. Legacy fields such as `cover`, `deta
 
 ## Story Layouts
 
+Set `title: false` to omit a story section's heading and lead directly with its content. Set `kicker: false` to omit its label, or provide a string to show a label such as `The playful journey`.
+
 `text-only` means text only. Use it for context, problem framing, or short reflective sections.
 
 `text-with-media` means text followed by one or more images, videos, or diagrams. Use it for process, strategy, interaction, tooling, and implementation sections.

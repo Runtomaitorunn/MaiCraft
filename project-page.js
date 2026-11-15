@@ -418,7 +418,7 @@ const renderSectionBlock = (section, index, labels = {}) => {
   <section class="project-story-block${mediaLayoutClass}">
     ${hasKicker ? `<p class="project-story-kicker">${section.kicker || `${labels.sectionFallbackLabel || "Part"} ${index + 1}`}</p>` : ""}
     <div class="project-story-content">
-      <h2>${section.title || labels.sectionTitleSlot || "Section title slot"}</h2>
+      ${section.title === false ? "" : `<h2>${section.title || labels.sectionTitleSlot || "Section title slot"}</h2>`}
       ${(section.body || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
       ${renderStoryExtras(section)}
     </div>

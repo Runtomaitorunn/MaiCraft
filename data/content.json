@@ -321,28 +321,18 @@
           "story": {
             "sections": [
               {
-                "kicker": "The question",
-                "title": "Why reconstruction was not enough",
+                "kicker": false,
+                "title": false,
                 "variant": "framing",
                 "layout": "text-only",
                 "body": [
-                  "The surviving site can show foundations, fragments, and individual artifacts, but much of the pagoda's religious, social, and historical context has disappeared. A precise 3D replica would preserve appearance without necessarily helping visitors understand why the place mattered.",
+                  "Traditional archaeological site museums rely heavily on text panels and artifact displays, but these formats alone are no longer enough to support public education. Visitors may leave having seen the objects without understanding their original use or remembering the information presented.",
                   "The design question became more specific: how could movement, touch, scale, and sound reconnect artifacts with their original use, while giving visitors an active role in building the story?"
-                ],
-                "points": [
-                  {
-                    "label": "Context loss",
-                    "body": "Physical remains no longer carry the complete environment, rituals, and human relationships that once gave them meaning."
-                  },
-                  {
-                    "label": "Passive interpretation",
-                    "body": "Static labels and visual reconstruction still leave the visitor outside the historical process."
-                  }
                 ]
               },
               {
-                "kicker": false,
-                "title": "The climb became the interface",
+                "kicker": "The playful journey",
+                "title": false,
                 "variant": "ascent",
                 "layout": "text-with-media",
                 "body": [
