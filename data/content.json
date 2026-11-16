@@ -437,6 +437,54 @@
                           "height": 1200
                         }
                       ]
+                    },
+                    {
+                      "label": "Exhibition proposal renders and routes",
+                      "layout": "flex",
+                      "media": [
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/proposal-floor-one-overhead.webp",
+                          "alt": "Overhead render of a seated Buddha, bookcases, and a recessed pagoda model in a dimly lit room",
+                          "width": 1920,
+                          "height": 1080
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/proposal-floor-one-interior.webp",
+                          "alt": "Interior render of a seated Buddha and pagoda model with lanterns and bookshelves",
+                          "width": 1920,
+                          "height": 1080
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/proposal-onboarding-arch.webp",
+                          "alt": "Render of an ornate glazed arch in a softly lit space",
+                          "width": 1920,
+                          "height": 1080
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/proposal-scene-one-route.webp",
+                          "alt": "Scene one visitor route marked with yellow arrows between shelves and a seated Buddha",
+                          "width": 1682,
+                          "height": 999
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/proposal-scene-one-route-alternate.webp",
+                          "alt": "Alternative scene one route marked with yellow arrows around a recessed pagoda model",
+                          "width": 1678,
+                          "height": 944
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/proposal-scene-three-route.webp",
+                          "alt": "Scene three visitor route across a lotus pond toward a Buddha beneath a tree",
+                          "width": 2117,
+                          "height": 1191
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/proposal-onboarding-route.webp",
+                          "alt": "Onboarding route marked by a yellow arrow leading through the glazed arch",
+                          "width": 1484,
+                          "height": 931
+                        }
+                      ]
                     }
                   ]
                 }
@@ -455,13 +503,13 @@
             "items": [
               {
                 "type": "HCI study",
-                "title": "Research paper",
-                "href": ""
+                "title": "Goldsmiths thesis",
+                "href": "assets/projects/midnight-at-the-pagoda/goldsmiths-hci-thesis.pdf"
               },
               {
                 "type": "Exhibition design",
                 "title": "Digital exhibition proposal",
-                "href": ""
+                "href": "assets/projects/midnight-at-the-pagoda/sjtu-exhibition-proposal.pdf"
               }
             ]
           }

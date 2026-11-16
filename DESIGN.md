@@ -181,7 +181,7 @@ The Pagoda trailer after Overview and walkthrough after Gallery share the same o
 
 ### Project Documents
 
-Document lists follow a publication-style vertical layout: a section title, then indented entries with a small document type, title, optional author line, and PDF icon. Keep the paper surface open, with no cards or borders. Empty PDF destinations show a non-interactive icon and “PDF to be added”; only supplied file paths or URLs become links. On Pagoda, the walkthrough and two document entries replace all former content after Gallery.
+Document lists follow a publication-style vertical layout: a section title matching Gallery's font, size, weight, and uppercase treatment, then indented entries with a small document type, title, optional author line, and PDF icon. Keep the paper surface open, with no cards or borders. Empty PDF destinations show a non-interactive icon and “PDF to be added”; only supplied file paths or URLs become links. On Pagoda, the walkthrough and two document entries replace all former content after Gallery. The HCI study links to the Goldsmiths thesis, and the exhibition proposal links to the SJTU thesis.
 
 ### Project Story Text
 

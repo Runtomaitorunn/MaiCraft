@@ -9,7 +9,7 @@ captures, editor exports, or camera names such as `IMG_6398.MP4`.
 - `hero/`: homepage reel, poster, and scroll cue media.
 - `portraits/`: artist portraits and profile photos.
 - `logos/institutions/`: partner, school, and institution marks.
-- `projects/<project-slug>/`: project-specific covers, diagrams, photos, and videos.
+- `projects/<project-slug>/`: project-specific covers, diagrams, photos, videos, and linked PDF documents.
 - `learning/`: shared CSS and interaction scripts for lessons and reference sheets.
 
 ## Institution Emblem Sources
@@ -60,6 +60,8 @@ possible, especially for first-viewport media.
 | GIF | 1 MB | 2 MB | Prefer MP4/WebM for motion. |
 
 ## Intake Checklist
+
+PDF documents are linked downloads and load when readers open them. The Pagoda files `goldsmiths-hci-thesis.pdf` and `sjtu-exhibition-proposal.pdf` preserve the supplied thesis files byte for byte; their destinations are recorded in `documents.items` in `data/content.json`.
 
 The author explicitly requested the original, uncompressed Pagoda animations. `projects/midnight-at-the-pagoda/raindrops.gif` and `go-to-portal.gif` are byte-for-byte source copies, with specific 4 MB and 3 MB budgets in the pre-publish check. Preserve their 240 × 300 resolution and original animation timing.
 

@@ -1597,7 +1597,8 @@ iframe.project-youtube-player {
 
 .project-overview-label,
 .project-story-kicker,
-.project-story-gallery-title {
+.project-story-gallery-title,
+.project-documents-title {
   margin: 0;
   color: var(--noomo-ink-soft);
   font-family: var(--project-body-font);
@@ -2132,11 +2133,6 @@ iframe.project-youtube-player {
 
 .project-documents-title {
   margin: 0 0 34px;
-  color: var(--noomo-ink);
-  font-family: var(--project-display-font);
-  font-size: clamp(1.6rem, 2.8vw, 2rem);
-  font-weight: 400;
-  line-height: 1.2;
 }
 
 .project-document-list {
