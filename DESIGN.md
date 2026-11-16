@@ -181,6 +181,8 @@ The Pagoda trailer after Overview is centered with a 1000px maximum width and sh
 
 ### Project Story Text
 
+On the Pagoda page, the story shell and its section list share the Overview's 1280px maximum width so their labels align on the same left edge. Paragraphs keep their own reading measure inside this shared width.
+
 Labeled story blocks place the small label at left and content at right on desktop, then stack on narrow screens. Blocks containing only paragraphs, with no label or heading, use one centered reading column with a 70ch maximum measure and left-aligned text. Keep the empty label column out of these paragraph blocks.
 
 A labeled block can include a small reference image below its left-hand label. Keep its original proportions, with no frame or crop, and let the related paragraphs run together in the right column. Supporting steps and media span both columns below.

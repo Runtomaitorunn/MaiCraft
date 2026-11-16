@@ -1996,7 +1996,7 @@ iframe.project-youtube-player {
 .project-story-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px 34px;
+  gap: 22px 16px;
 }
 
 .project-story-gallery-item {
@@ -2846,7 +2846,8 @@ body.has-media-dialog {
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story {
-  --project-story-list-max: 1180px;
+  --project-story-shell-max: 1280px;
+  --project-story-list-max: var(--project-story-shell-max);
   --project-story-media-max: 100%;
 }
 
