@@ -63,6 +63,8 @@ possible, especially for first-viewport media.
 
 PDF documents are linked downloads and load when readers open them. The Pagoda files `goldsmiths-hci-thesis.pdf` and `sjtu-exhibition-proposal.pdf` preserve the supplied thesis files byte for byte; their destinations are recorded in `documents.items` in `data/content.json`.
 
+The Pagoda gallery's fourth row uses seven `proposal-*.webp` images derived from the supplied renders and route diagrams at their original dimensions, without cropping. Their PNG source files remain unchanged.
+
 The author explicitly requested the original, uncompressed Pagoda animations. `projects/midnight-at-the-pagoda/raindrops.gif` and `go-to-portal.gif` are byte-for-byte source copies, with specific 4 MB and 3 MB budgets in the pre-publish check. Preserve their 240 × 300 resolution and original animation timing.
 
 Before adding media:

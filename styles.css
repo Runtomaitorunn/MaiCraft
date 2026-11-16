@@ -1512,7 +1512,8 @@ button.project-card {
   margin: 0;
 }
 
-.project-fact dt {
+.project-fact dt,
+.project-document-type {
   margin-bottom: 9px;
   color: #626671;
   font-family: var(--project-body-font);
@@ -1522,7 +1523,8 @@ button.project-card {
   text-transform: uppercase;
 }
 
-.project-fact dd {
+.project-fact dd,
+.project-document-title {
   color: var(--noomo-ink);
   font-family: var(--project-body-font);
   font-size: 15px;
@@ -1845,6 +1847,7 @@ iframe.project-youtube-player {
   color: var(--noomo-muted);
   font-family: var(--project-body-font);
   font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-weight: 400;
   line-height: 1.72;
 }
 
@@ -2150,7 +2153,6 @@ iframe.project-youtube-player {
   font-family: var(--project-body-font);
 }
 
-.project-document-type,
 .project-document-authors,
 .project-document-status {
   margin: 0;
@@ -2158,13 +2160,21 @@ iframe.project-youtube-player {
   line-height: 1.5;
 }
 
+.project-document-type,
 .project-document-title {
   margin: 0;
-  font-family: var(--project-body-font);
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-  font-weight: 500;
-  line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.project-document-title {
+  justify-self: stretch;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+.project-document-title .heading-reveal-inner {
+  width: 100%;
 }
 
 .project-document-actions {
