@@ -92,7 +92,7 @@
   const normalizeSectionLayout = (section, media) => {
     if (SECTION_LAYOUTS.has(section.layout)) return section.layout;
     if (section.mediaLayout === "impact-gallery" || section.observation || section.note) return "evidence-stack";
-    if (media.length) return "text-with-media";
+    if (media.length || section.gallery?.media?.length) return "text-with-media";
     return "text-only";
   };
 
@@ -108,6 +108,7 @@
       body: toArray(section.body),
       media,
       sidebarMedia: normalizeMedia(section.sidebarMedia),
+      gallery: section.gallery ? { ...section.gallery, media: normalizeMediaList(section.gallery.media) } : null,
       note: section.note || section.observation || null,
     };
   };

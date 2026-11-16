@@ -368,24 +368,45 @@
                     "body": "Sound, incense, scale, and abstraction shift the experience from material history toward reflection."
                   }
                 ],
-                "media": [
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/route-foundation-a.png",
-                    "alt": "Annotated route through the pagoda foundation scene, from the entrance to the scroll collection",
-                    "caption": "Foundation route, first pass: the visitor crosses the room before the central artifact is revealed.",
-                    "featured": true
-                  },
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/route-foundation-b.png",
-                    "alt": "Annotated route from the scroll collection to the central Ashoka pagoda model",
-                    "caption": "The return path changes after the artifact becomes active."
-                  },
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/route-summit.png",
-                    "alt": "Annotated route across stepping stones toward the Buddha at the summit scene",
-                    "caption": "At the summit, the route becomes slower, exposed, and ceremonial."
-                  }
-                ]
+                "gallery": {
+                  "title": "Gallery",
+                  "media": [
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
+                      "alt": "VR scene with a seated Buddha, shelves of scrolls, and a small golden pagoda",
+                      "width": 1920,
+                      "height": 1080
+                    },
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/route-onboarding.png",
+                      "alt": "Entry route toward the glazed arch that starts the VR experience"
+                    },
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/route-foundation-a.png",
+                      "alt": "Annotated route through the pagoda foundation scene, from the entrance to the scroll collection"
+                    },
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/route-foundation-b.png",
+                      "alt": "Annotated route from the scroll collection to the central Ashoka pagoda model"
+                    },
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/route-summit.png",
+                      "alt": "Annotated route across stepping stones toward the Buddha at the summit scene"
+                    },
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/visitor-journey.png",
+                      "alt": "Storyboard of the visitor entering the VR experience and climbing through its floors"
+                    },
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-interaction.png",
+                      "alt": "Storyboard of tracing symbols with a brush and entering the enlightenment floor"
+                    },
+                    {
+                      "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-ending.png",
+                      "alt": "Storyboard of chanting with the Buddha and leaving the VR experience"
+                    }
+                  ]
+                }
               },
               {
                 "kicker": false,

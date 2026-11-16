@@ -43,6 +43,8 @@ Sections with a kicker use a label column beside the content. A section containi
 
 Add `sidebarMedia` with the usual `src`, `alt`, `width`, and `height` fields to show a reference image below the left-hand label. Its text stays in the right column, with steps and other supporting material below both columns. On narrow screens the sidebar stacks above the text.
 
+Add `gallery: { "title": "Gallery", "media": [...] }` to place an image gallery directly after a section's paragraphs, before its supporting steps. Each image uses the usual media fields. The gallery spans the section width, preserves the whole image, and opens images in the existing larger-view dialog. It shows four columns on desktop, two on tablet, and one on mobile.
+
 `text-only` means text only. Use it for context, problem framing, or short reflective sections.
 
 `text-with-media` means text followed by one or more images, videos, or diagrams. Use it for process, strategy, interaction, tooling, and implementation sections.

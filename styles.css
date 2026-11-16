@@ -1977,6 +1977,57 @@ iframe.project-youtube-player {
   outline-offset: 4px;
 }
 
+.project-story-gallery {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 34px;
+  min-width: 0;
+}
+
+.project-story-gallery-title {
+  margin: 0;
+  color: var(--noomo-ink);
+  font-family: var(--project-display-font);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.project-story-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px 34px;
+}
+
+.project-story-gallery-item {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-story-gallery .project-media-open {
+  aspect-ratio: 4 / 3;
+  height: 100%;
+}
+
+.project-story-gallery-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .project-story-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .project-story-gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .project-section-observation {
   display: grid;
   grid-template-columns: minmax(132px, 0.22fr) minmax(0, 0.78fr);

@@ -185,6 +185,8 @@ Labeled story blocks place the small label at left and content at right on deskt
 
 A labeled block can include a small reference image below its left-hand label. Keep its original proportions, with no frame or crop, and let the related paragraphs run together in the right column. Supporting steps and media span both columns below.
 
+Story image galleries sit directly below the related paragraphs and span the story width. Use a simple Gallery heading, four columns on desktop, two on tablet, and one on mobile. Center each complete image inside a 4:3 slot; keep the surrounding surface transparent and omit frames and visible captions. Reuse the image enlargement control and keyboard focus style.
+
 ### Contact Links
 
 Contact links are pill actions with deep ink fills. Labels should be short and explicit, such as Email, GitHub, LinkedIn, Itch.io, or Portfolio PDF.
