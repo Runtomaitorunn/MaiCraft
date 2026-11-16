@@ -15,9 +15,33 @@ New projects should use these fields:
 
 The renderer reads normalized project data. Legacy fields such as `cover`, `detailSections`, `mediaSlot`, `mediaSlots`, `mediaList`, `mediaLayout`, and `observation` are still supported by `project-authoring.js`, but new projects should avoid them.
 
+## YouTube Media
+
+Paste a regular YouTube link into the existing `src` field. Use `alt` for the player title and an optional `caption` for the text below it:
+
+```json
+{
+  "src": "https://youtu.be/M7lc1UVf-VE",
+  "alt": "Project walkthrough",
+  "caption": "A walkthrough of the interaction flow."
+}
+```
+
+This example video is from YouTube's developer documentation; it is not a portfolio project asset. Supported links include `youtube.com/watch?v=...`, `youtu.be/...`, `/embed/...`, `/shorts/...`, `/live/...`, and the `youtube-nocookie.com` embed format. Start times in `t` or `start` are preserved; tracking and autoplay parameters are discarded.
+
+Use these objects in `visualBreakMedia`, `detailMedia`, or a story section's `media` array. YouTube media plays inside the page, with responsive sizing, a fullscreen control, and no image zoom button. If used as `coverMedia`, the homepage card shows its YouTube thumbnail while the detail hero shows the player.
+
+The normalizer derives a privacy-enhanced embed URL and the renderer creates an `<iframe>`. No API key or YouTube JavaScript API is needed. Videos must permit embedding, and playback depends on access to YouTube. Open previews through an HTTP server rather than `file://`; YouTube requires a Referer header.
+
+See the [short lesson](../lessons/0001-youtube-media.html) and [reference sheet](../reference/youtube-media.html) for a Chinese walkthrough. Primary sources: [player parameters](https://developers.google.com/youtube/player_parameters), [embed identification](https://developers.google.com/youtube/terms/required-minimum-functionality#api-client-identity-and-credentials).
+
 ## Story Layouts
 
 Set `title: false` to omit a story section's heading and lead directly with its content. Set `kicker: false` to omit its label, or provide a string to show a label such as `The playful journey`.
+
+Sections with a kicker use a label column beside the content. A section containing only paragraphs, with both `kicker: false` and `title: false`, automatically uses a centered reading column (`is-paragraph`); its text stays left-aligned.
+
+Add `sidebarMedia` with the usual `src`, `alt`, `width`, and `height` fields to show a reference image below the left-hand label. Its text stays in the right column, with steps and other supporting material below both columns. On narrow screens the sidebar stacks above the text.
 
 `text-only` means text only. Use it for context, problem framing, or short reflective sections.
 

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>作品集 YouTube 媒体速查表</title>
+  <link rel="stylesheet" href="../assets/learning/lesson.css">
+</head>
+<body><main>
+  <header><nav aria-label="学习导航"><a href="../lessons/0001-youtube-media.html">返回短课与练习</a></nav><h1>YouTube 媒体速查表</h1><p>添加、替换视频时，先修改内容，再通过 HTTP 本地预览检查。</p></header>
+  <section><h2>最小可用对象</h2><pre><code>{
+  "src": "https://youtu.be/你的视频ID",
+  "alt": "这段视频展示什么",
+  "caption": "可选的下方说明"
+}</code></pre>
+  <table><thead><tr><th>字段</th><th>作用</th></tr></thead><tbody>
+    <tr><td><code>src</code></td><td>视频来源。替换视频时修改它。</td></tr>
+    <tr><td><code>alt</code></td><td>内容说明，映射为 iframe 的 title。</td></tr>
+    <tr><td><code>caption</code></td><td>视频下方图注，可省略。</td></tr>
+  </tbody></table></section>
+  <section><h2>放在哪里</h2><table><thead><tr><th>位置</th><th>填写位置</th></tr></thead><tbody>
+    <tr><td>总览后的大段演示</td><td><code>visualBreakMedia</code> 数组</td></tr>
+    <tr><td>某个叙事段落中的演示</td><td><code>story.sections</code> 对应节的 <code>media</code> 数组</td></tr>
+    <tr><td>主媒体或图库</td><td><code>detailMedia</code> 数组</td></tr>
+    <tr><td>封面兼主播放器</td><td><code>coverMedia</code>；首页自动使用缩略图</td></tr>
+  </tbody></table><p>媒体的 <code>src</code> 是播放来源；项目的 <code>link</code> 是卡片跳转地址。把 YouTube URL 写进 <code>link</code> 不会创建内嵌播放器。</p></section>
+  <section><h2>链接与术语</h2><p>支持观看链接、youtu.be 分享链接、embed 链接，以及 shorts、live 链接。有效起播时间 <code>t=90</code>、<code>t=1m30s</code> 或 <code>start=90</code> 会保留，其他参数不直接传给播放器。</p>
+    <p><strong>视频 ID</strong>：标识视频的那一段字符。<strong>嵌入地址</strong>：带 <code>/embed/</code> 的播放器地址。<strong>iframe</strong>：在当前网页里呈现另一个网页的 HTML 元素。<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe">MDN 定义</a></p>
+  </section>
+  <section><h2>播放不成功时</h2><p>确认视频允许站外嵌入、网络能访问 YouTube，并通过 HTTP 服务器打开页面。不要把 YouTube 网页 URL 当作 <code>&lt;video src&gt;</code> 的视频文件。<a href="https://support.google.com/youtube/answer/171780">官方排查说明</a></p></section>
+  <footer><p>原始资料：<a href="https://developers.google.com/youtube/player_parameters">YouTube 播放器文档</a>。遇到具体链接或报错时，可以回到聊天里继续问我。</p></footer>
+</main></body>
+</html>

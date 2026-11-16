@@ -173,6 +173,18 @@ Project cards are borderless, media-first cold-paper objects with 6px corners, d
 
 Project detail pages may use a lightweight facts column under the masthead title for Client, Deliverables, Involvement, Results, or similar case-study metadata. Keep it typographic and rule-based, not card-like. Labels use title case and muted color; values stay regular weight. Multi-item values render as quiet line lists, not comma piles.
 
+### Embedded Project Videos
+
+YouTube media uses the official iframe player within the existing media slots. Keep it borderless, full width, normally 16:9, and at least 200px tall so controls remain usable on narrow screens. Preserve the native playback and fullscreen controls; start playback on user action. The homepage uses a thumbnail for a YouTube cover, while detail pages show the player. Embedded videos must not be placed inside the image zoom button.
+
+The Pagoda trailer after Overview is centered with a 1000px maximum width and shrinks to fit narrower screens.
+
+### Project Story Text
+
+Labeled story blocks place the small label at left and content at right on desktop, then stack on narrow screens. Blocks containing only paragraphs, with no label or heading, use one centered reading column with a 70ch maximum measure and left-aligned text. Keep the empty label column out of these paragraph blocks.
+
+A labeled block can include a small reference image below its left-hand label. Keep its original proportions, with no frame or crop, and let the related paragraphs run together in the right column. Supporting steps and media span both columns below.
+
 ### Contact Links
 
 Contact links are pill actions with deep ink fills. Labels should be short and explicit, such as Email, GitHub, LinkedIn, Itch.io, or Portfolio PDF.

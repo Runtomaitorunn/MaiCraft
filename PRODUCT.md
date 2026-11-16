@@ -30,6 +30,7 @@ Case studies support closer evaluation of the problem, Ye Mai's involvement, the
 - English is the primary polished locale. Chinese content is available, with completion and consistency maintained as content evolves.
 - Project entries can present images, video, case-study narratives, project facts, and external links. Unfinished case studies must remain visibly provisional.
 - Distinguish a working prototype, an empirical study, and an exhibition proposal. Do not describe a proposal as a delivered exhibition or a research question as a demonstrated effect. For Midnight at the Pagoda, the confirmed progression is a hackathon VR prototype, an empirical HCI study of artifact interaction and visitors' retention of museum information, and a substantially expanded digital exhibition proposal.
+- The Pagoda experience combines enjoyable play with public education: introducing Nanjing's local culture, explaining the temple's Buddhist history, and helping visitors appreciate its architecture and artifacts. Prefer concrete actions and objects in project copy; keep early narrative drafts clearly identified as drafts.
 - Keep factual claims tied to supplied information and recorded evidence. Do not invent credentials, clients, testimonials, study findings, or performance results.
 
 ## Brand Commitments

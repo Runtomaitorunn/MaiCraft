@@ -44,6 +44,10 @@ const renderMedia = (item, className = "") => {
     .join(" ");
   const dimensions = sizeAttributes ? ` ${sizeAttributes}` : "";
 
+  if (item.youtube) {
+    return `<iframe class="${className} project-youtube-player" src="${escapeAttribute(item.youtube.embedSrc)}" title="${escapeAttribute(label)}"${dimensions} loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  }
+
   if (isVideoAsset(src)) {
     return `<video class="${className}" src="${escapeAttribute(src)}" aria-label="${escapeAttribute(label)}"${dimensions} autoplay muted loop playsinline disablepictureinpicture></video>`;
   }
@@ -134,7 +138,7 @@ const renderSectionMedia = (section) => {
       const isContained = media.fit === "contain" || /\.svg$/i.test(media.src);
       const src = normalizeAssetPath(media.src);
       const label = media.alt || media.title || section.title || "Project media";
-      const canExpand = !isVideoAsset(src);
+      const canExpand = !isVideoAsset(src) && !media.youtube;
       const mediaMarkup = renderMedia({ ...media, title: media.title || section.title }, "project-section-media-asset");
 
       return `
@@ -402,13 +406,19 @@ const renderStoryExtras = (section) => `
 
 const renderSectionBlock = (section, index, labels = {}) => {
   const sectionMedia = renderSectionMedia(section);
+  const sectionExtras = renderStoryExtras(section);
   const variant = toClassToken(section.variant);
   const hasKicker = section.kicker !== false;
+  const kicker = hasKicker ? `<p class="project-story-kicker">${section.kicker || `${labels.sectionFallbackLabel || "Part"} ${index + 1}`}</p>` : "";
+  const sidebarMedia = section.sidebarMedia?.src ? renderMedia(section.sidebarMedia, "project-story-sidebar-media") : "";
+  const isParagraph = !hasKicker && section.title === false && !sectionMedia && !sidebarMedia && !sectionExtras.trim();
   const mediaClasses = [
     section.layout ? `has-${section.layout}` : "",
     sectionMedia ? "has-wide-media" : "",
     variant ? `is-${variant}` : "",
     hasKicker ? "has-kicker" : "has-no-kicker",
+    sidebarMedia ? "has-sidebar-media" : "",
+    isParagraph ? "is-paragraph" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -416,12 +426,13 @@ const renderSectionBlock = (section, index, labels = {}) => {
 
   return `
   <section class="project-story-block${mediaLayoutClass}">
-    ${hasKicker ? `<p class="project-story-kicker">${section.kicker || `${labels.sectionFallbackLabel || "Part"} ${index + 1}`}</p>` : ""}
+    ${sidebarMedia ? `<div class="project-story-sidebar">${kicker}${sidebarMedia}</div>` : kicker}
     <div class="project-story-content">
       ${section.title === false ? "" : `<h2>${section.title || labels.sectionTitleSlot || "Section title slot"}</h2>`}
       ${(section.body || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
-      ${renderStoryExtras(section)}
+      ${sidebarMedia ? "" : sectionExtras}
     </div>
+    ${sidebarMedia ? sectionExtras : ""}
     ${sectionMedia}
   </section>
 `;

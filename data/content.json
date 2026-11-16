@@ -313,9 +313,9 @@
           ],
           "visualBreakMedia": [
             {
-              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
-              "alt": "Gallery interior with red walls and display cases, shown as a reference for the exhibition venue",
-              "caption": "Exhibition venue. The gallery was hosting another exhibition when photographed."
+              "src": "https://youtu.be/sN9UfMv5Q9M?si=6TALPMo8KEsPY0Bf",
+              "alt": "A Midnight at the Pagoda trailer",
+              "caption": "A Midnight at the Pagoda trailer presented at 2024 Digital Heritage"
             }
           ],
           "story": {
@@ -335,8 +335,16 @@
                 "title": false,
                 "variant": "ascent",
                 "layout": "text-with-media",
+                "sidebarMedia": {
+                  "src": "assets/projects/midnight-at-the-pagoda/pagoda-elevation.png",
+                  "alt": "Drawing of the Glazed Pagoda showing its nine floors and handwritten height measurements",
+                  "width": 259,
+                  "height": 406
+                },
                 "body": [
-                  "I organised the experience as an irreversible ascent. Each threshold changes the visitor's position, the available interaction, and the emotional register of the space. The route carries the narrative, so instruction can remain inside the environment rather than becoming a separate interface layer."
+                  "We wanted to make the experience fun to play while helping visitors learn about the temple's Buddhist history and Nanjing's local culture, and appreciate the pagoda's architecture and artifacts.",
+                  "We built the story and interactions around a climb from the bottom of the Glazed Pagoda to its ninth floor. Our early narrative draft went as follows:",
+                  "\u201cOn the first floor, a golden guide introduces the story. The second floor turns the story of the blind men and the elephant into a touch puzzle; the third explains it and sets up the next task. On floors four and five, players draw symbols linked to three Buddhas and learn about scripture translation at the temple. On floors six to eight, they ring a bell, float a lotus across a pond, and make a wish. The ninth floor ends the story of the player's journey to enlightenment.\u201d"
                 ],
                 "steps": [
                   {
@@ -1056,9 +1064,9 @@
           ],
           "visualBreakMedia": [
             {
-              "src": "assets/projects/midnight-at-the-pagoda/exhibition-proposal.png",
-              "alt": "用于说明展出场地的展厅内部照片，可见红色墙面与展柜",
-              "caption": "展出场地示意。拍摄时，该展厅正用于其他展览。"
+              "src": "https://youtu.be/sN9UfMv5Q9M?si=6TALPMo8KEsPY0Bf",
+              "alt": "A Midnight at the Pagoda trailer",
+              "caption": "A Midnight at the Pagoda trailer presented at 2024 Digital Heritage"
             }
           ],
           "story": {

@@ -8,6 +8,47 @@
 
   const firstPresent = (...values) => values.find((value) => value !== undefined && value !== null && value !== "");
 
+  const getYouTubeMedia = (source) => {
+    if (typeof source !== "string" || !/^https?:\/\//i.test(source.trim())) return null;
+
+    let url;
+    try {
+      url = new URL(source);
+    } catch {
+      return null;
+    }
+
+    const host = url.hostname.replace(/^www\./, "");
+    const segments = url.pathname.split("/").filter(Boolean);
+    let videoId;
+
+    if (host === "youtu.be") {
+      videoId = segments[0];
+    } else if (["youtube.com", "m.youtube.com", "youtube-nocookie.com"].includes(host)) {
+      videoId = segments[0] === "watch"
+        ? url.searchParams.get("v")
+        : ["embed", "shorts", "live"].includes(segments[0]) ? segments[1] : null;
+    }
+
+    if (!/^[A-Za-z0-9_-]{11}$/.test(videoId || "")) return null;
+
+    const embedUrl = new URL(`https://www.youtube-nocookie.com/embed/${videoId}`);
+    embedUrl.searchParams.set("playsinline", "1");
+
+    const time = url.searchParams.get("start") || url.searchParams.get("t") || "";
+    const parts = time.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
+    const seconds = /^\d+$/.test(time)
+      ? Number(time)
+      : parts ? Number(parts[1] || 0) * 3600 + Number(parts[2] || 0) * 60 + Number(parts[3] || 0) : 0;
+    if (Number.isSafeInteger(seconds) && seconds > 0) embedUrl.searchParams.set("start", String(seconds));
+
+    return {
+      videoId,
+      embedSrc: embedUrl.href,
+      thumbnailSrc: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+    };
+  };
+
   const normalizeMedia = (media, fallback = {}) => {
     if (!media) return null;
 
@@ -15,12 +56,14 @@
       return {
         src: media,
         alt: fallback.alt || fallback.title || "Project media",
+        youtube: getYouTubeMedia(media),
       };
     }
 
     return {
       ...media,
       alt: media.alt || media.title || fallback.alt || fallback.title || "Project media",
+      youtube: getYouTubeMedia(media.src),
     };
   };
 
@@ -64,6 +107,7 @@
       layout,
       body: toArray(section.body),
       media,
+      sidebarMedia: normalizeMedia(section.sidebarMedia),
       note: section.note || section.observation || null,
     };
   };
@@ -93,7 +137,7 @@
     return {
       ...project,
       coverMedia,
-      cover: coverMedia?.src || project.cover,
+      cover: coverMedia?.youtube?.thumbnailSrc || coverMedia?.src || project.cover,
       alt: coverMedia?.alt || project.alt,
       overview: normalizeOverview(project),
       timeline: project.story?.timeline || project.timeline || [],
@@ -108,6 +152,7 @@
   };
 
   root.ProjectAuthoring = {
+    getYouTubeMedia,
     normalizeMedia,
     normalizeMediaList,
     normalizeProject,

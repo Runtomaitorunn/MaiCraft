@@ -10,6 +10,7 @@ captures, editor exports, or camera names such as `IMG_6398.MP4`.
 - `portraits/`: artist portraits and profile photos.
 - `logos/institutions/`: partner, school, and institution marks.
 - `projects/<project-slug>/`: project-specific covers, diagrams, photos, and videos.
+- `learning/`: shared CSS and interaction scripts for lessons and reference sheets.
 
 ## Institution Emblem Sources
 

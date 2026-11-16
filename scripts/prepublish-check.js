@@ -1,13 +1,14 @@
 const fs = require("fs");
 const path = require("path");
+const { getYouTubeMedia } = require("../project-authoring.js");
 
 const repoRoot = path.resolve(__dirname, "..");
 const contentPath = path.join(repoRoot, "data", "content.json");
 const assetRoot = path.join(repoRoot, "assets");
 const mediaPattern = /\.(avif|gif|jpe?g|mov|mp4|png|svg|webm|webp)$/i;
-const deliveryAssetPattern = /\.(avif|gif|jpe?g|mp4|png|svg|webm|webp|woff2)$/i;
+const deliveryAssetPattern = /\.(avif|gif|jpe?g|mp4|png|svg|webm|webp|woff2|css|js)$/i;
 const remotePattern = /^(https?:|data:|mailto:|tel:|#)/i;
-const assetFileNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:avif|gif|jpe?g|mp4|png|svg|webm|webp|woff2)$/;
+const assetFileNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:avif|gif|jpe?g|mp4|png|svg|webm|webp|woff2|css|js)$/;
 const assetDirectoryNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const KB = 1024;
 const MB = 1024 * KB;
@@ -96,7 +97,7 @@ const checkAssetFile = (filePath) => {
   });
 
   if (!deliveryAssetPattern.test(fileName)) {
-    addIssue(relativePath, "Unsupported delivery asset type. Use AVIF, GIF, JPG, MP4, PNG, SVG, WebM, WebP, or WOFF2");
+    addIssue(relativePath, "Unsupported delivery asset type. Use AVIF, GIF, JPG, MP4, PNG, SVG, WebM, WebP, WOFF2, CSS, or JS");
     return;
   }
 
@@ -170,6 +171,9 @@ const walk = (value, location = "content") => {
     return;
   }
 
+  if (getYouTubeMedia(value.src) && !String(value.alt || value.title || "").trim()) {
+    addIssue(`${location}.src`, "YouTube media needs alt or title text to label the player");
+  }
   checkMediaReference(value.src, value.alt, `${location}.src`);
   checkMediaReference(value.cover, value.alt, `${location}.cover`);
   checkMediaReference(value.logo, value.logoAlt, `${location}.logo`);

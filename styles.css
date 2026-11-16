@@ -1579,6 +1579,15 @@ button.project-card {
   object-fit: contain;
 }
 
+iframe.project-youtube-player {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 .project-overview {
   display: grid;
   grid-template-columns: minmax(120px, 0.22fr) minmax(0, 0.78fr);
@@ -1787,6 +1796,33 @@ button.project-card {
   display: grid;
   gap: clamp(16px, 2.6vw, 28px);
   min-width: 0;
+}
+
+.project-story-sidebar {
+  display: grid;
+  align-content: start;
+  gap: 22px;
+  min-width: 0;
+}
+
+.project-story-sidebar-media {
+  display: block;
+  width: 100%;
+  max-width: 190px;
+  height: auto;
+}
+
+.project-story-block.is-paragraph {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-story-block.is-paragraph > .project-story-content {
+  grid-column: 1 / -1;
+}
+
+.project-story-block.is-paragraph > .project-story-content > p {
+  width: 100%;
+  margin-inline: auto;
 }
 
 .project-story-block h2 {
@@ -2742,6 +2778,7 @@ body.has-media-dialog {
 
 /* Midnight at the Pagoda: portfolio case-study narrative */
 [data-project-slug="midnight-at-the-pagoda"] .project-visual-break {
+  width: min(1000px, 100%);
   background: transparent;
   border: 0;
 }
@@ -2768,10 +2805,6 @@ body.has-media-dialog {
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block {
   scroll-margin-top: 92px;
-}
-
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.has-no-kicker .project-story-content {
-  grid-column: 2;
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-content {
@@ -2851,10 +2884,6 @@ body.has-media-dialog {
 }
 
 [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content {
-  display: contents;
-}
-
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content > p {
   grid-column: 2;
 }
 
@@ -3123,7 +3152,7 @@ body.has-media-dialog {
   overflow: hidden;
 }
 
-[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media-asset {
+[data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-section-media-asset:not(.project-youtube-player) {
   height: 100%;
   object-fit: cover;
 }
@@ -3198,7 +3227,6 @@ body.has-media-dialog {
 }
 
 @media (max-width: 900px) {
-  [data-project-slug="midnight-at-the-pagoda"] .project-story-block.has-no-kicker .project-story-content,
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-ascent .project-story-content,
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-interaction .project-story-content,
   [data-project-slug="midnight-at-the-pagoda"] .project-story-block.is-process .project-story-content,
