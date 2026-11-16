@@ -92,7 +92,7 @@
   const normalizeSectionLayout = (section, media) => {
     if (SECTION_LAYOUTS.has(section.layout)) return section.layout;
     if (section.mediaLayout === "impact-gallery" || section.observation || section.note) return "evidence-stack";
-    if (media.length || section.gallery?.media?.length) return "text-with-media";
+    if (media.length || section.gallery?.media?.length || section.gallery?.rows?.some((row) => row.media?.length)) return "text-with-media";
     return "text-only";
   };
 
@@ -108,7 +108,11 @@
       body: toArray(section.body),
       media,
       sidebarMedia: normalizeMedia(section.sidebarMedia),
-      gallery: section.gallery ? { ...section.gallery, media: normalizeMediaList(section.gallery.media) } : null,
+      gallery: section.gallery ? {
+        ...section.gallery,
+        media: normalizeMediaList(section.gallery.media),
+        rows: toArray(section.gallery.rows).map((row) => ({ ...row, media: normalizeMediaList(row.media) })),
+      } : null,
       note: section.note || section.observation || null,
     };
   };
@@ -144,6 +148,7 @@
       timeline: project.story?.timeline || project.timeline || [],
       detailMedia,
       visualBreakMedia,
+      walkthroughMedia: normalizeMediaList(project.walkthroughMedia, { title: project.title }),
       detailSections: rawSections.map((section) =>
         normalizeSection(section, {
           title: project.title,

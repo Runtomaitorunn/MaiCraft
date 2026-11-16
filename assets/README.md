@@ -61,6 +61,8 @@ possible, especially for first-viewport media.
 
 ## Intake Checklist
 
+The author explicitly requested the original, uncompressed Pagoda animations. `projects/midnight-at-the-pagoda/raindrops.gif` and `go-to-portal.gif` are byte-for-byte source copies, with specific 4 MB and 3 MB budgets in the pre-publish check. Preserve their 240 × 300 resolution and original animation timing.
+
 Before adding media:
 
 1. Rename the file into lowercase kebab-case.

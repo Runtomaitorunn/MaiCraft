@@ -344,180 +344,124 @@
                 "body": [
                   "We wanted to make the experience fun to play while helping visitors learn about the temple's Buddhist history and Nanjing's local culture, and appreciate the pagoda's architecture and artifacts.",
                   "We built the story and interactions around a climb from the bottom of the Glazed Pagoda to its ninth floor. Our early narrative draft went as follows:",
-                  "\u201cOn the first floor, a golden guide introduces the story. The second floor turns the story of the blind men and the elephant into a touch puzzle; the third explains it and sets up the next task. On floors four and five, players draw symbols linked to three Buddhas and learn about scripture translation at the temple. On floors six to eight, they ring a bell, float a lotus across a pond, and make a wish. The ninth floor ends the story of the player's journey to enlightenment.\u201d"
-                ],
-                "steps": [
-                  {
-                    "label": "Threshold",
-                    "title": "Enter through the glazed arch",
-                    "body": "Touch establishes the interaction language and moves the visitor from the museum into the reconstructed world."
-                  },
-                  {
-                    "label": "Foundation",
-                    "title": "Follow artifacts into memory",
-                    "body": "Scrolls, reliquaries, and light trails connect the underground chamber with historical scenes and distant places."
-                  },
-                  {
-                    "label": "Tower",
-                    "title": "Act inside the historical account",
-                    "body": "The visitor observes the city, handles a brush, and completes a mural rather than receiving the story as a caption."
-                  },
-                  {
-                    "label": "Summit",
-                    "title": "Move from object to atmosphere",
-                    "body": "Sound, incense, scale, and abstraction shift the experience from material history toward reflection."
-                  }
+                  "“On the first floor, a golden guide introduces the story. The second floor turns the story of the blind men and the elephant into a touch puzzle; the third explains it and sets up the next task. On floors four and five, players draw symbols linked to three Buddhas and learn about scripture translation at the temple. On floors six to eight, they ring a bell, float a lotus across a pond, and make a wish. The ninth floor ends the story of the player's journey to enlightenment.”"
                 ],
                 "gallery": {
                   "title": "Gallery",
-                  "media": [
+                  "rows": [
                     {
-                      "src": "assets/projects/midnight-at-the-pagoda/floor-1.png",
-                      "alt": "VR scene with a seated Buddha, shelves of scrolls, and a small golden pagoda",
-                      "width": 1920,
-                      "height": 1080
+                      "label": "Storyboards",
+                      "media": [
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/visitor-journey.png",
+                          "alt": "Storyboard of the visitor entering the VR experience and climbing through its floors"
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-interaction.png",
+                          "alt": "Storyboard of tracing symbols with a brush and entering the enlightenment floor"
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-ending.png",
+                          "alt": "Storyboard of chanting with the Buddha and leaving the VR experience"
+                        }
+                      ]
                     },
                     {
-                      "src": "assets/projects/midnight-at-the-pagoda/route-onboarding.png",
-                      "alt": "Entry route toward the glazed arch that starts the VR experience"
+                      "label": "Interior scenes",
+                      "layout": "flex",
+                      "media": [
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/raindrops.gif",
+                          "alt": "Animated view of glowing raindrops around a golden Buddha",
+                          "width": 240,
+                          "height": 300
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/go-to-portal.gif",
+                          "alt": "Animated movement toward a bright portal at the top of stairs",
+                          "width": 240,
+                          "height": 300
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/middle-floor.png",
+                          "alt": "Interior scene with a golden Buddha, a table, wall paintings, and glowing symbols",
+                          "width": 1626,
+                          "height": 982
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/sutra.png",
+                          "alt": "An open sutra floating above a stack of books beside a glowing lantern",
+                          "width": 2013,
+                          "height": 1164
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/interior-overhead.png",
+                          "alt": "Overhead view of a room with hanging wooden wish plaques and a golden Buddha",
+                          "width": 2341,
+                          "height": 1096
+                        }
+                      ]
                     },
                     {
-                      "src": "assets/projects/midnight-at-the-pagoda/route-foundation-a.png",
-                      "alt": "Annotated route through the pagoda foundation scene, from the entrance to the scroll collection"
-                    },
-                    {
-                      "src": "assets/projects/midnight-at-the-pagoda/route-foundation-b.png",
-                      "alt": "Annotated route from the scroll collection to the central Ashoka pagoda model"
-                    },
-                    {
-                      "src": "assets/projects/midnight-at-the-pagoda/route-summit.png",
-                      "alt": "Annotated route across stepping stones toward the Buddha at the summit scene"
-                    },
-                    {
-                      "src": "assets/projects/midnight-at-the-pagoda/visitor-journey.png",
-                      "alt": "Storyboard of the visitor entering the VR experience and climbing through its floors"
-                    },
-                    {
-                      "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-interaction.png",
-                      "alt": "Storyboard of tracing symbols with a brush and entering the enlightenment floor"
-                    },
-                    {
-                      "src": "assets/projects/midnight-at-the-pagoda/visitor-journey-ending.png",
-                      "alt": "Storyboard of chanting with the Buddha and leaving the VR experience"
+                      "label": "Digital Heritage event photographs",
+                      "layout": "flex",
+                      "media": [
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/event-awards.webp",
+                          "alt": "Participants holding award certificates on stage at the 2024 Digital Heritage event",
+                          "width": 1800,
+                          "height": 1200
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/event-presentation.webp",
+                          "alt": "A presenter holding a microphone at the Digital Heritage event",
+                          "width": 1200,
+                          "height": 1800
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/event-team-review.webp",
+                          "alt": "Project team members discussing their work at a computer",
+                          "width": 1800,
+                          "height": 1200
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/event-development.webp",
+                          "alt": "A participant working on the project at a laptop",
+                          "width": 1800,
+                          "height": 1200
+                        },
+                        {
+                          "src": "assets/projects/midnight-at-the-pagoda/event-museum-visit.webp",
+                          "alt": "Project team members looking at displays during a museum visit",
+                          "width": 1800,
+                          "height": 1200
+                        }
+                      ]
                     }
                   ]
                 }
+              }
+            ]
+          },
+          "walkthroughMedia": [
+            {
+              "src": "https://youtu.be/Wbt-XbsATB0?si=DxfThKvqdrnjvWth",
+              "alt": "Walkthrough video",
+              "caption": "Walkthrough video"
+            }
+          ],
+          "documents": {
+            "title": "Documents",
+            "items": [
+              {
+                "type": "HCI study",
+                "title": "Research paper",
+                "href": ""
               },
               {
-                "kicker": false,
-                "title": "Turning artifacts into interactions",
-                "variant": "interaction",
-                "layout": "text-with-media",
-                "body": [
-                  "Each interaction had to do two jobs at once: produce a clear runtime response and change how the visitor understood the artifact. The system therefore links physical action, spatial feedback, and narrative consequence."
-                ],
-                "mapping": [
-                  {
-                    "action": "Touch a stored scroll",
-                    "response": "A light path enters the historical image and opens a memory of Kew Gardens.",
-                    "meaning": "The museum object becomes a route into the pagoda's international history."
-                  },
-                  {
-                    "action": "Touch the Ashoka pagoda",
-                    "response": "The object expands around the visitor and lifts them toward the next floor.",
-                    "meaning": "A change in scale turns close inspection into embodied transition."
-                  },
-                  {
-                    "action": "Play instruments at the summit",
-                    "response": "Sound becomes visible and travels through the environment as light and movement.",
-                    "meaning": "An intangible ritual is represented through a response the visitor can see and influence."
-                  }
-                ],
-                "media": [
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/visitor-journey.png",
-                    "alt": "Storyboard showing the end-to-end visitor journey from transition space into narrative and interaction floors",
-                    "caption": "The end-to-end journey connects the physical waiting area, headset setup, narrative floors, and interaction floors."
-                  }
-                ]
-              },
-              {
-                "kicker": false,
-                "title": "From hackathon prototype to research system",
-                "variant": "process",
-                "layout": "text-with-media",
-                "body": [
-                  "The project did not move directly from concept to thesis. A small team first built and presented a working prototype at the Digital Heritage Hackathon. Feedback from the live demonstration, expert review, and later academic critique exposed gaps in the narrative and informed a broader exhibition plan."
-                ],
-                "timeline": [
-                  {
-                    "period": "May to Jul 2024",
-                    "title": "Prototype and field presentation",
-                    "body": "Built a minimum viable VR experience, presented it in a real event setting, and collected early qualitative feedback.",
-                    "logo": "assets/logos/institutions/digital-heritage-logo-ink.png",
-                    "logoAlt": "Digital Heritage Hackathon logo"
-                  },
-                  {
-                    "period": "Aug to Sep 2024",
-                    "title": "Research framing",
-                    "body": "Revisited the prototype through visual grammar, interaction meaning, and comparative case analysis.",
-                    "logo": "assets/logos/institutions/goldsmiths-logo.svg",
-                    "logoAlt": "Goldsmiths logo"
-                  },
-                  {
-                    "period": "Jun 2026",
-                    "title": "Integrated exhibition plan",
-                    "body": "Expanded the tested interaction logic into a nine-floor narrative and a complete research thesis.",
-                    "logo": "assets/logos/institutions/sjtu-emblem.svg",
-                    "logoAlt": "Shanghai Jiao Tong University emblem"
-                  }
-                ],
-                "media": [
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/hackathon-build.jpg",
-                    "alt": "The Midnight at the Pagoda team building and testing the VR prototype during the Digital Heritage Hackathon",
-                    "caption": "Prototype development during the 2024 Digital Heritage Hackathon."
-                  },
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/hackathon-presentation.jpg",
-                    "alt": "Ye Mai presenting the VR heritage project on stage at the Digital Heritage Hackathon",
-                    "caption": "Presenting the interaction concept and prototype."
-                  },
-                  {
-                    "src": "assets/projects/midnight-at-the-pagoda/hackathon-review.jpg",
-                    "alt": "The project team discussing the VR prototype with an event reviewer",
-                    "caption": "The live setting produced early review and qualitative feedback."
-                  }
-                ]
-              },
-              {
-                "kicker": false,
-                "title": "What the evidence supports",
-                "variant": "evidence",
-                "layout": "text-only",
-                "body": [
-                  "The project supports a clear claim about process: heritage interpretation can be designed through movement, interaction, and spatial composition rather than added as explanatory text after the environment is built. Its current evidence is strongest at the level of prototype quality, expert review, and research synthesis."
-                ],
-                "columns": [
-                  {
-                    "title": "Evidence on record",
-                    "items": [
-                      "Best Use of Tech, Digital Heritage 2024",
-                      "A working VR prototype and public presentation",
-                      "77/100 in the Goldsmiths Research Project course",
-                      "A completed research thesis and integrated exhibition plan"
-                    ]
-                  },
-                  {
-                    "title": "Still to validate",
-                    "items": [
-                      "Large-scale visitor response and long-term memory effects",
-                      "Behaviour tracking across the complete nine-floor journey",
-                      "Performance trade-offs on mobile headsets at exhibition scale"
-                    ]
-                  }
-                ],
-                "closing": "My role moved across narrative design, scene design, VR development, field presentation, and research synthesis."
+                "type": "Exhibition design",
+                "title": "Digital exhibition proposal",
+                "href": ""
               }
             ]
           }

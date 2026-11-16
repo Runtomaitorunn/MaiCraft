@@ -13,6 +13,17 @@ const assetDirectoryNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const KB = 1024;
 const MB = 1024 * KB;
 const assetBudgets = [
+  // Preserve these two source GIFs uncompressed at the author's explicit request.
+  {
+    label: "original Pagoda GIF",
+    limit: 4 * MB,
+    matches: (relativePath) => relativePath === "assets/projects/midnight-at-the-pagoda/raindrops.gif",
+  },
+  {
+    label: "original Pagoda GIF",
+    limit: 3 * MB,
+    matches: (relativePath) => relativePath === "assets/projects/midnight-at-the-pagoda/go-to-portal.gif",
+  },
   {
     label: "hero video",
     limit: 3 * MB,

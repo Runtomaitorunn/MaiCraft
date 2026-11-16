@@ -10,6 +10,8 @@ New projects should use these fields:
 - `projectFacts`: the small case-study facts under the masthead title, such as Client, Deliverables, Involvement, and Results. Use an array value when a fact should break into multiple short lines.
 - `overview`: the first text section, with `heading`, `body`, and optional `points` for short scannable proof statements. Use `{ "label": "...", "body": "..." }` points when the section needs a cleaner visual hierarchy.
 - `visualBreakMedia`: the large walkthrough/demo slot after the overview.
+- `walkthroughMedia`: optional media after the story, using the same player, sizing, and caption treatment as `visualBreakMedia`.
+- `documents`: optional document list after the walkthrough, with a `title` and `items` containing `type`, `title`, optional `authors`, and `href`. Leave `href` empty for a clearly marked PDF placeholder; add the local PDF path or URL to enable its link.
 - `story.timeline`: optional timeline data for projects that need institutional or phase markers.
 - `story.sections`: the repeatable case-study sections.
 
@@ -29,7 +31,7 @@ Paste a regular YouTube link into the existing `src` field. Use `alt` for the pl
 
 This example video is from YouTube's developer documentation; it is not a portfolio project asset. Supported links include `youtube.com/watch?v=...`, `youtu.be/...`, `/embed/...`, `/shorts/...`, `/live/...`, and the `youtube-nocookie.com` embed format. Start times in `t` or `start` are preserved; tracking and autoplay parameters are discarded.
 
-Use these objects in `visualBreakMedia`, `detailMedia`, or a story section's `media` array. YouTube media plays inside the page, with responsive sizing, a fullscreen control, and no image zoom button. If used as `coverMedia`, the homepage card shows its YouTube thumbnail while the detail hero shows the player.
+Use these objects in `visualBreakMedia`, `walkthroughMedia`, `detailMedia`, or a story section's `media` array. YouTube media plays inside the page, with responsive sizing, a fullscreen control, and no image zoom button. If used as `coverMedia`, the homepage card shows its YouTube thumbnail while the detail hero shows the player.
 
 The normalizer derives a privacy-enhanced embed URL and the renderer creates an `<iframe>`. No API key or YouTube JavaScript API is needed. Videos must permit embedding, and playback depends on access to YouTube. Open previews through an HTTP server rather than `file://`; YouTube requires a Referer header.
 
@@ -44,6 +46,12 @@ Sections with a kicker use a label column beside the content. A section containi
 Add `sidebarMedia` with the usual `src`, `alt`, `width`, and `height` fields to show a reference image below the left-hand label. Its text stays in the right column, with steps and other supporting material below both columns. On narrow screens the sidebar stacks above the text.
 
 Add `gallery: { "title": "Gallery", "media": [...] }` to place an image gallery directly after a section's paragraphs, before its supporting steps. Each image uses the usual media fields. The gallery spans the section width, preserves the whole image, and opens images in the existing larger-view dialog. It shows four columns on desktop, two on tablet, and one on mobile.
+
+For separate rows, use `gallery.rows` instead of `gallery.media`: each row has a `label` and a `media` array. On desktop each row shares the available width equally among its images; tablet and mobile layouts wrap within each row. Use `{ "label": "Image placeholder" }` for an empty, non-interactive image slot. Animated WebP files work in the gallery and the larger-view dialog.
+
+Set a row's `layout` to `"flex"` for left-aligned images that fill the shared row height and keep widths based on their original proportions. Flex and grid rows share the same 16px horizontal gap. The right button moves by the width of the rightmost visible image, and the left button uses the leftmost visible image; partially visible images count too. Movement uses time-based lerp deceleration and stops at the row edges. Reduced motion skips the animation. The scrollbar is hidden; the focused row also supports left and right arrow keys. Navigation buttons disable at either end.
+
+The larger-view dialog fits the image without a filled panel or padding. Images keep their natural size unless they need to shrink to fit the viewport; small GIFs are never enlarged. The close control sits above the image.
 
 `text-only` means text only. Use it for context, problem framing, or short reflective sections.
 

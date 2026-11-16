@@ -192,15 +192,33 @@ const renderMediaDialog = () => `
 `;
 
 const renderStoryGallery = (gallery) => {
-  const mediaItems = (gallery?.media || []).filter((media) => media.src && !isVideoAsset(media.src) && !media.youtube);
-  if (!mediaItems.length) return "";
+  const hasRows = Boolean(gallery?.rows?.length);
+  const rows = (hasRows ? gallery.rows : [{ media: gallery?.media }])
+    .map((row) => ({
+      ...row,
+      media: (row.media || []).filter((media) => media.src ? !isVideoAsset(media.src) && !media.youtube : media.label),
+    }))
+    .filter((row) => row.media.length);
+  if (!rows.length) return "";
   const title = escapeAttribute(gallery.title || "Gallery");
+  const renderArrow = (direction) => `
+    <button class="project-gallery-arrow is-${direction}" type="button" data-gallery-direction="${direction}" aria-label="${direction === "previous" ? "Previous image" : "Next image"}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="${direction === "previous" ? "M15 5 8 12l7 7" : "m9 5 7 7-7 7"}" /></svg>
+    </button>
+  `;
 
   return `
     <section class="project-story-gallery" aria-label="${title}">
       <h3 class="project-story-gallery-title">${title}</h3>
-      <div class="project-story-gallery-grid">
-        ${mediaItems.map((media) => {
+      ${rows.map((row) => `
+      ${row.layout === "flex" ? `<div class="project-gallery-carousel" data-gallery-carousel>${renderArrow("previous")}` : ""}
+      <div class="${row.layout === "flex" ? "project-story-gallery-flex" : "project-story-gallery-grid"}" style="--gallery-columns: ${hasRows ? row.media.length : 4}" role="group" aria-label="${escapeAttribute(row.label || "Gallery images")}"${row.layout === "flex" ? ' tabindex="0"' : ""}>
+        ${row.media.map((media) => {
+          if (!media.src) return `
+            <figure class="project-story-gallery-item">
+              <div class="project-story-gallery-placeholder">${escapeAttribute(media.label)}</div>
+            </figure>
+          `;
           const src = escapeAttribute(normalizeAssetPath(media.src));
           const label = escapeAttribute(media.alt || media.title || "Project image");
           return `
@@ -213,6 +231,8 @@ const renderStoryGallery = (gallery) => {
           `;
         }).join("")}
       </div>
+      ${row.layout === "flex" ? `${renderArrow("next")}</div>` : ""}
+      `).join("")}
     </section>
   `;
 };
@@ -466,6 +486,31 @@ const renderSectionBlock = (section, index, labels = {}) => {
 `;
 };
 
+const renderProjectDocuments = (documents) => {
+  if (!documents?.items?.length) return "";
+  const pdfIcon = `<svg viewBox="0 0 32 36" aria-hidden="true"><path d="M8 2h12l8 8v22a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 2v8h8" fill="none" stroke="currentColor" stroke-width="2"/><rect x="1" y="16" width="24" height="13" rx="2" fill="currentColor"/><text x="13" y="25" fill="var(--noomo-paper-light)" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700">PDF</text></svg>`;
+
+  return `
+    <section class="project-documents" aria-label="${escapeAttribute(documents.title || "Documents")}">
+      <h2 class="project-documents-title">${escapeAttribute(documents.title || "Documents")}</h2>
+      <div class="project-document-list">
+        ${documents.items.map((item) => `
+          <article class="project-document">
+            ${item.type ? `<p class="project-document-type">${escapeAttribute(item.type)}</p>` : ""}
+            <h3 class="project-document-title">${escapeAttribute(item.title)}</h3>
+            ${item.authors ? `<p class="project-document-authors">${escapeAttribute(item.authors)}</p>` : ""}
+            <div class="project-document-actions">
+              ${item.href
+                ? `<a class="project-document-pdf" href="${escapeAttribute(normalizeAssetPath(item.href))}" target="_blank" rel="noopener noreferrer" aria-label="Open PDF: ${escapeAttribute(item.title)}">${pdfIcon}</a>`
+                : `<span class="project-document-pdf is-placeholder" aria-hidden="true">${pdfIcon}</span><p class="project-document-status">PDF to be added</p>`}
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+};
+
 const renderWipProjectPage = (root, project, localeContent) => {
   const detailLabels = localeContent.projectDetail || {};
   const wip = project.wip || {};
@@ -578,6 +623,12 @@ const renderProjectPage = (project, localeContent, locale) => {
         </div>
       </section>
 
+      ${project.walkthroughMedia?.length ? `
+        <section class="project-visual-break" aria-label="${escapeAttribute(project.walkthroughMedia[0].alt)}">
+          ${renderVisualBreakMedia(project.walkthroughMedia, project)}
+        </section>
+      ` : ""}
+      ${renderProjectDocuments(project.documents)}
       ${gallerySection}
     </article>
     ${renderMediaDialog()}
@@ -594,6 +645,87 @@ const startHeaderScrollBehavior = () => {
     const currentScrollY = window.scrollY;
     header.classList.toggle("is-hidden", currentScrollY > lastScrollY);
     lastScrollY = currentScrollY;
+  });
+};
+
+const startGalleryCarousels = () => {
+  document.querySelectorAll("[data-gallery-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector(".project-story-gallery-flex");
+    const items = Array.from(track.children);
+    const previous = carousel.querySelector('[data-gallery-direction="previous"]');
+    const next = carousel.querySelector('[data-gallery-direction="next"]');
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    let lastTime = 0;
+    let position = track.scrollLeft;
+    let target = position;
+    const maxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
+
+    const update = () => {
+      const destination = frame ? target : track.scrollLeft;
+      previous.disabled = destination <= 1;
+      next.disabled = destination >= maxScroll() - 1;
+    };
+
+    const stop = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      lastTime = 0;
+      position = target = track.scrollLeft;
+      update();
+    };
+
+    const animate = (time) => {
+      const elapsed = lastTime ? Math.min(time - lastTime, 64) : 1000 / 60;
+      lastTime = time;
+      target = Math.min(target, maxScroll());
+      // Time-based lerp keeps the deceleration consistent across refresh rates.
+      position += (target - position) * (1 - Math.exp(-elapsed / 70));
+      if (Math.abs(target - position) < 0.5 || reducedMotion.matches) {
+        track.scrollLeft = target;
+        stop();
+        return;
+      }
+      track.scrollLeft = position;
+      frame = requestAnimationFrame(animate);
+      update();
+    };
+
+    const move = (direction) => {
+      const viewport = track.getBoundingClientRect();
+      const visible = items.map((item) => item.getBoundingClientRect())
+        .filter((rect) => rect.right > viewport.left + 1 && rect.left < viewport.right - 1);
+      const edge = direction > 0 ? visible.at(-1) : visible[0];
+      if (!edge) return;
+
+      const continuing = frame && Math.sign(target - track.scrollLeft) === direction;
+      const origin = continuing ? target : track.scrollLeft;
+      position = track.scrollLeft;
+      target = Math.max(0, Math.min(maxScroll(), origin + direction * edge.width));
+      if (reducedMotion.matches) {
+        track.scrollLeft = target;
+        stop();
+      } else if (!frame) {
+        frame = requestAnimationFrame(animate);
+      }
+      update();
+    };
+
+    previous.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+    track.addEventListener("scroll", () => {
+      if (!frame) position = target = track.scrollLeft;
+      update();
+    }, { passive: true });
+    track.addEventListener("load", update, true);
+    track.addEventListener("focusin", stop);
+    track.addEventListener("keydown", (event) => {
+      if (event.target !== track || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+      event.preventDefault();
+      move(event.key === "ArrowRight" ? 1 : -1);
+    });
+    window.addEventListener("resize", stop);
+    update();
   });
 };
 
@@ -660,6 +792,7 @@ const init = async () => {
   startHeadingReveal(".project-detail h1, .project-detail h2, .project-detail h3");
   startHeaderScrollBehavior();
   startProjectMediaDialog();
+  startGalleryCarousels();
 };
 
 init();
